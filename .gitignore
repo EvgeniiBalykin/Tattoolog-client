@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.tsconfig.json
+*.tsconfig.node.json
+*.vite.config.tsconfig
+*.package-lock.json
+*.package.json
