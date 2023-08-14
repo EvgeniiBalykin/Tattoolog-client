@@ -63,7 +63,7 @@ export const SingInForm = () => {
         }}
       >
         <Typography component="h1" variant="h5">
-          {t('registration.sigin')}
+          {t('registration.signin')}
         </Typography>
         <Box sx={{ mt: 1 }}>
           <form onSubmit={handleSubmit(onSubmit)}>
