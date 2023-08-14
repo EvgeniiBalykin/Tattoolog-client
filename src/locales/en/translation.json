@@ -1,0 +1,25 @@
+{
+  "registration": {
+    "login": "Login",
+    "forgot_password": "Forgot password?",
+    "need_signup": "Don't have an account? Sign Up",
+    "welcome": "Welcome",
+    "logout": "Logout",
+    "signin": "Sign in",
+    "create_acc": "Create account",
+    "email_invite": "An email has been sent to you",
+    "make_access": "Follow the instructions in the email to complete your registration"
+  },
+  "form": {
+    "password": "Password",
+    "name": "Name",
+    "surname": "Surname",
+    "repeat_password": "Repeat password"
+  },
+  "pages": {
+    "masters": "Masters Catalog",
+    "studios": "Studios Catalog",
+    "blog": "Blog",
+    "partners": "Partners"
+  }
+}

@@ -4,9 +4,11 @@
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "moduleResolution": "Node",
     "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "strict": true,
@@ -21,10 +23,13 @@
       "data/*": ["data/*"],
       "pages/*": ["pages/*"],
       "routes/*": ["routes/*"],
-      "types": ["types/*"],
-      "ui/*": ["UI/*"]
+      "types": ["types"],
+      "ui/*": ["UI/*"],
+      "services/*": ["services/*"],
+      "helpers/*": ["helpers/*"],
+      "hooks/*": ["hooks/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "public"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

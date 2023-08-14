@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 interface ICustomLink {
   to: string;
@@ -6,9 +6,9 @@ interface ICustomLink {
   color?: string;
 }
 
-export const CustomLink = ({ to, name, color = "white" }: ICustomLink) => {
+export const CustomLink = ({ to, name, color = 'white' }: ICustomLink) => {
   return (
-    <Link style={{ textDecoration: "none", color }} to={to}>
+    <Link style={{ textDecoration: 'none', color }} to={to}>
       {name}
     </Link>
   );
