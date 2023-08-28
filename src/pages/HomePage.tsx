@@ -1,9 +1,11 @@
-import { Box } from "@mui/material";
+import AboutMain from 'components/MainPage/AboutMain';
+import WhyUsMain from 'components/MainPage/WhyUsMain';
 
 export const HomePage = () => {
   return (
-    <Box>
-      <div>HOME PAGE</div>
-    </Box>
+    <>
+      <AboutMain />
+      <WhyUsMain />
+    </>
   );
 };

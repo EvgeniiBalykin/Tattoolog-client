@@ -1,39 +1,32 @@
-import { Box, Button, Typography } from '@mui/material';
-import { useAppDiscpatch, useAppSelector } from 'hooks/redux';
-import { logoutUser, selectLogin } from 'modules/Login/features/loginSlice';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Container } from '@mui/material';
+import Cookies from 'js-cookie';
+import { setUser } from 'modules/Login/features/userSlice';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useProfileDataMutation } from 'services/authApi';
+import ProfileCard from './components/ProfileCard';
+import ProfileTabs from './components/ProfileTabs';
 
 const Dashboard = () => {
-  const { t } = useTranslation();
-  const { name } = useAppSelector(selectLogin);
-  const dispatch = useAppDiscpatch();
-  const logOutClick = () => {
-    dispatch(logoutUser());
-  };
+  const token = Cookies.get('accessToken');
+  const [getProfileData] = useProfileDataMutation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getProfileData(token?.replace(/"/g, '')).then((response) => {
+      if ('data' in response) {
+        dispatch(setUser(response.data));
+      } else {
+        console.error('Error fetching profile data:', response.error);
+      }
+    });
+  }, [token]);
+
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      height="100vh"
-    >
-      <Typography variant="h4" gutterBottom>
-        {t('registration.welcome')}: {name}
-      </Typography>
-      <Button
-        component={Link}
-        to="/login"
-        variant="contained"
-        color="primary"
-        size="large"
-        sx={{ marginTop: 3 }}
-        onClick={logOutClick}
-      >
-        {t('registration.logout')}
-      </Button>
-    </Box>
+    <Container sx={{ display: 'flex' }}>
+      <ProfileCard />
+      <ProfileTabs />
+    </Container>
   );
 };
 

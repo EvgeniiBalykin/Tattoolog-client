@@ -6,13 +6,15 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { useAppDiscpatch } from 'hooks/redux';
+import { useAppDispatch } from 'hooks/redux';
 import { useLoginUserMutation } from 'services/authApi';
 import { Controller, useForm, useFormState } from 'react-hook-form';
 import { emailValidation, passwordValidation } from 'helpers/validation';
 import { useNavigate } from 'react-router';
-import { setUser } from 'modules/Login/features/loginSlice';
+import { setToken } from 'modules/Login/features/loginSlice';
 import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
+import { Alert } from '@mui/material';
 
 interface ILoginForm {
   email: string;
@@ -21,8 +23,9 @@ interface ILoginForm {
 
 export const LoginForm = () => {
   const { t } = useTranslation();
-  const dispatch = useAppDiscpatch();
-  const [loginUser, { data: loginData }] = useLoginUserMutation();
+  const dispatch = useAppDispatch();
+  const [loginUser, { data: loginData, error: loginError }] =
+    useLoginUserMutation();
   const navigate = useNavigate();
   const { handleSubmit, control } = useForm<ILoginForm>();
   const { errors } = useFormState({
@@ -35,15 +38,25 @@ export const LoginForm = () => {
         email,
         password,
       });
-      dispatch(setUser({ name: 'test', token: loginData?.access }));
-      navigate('/dashboard');
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.error('An error occurred during login:', error);
     }
   };
 
+  useEffect(() => {
+    if (loginData) {
+      dispatch(
+        setToken({ token: loginData.access, refreshToken: loginData.refresh })
+      );
+      navigate('/dashboard');
+    }
+  }, [loginData, dispatch, navigate, loginError]);
+
   return (
     <Container component="main" maxWidth="xs">
+      {loginError && (
+        <Alert severity="error">Incorrect username or password</Alert>
+      )}
       <CssBaseline />
       <Box
         sx={{

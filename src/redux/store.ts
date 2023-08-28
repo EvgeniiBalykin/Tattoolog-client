@@ -4,11 +4,13 @@ import {
   getDefaultMiddleware,
 } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query/react';
-import loginSlice from 'modules/Login/features/loginSlice';
+import loginReducer from 'modules/Login/features/loginSlice';
 import { authApi } from 'services/authApi';
+import userReduser from 'modules/Login/features/userSlice';
 
 const rootReducer = combineReducers({
-  login: loginSlice,
+  login: loginReducer,
+  user: userReduser,
   [authApi.reducerPath]: authApi.reducer,
 });
 

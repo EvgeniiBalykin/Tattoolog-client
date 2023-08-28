@@ -1,13 +1,11 @@
 import Dashboard from 'modules/Dashboard';
 import AcceptSignupPage from 'pages/AcceptSignupPage';
-import { HomePage } from 'pages/HomePage';
 import { LoginPage } from 'pages/LoginPage';
 import { SingInPage } from 'pages/SignInPage';
 import { IRoutes } from 'types';
 import { HeaderRoutesList } from './enums';
 
 export const HEADER_ROUTES: IRoutes[] = [
-  { name: 'Home', path: HeaderRoutesList.HOME, element: <HomePage /> },
   {
     name: 'pages.masters',
     path: HeaderRoutesList.MASTER_CATALOG,
@@ -32,14 +30,16 @@ export const HEADER_ROUTES: IRoutes[] = [
 
 export const LOGIN_ROUTES: IRoutes[] = [
   {
-    name: 'registration.login',
-    path: HeaderRoutesList.LOGIN,
-    element: <LoginPage />,
-  },
-  {
     name: 'registration.signin',
     path: HeaderRoutesList.SIGNIN,
     element: <SingInPage />,
+    variant: 'contained',
+  },
+  {
+    name: 'registration.login',
+    path: HeaderRoutesList.LOGIN,
+    element: <LoginPage />,
+    variant: 'outlined',
   },
 ];
 

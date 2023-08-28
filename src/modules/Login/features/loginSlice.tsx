@@ -3,42 +3,41 @@ import Cookies from 'js-cookie';
 import { RootState } from 'redux/store';
 
 export interface LoginState {
-  name: string | null;
   token: string | null;
+  refreshToken: string | null;
 }
 
 const initialState: LoginState = {
-  name: null,
-  token: null,
+  token: Cookies.get('accessToken') || null,
+  refreshToken: Cookies.get('refreshToken') || null,
 };
 
 export const loginSlice = createSlice({
   name: 'login',
   initialState,
   reducers: {
-    setUser: (
+    setToken: (
       state,
-      action: PayloadAction<{ name: string; token: string }>
+      action: PayloadAction<{
+        token: string | null;
+        refreshToken: string | null;
+      }>
     ) => {
-      const user = {
-        name: action.payload.name,
-        token: action.payload.token,
-      };
-
-      Cookies.set('user', JSON.stringify(user));
-
-      state.name = user.name;
-      state.token = user.token;
+      Cookies.set('accessToken', JSON.stringify(action.payload.token));
+      Cookies.set('refreshToken', JSON.stringify(action.payload.refreshToken));
+      state.token = action.payload.token;
+      state.refreshToken = action.payload.refreshToken;
     },
     logoutUser: (state) => {
-      Cookies.remove('user');
-      state.name = null;
+      Cookies.remove('accessToken');
+      Cookies.remove('refreshToken');
       state.token = null;
+      state.refreshToken = null;
     },
   },
 });
 
-export const { setUser, logoutUser } = loginSlice.actions;
+export const { setToken, logoutUser } = loginSlice.actions;
 
 export default loginSlice.reducer;
 
