@@ -1,5 +1,6 @@
+import { Box } from '@mui/material';
 import { Outlet } from 'react-router';
-import { NavPanel } from './NavPanel';
+import { NavPanel } from './NavPanel/NavPanel';
 
 const Layout = () => {
   return (
@@ -7,7 +8,9 @@ const Layout = () => {
       <header>
         <NavPanel />
       </header>
-      <Outlet />
+      <Box sx={{ background: 'rgb(11, 11, 11)' }}>
+        <Outlet />
+      </Box>
     </>
   );
 };

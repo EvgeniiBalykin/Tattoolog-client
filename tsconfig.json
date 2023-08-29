@@ -27,7 +27,8 @@
       "ui/*": ["UI/*"],
       "services/*": ["services/*"],
       "helpers/*": ["helpers/*"],
-      "hooks/*": ["hooks/*"]
+      "hooks/*": ["hooks/*"],
+      "images/*": ["images/*"]
     }
   },
   "include": ["src", "public"],

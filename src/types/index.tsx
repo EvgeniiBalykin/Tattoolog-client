@@ -2,6 +2,7 @@ export interface IRoutes {
   name: string;
   path: string;
   element: JSX.Element;
+  variant?: string;
 }
 
 export interface ILanguages {

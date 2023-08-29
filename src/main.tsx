@@ -6,6 +6,7 @@ import theme from 'ui/theme/theme';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import './i18n';
+import './globalStyles.scss';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
