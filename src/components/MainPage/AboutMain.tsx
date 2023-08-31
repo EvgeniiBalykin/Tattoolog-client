@@ -1,6 +1,6 @@
-import { Container, Grid, Typography } from '@mui/material';
-import About_1 from 'images/About_1.png';
-import About_2 from 'images/About_2.png';
+import { Box, Container, Grid, Typography } from '@mui/material';
+import { About_Photo_1, About_Photo_2 } from 'images/index';
+
 import { useMemo } from 'react';
 import './MainPage.scss';
 
@@ -11,8 +11,8 @@ const AboutMain = () => {
   );
 
   return (
-    <div className="wrapper">
-      <Container className="container" component="main">
+    <Box className="wrapper">
+      <Container component="main">
         <Typography variant="h1" textAlign="center" textTransform="uppercase">
           About us
         </Typography>
@@ -23,7 +23,7 @@ const AboutMain = () => {
         >
           <Grid item xs={12} sm={6} md={6}>
             <div className="img-wrapper">
-              <img src={About_2} />
+              <img src={About_Photo_2} />
             </div>
           </Grid>
           <Grid item xs={12} sm={6} md={6}>
@@ -56,12 +56,12 @@ const AboutMain = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={6}>
             <div className="img-wrapper">
-              <img src={About_1} />
+              <img src={About_Photo_1} />
             </div>
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </Box>
   );
 };
 

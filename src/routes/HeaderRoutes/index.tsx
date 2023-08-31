@@ -26,6 +26,11 @@ export const HEADER_ROUTES: IRoutes[] = [
     path: HeaderRoutesList.PARTNERS,
     element: <div>Partners</div>,
   },
+  {
+    name: 'Contacts',
+    path: HeaderRoutesList.CONTACTS,
+    element: <div>Contacts</div>,
+  },
 ];
 
 export const LOGIN_ROUTES: IRoutes[] = [

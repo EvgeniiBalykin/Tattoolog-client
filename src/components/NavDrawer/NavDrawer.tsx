@@ -5,24 +5,16 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import Typography from '@mui/material/Typography';
+import { Logo } from 'images/index';
 import { HEADER_ROUTES, LOGIN_ROUTES } from 'routes/HeaderRoutes';
 import { Link } from 'react-router-dom';
-import {
-  Avatar,
-  Button,
-  Container,
-  ListItemText,
-  Toolbar,
-} from '@mui/material';
+import { Avatar, Button, Container, Stack, Toolbar } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { logoutUser, selectLogin } from 'modules/Login/features/loginSlice';
 import { useAppDispatch } from 'hooks/redux';
 import i18next from 'i18next';
+import './NavDrawer.scss';
 
 const drawerWidth = 240;
 
@@ -39,6 +31,8 @@ export default function ResponsiveDrawer(props: Props) {
   const logOutClick = () => {
     dispatch(logoutUser());
   };
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -47,24 +41,72 @@ export default function ResponsiveDrawer(props: Props) {
   const drawer = (
     <Container component="main">
       <Toolbar />
+      <Stack>
+        {token && (
+          <Stack
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
+            gap={2}
+          >
+            <Avatar alt="Remy Sharp" component={Link} to="/dashboard" />
+          </Stack>
+        )}
+      </Stack>
       <Divider />
-      <List>
-        {HEADER_ROUTES.map((route, index) => (
-          <ListItem key={index} disablePadding>
-            <ListItemButton>
-              <Link to={route.path}>
-                <ListItemText primary={i18next.t(route.name)} />
-              </Link>
-            </ListItemButton>
-          </ListItem>
+      <Stack justifyContent="start" alignItems="start">
+        {HEADER_ROUTES.map((route) => (
+          <Button
+            component={Link}
+            to={route.path}
+            key={route.path}
+            variant="text"
+            onClick={handleDrawerToggle}
+          >
+            {i18next.t(route.name)}
+          </Button>
         ))}
-      </List>
+      </Stack>
+      {token && (
+        <Stack
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          gap={2}
+        >
+          <Button
+            component={Link}
+            to="/login"
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              logOutClick();
+              handleDrawerToggle();
+            }}
+            fullWidth
+          >
+            {i18next.t('registration.logout')}
+          </Button>
+        </Stack>
+      )}
       <Divider />
+      <Stack>
+        {!token &&
+          LOGIN_ROUTES.map((route) => (
+            <Button
+              component={Link}
+              to={route.path}
+              key={route.path}
+              color="primary"
+              variant="outlined"
+              onClick={handleDrawerToggle}
+            >
+              {i18next.t(route.name)}
+            </Button>
+          ))}
+      </Stack>
     </Container>
   );
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
 
   return (
     <Container
@@ -77,7 +119,7 @@ export default function ResponsiveDrawer(props: Props) {
       <AppBar
         sx={{
           ml: { sm: `${drawerWidth}px` },
-          backgroundColor: 'rgb(11, 11, 11)',
+          background: '#0B0B0B',
         }}
       >
         <Toolbar>
@@ -91,43 +133,11 @@ export default function ResponsiveDrawer(props: Props) {
             <MenuIcon />
           </IconButton>
           <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              width: '100%',
-            }}
+            component={Link}
+            to={'/'}
+            sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
           >
-            <Typography variant="h6" noWrap component="div">
-              Responsive drawer
-            </Typography>
-            <Box>
-              {!token ? (
-                LOGIN_ROUTES.map((route) => (
-                  <Button
-                    component={Link}
-                    to={route.path}
-                    key={route.path}
-                    color="primary"
-                    variant="contained"
-                  >
-                    {i18next.t(route.name)}
-                  </Button>
-                ))
-              ) : (
-                <Box sx={{ display: 'flex', gap: '5px' }}>
-                  <Avatar alt="Remy Sharp" component={Link} to="/dashboard" />
-                  <Button
-                    component={Link}
-                    to="/login"
-                    variant="contained"
-                    color="primary"
-                    onClick={logOutClick}
-                  >
-                    {i18next.t('registration.logout')}
-                  </Button>
-                </Box>
-              )}
-            </Box>
+            <img className="logo" src={Logo} />
           </Box>
         </Toolbar>
       </AppBar>
@@ -136,20 +146,20 @@ export default function ResponsiveDrawer(props: Props) {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
           container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
+              background: '#0B0B0B',
             },
           }}
         >
@@ -162,6 +172,7 @@ export default function ResponsiveDrawer(props: Props) {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
+              background: '#0B0B0B',
             },
           }}
           open={mobileOpen}

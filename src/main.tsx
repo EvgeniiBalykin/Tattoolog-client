@@ -9,11 +9,11 @@ import './i18n';
 import './globalStyles.scss';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
+  <ThemeProvider theme={theme}>
+    <Provider store={store}>
+      <BrowserRouter>
         <App />
-      </ThemeProvider>
-    </BrowserRouter>
-  </Provider>
+      </BrowserRouter>
+    </Provider>
+  </ThemeProvider>
 );

@@ -8,4 +8,5 @@ export enum HeaderRoutesList {
   PARTNERS = 'partners',
   SIGNIN_SUCCESS = 'success',
   DASHBOARD = 'dashboard',
+  CONTACTS = 'contacts',
 }

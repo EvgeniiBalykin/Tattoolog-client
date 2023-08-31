@@ -53,7 +53,7 @@ export const LoginForm = () => {
   }, [loginData, dispatch, navigate, loginError]);
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container maxWidth="xs">
       {loginError && (
         <Alert severity="error">Incorrect username or password</Alert>
       )}

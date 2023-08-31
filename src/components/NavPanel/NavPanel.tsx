@@ -31,8 +31,11 @@ export const NavPanel = () => {
   ) : (
     <AppBar
       className="container"
-      position="sticky"
-      sx={{ backgroundColor: 'rgb(11, 11, 11)', padding: '20px' }}
+      position="static"
+      sx={{
+        padding: '20px',
+        background: 'linear-gradient(to top, #0B0B0B, #4a2352 200%)',
+      }}
     >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box component={Link} to={'/'}>
@@ -63,7 +66,14 @@ export const NavPanel = () => {
                 component={Link}
                 to={route.path}
                 key={route.path}
-                variant={route.variant ? route.variant : undefined}
+                variant={
+                  route.variant as
+                    | 'text'
+                    | 'dashed'
+                    | 'outlined'
+                    | 'contained'
+                    | undefined
+                }
               >
                 {i18next.t(route.name)}
               </Button>
