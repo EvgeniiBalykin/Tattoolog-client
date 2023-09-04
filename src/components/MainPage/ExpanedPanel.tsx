@@ -53,6 +53,7 @@ const ExpandedPanel = () => {
         <Accordion
           expanded={expanded === el.expanded}
           onChange={handleChange(el.expanded)}
+          TransitionProps={{ unmountOnExit: true }}
           key={i}
           style={{
             backgroundColor: 'inherit',

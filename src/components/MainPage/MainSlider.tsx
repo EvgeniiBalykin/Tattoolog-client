@@ -6,7 +6,7 @@ const MainSlider = () => {
     <Container
       className="main-slider"
       maxWidth="lg"
-      sx={{ marginTop: 4, height: '40vh' }}
+      sx={{ marginTop: 4, height: '50vh' }}
     >
       <Container maxWidth="md" sx={{ p: 0, pt: 5 }}>
         <Typography variant="h1" mb={2}>
