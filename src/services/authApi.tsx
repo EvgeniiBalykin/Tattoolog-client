@@ -5,19 +5,7 @@ import {
   SIGN_IN,
   SING_UP,
 } from 'modules/SingUp/api/signUpApi';
-
-interface IRegisterUser {
-  first_name: string;
-  last_name: string;
-  email: string;
-  password: string;
-  re_password: string;
-}
-
-interface ILoginBody {
-  email: string;
-  password: string;
-}
+import { ILoginBody, IRegisterUser } from 'types';
 
 export const authApi = createApi({
   reducerPath: 'authApi',

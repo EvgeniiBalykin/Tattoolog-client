@@ -23,7 +23,7 @@ const Dashboard = () => {
   }, [token]);
 
   return (
-    <Container sx={{ display: 'flex' }}>
+    <Container sx={{ display: 'flex', height: '70vh', mb: 5 }}>
       <ProfileCard />
       <ProfileTabs />
     </Container>

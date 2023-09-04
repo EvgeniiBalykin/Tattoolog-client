@@ -21,12 +21,20 @@ const Footer = () => {
           mb={2}
         >
           {HEADER_ROUTES.map((route) => (
-            <Grid item xs={12} sm={12} md={2} textAlign="center">
+            <Grid
+              key={route.name}
+              item
+              xs={12}
+              sm={12}
+              md={2}
+              textAlign="center"
+            >
               <Button
                 component={Link}
                 to={route.path}
                 key={route.path}
                 variant="text"
+                size="small"
               >
                 {i18next.t(route.name)}
               </Button>

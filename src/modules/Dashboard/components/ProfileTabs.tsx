@@ -1,4 +1,4 @@
-import { Box, Tab, Tabs } from '@mui/material';
+import { Box, Container, Tab, Tabs } from '@mui/material';
 import { useState } from 'react';
 
 const ProfileTabs = () => {
@@ -9,7 +9,7 @@ const ProfileTabs = () => {
   };
 
   return (
-    <Box width="65%">
+    <Container maxWidth="md">
       <Tabs
         value={tabValue}
         onChange={handleTabChange}
@@ -28,7 +28,7 @@ const ProfileTabs = () => {
         {tabValue === 2 && <div>Flashes</div>}
         {tabValue === 3 && <div>Followed Artists</div>}
       </Box>
-    </Box>
+    </Container>
   );
 };
 

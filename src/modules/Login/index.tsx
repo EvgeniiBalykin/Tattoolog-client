@@ -1,11 +1,13 @@
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
+import {
+  Container,
+  Typography,
+  Box,
+  Grid,
+  Link,
+  TextField,
+  CssBaseline,
+  Button,
+} from '@mui/material';
 import { useAppDispatch } from 'hooks/redux';
 import { useLoginUserMutation } from 'services/authApi';
 import { Controller, useForm, useFormState } from 'react-hook-form';
@@ -60,15 +62,13 @@ export const LoginForm = () => {
       <CssBaseline />
       <Box
         sx={{
-          marginTop: 8,
+          mt: 4,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
         }}
       >
-        <Typography component="h1" variant="h5">
-          {t('registration.login')}
-        </Typography>
+        <Typography variant="h5">{t('registration.login')}</Typography>
         <Box sx={{ mt: 1 }}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Controller
@@ -109,7 +109,7 @@ export const LoginForm = () => {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 4 }}
             >
               {t('registration.login')}
             </Button>

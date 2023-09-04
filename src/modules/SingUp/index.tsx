@@ -1,9 +1,3 @@
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
 import { useRegisterUserMutation } from 'services/authApi';
 import { useForm, Controller, useFormState } from 'react-hook-form';
 import {
@@ -13,20 +7,25 @@ import {
 } from '../../helpers/validation';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
-
-interface ISignForm {
-  first_name: string;
-  last_name: string;
-  email: string;
-  password: string;
-  re_password: string;
-}
+import { IRegisterUser } from 'types';
+import {
+  FormControl,
+  MenuItem,
+  Select,
+  Typography,
+  Container,
+  Box,
+  TextField,
+  CssBaseline,
+  Button,
+  InputLabel,
+} from '@mui/material';
 
 export const SingInForm = () => {
   const { t } = useTranslation();
   const [registerUser] = useRegisterUserMutation();
   const navigate = useNavigate();
-  const { handleSubmit, control } = useForm<ISignForm>();
+  const { handleSubmit, control, formState } = useForm<IRegisterUser>();
   const { errors } = useFormState({
     control,
   });
@@ -37,7 +36,8 @@ export const SingInForm = () => {
     email,
     password,
     re_password,
-  }: ISignForm) => {
+    role,
+  }: IRegisterUser) => {
     try {
       registerUser({
         first_name,
@@ -45,27 +45,26 @@ export const SingInForm = () => {
         email,
         password,
         re_password,
-      }).then((res) => res && navigate('/success'));
+        role,
+      }).then(() => navigate('/success'));
     } catch (e) {
       console.log(e);
     }
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container maxWidth="xs">
       <CssBaseline />
       <Box
         sx={{
-          marginTop: 8,
+          mt: 4,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
         }}
       >
-        <Typography component="h1" variant="h5">
-          {t('registration.signin')}
-        </Typography>
-        <Box sx={{ mt: 1 }}>
+        <Typography variant="h5">{t('registration.signin')}</Typography>
+        <Box>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Controller
               control={control}
@@ -77,10 +76,10 @@ export const SingInForm = () => {
                   fullWidth
                   label={t('form.name')}
                   error={!!errors.first_name?.message}
-                  autoFocus
                   value={field.value || ''}
                   onChange={(e) => field.onChange(e)}
                   helperText={errors.first_name?.message}
+                  required
                 />
               )}
             />
@@ -94,11 +93,36 @@ export const SingInForm = () => {
                   fullWidth
                   label={t('form.surname')}
                   error={!!errors.last_name?.message}
-                  autoFocus
                   value={field.value || ''}
                   onChange={(e) => field.onChange(e)}
                   helperText={errors.last_name?.message}
+                  required
                 />
+              )}
+            />
+            <Controller
+              control={control}
+              name="role"
+              render={({ field }) => (
+                <FormControl fullWidth>
+                  <InputLabel
+                    required
+                    className="select-label"
+                    htmlFor="role"
+                    style={{ color: 'white' }} // Установите желаемый цвет метки
+                  >
+                    Role
+                  </InputLabel>
+                  <Select
+                    required
+                    value={field.value}
+                    onChange={(e) => field.onChange(e)}
+                    label="Role *"
+                  >
+                    <MenuItem value="master">Master</MenuItem>
+                    <MenuItem value="studio">Studio</MenuItem>
+                  </Select>
+                </FormControl>
               )}
             />
             <Controller
@@ -111,10 +135,10 @@ export const SingInForm = () => {
                   fullWidth
                   error={!!errors.email?.message}
                   label="Email"
-                  autoFocus
                   value={field.value || ''}
                   onChange={(e) => field.onChange(e)}
                   helperText={errors.email?.message}
+                  required
                 />
               )}
             />
@@ -129,10 +153,10 @@ export const SingInForm = () => {
                   fullWidth
                   error={!!errors.password?.message}
                   label={t('form.password')}
-                  autoFocus
                   value={field.value || ''}
                   onChange={(e) => field.onChange(e)}
                   helperText={errors.password?.message}
+                  required
                 />
               )}
             />
@@ -150,14 +174,16 @@ export const SingInForm = () => {
                   value={field.value || ''}
                   onChange={(e) => field.onChange(e)}
                   helperText={errors.password?.message}
+                  required
                 />
               )}
             />
             <Button
+              disabled={!formState.isValid}
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 4 }}
             >
               {t('registration.create_acc')}
             </Button>
