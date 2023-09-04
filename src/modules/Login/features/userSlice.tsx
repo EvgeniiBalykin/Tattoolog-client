@@ -6,6 +6,7 @@ interface IUserState {
   last_name: string | null;
   email: string | null;
   id: number | null;
+  role: string | null;
 }
 
 const initialState: IUserState = {
@@ -13,6 +14,7 @@ const initialState: IUserState = {
   first_name: null,
   last_name: null,
   email: null,
+  role: null,
 };
 
 const userSlice = createSlice({

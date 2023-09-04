@@ -7,6 +7,6 @@ export enum HeaderRoutesList {
   BLOG = 'blog',
   PARTNERS = 'partners',
   SIGNIN_SUCCESS = 'success',
-  DASHBOARD = 'dashboard',
+  DASHBOARD = 'dashboard/:id',
   CONTACTS = 'contacts',
 }

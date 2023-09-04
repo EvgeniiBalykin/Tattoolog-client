@@ -15,6 +15,7 @@ import { logoutUser, selectLogin } from 'modules/Login/features/loginSlice';
 import { useAppDispatch } from 'hooks/redux';
 import i18next from 'i18next';
 import './NavDrawer.scss';
+import { selectUser } from 'modules/Login/features/userSlice';
 
 const drawerWidth = 240;
 
@@ -31,6 +32,8 @@ export default function ResponsiveDrawer(props: Props) {
   const logOutClick = () => {
     dispatch(logoutUser());
   };
+  const { id } = useSelector(selectUser);
+
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
@@ -49,7 +52,7 @@ export default function ResponsiveDrawer(props: Props) {
             alignItems="center"
             gap={2}
           >
-            <Avatar alt="Remy Sharp" component={Link} to="/dashboard" />
+            <Avatar alt="Remy Sharp" component={Link} to={`/dashboard/${id}`} />
           </Stack>
         )}
       </Stack>

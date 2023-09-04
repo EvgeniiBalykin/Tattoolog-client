@@ -2,7 +2,7 @@ import {
   Box,
   Button,
   Card,
-  CardActionArea,
+  CardContent,
   CardMedia,
   Container,
   Grid,
@@ -39,7 +39,7 @@ const JoinUsMain = () => {
                 boxShadow: '6px 6px 40px rgba(251, 143, 253, 0.7)',
               }}
             >
-              <CardActionArea className="card-content">
+              <CardContent className="card-content">
                 <CardMedia
                   component="img"
                   height="100%"
@@ -55,7 +55,7 @@ const JoinUsMain = () => {
                     Add
                   </Button>
                 </div>
-              </CardActionArea>
+              </CardContent>
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
@@ -65,16 +65,15 @@ const JoinUsMain = () => {
                 boxShadow: '6px 6px 40px rgba(251, 143, 253, 0.7)',
               }}
             >
-              <CardActionArea className="card-content">
+              <CardContent className="card-content">
                 <CardMedia
                   component="img"
-                  width={'100%'}
                   height="100%"
                   image={AddStudioPhoto}
                 />
                 <div className="card-text">
                   <Typography variant="h3" textTransform="uppercase">
-                    tattoo studio
+                    tattoo artist
                   </Typography>
                 </div>
                 <div className="card-button">
@@ -82,7 +81,7 @@ const JoinUsMain = () => {
                     Add
                   </Button>
                 </div>
-              </CardActionArea>
+              </CardContent>
             </Card>
           </Grid>
         </Grid>

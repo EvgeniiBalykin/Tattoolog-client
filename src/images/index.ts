@@ -3,9 +3,9 @@ import AddMasterPhoto from 'images/addMaster.png';
 import AddStudioPhoto from 'images/addStudio.png';
 import About_Photo_1 from 'images/About_1.png';
 import About_Photo_2 from 'images/About_2.png';
-import Cup from 'images/Cup.svg';
-import Lens from 'images/Lens.svg';
-import Rocket from 'images/Rocket.svg';
+import Cup from 'images/Cup.png';
+import Lens from 'images/Lens.png';
+import Rocket from 'images/Rocket.png';
 import Partners_1 from 'images/partners_1.svg';
 import Partners_2 from 'images/partners_2.svg';
 import Partners_3 from 'images/partners_3.svg';
@@ -13,7 +13,6 @@ import Partners_4 from 'images/partners_4.svg';
 import Partners_5 from 'images/partners_5.svg';
 import CloseExpand from 'images/CloseExpand.svg';
 import OpenExpand from 'images/OpenExpand.svg';
-import MainSliderBG from 'images/MainSlider.svg';
 
 export {
   Logo,
@@ -31,5 +30,4 @@ export {
   Partners_5,
   CloseExpand,
   OpenExpand,
-  MainSliderBG,
 };

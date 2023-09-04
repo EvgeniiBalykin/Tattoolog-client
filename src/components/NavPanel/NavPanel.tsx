@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 import { Avatar, useMediaQuery, useTheme } from '@mui/material';
 import ResponsiveDrawer from 'components/NavDrawer/NavDrawer';
 import Logo from 'images/Logo.svg';
+import { clearUser, selectUser } from 'modules/Login/features/userSlice';
 
 export const NavPanel = () => {
   const { t } = useTranslation();
@@ -20,9 +21,11 @@ export const NavPanel = () => {
   const dispatch = useAppDispatch();
   const logOutClick = () => {
     dispatch(logoutUser());
+    dispatch(clearUser());
   };
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const { id } = useSelector(selectUser);
 
   // Убрать инлайновые стили
 
@@ -82,7 +85,11 @@ export const NavPanel = () => {
             ))
           ) : (
             <Box sx={{ display: 'flex', gap: '5px' }}>
-              <Avatar alt="Remy Sharp" component={Link} to="/dashboard" />
+              <Avatar
+                alt="Remy Sharp"
+                component={Link}
+                to={`/dashboard/${id}`}
+              />
               <Button
                 component={Link}
                 to="/login"

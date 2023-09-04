@@ -9,7 +9,7 @@ import {
   Button,
 } from '@mui/material';
 import { useAppDispatch } from 'hooks/redux';
-import { useLoginUserMutation } from 'services/authApi';
+import { useLoginUserMutation, useProfileDataMutation } from 'services/authApi';
 import { Controller, useForm, useFormState } from 'react-hook-form';
 import { emailValidation, passwordValidation } from 'helpers/validation';
 import { useNavigate } from 'react-router';
@@ -17,6 +17,8 @@ import { setToken } from 'modules/Login/features/loginSlice';
 import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { Alert } from '@mui/material';
+import Cookies from 'js-cookie';
+import { setUser } from './features/userSlice';
 
 interface ILoginForm {
   email: string;
@@ -33,6 +35,8 @@ export const LoginForm = () => {
   const { errors } = useFormState({
     control,
   });
+  const token = Cookies.get('accessToken');
+  const [getProfileData] = useProfileDataMutation();
 
   const onSubmit = async ({ email, password }: ILoginForm) => {
     try {
@@ -50,9 +54,19 @@ export const LoginForm = () => {
       dispatch(
         setToken({ token: loginData.access, refreshToken: loginData.refresh })
       );
-      navigate('/dashboard');
     }
   }, [loginData, dispatch, navigate, loginError]);
+
+  useEffect(() => {
+    getProfileData(token?.replace(/"/g, '')).then((response) => {
+      if ('data' in response) {
+        dispatch(setUser(response.data));
+        navigate(`/dashboard/${response.data.id}`);
+      } else {
+        console.error('Error fetching profile data:', response.error);
+      }
+    });
+  }, [token]);
 
   return (
     <Container maxWidth="xs">
