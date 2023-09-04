@@ -13,6 +13,7 @@ import Partners_4 from 'images/partners_4.svg';
 import Partners_5 from 'images/partners_5.svg';
 import CloseExpand from 'images/CloseExpand.svg';
 import OpenExpand from 'images/OpenExpand.svg';
+import MainSliderBG from 'images/MainSlider.svg';
 
 export {
   Logo,
@@ -30,4 +31,5 @@ export {
   Partners_5,
   CloseExpand,
   OpenExpand,
+  MainSliderBG,
 };

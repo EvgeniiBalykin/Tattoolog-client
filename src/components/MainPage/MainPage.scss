@@ -69,6 +69,17 @@
     }
   }
 }
+.main-slider {
+  background-image: url('images/MainSlider.svg');
+  background-size: cover;
+  background-position: center;
+
+  .buttons-main-slider {
+    display: flex;
+    gap: 20px;
+    margin-top: 50px;
+  }
+}
 
 @media (max-width: 768px) {
   .wrapper {

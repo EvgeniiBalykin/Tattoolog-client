@@ -6,15 +6,9 @@ import Footer from './Footer/Footer';
 const Layout = () => {
   return (
     <>
-      <header>
-        <NavPanel />
-      </header>
-      <body>
-        <Outlet />
-      </body>
-      <footer>
-        <Footer />
-      </footer>
+      <NavPanel />
+      <Outlet />
+      <Footer />
     </>
   );
 };

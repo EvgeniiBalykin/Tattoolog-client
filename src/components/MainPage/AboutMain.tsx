@@ -13,7 +13,12 @@ const AboutMain = () => {
   return (
     <Box className="wrapper">
       <Container component="main">
-        <Typography variant="h1" textAlign="center" textTransform="uppercase">
+        <Typography
+          mt={4}
+          variant="h1"
+          textAlign="center"
+          textTransform="uppercase"
+        >
           About us
         </Typography>
         <Grid

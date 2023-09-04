@@ -28,7 +28,7 @@ const theme = createTheme({
     },
     h4: {
       fontSize: '20px',
-      fontWeight: 500,
+      fontWeight: 400,
       color: 'white',
     },
     h5: {
@@ -72,13 +72,17 @@ const theme = createTheme({
           },
         },
         {
-          props: { variant: 'contained', color: 'primary', size: 'large' },
+          props: {
+            variant: 'contained',
+            color: 'primary',
+            size: 'large',
+          },
           style: {
             backgroundColor: COLORS.PRIMARY,
             color: 'white',
             border: 'none',
             fontSize: '24px',
-            padding: '10px 115px',
+            padding: '10px 30%',
             borderRadius: '10px',
             fontWeight: 700,
             ':hover': {
@@ -87,7 +91,22 @@ const theme = createTheme({
           },
         },
         {
-          props: { variant: 'outlined', color: 'primary' },
+          props: { variant: 'contained', color: 'primary', size: 'medium' },
+          style: {
+            backgroundColor: COLORS.PRIMARY,
+            color: 'white',
+            border: 'none',
+            fontSize: '24px',
+            padding: '5px 10%',
+            borderRadius: '10px',
+            fontWeight: 500,
+            ':hover': {
+              backgroundColor: '#6C3483',
+            },
+          },
+        },
+        {
+          props: { variant: 'outlined', color: 'primary', size: 'large' },
           style: {
             backgroundColor: 'transparent',
             color: 'white',
@@ -99,11 +118,46 @@ const theme = createTheme({
           },
         },
         {
-          props: { variant: 'text', color: 'primary' }, // Применяется, когда вы используете variant="custom3"
+          props: { variant: 'outlined', color: 'primary', size: 'medium' },
+          style: {
+            backgroundColor: 'transparent',
+            color: 'white',
+            fontSize: '24px',
+            padding: '5px 10%',
+            borderRadius: '10px',
+            fontWeight: 500,
+            border: '1px solid white',
+            ':hover': {
+              backgroundColor: 'white',
+              color: 'black',
+            },
+          },
+        },
+        {
+          props: { variant: 'outlined', color: 'primary', size: 'small' },
+          style: {
+            backgroundColor: 'transparent',
+            color: 'white',
+            fontSize: '14px',
+            padding: '5px 15px',
+            borderRadius: '10px',
+            fontWeight: 500,
+            border: '1px solid white',
+            ':hover': {
+              backgroundColor: 'white',
+              color: 'black',
+            },
+          },
+        },
+        {
+          props: { variant: 'text', color: 'primary', size: 'small' }, // Применяется, когда вы используете variant="custom3"
           style: {
             backgroundColor: 'transparent', // Прозрачный фон для третьей кнопки
             color: 'white', // Цвет текста для третьей кнопки
             border: 'none', // Убрать границу для третьей кнопки
+            fontSize: '15px',
+            fontWeight: 400,
+            fontFamily: 'Gotham Pro',
             ':hover': {
               backgroundColor: 'white', // Изменения при наведении
               color: 'black', // Изменение цвета текста при наведении
@@ -123,5 +177,24 @@ const theme = createTheme({
     },
   },
 });
+
+const mobileFontSizes = {
+  h1: '36px',
+  h2: '32px',
+  h3: '28px',
+  h4: '20px',
+  h5: '18px',
+  h6: '16px',
+  body1: '20px',
+  body2: '14px',
+  caption: '12px',
+};
+
+for (const key in mobileFontSizes) {
+  const typographyKey = key as keyof typeof mobileFontSizes;
+  theme.typography[typographyKey]['@media (max-width: 800px)'] = {
+    fontSize: mobileFontSizes[typographyKey],
+  };
+}
 
 export default theme;

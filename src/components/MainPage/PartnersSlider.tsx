@@ -52,7 +52,7 @@ const PartnersSlider = () => {
         </Typography>
         <AliceCarousel
           disableDotsControls
-          autoPlayInterval={2000}
+          autoPlayInterval={3000}
           autoPlay
           mouseTracking
           infinite

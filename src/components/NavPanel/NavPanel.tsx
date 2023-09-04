@@ -31,7 +31,7 @@ export const NavPanel = () => {
   ) : (
     <AppBar
       className="container"
-      position="static"
+      position="sticky"
       sx={{
         padding: '20px',
         background: 'linear-gradient(to top, #0B0B0B, #4a2352 200%)',
@@ -54,6 +54,7 @@ export const NavPanel = () => {
               to={route.path}
               key={route.path}
               variant="text"
+              size="small"
             >
               {i18next.t(route.name)}
             </Button>
@@ -74,6 +75,7 @@ export const NavPanel = () => {
                     | 'contained'
                     | undefined
                 }
+                size="small"
               >
                 {i18next.t(route.name)}
               </Button>
@@ -86,6 +88,7 @@ export const NavPanel = () => {
                 to="/login"
                 variant="outlined"
                 onClick={logOutClick}
+                size="small"
               >
                 {t('registration.logout')}
               </Button>
