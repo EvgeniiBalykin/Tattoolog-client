@@ -11,7 +11,7 @@ export interface ILanguages {
   code: string;
 }
 
-export interface IRegisterUser {
+export interface IProfileData {
   first_name: string;
   last_name: string;
   email: string;
@@ -23,4 +23,19 @@ export interface IRegisterUser {
 export interface ILoginBody {
   email: string;
   password: string;
+}
+
+export interface IPortfolioPost {
+  id: number;
+  post: number;
+  photo: string;
+}
+
+export interface IProfilePortfolio {
+  id: number;
+  profile: number;
+  photo_post: IPortfolioPost[];
+  description: string;
+  work_type: number;
+  created_at: string;
 }

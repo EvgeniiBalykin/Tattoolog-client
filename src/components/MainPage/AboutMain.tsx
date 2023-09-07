@@ -34,7 +34,7 @@ const AboutMain = () => {
           <Grid item xs={12} sm={6} md={6}>
             <div className="text-wrapper">
               <Typography variant="h2">Primary benefit showcase</Typography>
-              <Typography variant="h4">
+              <Typography variant="h5">
                 Show how your product's features matter, how they set you apart
                 from the competition, and how you can transform your customer's
                 experience at work or at home
@@ -52,7 +52,7 @@ const AboutMain = () => {
           <Grid item xs={12} sm={6} md={6}>
             <div className="text-wrapper">
               <Typography variant="h2">Primary benefit showcase</Typography>
-              <Typography variant="h4">
+              <Typography variant="h5">
                 Show how your product's features matter, how they set you apart
                 from the competition, and how you can transform your customer's
                 experience at work or at home

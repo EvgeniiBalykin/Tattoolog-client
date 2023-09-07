@@ -5,14 +5,14 @@ import {
   SIGN_IN,
   SING_UP,
 } from 'modules/SingUp/api/signUpApi';
-import { ILoginBody, IRegisterUser } from 'types';
+import { ILoginBody, IProfileData } from 'types';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({ baseUrl: LOCAL_SERVER }),
   endpoints: (builder) => ({
     registerUser: builder.mutation({
-      query: (body: IRegisterUser) => {
+      query: (body: IProfileData) => {
         return {
           url: SING_UP,
           method: 'POST',
@@ -29,13 +29,13 @@ export const authApi = createApi({
         };
       },
     }),
-    profileData: builder.mutation({
+    userData: builder.mutation({
       query: (token: string | undefined) => {
         return {
           url: PROFILE_DATA,
           method: 'GET',
           headers: {
-            Authorization: `JWT ${token}`,
+            Authorization: `Bearer ${token}`,
           },
         };
       },
@@ -46,5 +46,5 @@ export const authApi = createApi({
 export const {
   useRegisterUserMutation,
   useLoginUserMutation,
-  useProfileDataMutation,
+  useUserDataMutation,
 } = authApi;

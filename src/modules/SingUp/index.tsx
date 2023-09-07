@@ -7,7 +7,7 @@ import {
 } from '../../helpers/validation';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import { IRegisterUser } from 'types';
+import { IProfileData } from 'types';
 import {
   FormControl,
   MenuItem,
@@ -25,7 +25,9 @@ export const SingInForm = () => {
   const { t } = useTranslation();
   const [registerUser] = useRegisterUserMutation();
   const navigate = useNavigate();
-  const { handleSubmit, control, formState } = useForm<IRegisterUser>();
+  const { handleSubmit, control, formState } = useForm<IProfileData>({
+    mode: 'onChange',
+  });
   const { errors } = useFormState({
     control,
   });
@@ -37,7 +39,7 @@ export const SingInForm = () => {
     password,
     re_password,
     role,
-  }: IRegisterUser) => {
+  }: IProfileData) => {
     try {
       registerUser({
         first_name,

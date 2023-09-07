@@ -9,21 +9,21 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Gotham Black',
+    fontFamily: 'Roboto, sans-serif',
     h1: {
-      fontSize: '64px',
-      fontWeight: 500,
+      fontSize: '48px',
+      fontWeight: 600,
       marginBottom: '60px',
       color: 'white',
     },
     h2: {
-      fontSize: '48px',
+      fontSize: '36px',
       fontWeight: 500,
       color: 'white',
     },
     h3: {
-      fontSize: '36px',
-      fontWeight: 500,
+      fontSize: '28px',
+      fontWeight: 400,
       color: 'white',
     },
     h4: {
@@ -32,12 +32,12 @@ const theme = createTheme({
       color: 'white',
     },
     h5: {
-      fontSize: '16px', // Размер для h5
+      fontSize: '16px',
       fontWeight: 400,
       color: 'white',
     },
     h6: {
-      fontSize: '14px', // Размер для h6
+      fontSize: '14px',
       fontWeight: 500,
       color: 'white',
     },
@@ -81,7 +81,6 @@ const theme = createTheme({
             backgroundColor: COLORS.PRIMARY,
             color: 'white',
             border: 'none',
-            fontSize: '24px',
             padding: '10px 30%',
             borderRadius: '10px',
             fontWeight: 700,
@@ -96,7 +95,6 @@ const theme = createTheme({
             backgroundColor: COLORS.PRIMARY,
             color: 'white',
             border: 'none',
-            fontSize: '24px',
             padding: '5px 10%',
             borderRadius: '10px',
             fontWeight: 500,
@@ -122,7 +120,6 @@ const theme = createTheme({
           style: {
             backgroundColor: 'transparent',
             color: 'white',
-            fontSize: '24px',
             padding: '5px 10%',
             borderRadius: '10px',
             fontWeight: 500,
@@ -138,7 +135,6 @@ const theme = createTheme({
           style: {
             backgroundColor: 'transparent',
             color: 'white',
-            fontSize: '14px',
             padding: '5px 15px',
             borderRadius: '10px',
             fontWeight: 500,
@@ -155,9 +151,8 @@ const theme = createTheme({
             backgroundColor: 'transparent', // Прозрачный фон для третьей кнопки
             color: 'white', // Цвет текста для третьей кнопки
             border: 'none', // Убрать границу для третьей кнопки
-            fontSize: '15px',
             fontWeight: 400,
-            fontFamily: 'Gotham Pro',
+            fontFamily: 'Roboto',
             ':hover': {
               backgroundColor: 'white', // Изменения при наведении
               color: 'black', // Изменение цвета текста при наведении
