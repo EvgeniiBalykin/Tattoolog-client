@@ -6,13 +6,13 @@ import { HEADER_ROUTES, LOGIN_ROUTES } from 'routes/HeaderRoutes';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'hooks/redux';
-import { logoutUser, selectLogin } from 'modules/Login/features/loginSlice';
+import { logoutUser, selectLogin } from 'store/reducers/loginSlice';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Avatar, useMediaQuery, useTheme } from '@mui/material';
 import ResponsiveDrawer from 'components/NavDrawer/NavDrawer';
 import Logo from 'images/Logo.svg';
-import { clearUser, selectUser } from 'modules/Login/features/userSlice';
+import { clearUser, selectUser } from 'store/reducers/userSlice';
 
 export const NavPanel = () => {
   const { t } = useTranslation();

@@ -1,4 +1,6 @@
-export const SING_UP = 'users/';
-export const SIGN_IN = 'jwt/create/';
-export const LOCAL_SERVER = 'http://127.0.0.1:8000/api/v1/';
-export const PROFILE_DATA = 'users/me/';
+export const SING_UP = 'auth/users/';
+export const SIGN_IN = 'auth/jwt/create/';
+export const LOCAL_SERVER = 'http://127.0.0.1:8000/';
+export const PROFILE_DATA = 'auth/users/me/';
+export const PROFILE_USER = `accounts/profiles/`;
+export const PROFILE_PORTFOLIO = 'portfolio/post/';

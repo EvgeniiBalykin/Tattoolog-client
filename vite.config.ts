@@ -17,6 +17,7 @@ export default {
       helpers: '/src/helpers',
       hooks: '/src/hooks',
       images: '/src/images',
+      store: '/src/store',
     },
   },
 };

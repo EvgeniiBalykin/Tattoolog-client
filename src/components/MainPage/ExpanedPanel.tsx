@@ -67,12 +67,7 @@ const ExpandedPanel = () => {
             style={{ backgroundColor: COLORS.PRIMARY }}
           >
             <img src={expanded === el.expanded ? CloseExpand : OpenExpand} />
-            <Typography
-              variant="body1"
-              ml={5}
-              display="flex"
-              alignItems="center"
-            >
+            <Typography variant="h4" ml={5} display="flex" alignItems="center">
               {el.title}
             </Typography>
           </AccordionSummary>

@@ -1,4 +1,4 @@
-import { Button, Container, Typography } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 import './MainPage.scss';
 
 const MainSlider = () => {
@@ -12,10 +12,14 @@ const MainSlider = () => {
         <Typography variant="h1" mb={2}>
           Discover tattoo world now!
         </Typography>
-        <Typography variant="body2" mb={2}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam
-          velit, vulputate eu pharetra nec, mattis ac neque.
-        </Typography>
+        <Box maxWidth={500}>
+          <Typography variant="h5" mb={2} textAlign="start">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam
+            velit, vulputate eu pharetra nec, mattis ac neque. Lorem ipsum dolor
+            sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate
+            eu pharetra nec, mattis ac neque.
+          </Typography>
+        </Box>
         <div className="buttons-main-slider">
           <Button variant="contained" size="medium">
             Artists

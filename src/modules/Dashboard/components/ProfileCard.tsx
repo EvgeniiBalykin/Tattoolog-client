@@ -9,9 +9,14 @@ import {
   Container,
   Typography,
 } from '@mui/material';
-import { selectUser } from 'modules/Login/features/userSlice';
+import { About_Photo_1 } from 'images/index';
+import { selectUser } from 'store/reducers/userSlice';
 import { useSelector } from 'react-redux';
+// import { useParams } from 'react-router';
+// import { useGetProfileDataQuery } from 'services/profileApi';
 import './ProfileCard.scss';
+import { useDispatch } from 'react-redux';
+import { toggleAddChange } from 'store/reducers/profileSlice';
 
 const ProfileInfo: { title: string; value: number }[] = [
   { title: 'Followers', value: 0 },
@@ -21,22 +26,38 @@ const ProfileInfo: { title: string; value: number }[] = [
 
 const ProfileCard = () => {
   const userData = useSelector(selectUser);
+  const dispatch = useDispatch();
+
+  const onEditClick = () => {
+    dispatch(toggleAddChange()); // Диспетчер action для изменения состояния
+  };
+
+  // const { id } = useParams();
+  // const { data: profileData } = useGetProfileDataQuery(Number(id));
+
+  // console.log(profileData)
+
   return (
-    <Container className="container" maxWidth="xs">
+    <Container className="container" maxWidth="xs" sx={{ height: '70vh' }}>
       <Card className="card">
         <CardContent className="card-content">
-          <Avatar alt="User Photo" />
+          <Avatar
+            sx={{ width: 124, height: 124 }}
+            alt={userData.first_name as string}
+            src={About_Photo_1}
+          />
           <Typography variant="h4">
-            {userData.first_name} {userData.last_name}
+            {userData.first_name} {userData.last_name}{' '}
           </Typography>
         </CardContent>
         <CardActions>
           <Button
             startIcon={<Edit />}
             fullWidth
-            variant="contained"
+            variant="outlined"
             color="primary"
             size="small"
+            onClick={onEditClick}
           >
             Edit Profile
           </Button>

@@ -1,8 +1,16 @@
 .container {
-  background-color: rgba(227, 227, 227, 0.147);
   .card {
-    background-color: transparent;
+    background-size: cover;
+    background-position: center;
     border-radius: 20px;
     padding: 20px;
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
   }
 }

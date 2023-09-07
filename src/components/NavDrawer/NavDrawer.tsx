@@ -11,11 +11,11 @@ import { HEADER_ROUTES, LOGIN_ROUTES } from 'routes/HeaderRoutes';
 import { Link } from 'react-router-dom';
 import { Avatar, Button, Container, Stack, Toolbar } from '@mui/material';
 import { useSelector } from 'react-redux';
-import { logoutUser, selectLogin } from 'modules/Login/features/loginSlice';
+import { logoutUser, selectLogin } from 'store/reducers/loginSlice';
 import { useAppDispatch } from 'hooks/redux';
 import i18next from 'i18next';
 import './NavDrawer.scss';
-import { selectUser } from 'modules/Login/features/userSlice';
+import { selectUser } from 'store/reducers/userSlice';
 
 const drawerWidth = 240;
 

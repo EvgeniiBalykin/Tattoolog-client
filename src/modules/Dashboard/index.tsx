@@ -1,31 +1,19 @@
 import { Container } from '@mui/material';
-import Cookies from 'js-cookie';
-import { setUser } from 'modules/Login/features/userSlice';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { useProfileDataMutation } from 'services/authApi';
+import { useSelector } from 'react-redux';
+import { addChangeValue } from 'store/reducers/profileSlice';
 import ProfileCard from './components/ProfileCard';
 import ProfileTabs from './components/ProfileTabs';
 
 const Dashboard = () => {
-  const token = Cookies.get('accessToken');
-  const [getProfileData] = useProfileDataMutation();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    getProfileData(token?.replace(/"/g, '')).then((response) => {
-      if ('data' in response) {
-        dispatch(setUser(response.data));
-      } else {
-        console.error('Error fetching profile data:', response.error);
-      }
-    });
-  }, [token]);
+  const isEdit = useSelector(addChangeValue);
 
   return (
-    <Container sx={{ display: 'flex', height: '70vh', mb: 5 }}>
+    <Container
+      maxWidth="xl"
+      sx={{ display: 'flex', height: '80vh', mb: 5, mt: 5 }}
+    >
       <ProfileCard />
-      <ProfileTabs />
+      {!isEdit ? <ProfileTabs /> : 'HOLLA'}
     </Container>
   );
 };

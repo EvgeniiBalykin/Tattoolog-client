@@ -1,24 +1,24 @@
-import {
-  combineReducers,
-  configureStore,
-  getDefaultMiddleware,
-} from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query/react';
-import loginReducer from 'modules/Login/features/loginSlice';
+import loginReducer from 'store/reducers/loginSlice';
 import { authApi } from 'services/authApi';
-import userReduser from 'modules/Login/features/userSlice';
+import userReduser from 'store/reducers/userSlice';
+import { profileApi } from 'services/profileApi';
+import profileReducer from './reducers/profileSlice';
 
 const rootReducer = combineReducers({
   login: loginReducer,
   user: userReduser,
+  profile: profileReducer,
   [authApi.reducerPath]: authApi.reducer,
+  [profileApi.reducerPath]: profileApi.reducer,
 });
 
 const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(authApi.middleware),
+      getDefaultMiddleware().concat(authApi.middleware, profileApi.middleware),
   });
 };
 

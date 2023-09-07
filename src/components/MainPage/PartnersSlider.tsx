@@ -30,7 +30,7 @@ const PartnersSlider = () => {
           sx={{
             padding: 0,
             margin: 0,
-            '@media (max-width: 768px)': {
+            '@media (max-width: 920px)': {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',

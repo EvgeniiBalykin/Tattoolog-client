@@ -7,18 +7,21 @@ import {
   TextField,
   CssBaseline,
   Button,
+  InputAdornment,
+  IconButton,
 } from '@mui/material';
 import { useAppDispatch } from 'hooks/redux';
-import { useLoginUserMutation, useProfileDataMutation } from 'services/authApi';
+import { useLoginUserMutation, useUserDataMutation } from 'services/authApi';
 import { Controller, useForm, useFormState } from 'react-hook-form';
 import { emailValidation, passwordValidation } from 'helpers/validation';
 import { useNavigate } from 'react-router';
-import { setToken } from 'modules/Login/features/loginSlice';
+import { setToken } from 'store/reducers/loginSlice';
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Alert } from '@mui/material';
 import Cookies from 'js-cookie';
-import { setUser } from './features/userSlice';
+import { setUser } from '../../store/reducers/userSlice';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 interface ILoginForm {
   email: string;
@@ -27,6 +30,7 @@ interface ILoginForm {
 
 export const LoginForm = () => {
   const { t } = useTranslation();
+  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useAppDispatch();
   const [loginUser, { data: loginData, error: loginError }] =
     useLoginUserMutation();
@@ -36,7 +40,7 @@ export const LoginForm = () => {
     control,
   });
   const token = Cookies.get('accessToken');
-  const [getProfileData] = useProfileDataMutation();
+  const [getUserData] = useUserDataMutation();
 
   const onSubmit = async ({ email, password }: ILoginForm) => {
     try {
@@ -58,15 +62,19 @@ export const LoginForm = () => {
   }, [loginData, dispatch, navigate, loginError]);
 
   useEffect(() => {
-    getProfileData(token?.replace(/"/g, '')).then((response) => {
-      if ('data' in response) {
-        dispatch(setUser(response.data));
-        navigate(`/dashboard/${response.data.id}`);
-      } else {
-        console.error('Error fetching profile data:', response.error);
-      }
-    });
+    if (token) {
+      getUserData(token?.replace(/"/g, '')).then((response) => {
+        if ('data' in response) {
+          dispatch(setUser(response.data));
+          navigate(`/dashboard/${response.data.id}`);
+        } else {
+          console.error('Error fetching profile data:', response.error);
+        }
+      });
+    }
   }, [token]);
+
+  const togglePasswordVisibility = () => setShowPassword((prev) => !prev);
 
   return (
     <Container maxWidth="xs">
@@ -109,13 +117,22 @@ export const LoginForm = () => {
               render={({ field }) => (
                 <TextField
                   margin="normal"
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   fullWidth
                   error={!!errors.password?.message}
                   label={t('form.password')}
                   value={field.value || ''}
                   onChange={(e) => field.onChange(e)}
                   helperText={errors.password?.message}
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton onClick={togglePasswordVisibility}>
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               )}
             />
