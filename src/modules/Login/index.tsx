@@ -43,14 +43,10 @@ export const LoginForm = () => {
   const [getUserData] = useUserDataMutation();
 
   const onSubmit = async ({ email, password }: ILoginForm) => {
-    try {
-      await loginUser({
-        email,
-        password,
-      });
-    } catch (error) {
-      console.error('An error occurred during login:', error);
-    }
+    await loginUser({
+      email,
+      password,
+    });
   };
 
   useEffect(() => {
@@ -66,9 +62,7 @@ export const LoginForm = () => {
       getUserData(token?.replace(/"/g, '')).then((response) => {
         if ('data' in response) {
           dispatch(setUser(response.data));
-          navigate(`/dashboard/${response.data.id}`);
-        } else {
-          console.error('Error fetching profile data:', response.error);
+          navigate(`/profile/${response.data.id}`);
         }
       });
     }
@@ -78,9 +72,7 @@ export const LoginForm = () => {
 
   return (
     <Container maxWidth="xs">
-      {loginError && (
-        <Alert severity="error">Incorrect username or password</Alert>
-      )}
+      {loginError && <Alert severity="error">{loginError?.data.detail}</Alert>}
       <CssBaseline />
       <Box
         sx={{
@@ -103,7 +95,6 @@ export const LoginForm = () => {
                   fullWidth
                   error={!!errors.email?.message}
                   label="Email"
-                  autoFocus
                   value={field.value || ''}
                   onChange={(e) => field.onChange(e)}
                   helperText={errors.email?.message}

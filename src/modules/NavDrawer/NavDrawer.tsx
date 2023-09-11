@@ -52,7 +52,7 @@ export default function ResponsiveDrawer(props: Props) {
             alignItems="center"
             gap={2}
           >
-            <Avatar alt="Remy Sharp" component={Link} to={`/dashboard/${id}`} />
+            <Avatar alt="Remy Sharp" component={Link} to={`/profile/${id}`} />
           </Stack>
         )}
       </Stack>

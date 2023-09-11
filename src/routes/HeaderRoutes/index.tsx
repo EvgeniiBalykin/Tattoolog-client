@@ -1,7 +1,7 @@
-import Dashboard from 'modules/Dashboard';
-import AcceptSignupPage from 'pages/AcceptSignupPage';
-import { LoginPage } from 'pages/LoginPage';
-import { SingInPage } from 'pages/SignInPage';
+import Profile from 'modules/Profile';
+import AcceptSignupPage from 'pages/AcceptPage/AcceptSignupPage';
+import { LoginPage } from 'pages/LoginPage/LoginPage';
+import { SingInPage } from 'pages/SigInPage/SignInPage';
 import { IRoutes } from 'types';
 import { HeaderRoutesList } from './enums';
 
@@ -55,8 +55,8 @@ export const HELP_PAGES: IRoutes[] = [
     element: <AcceptSignupPage />,
   },
   {
-    name: 'Dashboard',
-    path: HeaderRoutesList.DASHBOARD,
-    element: <Dashboard />,
+    name: 'Profile',
+    path: HeaderRoutesList.PROFILE,
+    element: <Profile />,
   },
 ];

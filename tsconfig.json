@@ -29,7 +29,8 @@
       "helpers/*": ["helpers/*"],
       "hooks/*": ["hooks/*"],
       "images/*": ["images/*"],
-      "store/*": ["store/*"]
+      "store/*": ["store/*"],
+      "api/*": ["api/*"]
     }
   },
   "include": ["src", "public"],

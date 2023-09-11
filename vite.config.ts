@@ -18,6 +18,7 @@ export default {
       hooks: '/src/hooks',
       images: '/src/images',
       store: '/src/store',
+      api: '/src/api',
     },
   },
 };

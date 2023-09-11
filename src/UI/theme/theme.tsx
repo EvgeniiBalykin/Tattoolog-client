@@ -42,7 +42,7 @@ const theme = createTheme({
       color: 'white',
     },
     body1: {
-      fontSize: '24px', // Размер для параграфов
+      fontSize: '18px', // Размер для параграфов
       fontWeight: 400, // Обычный шрифт
       color: 'white',
     },

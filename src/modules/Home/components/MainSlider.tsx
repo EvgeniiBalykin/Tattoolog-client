@@ -1,5 +1,4 @@
 import { Box, Button, Container, Typography } from '@mui/material';
-import './MainPage.scss';
 
 const MainSlider = () => {
   return (

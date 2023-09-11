@@ -1,5 +1,5 @@
 import Layout from 'components/Layout';
-import { HomePage } from 'pages/HomePage';
+import { HomePage } from 'pages/HomePage/HomePage';
 import { Route, Routes } from 'react-router';
 import { HEADER_ROUTES, HELP_PAGES, LOGIN_ROUTES } from 'routes/HeaderRoutes';
 import Cookies from 'js-cookie';

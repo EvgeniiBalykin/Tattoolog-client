@@ -2,7 +2,6 @@ import { Box, Container, Grid, Typography } from '@mui/material';
 import { About_Photo_1, About_Photo_2 } from 'images/index';
 
 import { useMemo } from 'react';
-import './MainPage.scss';
 
 const AboutMain = () => {
   const reverseGrid = useMemo(
@@ -13,12 +12,7 @@ const AboutMain = () => {
   return (
     <Box className="wrapper">
       <Container component="main">
-        <Typography
-          mt={4}
-          variant="h1"
-          textAlign="center"
-          textTransform="uppercase"
-        >
+        <Typography variant="h1" textAlign="center" textTransform="uppercase">
           About us
         </Typography>
         <Grid

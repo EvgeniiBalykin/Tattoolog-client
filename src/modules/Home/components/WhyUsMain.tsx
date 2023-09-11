@@ -1,5 +1,4 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
-import './MainPage.scss';
 import { Cup, Lens, Rocket } from 'images/index';
 
 const WhyUsMain = () => {

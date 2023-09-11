@@ -7,7 +7,7 @@ import {
 } from '../../helpers/validation';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import { IProfileData } from 'types';
+import { IUserData } from 'types';
 import {
   FormControl,
   MenuItem,
@@ -17,15 +17,17 @@ import {
   Box,
   TextField,
   CssBaseline,
-  Button,
   InputLabel,
+  Alert,
 } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
 
 export const SingInForm = () => {
   const { t } = useTranslation();
-  const [registerUser] = useRegisterUserMutation();
+  const [registerUser, { error: registerError, isLoading }] =
+    useRegisterUserMutation();
   const navigate = useNavigate();
-  const { handleSubmit, control, formState } = useForm<IProfileData>({
+  const { handleSubmit, control, formState } = useForm<IUserData>({
     mode: 'onChange',
   });
   const { errors } = useFormState({
@@ -39,23 +41,22 @@ export const SingInForm = () => {
     password,
     re_password,
     role,
-  }: IProfileData) => {
-    try {
-      registerUser({
-        first_name,
-        last_name,
-        email,
-        password,
-        re_password,
-        role,
-      }).then(() => navigate('/success'));
-    } catch (e) {
-      console.log(e);
-    }
+  }: IUserData) => {
+    registerUser({
+      first_name,
+      last_name,
+      email,
+      password,
+      re_password,
+      role,
+    }).then((res) => !res?.error && navigate('/success/'));
   };
 
   return (
     <Container maxWidth="xs">
+      {registerError && (
+        <Alert severity="error">{registerError?.data.email}</Alert>
+      )}
       <CssBaseline />
       <Box
         sx={{
@@ -105,6 +106,7 @@ export const SingInForm = () => {
             <Controller
               control={control}
               name="role"
+              defaultValue=""
               render={({ field }) => (
                 <FormControl fullWidth>
                   <InputLabel
@@ -180,15 +182,16 @@ export const SingInForm = () => {
                 />
               )}
             />
-            <Button
+            <LoadingButton
               disabled={!formState.isValid}
               type="submit"
+              loading={isLoading}
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 4 }}
             >
               {t('registration.create_acc')}
-            </Button>
+            </LoadingButton>
           </form>
         </Box>
       </Box>

@@ -15,7 +15,7 @@ const AcceptSignupPage = () => {
       <Typography variant="h4" gutterBottom>
         {t('registration.email_invite')}
       </Typography>
-      <Typography variant="body1" textAlign="center">
+      <Typography variant="h6" textAlign="center">
         {t('registration.make_access')}
       </Typography>
       <Button

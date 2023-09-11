@@ -10,7 +10,6 @@ import {
 } from 'images/index';
 import { ReactElement, useMemo } from 'react';
 import ExpandedPanel from './ExpanedPanel';
-import './MainPage.scss';
 
 const SliderImages: string[] = [
   Partners_1,

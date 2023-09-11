@@ -8,7 +8,6 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
-import './MainPage.scss';
 import { AddMasterPhoto, AddStudioPhoto } from 'images/index';
 
 const JoinUsMain = () => {

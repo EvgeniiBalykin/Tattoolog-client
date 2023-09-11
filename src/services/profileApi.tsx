@@ -1,9 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import {
-  LOCAL_SERVER,
-  PROFILE_PORTFOLIO,
-  PROFILE_USER,
-} from 'modules/SingUp/api/signUpApi';
+import { PROFILE_PORTFOLIO, PROFILE_USER, LOCAL_SERVER } from 'api';
 import { IProfileData, IProfilePortfolio } from 'types';
 
 export const profileApi = createApi({
@@ -11,7 +7,7 @@ export const profileApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: LOCAL_SERVER }),
   endpoints: (builder) => ({
     getProfileData: builder.query<IProfileData, number>({
-      query: (userId) => `${PROFILE_USER + `${userId}/`}`, // Здесь используйте URL для запроса профиля
+      query: (userId) => `${PROFILE_USER + `${userId}/`}`,
     }),
     getProfilePortfolio: builder.query<IProfilePortfolio[], null>({
       query: () => PROFILE_PORTFOLIO,

@@ -11,13 +11,27 @@ export interface ILanguages {
   code: string;
 }
 
-export interface IProfileData {
+export interface IUserData {
   first_name: string;
   last_name: string;
   email: string;
   password: string;
   re_password: string;
   role: string;
+}
+
+export interface IProfileData {
+  about: string;
+  avatar: string;
+  salons_and_masters: [];
+  status: string;
+  user: {
+    email: string;
+    first_name: string;
+    last_name: string;
+    role: string;
+    id: number;
+  };
 }
 
 export interface ILoginBody {
