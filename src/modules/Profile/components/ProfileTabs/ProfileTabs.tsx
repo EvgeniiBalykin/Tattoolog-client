@@ -1,6 +1,6 @@
 import { Box, Grid, Tab, Tabs } from '@mui/material';
 import { useState } from 'react';
-import ProfilePortfolio from './ProfilePortfolio/ProfilePortfolio';
+import ProfilePortfolio from '../ProfilePortfolio/ProfilePortfolio';
 
 const ProfileTabs = () => {
   const [tabValue, setTabValue] = useState(0);
@@ -10,7 +10,7 @@ const ProfileTabs = () => {
   };
 
   return (
-    <Grid item xs={12} md={9}>
+    <Grid item xs={12} md={8}>
       <Tabs
         value={tabValue}
         onChange={handleTabChange}

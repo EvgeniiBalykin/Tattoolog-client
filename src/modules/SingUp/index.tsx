@@ -25,7 +25,7 @@ import { LoadingButton } from '@mui/lab';
 export const SingInForm = () => {
   const { t } = useTranslation();
   const [registerUser, { error: registerError, isLoading }] =
-    useRegisterUserMutation();
+    useRegisterUserMutation<any>();
   const navigate = useNavigate();
   const { handleSubmit, control, formState } = useForm<IUserData>({
     mode: 'onChange',
@@ -49,7 +49,7 @@ export const SingInForm = () => {
       password,
       re_password,
       role,
-    }).then((res) => !res?.error && navigate('/success/'));
+    }).then((res: any) => !res?.error && navigate('/success/'));
   };
 
   return (
@@ -124,7 +124,7 @@ export const SingInForm = () => {
                     label="Role *"
                   >
                     <MenuItem value="master">Master</MenuItem>
-                    <MenuItem value="studio">Studio</MenuItem>
+                    <MenuItem value="salon">Studio</MenuItem>
                   </Select>
                 </FormControl>
               )}

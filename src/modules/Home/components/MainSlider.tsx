@@ -1,6 +1,8 @@
 import { Box, Button, Container, Typography } from '@mui/material';
+import { useNavigate } from 'react-router';
 
 const MainSlider = () => {
+  const navigate = useNavigate();
   return (
     <Container
       className="main-slider"
@@ -20,10 +22,18 @@ const MainSlider = () => {
           </Typography>
         </Box>
         <div className="buttons-main-slider">
-          <Button variant="contained" size="medium">
+          <Button
+            variant="contained"
+            size="medium"
+            onClick={() => navigate('/master_catalog')}
+          >
             Artists
           </Button>
-          <Button variant="outlined" size="medium">
+          <Button
+            variant="outlined"
+            size="medium"
+            onClick={() => navigate('/studio_catalog')}
+          >
             Studios
           </Button>
         </div>

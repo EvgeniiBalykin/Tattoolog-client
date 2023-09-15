@@ -1,3 +1,4 @@
+import Catalog from 'modules/Catalog/Catalog';
 import Profile from 'modules/Profile';
 import AcceptSignupPage from 'pages/AcceptPage/AcceptSignupPage';
 import { LoginPage } from 'pages/LoginPage/LoginPage';
@@ -9,12 +10,12 @@ export const HEADER_ROUTES: IRoutes[] = [
   {
     name: 'pages.masters',
     path: HeaderRoutesList.MASTER_CATALOG,
-    element: <div>Master Catalog</div>,
+    element: <Catalog role="master" />,
   },
   {
     name: 'pages.studios',
     path: HeaderRoutesList.STUDIO_CATALOG,
-    element: <div>Studio Catalog</div>,
+    element: <Catalog role="salon" />,
   },
   {
     name: 'pages.blog',

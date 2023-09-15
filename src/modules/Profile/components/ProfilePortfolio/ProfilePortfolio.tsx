@@ -1,10 +1,12 @@
 import { Box, ImageList } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import { useGetProfilePortfolioQuery } from 'services/profileApi';
-import PostCard from '../../PostCard/PostCard';
+import PostCard from '../PostCard/PostCard';
 
 const ProfilePortfolio = () => {
-  const { data: profilePortfolio } = useGetProfilePortfolioQuery(null);
+  const { id } = useParams();
+  const { data: profilePortfolio } = useGetProfilePortfolioQuery(Number(id));
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(
     window.innerWidth < 768
   );

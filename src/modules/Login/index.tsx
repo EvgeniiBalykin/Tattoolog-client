@@ -33,7 +33,7 @@ export const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useAppDispatch();
   const [loginUser, { data: loginData, error: loginError }] =
-    useLoginUserMutation();
+    useLoginUserMutation<any>();
   const navigate = useNavigate();
   const { handleSubmit, control } = useForm<ILoginForm>();
   const { errors } = useFormState({

@@ -9,8 +9,14 @@ import {
   Typography,
 } from '@mui/material';
 import { AddMasterPhoto, AddStudioPhoto } from 'images/index';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
+import { selectUser } from 'store/reducers/userSlice';
 
 const JoinUsMain = () => {
+  const navigate = useNavigate();
+  const { id } = useSelector(selectUser);
+
   return (
     <Box className="wrapper">
       <Container maxWidth="xl">
@@ -50,7 +56,14 @@ const JoinUsMain = () => {
                   </Typography>
                 </div>
                 <div className="card-button">
-                  <Button color="primary" variant="contained" size="large">
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    size="large"
+                    onClick={() =>
+                      id ? navigate(`/profile/${id}`) : navigate('/signin')
+                    }
+                  >
                     Add
                   </Button>
                 </div>
@@ -72,11 +85,18 @@ const JoinUsMain = () => {
                 />
                 <div className="card-text">
                   <Typography variant="h3" textTransform="uppercase">
-                    tattoo artist
+                    tattoo studio
                   </Typography>
                 </div>
                 <div className="card-button">
-                  <Button color="primary" variant="contained" size="large">
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    size="large"
+                    onClick={() =>
+                      id ? navigate(`/profile/${id}`) : navigate('/signin')
+                    }
+                  >
                     Add
                   </Button>
                 </div>
