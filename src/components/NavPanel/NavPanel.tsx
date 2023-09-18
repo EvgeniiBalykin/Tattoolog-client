@@ -10,7 +10,7 @@ import { logoutUser, selectLogin } from 'store/reducers/loginSlice';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Avatar, Container, useMediaQuery, useTheme } from '@mui/material';
-import ResponsiveDrawer from 'modules/NavDrawer/NavDrawer';
+import ResponsiveDrawer from 'components/NavDrawer/NavDrawer';
 import Logo from 'images/Logo.svg';
 import { clearUser, selectUser } from 'store/reducers/userSlice';
 
@@ -74,12 +74,7 @@ export const NavPanel = () => {
                 to={route.path}
                 key={route.path}
                 variant={
-                  route.variant as
-                    | 'text'
-                    | 'dashed'
-                    | 'outlined'
-                    | 'contained'
-                    | undefined
+                  route.variant as 'text' | 'outlined' | 'contained' | undefined
                 }
                 size="small"
               >

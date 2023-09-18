@@ -1,9 +1,9 @@
 import { Container, Grid } from '@mui/material';
-import ProfileCard from './components/ProfileCard/ProfileCard';
-import ProfileTabs from './components/ProfileTabs/ProfileTabs';
+import ProfileCard from './ProfileCard/ProfileCard';
+import ProfileTabs from './ProfileTabs/ProfileTabs';
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
-import ProfileEdit from './components/ProfileEdit/ProfileEdit';
+import ProfileEdit from './ProfileEdit/ProfileEdit';
 import { addChangeValue } from 'store/reducers/profileSlice';
 
 const Profile = () => {

@@ -1,6 +1,5 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { About_Photo_1, About_Photo_2 } from 'images/index';
-
 import { useMemo } from 'react';
 
 const AboutMain = () => {
@@ -10,7 +9,7 @@ const AboutMain = () => {
   );
 
   return (
-    <Box className="wrapper">
+    <Box className="wrapper" mt={8}>
       <Container component="main">
         <Typography variant="h1" textAlign="center" textTransform="uppercase">
           About us

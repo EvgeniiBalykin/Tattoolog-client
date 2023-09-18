@@ -1,5 +1,5 @@
-import Catalog from 'modules/Catalog/Catalog';
-import Profile from 'modules/Profile';
+import Catalog from 'pages/CatalogPage/CatalogPage';
+import Profile from 'components/Profile';
 import AcceptSignupPage from 'pages/AcceptPage/AcceptSignupPage';
 import { LoginPage } from 'pages/LoginPage/LoginPage';
 import { SingInPage } from 'pages/SigInPage/SignInPage';

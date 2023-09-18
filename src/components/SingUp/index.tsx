@@ -16,7 +16,6 @@ import {
   Container,
   Box,
   TextField,
-  CssBaseline,
   InputLabel,
   Alert,
 } from '@mui/material';
@@ -57,7 +56,6 @@ export const SingInForm = () => {
       {registerError && (
         <Alert severity="error">{registerError?.data.email}</Alert>
       )}
-      <CssBaseline />
       <Box
         sx={{
           mt: 4,

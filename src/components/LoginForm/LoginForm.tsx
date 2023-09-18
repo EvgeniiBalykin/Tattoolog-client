@@ -5,7 +5,6 @@ import {
   Grid,
   Link,
   TextField,
-  CssBaseline,
   Button,
   InputAdornment,
   IconButton,
@@ -73,7 +72,7 @@ export const LoginForm = () => {
   return (
     <Container maxWidth="xs">
       {loginError && <Alert severity="error">{loginError?.data.detail}</Alert>}
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <Box
         sx={{
           mt: 4,
