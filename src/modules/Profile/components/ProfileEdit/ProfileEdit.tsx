@@ -58,6 +58,7 @@ const ProfileEdit = () => {
             alignItems: 'center',
             mb: 2,
           }}
+          key={field.name}
         >
           <Box width={'30%'}>
             <Typography variant="h6">{field.name}</Typography>{' '}

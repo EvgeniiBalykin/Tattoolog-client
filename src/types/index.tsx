@@ -51,6 +51,12 @@ export interface IProfilePortfolio {
   created_at?: string;
 }
 
+export interface IWorkTypes {
+  id: number;
+  name: string;
+  description: string;
+}
+
 export interface ISendPost {
   profile?: number | string | null;
   photo_post: { photo: string }[];

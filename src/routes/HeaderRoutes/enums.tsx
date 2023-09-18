@@ -9,4 +9,5 @@ export enum HeaderRoutesList {
   SIGNIN_SUCCESS = 'success',
   PROFILE = 'profile/:id',
   CONTACTS = 'contacts',
+  ERROR = 'error_page',
 }

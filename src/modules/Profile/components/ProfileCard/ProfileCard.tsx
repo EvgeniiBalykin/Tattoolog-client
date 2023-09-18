@@ -18,6 +18,8 @@ import {
 } from 'services/profileApi';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import ModalDownload from 'components/ModalDownload/ModalDownload';
+import { useSelector } from 'react-redux';
+import { selectUser } from 'store/reducers/userSlice';
 
 // To fix: Доделать иправление профиля, когда будет дизайн
 
@@ -29,6 +31,8 @@ const ProfileCard = ({ id }: { id: number }) => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [selectedImg, setSelectedImg] = useState<File | null>(null);
   const [updateProfile] = useUpdateProfileMutation();
+  const { id: storeId } = useSelector(selectUser);
+  const userAccess = id === storeId;
 
   const onEditClick = () => {
     dispatch(toggleAddChange());
@@ -70,42 +74,48 @@ const ProfileCard = ({ id }: { id: number }) => {
               setSelectedImg(e.target.files && e.target.files[0])
             }
           />
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleButtonClick}
-          >
-            Upload Images
-          </Button>
+          {userAccess && (
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleButtonClick}
+            >
+              Upload Images
+            </Button>
+          )}
           <Box display="flex" justifyContent="space-around" width="100%">
             <Typography variant="h4">
               {profileData?.user?.first_name} {profileData?.user?.last_name}
             </Typography>
           </Box>
         </CardContent>
-        <CardActions>
-          <Button
-            startIcon={<Edit />}
-            fullWidth
-            variant="outlined"
-            color="primary"
-            size="small"
-            onClick={onEditClick}
-          >
-            Edit Profile
-          </Button>
-        </CardActions>
-        <CardActions>
-          <Button
-            startIcon={<AddPhotoAlternate />}
-            fullWidth
-            variant="outlined"
-            size="small"
-            onClick={toggleModal}
-          >
-            Add Photo
-          </Button>
-        </CardActions>
+        {userAccess && (
+          <>
+            <CardActions>
+              <Button
+                startIcon={<Edit />}
+                fullWidth
+                variant="outlined"
+                color="primary"
+                size="small"
+                onClick={onEditClick}
+              >
+                Edit Profile
+              </Button>
+            </CardActions>
+            <CardActions>
+              <Button
+                startIcon={<AddPhotoAlternate />}
+                fullWidth
+                variant="outlined"
+                size="small"
+                onClick={toggleModal}
+              >
+                Add Photo
+              </Button>
+            </CardActions>
+          </>
+        )}
         <CardContent className="card-content">
           <Typography textAlign="justify" variant="body2">
             {profileData?.about}

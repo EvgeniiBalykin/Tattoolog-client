@@ -14,7 +14,7 @@ const Profile = () => {
     <Container maxWidth="xl">
       <Grid container flexWrap="wrap">
         <ProfileCard id={Number(id)} />
-        <ProfileTabs />
+        <ProfileEdit />
         {/* {isEdit ? <ProfileEdit /> : <ProfileTabs />} */}
       </Grid>
     </Container>
