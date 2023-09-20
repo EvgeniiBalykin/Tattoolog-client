@@ -25,7 +25,7 @@ export const NavPanel = () => {
   };
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const { id } = useSelector(selectUser);
+  const { id, avatar } = useSelector(selectUser);
 
   // Убрать инлайновые стили
 
@@ -83,7 +83,12 @@ export const NavPanel = () => {
             ))
           ) : (
             <Box sx={{ display: 'flex', gap: '5px' }}>
-              <Avatar alt="Remy Sharp" component={Link} to={`/profile/${id}`} />
+              <Avatar
+                src={avatar || ''}
+                alt="Remy Sharp"
+                component={Link}
+                to={`/profile/${id}`}
+              />
               <Button
                 component={Link}
                 to="/login"

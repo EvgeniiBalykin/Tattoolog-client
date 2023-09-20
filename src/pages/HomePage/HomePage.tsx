@@ -4,7 +4,7 @@ import {
   WhyUsMain,
   JoinUsMain,
   PartnersSlider,
-} from 'modules/Home';
+} from 'components/Home';
 import './HomePage.scss';
 
 export const HomePage = () => {

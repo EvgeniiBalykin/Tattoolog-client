@@ -1,10 +1,10 @@
 import { Container, Grid } from '@mui/material';
 import ProfileCard from './ProfileCard/ProfileCard';
-import ProfileTabs from './ProfileTabs/ProfileTabs';
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import ProfileEdit from './ProfileEdit/ProfileEdit';
 import { addChangeValue } from 'store/reducers/profileSlice';
+import ProfilePortfolio from './ProfilePortfolio/ProfilePortfolio';
 
 const Profile = () => {
   const { id } = useParams();
@@ -14,8 +14,7 @@ const Profile = () => {
     <Container maxWidth="xl">
       <Grid container flexWrap="wrap">
         <ProfileCard id={Number(id)} />
-        <ProfileEdit />
-        {/* {isEdit ? <ProfileEdit /> : <ProfileTabs />} */}
+        {isEdit ? <ProfileEdit id={Number(id)} /> : <ProfilePortfolio />}
       </Grid>
     </Container>
   );

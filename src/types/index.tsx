@@ -25,12 +25,25 @@ export interface IProfileData {
   avatar: string;
   salons_and_masters: [];
   status: string;
+  country: string;
+  phone_number: string;
+  city: string;
+  birthday: Date;
   user: {
     email: string;
     first_name: string;
     last_name: string;
     role: string;
     id: number;
+  };
+}
+
+export interface ICountriesData {
+  id: number;
+  name: string;
+  country: {
+    id: number;
+    name: string;
   };
 }
 
@@ -74,4 +87,9 @@ export interface IUpdateProfile {
   };
   avatar?: any;
   about?: string;
+  salons_and_masters?: number[];
+  country?: number | null;
+  city?: number | null;
+  birthday?: Date;
+  phone_number?: string;
 }

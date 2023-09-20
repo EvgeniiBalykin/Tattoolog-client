@@ -8,3 +8,5 @@ export const PROFILE_PORTFOLIO = 'portfolio/posts/profile/';
 export const ADD_POST = 'portfolio/post/create/';
 export const ADD_POST_PHOTO = 'portfolio/post-photo/create/';
 export const WORK_TYPES = 'portfolio/work_types/';
+export const COUNTRIES = 'tools/countries/';
+export const CITIES = 'tools/cities/';

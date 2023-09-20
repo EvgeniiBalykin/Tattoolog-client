@@ -6,7 +6,12 @@ import {
   PROFILES_BY_ROLE,
   WORK_TYPES,
 } from 'api';
-import { IProfileData, IProfilePortfolio, IWorkTypes } from 'types';
+import {
+  IProfileData,
+  IProfilePortfolio,
+  IUpdateProfile,
+  IWorkTypes,
+} from 'types';
 
 interface ICatalogParams {
   role: string;
@@ -34,7 +39,10 @@ export const profileApi = createApi({
     getWorkTypes: builder.query<IWorkTypes[], void>({
       query: () => WORK_TYPES,
     }),
-    updateProfile: builder.mutation<void, { id: number; formData: FormData }>({
+    updateProfile: builder.mutation<
+      void,
+      { id: number; formData: FormData | IUpdateProfile }
+    >({
       query: ({ id, formData }) => ({
         url: `accounts/profile/${id}/`,
         method: 'PATCH',

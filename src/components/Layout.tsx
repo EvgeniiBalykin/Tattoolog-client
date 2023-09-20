@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router';
-import { NavPanel } from '../modules/NavPanel/NavPanel';
+import { NavPanel } from './NavPanel/NavPanel';
 import '../globalStyles.scss';
-import Footer from '../modules/Footer/Footer';
+import Footer from './Footer/Footer';
 
 const Layout = () => {
   return (

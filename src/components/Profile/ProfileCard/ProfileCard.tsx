@@ -76,17 +76,59 @@ const ProfileCard = ({ id }: { id: number }) => {
           />
           {userAccess && (
             <Button
-              variant="contained"
+              variant="outlined"
               color="primary"
+              size="small"
               onClick={handleButtonClick}
             >
-              Upload Images
+              Change photo
             </Button>
           )}
-          <Box display="flex" justifyContent="space-around" width="100%">
-            <Typography variant="h4">
-              {profileData?.user?.first_name} {profileData?.user?.last_name}
-            </Typography>
+          <Box
+            width="90%"
+            border="1px solid white"
+            borderRadius="10px"
+            padding={2}
+          >
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="space-around"
+              mb={2}
+              borderBottom="1px solid white"
+              pb={2}
+            >
+              <Typography variant="h4" fontStyle="italic" fontWeight={300}>
+                Name:
+              </Typography>
+              <Box display="flex" gap={1}>
+                <Typography variant="h6" fontWeight={300}>
+                  {profileData?.user.first_name.toUpperCase()}
+                </Typography>
+                <Typography variant="h6" fontWeight={300}>
+                  {profileData?.user.last_name.toUpperCase()}
+                </Typography>
+              </Box>
+            </Box>
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="space-around"
+              borderBottom="1px solid white"
+              pb={2}
+            >
+              <Typography variant="h4" fontWeight={300}>
+                Contacts:
+              </Typography>
+              <Box display="flex" flexDirection="column" alignItems="center">
+                <Typography variant="h6" fontWeight={300}>
+                  {profileData?.phone_number}
+                </Typography>
+                <Typography variant="h6" fontWeight={300}>
+                  {profileData?.user.email}
+                </Typography>
+              </Box>
+            </Box>
           </Box>
         </CardContent>
         {userAccess && (
@@ -116,6 +158,12 @@ const ProfileCard = ({ id }: { id: number }) => {
             </CardActions>
           </>
         )}
+        <CardContent className="card-content">
+          <Typography textAlign="justify" variant="body2">
+            {profileData?.city}
+            {profileData?.country}
+          </Typography>
+        </CardContent>
         <CardContent className="card-content">
           <Typography textAlign="justify" variant="body2">
             {profileData?.about}

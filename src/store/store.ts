@@ -5,6 +5,7 @@ import { authApi } from 'services/authApi';
 import userReduser from 'store/reducers/userSlice';
 import { profileApi } from 'services/profileApi';
 import profileReducer from './reducers/profileSlice';
+import { toolsApi } from 'services/toolsApi';
 
 const rootReducer = combineReducers({
   login: loginReducer,
@@ -12,13 +13,18 @@ const rootReducer = combineReducers({
   profile: profileReducer,
   [authApi.reducerPath]: authApi.reducer,
   [profileApi.reducerPath]: profileApi.reducer,
+  [toolsApi.reducerPath]: toolsApi.reducer,
 });
 
 const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(authApi.middleware, profileApi.middleware),
+      getDefaultMiddleware().concat(
+        authApi.middleware,
+        profileApi.middleware,
+        toolsApi.middleware
+      ),
   });
 };
 

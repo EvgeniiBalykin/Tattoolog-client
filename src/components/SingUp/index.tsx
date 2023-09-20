@@ -33,22 +33,8 @@ export const SingInForm = () => {
     control,
   });
 
-  const onSubmit = ({
-    first_name,
-    last_name,
-    email,
-    password,
-    re_password,
-    role,
-  }: IUserData) => {
-    registerUser({
-      first_name,
-      last_name,
-      email,
-      password,
-      re_password,
-      role,
-    }).then((res: any) => !res?.error && navigate('/success/'));
+  const onSubmit = (data: IUserData) => {
+    registerUser(data).then((res: any) => !res?.error && navigate('/success/'));
   };
 
   return (

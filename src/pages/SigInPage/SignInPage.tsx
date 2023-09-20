@@ -1,5 +1,5 @@
-import { SingInForm } from "modules/SingUp"
+import { SingInForm } from 'components/SingUp';
 
 export const SingInPage = () => {
-    return <SingInForm/>
-}
+  return <SingInForm />;
+};
