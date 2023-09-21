@@ -26,7 +26,7 @@ const ProfilePortfolio = () => {
   return (
     <Grid item xs={12} md={8}>
       <Box minHeight="calc(100vh - 64px)" sx={{ paddingLeft: '10px' }}>
-        <Box sx={{ width: '100%', height: '70vh', overflowY: 'scroll' }}>
+        <Box sx={{ width: '100%', height: '100vh', overflowY: 'scroll' }}>
           {profilePortfolio && (
             <ImageList variant="masonry" cols={isMobileScreen ? 1 : 3} gap={5}>
               {profilePortfolio?.map((post) => (

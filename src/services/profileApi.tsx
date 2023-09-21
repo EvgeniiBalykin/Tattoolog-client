@@ -6,12 +6,7 @@ import {
   PROFILES_BY_ROLE,
   WORK_TYPES,
 } from 'api';
-import {
-  IProfileData,
-  IProfilePortfolio,
-  IUpdateProfile,
-  IWorkTypes,
-} from 'types';
+import { IProfileData, IProfilePortfolio, IWorkTypes } from 'types';
 
 interface ICatalogParams {
   role: string;
@@ -41,7 +36,7 @@ export const profileApi = createApi({
     }),
     updateProfile: builder.mutation<
       void,
-      { id: number; formData: FormData | IUpdateProfile }
+      { id: number; formData: FormData | IProfileData }
     >({
       query: ({ id, formData }) => ({
         url: `accounts/profile/${id}/`,

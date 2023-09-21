@@ -1,4 +1,13 @@
-import { AddPhotoAlternate, Edit } from '@mui/icons-material';
+import {
+  AddPhotoAlternate,
+  Edit,
+  Email,
+  Facebook,
+  Instagram,
+  MusicNote,
+  Phone,
+  Pinterest,
+} from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -7,6 +16,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  IconButton,
   Typography,
 } from '@mui/material';
 import './ProfileCard.scss';
@@ -16,12 +26,26 @@ import {
   useGetProfileDataQuery,
   useUpdateProfileMutation,
 } from 'services/profileApi';
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
+import {
+  ChangeEvent,
+  ReactElement,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import ModalDownload from 'components/ModalDownload/ModalDownload';
 import { useSelector } from 'react-redux';
 import { selectUser } from 'store/reducers/userSlice';
 
 // To fix: Доделать иправление профиля, когда будет дизайн
+
+const SOCIAL_MEDIA_ICONS: { [key: string]: ReactElement } = {
+  Facebook: <Facebook />,
+  Instagram: <Instagram />,
+  TikTok: <MusicNote />,
+  Pinterest: <Pinterest />,
+};
 
 const ProfileCard = ({ id }: { id: number }) => {
   const dispatch = useDispatch();
@@ -33,6 +57,30 @@ const ProfileCard = ({ id }: { id: number }) => {
   const [updateProfile] = useUpdateProfileMutation();
   const { id: storeId } = useSelector(selectUser);
   const userAccess = id === storeId;
+  const renderSocialLinks = useMemo(
+    () =>
+      profileData?.social_media_profile?.map((socialMedia) => {
+        const { link, social_media_type } = socialMedia;
+        const socialMediaName = social_media_type.name;
+        const icon = SOCIAL_MEDIA_ICONS[socialMediaName];
+
+        return (
+          <Grid
+            className="contact-item"
+            item
+            xs={5}
+            md={5}
+            key={socialMediaName}
+          >
+            <IconButton>{icon}</IconButton>
+            <Typography variant="body2" fontWeight={300}>
+              {link}
+            </Typography>
+          </Grid>
+        );
+      }),
+    [profileData?.social_media_profile]
+  );
 
   const onEditClick = () => {
     dispatch(toggleAddChange());
@@ -45,10 +93,6 @@ const ProfileCard = ({ id }: { id: number }) => {
     if (selectedImg) {
       const formData = new FormData();
       formData.append('avatar', selectedImg);
-      formData.append(
-        'about',
-        'Hello Hello lol lo lo lo lo lol ololol ololol olo lol olol olol ol ol po po po po po po po '
-      );
       updateProfile({ id, formData }).then(() => refetch());
     }
   }, [selectedImg]);
@@ -57,12 +101,38 @@ const ProfileCard = ({ id }: { id: number }) => {
     <Grid item xs={12} md={4} className="card-box">
       <Card className="card">
         <CardContent className="card-content">
+          <Box className="name-box">
+            <Box display="flex" flexDirection="column" gap={1}>
+              <Box>
+                <Typography variant="h5">
+                  {profileData?.user?.first_name?.toUpperCase()}{' '}
+                  {profileData?.user?.last_name?.toUpperCase()}
+                </Typography>
+              </Box>
+              <Box>
+                <Typography variant="h6" fontWeight={300}>
+                  {profileData?.user?.role?.toUpperCase()}
+                </Typography>
+              </Box>
+            </Box>
+            {userAccess && (
+              <Button
+                variant="outlined"
+                color="primary"
+                size="small"
+                onClick={handleButtonClick}
+              >
+                Change photo
+              </Button>
+            )}
+          </Box>
           <CardMedia
             component="img"
             src={profileData?.avatar}
             alt="avatar"
-            sx={{ height: 150, width: 150, borderRadius: '20px' }}
+            sx={{ height: 250, width: 250, borderRadius: '20px' }}
           />
+
           <input
             accept="image/*"
             type="file"
@@ -74,62 +144,30 @@ const ProfileCard = ({ id }: { id: number }) => {
               setSelectedImg(e.target.files && e.target.files[0])
             }
           />
-          {userAccess && (
-            <Button
-              variant="outlined"
-              color="primary"
-              size="small"
-              onClick={handleButtonClick}
-            >
-              Change photo
-            </Button>
-          )}
-          <Box
-            width="90%"
-            border="1px solid white"
-            borderRadius="10px"
-            padding={2}
+          <Grid
+            className="contacts-wrapper"
+            container
+            gap={2}
+            justifyContent="center"
           >
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="space-around"
-              mb={2}
-              borderBottom="1px solid white"
-              pb={2}
-            >
-              <Typography variant="h4" fontStyle="italic" fontWeight={300}>
-                Name:
+            <Grid className="contact-item" item xs={5} md={5}>
+              <IconButton>
+                <Phone />
+              </IconButton>
+              <Typography variant="body2" fontWeight={300}>
+                {profileData?.phone_number}
               </Typography>
-              <Box display="flex" gap={1}>
-                <Typography variant="h6" fontWeight={300}>
-                  {profileData?.user.first_name.toUpperCase()}
-                </Typography>
-                <Typography variant="h6" fontWeight={300}>
-                  {profileData?.user.last_name.toUpperCase()}
-                </Typography>
-              </Box>
-            </Box>
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="space-around"
-              borderBottom="1px solid white"
-              pb={2}
-            >
-              <Typography variant="h4" fontWeight={300}>
-                Contacts:
+            </Grid>
+            <Grid className="contact-item" item xs={5} md={5}>
+              <IconButton>
+                <Email />
+              </IconButton>
+              <Typography variant="body2" fontWeight={300}>
+                {profileData?.user?.email}
               </Typography>
-              <Box display="flex" flexDirection="column" alignItems="center">
-                <Typography variant="h6" fontWeight={300}>
-                  {profileData?.phone_number}
-                </Typography>
-                <Typography variant="h6" fontWeight={300}>
-                  {profileData?.user.email}
-                </Typography>
-              </Box>
-            </Box>
-          </Box>
+            </Grid>
+            {renderSocialLinks}
+          </Grid>
         </CardContent>
         {userAccess && (
           <>

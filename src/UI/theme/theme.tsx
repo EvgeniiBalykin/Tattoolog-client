@@ -9,7 +9,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Roboto, sans-serif',
+    fontFamily: 'Mooli, sans-serif',
     h1: {
       fontSize: '48px',
       fontWeight: 600,

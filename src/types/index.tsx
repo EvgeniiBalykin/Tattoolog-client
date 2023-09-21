@@ -20,22 +20,30 @@ export interface IUserData {
   role: string;
 }
 
-export interface IProfileData {
-  about: string;
-  avatar: string;
-  salons_and_masters: [];
-  status: string;
-  country: string;
-  phone_number: string;
-  city: string;
-  birthday: Date;
-  user: {
-    email: string;
-    first_name: string;
-    last_name: string;
-    role: string;
-    id: number;
+export interface ISocialMedia {
+  social_media_type: {
+    name: string;
   };
+  link: string;
+}
+
+export interface IProfileData {
+  about?: string;
+  avatar?: string;
+  salons_and_masters?: [];
+  status?: string;
+  country?: number | null;
+  phone_number?: string;
+  city?: number | null;
+  birthday?: Date;
+  user: {
+    email?: string;
+    first_name?: string;
+    last_name?: string;
+    role?: string;
+    id?: number;
+  };
+  social_media_profile?: ISocialMedia[];
 }
 
 export interface ICountriesData {
@@ -77,19 +85,19 @@ export interface ISendPost {
   work_type: { name: string; description: string };
 }
 
-export interface IUpdateProfile {
-  user?: {
-    email?: string;
-    first_name?: string;
-    last_name?: string;
-    password?: string;
-    role?: string;
-  };
-  avatar?: any;
-  about?: string;
-  salons_and_masters?: number[];
-  country?: number | null;
-  city?: number | null;
-  birthday?: Date;
-  phone_number?: string;
-}
+// export interface IUpdateProfile {
+//   user?: {
+//     email?: string;
+//     first_name?: string;
+//     last_name?: string;
+//     password?: string;
+//     role?: string;
+//   };
+//   avatar?: any;
+//   about?: string;
+//   salons_and_masters?: number[];
+//   country?: number | null;
+//   city?: number | null;
+//   birthday?: Date;
+//   phone_number?: string;
+// }
