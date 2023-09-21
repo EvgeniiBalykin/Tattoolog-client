@@ -1,0 +1,29 @@
+.catalog-card {
+  max-height: 350px;
+  height: 100%;
+  position: relative;
+
+  .catalog-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    height: 100%;
+
+    .catalog-card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      align-items: center;
+      position: absolute;
+      text-align: start;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      z-index: 1;
+    }
+  }
+}

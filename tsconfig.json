@@ -18,7 +18,6 @@
     "baseUrl": "src",
     "paths": {
       "components/*": ["components/*"],
-      "modules/*": ["modules/*"],
       "assets/*": ["assets/*"],
       "data/*": ["data/*"],
       "pages/*": ["pages/*"],
@@ -29,7 +28,8 @@
       "helpers/*": ["helpers/*"],
       "hooks/*": ["hooks/*"],
       "images/*": ["images/*"],
-      "store/*": ["store/*"]
+      "store/*": ["store/*"],
+      "api/*": ["api/*"]
     }
   },
   "include": ["src", "public"],

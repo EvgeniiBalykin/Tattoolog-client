@@ -6,7 +6,6 @@ export default {
   resolve: {
     alias: {
       components: '/src/components',
-      modules: '/src/modules',
       assets: '/src/assets',
       data: '/src/data',
       pages: '/src/pages',
@@ -18,6 +17,7 @@ export default {
       hooks: '/src/hooks',
       images: '/src/images',
       store: '/src/store',
+      api: '/src/api',
     },
   },
 };

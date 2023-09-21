@@ -1,18 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import {
-  LOCAL_SERVER,
-  PROFILE_DATA,
-  SIGN_IN,
-  SING_UP,
-} from 'modules/SingUp/api/signUpApi';
-import { ILoginBody, IProfileData } from 'types';
+import { LOCAL_SERVER, PROFILE_DATA, SIGN_IN, SING_UP } from 'api';
+import { ILoginBody, IUserData } from 'types';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({ baseUrl: LOCAL_SERVER }),
   endpoints: (builder) => ({
     registerUser: builder.mutation({
-      query: (body: IProfileData) => {
+      query: (body: IUserData) => {
         return {
           url: SING_UP,
           method: 'POST',

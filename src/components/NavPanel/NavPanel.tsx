@@ -9,7 +9,7 @@ import { useAppDispatch } from 'hooks/redux';
 import { logoutUser, selectLogin } from 'store/reducers/loginSlice';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Avatar, useMediaQuery, useTheme } from '@mui/material';
+import { Avatar, Container, useMediaQuery, useTheme } from '@mui/material';
 import ResponsiveDrawer from 'components/NavDrawer/NavDrawer';
 import Logo from 'images/Logo.svg';
 import { clearUser, selectUser } from 'store/reducers/userSlice';
@@ -25,19 +25,22 @@ export const NavPanel = () => {
   };
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const { id } = useSelector(selectUser);
+  const { id, avatar } = useSelector(selectUser);
 
   // Убрать инлайновые стили
 
   return isMobile ? (
-    <ResponsiveDrawer />
+    <Container sx={{ marginBottom: '40px' }}>
+      <ResponsiveDrawer />
+    </Container>
   ) : (
     <AppBar
       className="container"
-      position="sticky"
+      position="relative"
       sx={{
         padding: '20px',
-        background: 'linear-gradient(to top, #0B0B0B, #4a2352 200%)',
+        marginBottom: '20px',
+        background: 'inherit',
       }}
     >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -71,12 +74,7 @@ export const NavPanel = () => {
                 to={route.path}
                 key={route.path}
                 variant={
-                  route.variant as
-                    | 'text'
-                    | 'dashed'
-                    | 'outlined'
-                    | 'contained'
-                    | undefined
+                  route.variant as 'text' | 'outlined' | 'contained' | undefined
                 }
                 size="small"
               >
@@ -86,9 +84,10 @@ export const NavPanel = () => {
           ) : (
             <Box sx={{ display: 'flex', gap: '5px' }}>
               <Avatar
+                src={avatar || ''}
                 alt="Remy Sharp"
                 component={Link}
-                to={`/dashboard/${id}`}
+                to={`/profile/${id}`}
               />
               <Button
                 component={Link}

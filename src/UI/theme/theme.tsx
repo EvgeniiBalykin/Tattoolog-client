@@ -5,11 +5,11 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#0B0B0B',
+      main: '#4A2352',
     },
   },
   typography: {
-    fontFamily: 'Roboto, sans-serif',
+    fontFamily: 'Mooli, sans-serif',
     h1: {
       fontSize: '48px',
       fontWeight: 600,
@@ -42,7 +42,7 @@ const theme = createTheme({
       color: 'white',
     },
     body1: {
-      fontSize: '24px', // Размер для параграфов
+      fontSize: '18px', // Размер для параграфов
       fontWeight: 400, // Обычный шрифт
       color: 'white',
     },
