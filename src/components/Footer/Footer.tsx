@@ -8,7 +8,7 @@ import './Footer.scss';
 
 const Footer = () => {
   return (
-    <Box className="footer-wrapper">
+    <footer className="footer-wrapper">
       <Container maxWidth="lg" className="footer">
         <Box component={Link} to={'/'} mb={2}>
           <img src={Logo} />
@@ -55,7 +55,7 @@ const Footer = () => {
           </Typography>
         </Container>
       </Container>
-    </Box>
+    </footer>
   );
 };
 

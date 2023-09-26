@@ -116,7 +116,7 @@ const Catalog = ({ role }: { role: string }) => {
       <JointNow />
       <Grid container gap={2} justifyContent="center">
         {FILTERS.map((el) => (
-          <Grid item xs={8} md={3}>
+          <Grid key={el.name} item xs={8} md={3}>
             <TextField
               fullWidth
               key={el.name}

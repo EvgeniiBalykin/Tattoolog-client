@@ -10,4 +10,5 @@ export enum HeaderRoutesList {
   PROFILE = 'profile/:id',
   CONTACTS = 'contacts',
   ERROR = 'error_page',
+  BLOG_POST = '/post/:id',
 }
