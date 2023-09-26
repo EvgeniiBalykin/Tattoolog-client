@@ -7,7 +7,7 @@ import {
   Typography,
 } from '@mui/material';
 import { CloseExpand, OpenExpand } from 'images/index';
-import { SyntheticEvent, useState } from 'react';
+import { useState } from 'react';
 import { COLORS } from 'ui/colors';
 
 interface IContentPanel {
@@ -42,10 +42,9 @@ const CONTENT_PANELS: IContentPanel[] = [
 const ExpandedPanel = () => {
   const [expanded, setExpanded] = useState<string | false>(false);
 
-  const handleChange =
-    (panel: string) => (event: SyntheticEvent, isExpanded: boolean) => {
-      setExpanded(isExpanded ? panel : false);
-    };
+  const handleChange = (panel: string) => (_: any, isExpanded: boolean) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   return (
     <Container maxWidth="lg">

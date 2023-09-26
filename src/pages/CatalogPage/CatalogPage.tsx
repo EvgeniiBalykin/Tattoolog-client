@@ -1,8 +1,24 @@
-import { Box, Button, Container, Grid, TextField } from '@mui/material';
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  TextField,
+  Typography,
+} from '@mui/material';
 import CatalogCard from 'components/CatalogCard/CatalogCard';
+import DescriptionIcons from 'components/DescriptionIcons/DescriptionIcons';
+import { MainImageBox } from 'components/Home';
+import JointNow from 'components/JoinNow/JoinNow';
 import { ChangeEvent, useState } from 'react';
+import { useLocation } from 'react-router';
 import { useGetMasterCatalogQuery } from 'services/profileApi';
 import { IProfileData } from 'types';
+import {
+  MASTER_CATALOGUE_MAIN,
+  MASTER_CATALOG_ICONS,
+  SALON_CATALOGUE_MAIN,
+} from './constansts';
 
 interface IStateProps {
   name: string;
@@ -10,12 +26,29 @@ interface IStateProps {
   country: string;
 }
 
+const FILTERS: { name: keyof IStateProps; label: string }[] = [
+  {
+    name: 'name',
+    label: 'Name',
+  },
+  {
+    name: 'city',
+    label: 'City',
+  },
+  {
+    name: 'country',
+    label: 'Country',
+  },
+];
+
 const Catalog = ({ role }: { role: string }) => {
+  const location = useLocation();
   const [searchValues, setSearchValues] = useState<IStateProps>({
     name: '',
     city: '',
     country: '',
   });
+  const isMasterCatalogue = location.pathname === '/master_catalog';
 
   const { data: MasterCatalog } = useGetMasterCatalogQuery({
     role,
@@ -32,40 +65,72 @@ const Catalog = ({ role }: { role: string }) => {
 
   return (
     <Container maxWidth="xl" sx={{ mb: 10 }}>
-      <Grid container gap={2} justifyContent="center">
-        <Grid item xs={8} md={3}>
-          <TextField
-            fullWidth
-            label="Name"
-            color="secondary"
-            value={searchValues.name}
-            name="name"
-            onChange={onChangeFilters}
+      <MainImageBox
+        title={
+          isMasterCatalogue
+            ? MASTER_CATALOGUE_MAIN.title
+            : SALON_CATALOGUE_MAIN.title
+        }
+        subtitle={
+          isMasterCatalogue
+            ? MASTER_CATALOGUE_MAIN.subtitle
+            : SALON_CATALOGUE_MAIN.subtitle
+        }
+        buttons={
+          isMasterCatalogue
+            ? MASTER_CATALOGUE_MAIN.buttons
+            : SALON_CATALOGUE_MAIN.buttons
+        }
+        img={
+          isMasterCatalogue
+            ? MASTER_CATALOGUE_MAIN.img
+            : SALON_CATALOGUE_MAIN.img
+        }
+      />
+      <Typography
+        variant="h1"
+        textAlign="center"
+        textTransform="uppercase"
+        mb={4}
+      >
+        Spotlight Features
+      </Typography>
+      <Grid
+        container
+        spacing={{ xs: 2, sm: 8, md: 3 }}
+        justifyContent="center"
+        mb={8}
+      >
+        {MASTER_CATALOG_ICONS.map((el, index) => (
+          <DescriptionIcons
+            key={index}
+            icon={el.icon}
+            title={el.title}
+            subtitle={el.subtitle}
+            xs={14}
+            sm={5}
+            md={3}
           />
-        </Grid>
-        <Grid item xs={8} md={3}>
-          <TextField
-            fullWidth
-            label="City"
-            color="secondary"
-            value={searchValues.city}
-            name="city"
-            onChange={onChangeFilters}
-          />
-        </Grid>
-        <Grid item xs={8} md={3}>
-          <TextField
-            fullWidth
-            label="Country"
-            color="secondary"
-            value={searchValues.country}
-            name="country"
-            onChange={onChangeFilters}
-          />
-        </Grid>
+        ))}
       </Grid>
-      <Box textAlign="center" margin={'10px 0'}>
-        <Button variant="text" color="secondary" onClick={resetFilters}>
+      <JointNow />
+      <Grid container gap={2} justifyContent="center">
+        {FILTERS.map((el) => (
+          <Grid item xs={8} md={3}>
+            <TextField
+              fullWidth
+              key={el.name}
+              label={el.label}
+              color="secondary"
+              value={searchValues[el.name]}
+              name={el.name}
+              onChange={onChangeFilters}
+            />
+          </Grid>
+        ))}
+      </Grid>
+      <Box textAlign="center" margin={'30px 0'}>
+        <Button variant="outlined" color="secondary" onClick={resetFilters}>
           Reset filters
         </Button>
       </Box>
@@ -73,10 +138,10 @@ const Catalog = ({ role }: { role: string }) => {
         {MasterCatalog?.map((master: IProfileData) => (
           <CatalogCard
             key={master.user.id}
-            firstName={master.user.first_name}
-            lastName={master.user.last_name}
-            avatar={master.avatar}
-            id={master.user.id}
+            firstName={master.user.first_name || ''}
+            lastName={master.user.last_name || ''}
+            avatar={master.avatar || ''}
+            id={master.user.id || 0}
           />
         ))}
       </Grid>

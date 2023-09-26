@@ -1,7 +1,6 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -32,7 +31,7 @@ export default function ResponsiveDrawer(props: Props) {
   const logOutClick = () => {
     dispatch(logoutUser());
   };
-  const { id } = useSelector(selectUser);
+  const { id, avatar } = useSelector(selectUser);
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
@@ -44,7 +43,7 @@ export default function ResponsiveDrawer(props: Props) {
   const drawer = (
     <Container component="main">
       <Toolbar />
-      <Stack>
+      <Stack mb={2}>
         {token && (
           <Stack
             direction="column"
@@ -52,31 +51,32 @@ export default function ResponsiveDrawer(props: Props) {
             alignItems="center"
             gap={2}
           >
-            <Avatar alt="Remy Sharp" component={Link} to={`/profile/${id}`} />
+            <Avatar
+              src={avatar || ''}
+              alt="Remy Sharp"
+              component={Link}
+              to={`/profile/${id}`}
+              sx={{ width: 100, height: 100 }}
+              onClick={handleDrawerToggle}
+            />
           </Stack>
         )}
       </Stack>
       <Divider />
-      <Stack justifyContent="start" alignItems="start">
+      <Stack justifyContent="start" alignItems="start" gap={2}>
         {HEADER_ROUTES.map((route) => (
           <Button
             component={Link}
             to={route.path}
             key={route.path}
-            variant="text"
+            variant="outlined"
+            fullWidth
             onClick={handleDrawerToggle}
           >
             {i18next.t(route.name)}
           </Button>
         ))}
-      </Stack>
-      {token && (
-        <Stack
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          gap={2}
-        >
+        {token ? (
           <Button
             component={Link}
             to="/login"
@@ -90,24 +90,23 @@ export default function ResponsiveDrawer(props: Props) {
           >
             {i18next.t('registration.logout')}
           </Button>
-        </Stack>
-      )}
-      <Divider />
-      <Stack>
-        {!token &&
+        ) : (
           LOGIN_ROUTES.map((route) => (
             <Button
               component={Link}
               to={route.path}
               key={route.path}
               color="primary"
-              variant="outlined"
+              variant="contained"
               onClick={handleDrawerToggle}
+              fullWidth
             >
               {i18next.t(route.name)}
             </Button>
-          ))}
+          ))
+        )}
       </Stack>
+      <Divider />
     </Container>
   );
 
@@ -118,7 +117,6 @@ export default function ResponsiveDrawer(props: Props) {
         display: 'flex',
       }}
     >
-      <CssBaseline />
       <AppBar
         sx={{
           ml: { sm: `${drawerWidth}px` },

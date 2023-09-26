@@ -29,7 +29,8 @@
       "hooks/*": ["hooks/*"],
       "images/*": ["images/*"],
       "store/*": ["store/*"],
-      "api/*": ["api/*"]
+      "api/*": ["api/*"],
+      "constants/*": ["constants/*"]
     }
   },
   "include": ["src", "public"],

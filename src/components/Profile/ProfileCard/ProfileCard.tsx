@@ -1,22 +1,22 @@
 import {
   AddPhotoAlternate,
-  Edit,
   Email,
   Facebook,
   Instagram,
   MusicNote,
   Phone,
   Pinterest,
+  Settings,
 } from '@mui/icons-material';
 import {
   Box,
   Button,
   Card,
-  CardActions,
   CardContent,
   CardMedia,
   Grid,
   IconButton,
+  Tooltip,
   Typography,
 } from '@mui/material';
 import './ProfileCard.scss';
@@ -34,11 +34,9 @@ import {
   useRef,
   useState,
 } from 'react';
-import ModalDownload from 'components/ModalDownload/ModalDownload';
 import { useSelector } from 'react-redux';
 import { selectUser } from 'store/reducers/userSlice';
-
-// To fix: Доделать иправление профиля, когда будет дизайн
+import ModalDownload_v2 from 'components/ModalDownload_v2/ModalDownload_v2';
 
 const SOCIAL_MEDIA_ICONS: { [key: string]: ReactElement } = {
   Facebook: <Facebook />,
@@ -68,14 +66,15 @@ const ProfileCard = ({ id }: { id: number }) => {
           <Grid
             className="contact-item"
             item
-            xs={5}
-            md={5}
+            xs={1}
+            md={1}
             key={socialMediaName}
           >
-            <IconButton>{icon}</IconButton>
-            <Typography variant="body2" fontWeight={300}>
-              {link}
-            </Typography>
+            <Tooltip title={link}>
+              <IconButton target="_blank" href={link}>
+                {icon}
+              </IconButton>
+            </Tooltip>
           </Grid>
         );
       }),
@@ -99,40 +98,30 @@ const ProfileCard = ({ id }: { id: number }) => {
 
   return (
     <Grid item xs={12} md={4} className="card-box">
-      <Card className="card">
+      <Card className="card" sx={{ mb: 2 }}>
         <CardContent className="card-content">
-          <Box className="name-box">
-            <Box display="flex" flexDirection="column" gap={1}>
-              <Box>
-                <Typography variant="h5">
-                  {profileData?.user?.first_name?.toUpperCase()}{' '}
-                  {profileData?.user?.last_name?.toUpperCase()}
-                </Typography>
-              </Box>
-              <Box>
-                <Typography variant="h6" fontWeight={300}>
-                  {profileData?.user?.role?.toUpperCase()}
-                </Typography>
-              </Box>
-            </Box>
-            {userAccess && (
-              <Button
-                variant="outlined"
-                color="primary"
-                size="small"
-                onClick={handleButtonClick}
-              >
-                Change photo
-              </Button>
-            )}
-          </Box>
+          {userAccess && (
+            <IconButton className="profile-settings" onClick={onEditClick}>
+              <Settings />
+            </IconButton>
+          )}
           <CardMedia
+            className="profile-avatar"
             component="img"
             src={profileData?.avatar}
             alt="avatar"
-            sx={{ height: 250, width: 250, borderRadius: '20px' }}
           />
-
+          {userAccess && (
+            <Button
+              className="change-avatar"
+              variant="outlined"
+              color="primary"
+              size="small"
+              onClick={handleButtonClick}
+            >
+              Change photo
+            </Button>
+          )}
           <input
             accept="image/*"
             type="file"
@@ -150,65 +139,54 @@ const ProfileCard = ({ id }: { id: number }) => {
             gap={2}
             justifyContent="center"
           >
-            <Grid className="contact-item" item xs={5} md={5}>
-              <IconButton>
-                <Phone />
-              </IconButton>
-              <Typography variant="body2" fontWeight={300}>
-                {profileData?.phone_number}
-              </Typography>
+            <Grid className="contact-item" item xs={1} md={1}>
+              <Tooltip title={profileData?.phone_number}>
+                <IconButton href={`tel:${profileData?.user?.email}`}>
+                  <Phone />
+                </IconButton>
+              </Tooltip>
             </Grid>
-            <Grid className="contact-item" item xs={5} md={5}>
-              <IconButton>
-                <Email />
-              </IconButton>
-              <Typography variant="body2" fontWeight={300}>
-                {profileData?.user?.email}
-              </Typography>
+            <Grid className="contact-item" item xs={1} md={1}>
+              <Tooltip title={profileData?.user?.email}>
+                <IconButton href={`mailto:${profileData?.user?.email}`}>
+                  <Email />
+                </IconButton>
+              </Tooltip>
             </Grid>
             {renderSocialLinks}
           </Grid>
         </CardContent>
-        {userAccess && (
-          <>
-            <CardActions>
-              <Button
-                startIcon={<Edit />}
-                fullWidth
-                variant="outlined"
-                color="primary"
-                size="small"
-                onClick={onEditClick}
-              >
-                Edit Profile
-              </Button>
-            </CardActions>
-            <CardActions>
-              <Button
-                startIcon={<AddPhotoAlternate />}
-                fullWidth
-                variant="outlined"
-                size="small"
-                onClick={toggleModal}
-              >
-                Add Photo
-              </Button>
-            </CardActions>
-          </>
-        )}
+        <Box display="flex" flexDirection="column" gap={1}>
+          <Box textAlign="center">
+            <Typography variant="h4" fontWeight={700}>
+              {profileData?.user?.first_name} {profileData?.user?.last_name}
+            </Typography>
+            <Typography variant="h4" fontWeight={700}>
+              {profileData?.user?.role?.toUpperCase()}
+            </Typography>
+            <Typography mt={1} variant="body2">
+              {profileData?.city}
+              {profileData?.country}
+            </Typography>
+          </Box>
+        </Box>
         <CardContent className="card-content">
-          <Typography textAlign="justify" variant="body2">
-            {profileData?.city}
-            {profileData?.country}
-          </Typography>
-        </CardContent>
-        <CardContent className="card-content">
-          <Typography textAlign="justify" variant="body2">
+          <Typography textAlign="justify" variant="h5">
             {profileData?.about}
           </Typography>
         </CardContent>
       </Card>
-      <ModalDownload isOpen={isModal} toggle={toggleModal} />
+      <ModalDownload_v2 isOpen={isModal} toggle={toggleModal} />
+      <Button
+        startIcon={<AddPhotoAlternate />}
+        fullWidth
+        color="primary"
+        variant="contained"
+        size="large"
+        onClick={toggleModal}
+      >
+        Add Work
+      </Button>
     </Grid>
   );
 };

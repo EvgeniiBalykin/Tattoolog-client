@@ -15,11 +15,13 @@ const Profile = () => {
   return (
     <Container maxWidth="xl">
       <Grid container flexWrap="wrap">
-        <ProfileCard id={Number(id)} />
         {isEdit && Number(id) === UserId ? (
           <ProfileEdit id={Number(id)} />
         ) : (
-          <ProfilePortfolio />
+          <>
+            <ProfileCard id={Number(id)} />
+            <ProfilePortfolio />
+          </>
         )}
       </Grid>
     </Container>

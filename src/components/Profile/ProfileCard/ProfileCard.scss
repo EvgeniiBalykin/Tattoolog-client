@@ -2,9 +2,8 @@
   border-radius: 20px;
   height: 100%;
   .card {
-    background-color: inherit;
+    background-image: url('/src/images/footer.svg');
     border-radius: 20px;
-    border: 1px solid #2b142f;
   }
 
   .card-content {
@@ -13,12 +12,28 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
+    position: relative;
 
     .name-box {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
+    }
+    .profile-settings {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+    .profile-avatar {
+      height: 250px;
+      width: 250px;
+      border-radius: 20px;
+    }
+
+    .change-avatar {
+      position: absolute;
+      top: 220px;
     }
     .contacts-wrapper {
       gap: 2;

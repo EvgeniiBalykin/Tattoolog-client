@@ -31,7 +31,10 @@ export const App = () => {
               setUser({ ...response.data, avatar: profileData?.avatar || '' })
             );
           }
-          if (response && response?.error?.data?.code === 'token_not_valid') {
+          if (
+            response &&
+            (response as any)?.error?.data?.code === 'token_not_valid'
+          ) {
             dispatch(logoutUser());
           }
         })
