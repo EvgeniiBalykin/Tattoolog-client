@@ -101,19 +101,16 @@ export interface IMainImageBox {
   img: string;
 }
 
-// export interface IUpdateProfile {
-//   user?: {
-//     email?: string;
-//     first_name?: string;
-//     last_name?: string;
-//     password?: string;
-//     role?: string;
-//   };
-//   avatar?: any;
-//   about?: string;
-//   salons_and_masters?: number[];
-//   country?: number | null;
-//   city?: number | null;
-//   birthday?: Date;
-//   phone_number?: string;
-// }
+export interface IBlogPost {
+  body: string;
+  created_at: Date;
+  id: number;
+  image: string;
+  meta_description: string;
+  meta_keywords: string;
+  meta_title_tag: string;
+  opengraph_description: string;
+  opengraph_title: string;
+  slug: string;
+  title: string;
+}

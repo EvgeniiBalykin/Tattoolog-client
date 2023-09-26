@@ -5,6 +5,8 @@ import { LoginPage } from 'pages/LoginPage/LoginPage';
 import { SingInPage } from 'pages/SigInPage/SignInPage';
 import { IRoutes } from 'types';
 import { HeaderRoutesList } from './enums';
+import BlogPage from 'pages/BlogPage/BlogPage';
+import PostPage from 'pages/PostPage/PostPage';
 
 export const HEADER_ROUTES: IRoutes[] = [
   {
@@ -20,7 +22,7 @@ export const HEADER_ROUTES: IRoutes[] = [
   {
     name: 'pages.blog',
     path: HeaderRoutesList.BLOG,
-    element: <div>Blog</div>,
+    element: <BlogPage />,
   },
   {
     name: 'pages.partners',
@@ -59,5 +61,10 @@ export const HELP_PAGES: IRoutes[] = [
     name: 'Profile',
     path: HeaderRoutesList.PROFILE,
     element: <Profile />,
+  },
+  {
+    name: 'Post',
+    path: HeaderRoutesList.BLOG_POST,
+    element: <PostPage />,
   },
 ];

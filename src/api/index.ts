@@ -10,3 +10,5 @@ export const ADD_POST_PHOTO = 'portfolio/post-photo/create/';
 export const WORK_TYPES = 'portfolio/work_types/';
 export const COUNTRIES = 'tools/countries/';
 export const CITIES = 'tools/cities/';
+export const BLOG_POSTS = 'tools/blogs/';
+export const BLOG_POST = 'tools/blog/';
