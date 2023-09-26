@@ -1,7 +1,7 @@
 import AboutMain from './AboutMain';
 import ExpandedPanel from './ExpanedPanel';
 import JoinUsMain from './JoinUsMain';
-import MainSlider from './MainSlider';
+import MainImageBox from '../MainImageBox/MainImageBox';
 import PartnersSlider from './PartnersSlider';
 import WhyUsMain from './WhyUsMain';
 
@@ -9,7 +9,7 @@ export {
   AboutMain,
   ExpandedPanel,
   JoinUsMain,
-  MainSlider,
+  MainImageBox,
   PartnersSlider,
   WhyUsMain,
 };

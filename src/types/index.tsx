@@ -85,6 +85,22 @@ export interface ISendPost {
   work_type: { name: string; description: string };
 }
 
+export interface IDescriptionIcons {
+  title?: string;
+  subtitle: string;
+  icon: string;
+  md?: number;
+  sm?: number;
+  xs?: number;
+}
+
+export interface IMainImageBox {
+  title: string;
+  subtitle: string;
+  buttons: { text: string; link: string }[];
+  img: string;
+}
+
 // export interface IUpdateProfile {
 //   user?: {
 //     email?: string;

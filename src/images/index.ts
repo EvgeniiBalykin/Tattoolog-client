@@ -13,6 +13,13 @@ import Partners_4 from 'images/partners_4.svg';
 import Partners_5 from 'images/partners_5.svg';
 import CloseExpand from 'images/CloseExpand.svg';
 import OpenExpand from 'images/OpenExpand.svg';
+import Amazing_art from 'images/Amazing_art.png';
+import Location from 'images/Location.png';
+import Target from 'images/Target.png';
+import Medal from 'images/Medal.png';
+import MainHand from 'images/MainHand.png';
+import StudioCatalogue from 'images/StudioCatalogue.png';
+import MasterCatalogue from 'images/MasterCatalogue.png';
 
 export {
   Logo,
@@ -30,4 +37,11 @@ export {
   Partners_5,
   CloseExpand,
   OpenExpand,
+  Amazing_art,
+  Location,
+  Target,
+  Medal,
+  MainHand,
+  StudioCatalogue,
+  MasterCatalogue,
 };

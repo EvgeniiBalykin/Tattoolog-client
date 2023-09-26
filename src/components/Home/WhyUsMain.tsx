@@ -1,5 +1,6 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
-import { Cup, Lens, Rocket } from 'images/index';
+import DescriptionIcons from 'components/DescriptionIcons/DescriptionIcons';
+import { WHY_US_ICONS } from 'pages/HomePage/contants';
 
 const WhyUsMain = () => {
   return (
@@ -20,39 +21,16 @@ const WhyUsMain = () => {
           spacing={{ xs: 2, sm: 8, md: 3 }}
           justifyContent="center"
         >
-          <Grid item xs={14} sm={4} md={4}>
-            <div className="img-wrapper">
-              <img src={Rocket} />
-            </div>
-            <Container maxWidth="sm" sx={{ mt: 4 }}>
-              <Typography variant="h5" textAlign="center">
-                Use this space to describe one benefit of your affiliate
-                program.
-              </Typography>
-            </Container>
-          </Grid>
-          <Grid item xs={14} sm={4} md={4}>
-            <div className="img-wrapper">
-              <img src={Cup} />
-            </div>
-            <Container maxWidth="sm" sx={{ mt: 4 }}>
-              <Typography variant="h5" textAlign="center">
-                Use this space to describe one benefit of your affiliate
-                program.
-              </Typography>
-            </Container>
-          </Grid>
-          <Grid item xs={14} sm={4} md={4}>
-            <div className="img-wrapper">
-              <img src={Lens} />
-            </div>
-            <Container maxWidth="sm" sx={{ mt: 4 }}>
-              <Typography variant="h5" textAlign="center">
-                Use this space to describe one benefit of your affiliate
-                program.
-              </Typography>
-            </Container>
-          </Grid>
+          {WHY_US_ICONS.map((el, index) => (
+            <DescriptionIcons
+              key={index}
+              icon={el.icon}
+              subtitle={el.subtitle}
+              xs={14}
+              sm={4}
+              md={4}
+            />
+          ))}
         </Grid>
       </Container>
     </Box>

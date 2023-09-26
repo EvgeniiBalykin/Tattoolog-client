@@ -5,6 +5,7 @@ import {
   Grid,
   IconButton,
   TextField,
+  Tooltip,
 } from '@mui/material';
 import ErrorAlert from 'components/ErrorAlert';
 import { MuiTelInput } from 'mui-tel-input';
@@ -127,9 +128,9 @@ const ProfileEdit = ({ id }: { id: number }) => {
   };
 
   return (
-    <Grid item xs={12} md={8} padding={2} height="100vh">
+    <Grid item xs={12} md={12} padding={2} height="100vh">
       {error && <ErrorAlert error={error} />}
-      <Grid container justifyContent="start" gap={4}>
+      <Grid container justifyContent="center" gap={4}>
         {PROFILE_EDIT_INPUTS.map((field) => (
           <Grid item xs={12} md={5} key={field.name}>
             {field.component === 'select' ? (
@@ -151,14 +152,15 @@ const ProfileEdit = ({ id }: { id: number }) => {
                       <TextField
                         {...params}
                         color="secondary"
-                        variant="filled"
-                        label={field.label}
+                        variant="outlined"
                         name={field.name}
                         size="small"
                         InputLabelProps={{}}
                       />
                       <Box display="flex" sx={{ backgroundColor: '#4A2352' }}>
-                        <IconButton>{field.icon}</IconButton>
+                        <Tooltip title={field.label}>
+                          <IconButton>{field.icon}</IconButton>
+                        </Tooltip>
                       </Box>
                     </Box>
                   )}
@@ -182,15 +184,17 @@ const ProfileEdit = ({ id }: { id: number }) => {
                       <TextField
                         {...params}
                         color="secondary"
-                        variant="filled"
-                        label={field.label}
+                        variant="outlined"
                         name={field.name}
                         onChange={onChange}
                         size="small"
                         InputLabelProps={{}}
                       />
+
                       <Box display="flex" sx={{ backgroundColor: '#4A2352' }}>
-                        <IconButton>{field.icon}</IconButton>
+                        <Tooltip title={field.label}>
+                          <IconButton>{field.icon}</IconButton>
+                        </Tooltip>
                       </Box>
                     </Box>
                   )}
@@ -201,7 +205,7 @@ const ProfileEdit = ({ id }: { id: number }) => {
                 {field.type === 'phone' ? (
                   <MuiTelInput
                     fullWidth
-                    variant="filled"
+                    variant="outlined"
                     size="small"
                     name="phone_number"
                     value={fieldsValue.phone_number}
@@ -213,18 +217,19 @@ const ProfileEdit = ({ id }: { id: number }) => {
                   <TextField
                     color="secondary"
                     type={field.type}
-                    label={field.label}
                     name={field.name}
                     onChange={onChange}
                     value={fieldsValue[field.name as keyof IState]}
                     fullWidth
-                    variant="filled"
+                    variant="outlined"
                     size="small"
                   />
                 )}
 
                 <Box display="flex" sx={{ backgroundColor: '#4A2352' }}>
-                  <IconButton>{field.icon}</IconButton>
+                  <Tooltip title={field.label}>
+                    <IconButton>{field.icon}</IconButton>
+                  </Tooltip>
                 </Box>
               </Box>
             )}
@@ -232,7 +237,7 @@ const ProfileEdit = ({ id }: { id: number }) => {
         ))}
         <Grid item md={11} xs={12}>
           <TextField
-            variant="filled"
+            variant="outlined"
             color="secondary"
             label="About"
             name="about"
@@ -243,7 +248,12 @@ const ProfileEdit = ({ id }: { id: number }) => {
             rows={7}
           />
           <Box display="flex" justifyContent="center" gap={2} mt={2}>
-            <Button sx={{ width: '50%' }} variant="outlined" onClick={onSubmit}>
+            <Button
+              sx={{ width: '50%' }}
+              variant="outlined"
+              color="success"
+              onClick={onSubmit}
+            >
               Save
             </Button>
             <Button

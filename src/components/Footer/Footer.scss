@@ -1,12 +1,17 @@
 .footer-wrapper {
   background: url('images/footer.svg');
   padding: 50px 0;
-  margin-top: 30px;
 
   .footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .footer-wrapper {
+    margin-top: 270px;
   }
 }

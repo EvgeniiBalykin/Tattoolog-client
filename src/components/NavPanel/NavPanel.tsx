@@ -4,18 +4,27 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import { HEADER_ROUTES, LOGIN_ROUTES } from 'routes/HeaderRoutes';
 import i18next from 'i18next';
-import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'hooks/redux';
 import { logoutUser, selectLogin } from 'store/reducers/loginSlice';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Avatar, Container, useMediaQuery, useTheme } from '@mui/material';
+import {
+  Avatar,
+  Container,
+  Divider,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import ResponsiveDrawer from 'components/NavDrawer/NavDrawer';
 import Logo from 'images/Logo.svg';
 import { clearUser, selectUser } from 'store/reducers/userSlice';
+import { useState } from 'react';
+import { Logout } from '@mui/icons-material';
 
 export const NavPanel = () => {
-  const { t } = useTranslation();
   const loginState = useSelector(selectLogin);
   const token = loginState?.token;
   const dispatch = useAppDispatch();
@@ -26,6 +35,14 @@ export const NavPanel = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const { id, avatar } = useSelector(selectUser);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   // Убрать инлайновые стили
 
@@ -86,20 +103,74 @@ export const NavPanel = () => {
               <Avatar
                 src={avatar || ''}
                 alt="Remy Sharp"
-                component={Link}
-                to={`/profile/${id}`}
+                onClick={handleClick}
               />
-              <Button
-                component={Link}
-                to="/login"
-                variant="outlined"
-                onClick={logOutClick}
-                size="small"
-              >
-                {t('registration.logout')}
-              </Button>
             </Box>
           )}
+          <Menu
+            anchorEl={anchorEl}
+            id="account-menu"
+            open={open}
+            onClose={handleClose}
+            onClick={handleClose}
+            PaperProps={{
+              elevation: 0,
+              sx: {
+                overflow: 'visible',
+                filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+                mt: 1.5,
+                '& .MuiAvatar-root': {
+                  width: 32,
+                  height: 32,
+                  ml: -0.5,
+                  mr: 1,
+                },
+                '&:before': {
+                  content: '""',
+                  display: 'block',
+                  position: 'absolute',
+                  top: 0,
+                  right: 14,
+                  width: 10,
+                  height: 10,
+                  bgcolor: 'background.paper',
+                  transform: 'translateY(-50%) rotate(45deg)',
+                  zIndex: 0,
+                },
+              },
+            }}
+            transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+            anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+          >
+            <MenuItem onClick={handleClose}>
+              <Box
+                sx={{ textDecoration: 'none', color: 'inherit' }}
+                component={Link}
+                to={`/profile/${id}`}
+                display="flex"
+              >
+                <ListItemIcon>
+                  <Avatar />
+                </ListItemIcon>
+                My Profile
+              </Box>
+            </MenuItem>
+            <Divider />
+            <MenuItem onClick={handleClose}>
+              <Box
+                sx={{ textDecoration: 'none', color: 'inherit' }}
+                component={Link}
+                to="/login"
+                onClick={logOutClick}
+                display="flex"
+              >
+                <ListItemIcon>
+                  <Logout />
+                </ListItemIcon>
+                Logout
+              </Box>
+            </MenuItem>
+          </Menu>
         </Box>
       </Toolbar>
     </AppBar>

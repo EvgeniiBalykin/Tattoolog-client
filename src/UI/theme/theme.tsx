@@ -9,7 +9,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Mooli, sans-serif',
+    fontFamily: 'PT Sans, sans-serif;',
     h1: {
       fontSize: '48px',
       fontWeight: 600,
@@ -68,6 +68,18 @@ const theme = createTheme({
             border: 'none',
             ':hover': {
               backgroundColor: '#6C3483',
+            },
+          },
+        },
+        {
+          props: { variant: 'contained', color: 'info' },
+          style: {
+            backgroundColor: 'white',
+            color: 'black',
+            border: 'none',
+            ':hover': {
+              backgroundColor: '#6C3483',
+              color: 'white',
             },
           },
         },

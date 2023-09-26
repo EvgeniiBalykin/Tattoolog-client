@@ -18,6 +18,7 @@ export default {
       images: '/src/images',
       store: '/src/store',
       api: '/src/api',
+      constants: '/src/constants',
     },
   },
 };
