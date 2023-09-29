@@ -46,6 +46,13 @@ export interface IProfileData {
   social_media_profile?: ISocialMedia[];
 }
 
+export interface ICatalogData {
+  count: number;
+  next: string;
+  previous: string;
+  results: IProfileData[];
+}
+
 export interface ICountriesData {
   id: number;
   name: string;
@@ -113,4 +120,17 @@ export interface IBlogPost {
   opengraph_title: string;
   slug: string;
   title: string;
+}
+
+export interface IPostData {
+  count: number;
+  next: string;
+  previous: string;
+  results: IBlogPost[];
+}
+
+export interface IPartnersData {
+  name: string;
+  link: string;
+  logo: string;
 }

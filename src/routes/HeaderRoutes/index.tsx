@@ -7,6 +7,7 @@ import { IRoutes } from 'types';
 import { HeaderRoutesList } from './enums';
 import BlogPage from 'pages/BlogPage/BlogPage';
 import PostPage from 'pages/PostPage/PostPage';
+import PartnersPage from 'pages/PartnersPage/PartnersPage';
 
 export const HEADER_ROUTES: IRoutes[] = [
   {
@@ -27,7 +28,7 @@ export const HEADER_ROUTES: IRoutes[] = [
   {
     name: 'pages.partners',
     path: HeaderRoutesList.PARTNERS,
-    element: <div>Partners</div>,
+    element: <PartnersPage />,
   },
   {
     name: 'Contacts',

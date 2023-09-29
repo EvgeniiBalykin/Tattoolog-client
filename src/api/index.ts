@@ -12,3 +12,4 @@ export const COUNTRIES = 'tools/countries/';
 export const CITIES = 'tools/cities/';
 export const BLOG_POSTS = 'tools/blogs/';
 export const BLOG_POST = 'tools/blog/';
+export const PARTNERS = 'tools/partners/';

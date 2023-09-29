@@ -6,11 +6,11 @@ import About_Photo_2 from 'images/About_2.png';
 import Cup from 'images/Cup.png';
 import Lens from 'images/Lens.png';
 import Rocket from 'images/Rocket.png';
-import Partners_1 from 'images/partners_1.svg';
-import Partners_2 from 'images/partners_2.svg';
-import Partners_3 from 'images/partners_3.svg';
-import Partners_4 from 'images/partners_4.svg';
-import Partners_5 from 'images/partners_5.svg';
+import Partner_1 from 'images/Partner.svg';
+import Partner_2 from 'images/Partner_2.svg';
+import Partner_3 from 'images/Partner_3.svg';
+import Partner_4 from 'images/Partner_4.svg';
+import Partner_5 from 'images/Partner_5.svg';
 import CloseExpand from 'images/CloseExpand.svg';
 import OpenExpand from 'images/OpenExpand.svg';
 import Amazing_art from 'images/Amazing_art.png';
@@ -30,11 +30,11 @@ export {
   Cup,
   Lens,
   Rocket,
-  Partners_1,
-  Partners_2,
-  Partners_3,
-  Partners_4,
-  Partners_5,
+  Partner_1,
+  Partner_2,
+  Partner_3,
+  Partner_4,
+  Partner_5,
   CloseExpand,
   OpenExpand,
   Amazing_art,

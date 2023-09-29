@@ -6,7 +6,12 @@ import {
   PROFILES_BY_ROLE,
   WORK_TYPES,
 } from 'api';
-import { IProfileData, IProfilePortfolio, IWorkTypes } from 'types';
+import {
+  ICatalogData,
+  IProfileData,
+  IProfilePortfolio,
+  IWorkTypes,
+} from 'types';
 
 interface ICatalogParams {
   role: string;
@@ -19,11 +24,11 @@ export const profileApi = createApi({
   reducerPath: 'profileApi',
   baseQuery: fetchBaseQuery({ baseUrl: LOCAL_SERVER }),
   endpoints: (builder) => ({
-    getMasterCatalog: builder.query<IProfileData[], ICatalogParams>({
+    getMasterCatalog: builder.query<ICatalogData, ICatalogParams>({
       query: ({ role, name, city, country }) =>
         `${
           PROFILES_BY_ROLE + role
-        }/?name=${name}&city=${city}&$country=${country}`,
+        }/?name=${name}&city=${city}&$country=${country}&count=10`,
     }),
     getProfileData: builder.query<IProfileData, number>({
       query: (userId) => `${PROFILE_USER + `${userId}/`}`,
