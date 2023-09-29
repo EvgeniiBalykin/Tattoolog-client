@@ -2,21 +2,21 @@ import { Box, Container, Typography } from '@mui/material';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import {
-  Partners_1,
-  Partners_2,
-  Partners_3,
-  Partners_4,
-  Partners_5,
+  Partner_1,
+  Partner_2,
+  Partner_3,
+  Partner_4,
+  Partner_5,
 } from 'images/index';
 import { ReactElement, useMemo } from 'react';
 import ExpandedPanel from './ExpanedPanel';
 
 const SliderImages: string[] = [
-  Partners_1,
-  Partners_2,
-  Partners_3,
-  Partners_4,
-  Partners_5,
+  Partner_1,
+  Partner_2,
+  Partner_3,
+  Partner_4,
+  Partner_5,
 ];
 
 const PartnersSlider = () => {
@@ -28,16 +28,10 @@ const PartnersSlider = () => {
           maxWidth="xs"
           sx={{
             padding: 0,
-            margin: 0,
-            '@media (max-width: 920px)': {
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              textAlign: 'center',
-            },
+            margin: '0 50px',
           }}
         >
-          <img src={el} width="200px" height="200px" />
+          <img src={el} width="250px" height="200px" />
         </Container>
       )),
     []

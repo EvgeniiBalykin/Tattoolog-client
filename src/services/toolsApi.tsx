@@ -5,8 +5,9 @@ import {
   CITIES,
   COUNTRIES,
   LOCAL_SERVER,
+  PARTNERS,
 } from 'api/index';
-import { IBlogPost, ICountriesData } from 'types';
+import { IBlogPost, ICountriesData, IPartnersData, IPostData } from 'types';
 
 export const toolsApi = createApi({
   reducerPath: 'toolsApi',
@@ -28,11 +29,14 @@ export const toolsApi = createApi({
           city ? city : ''
         }&page_size=30`,
     }),
-    getBlogPosts: builder.query<IBlogPost[], void>({
-      query: () => BLOG_POSTS,
+    getBlogPosts: builder.query<IPostData, number>({
+      query: (limit) => BLOG_POSTS + `?page=1&page_size=${limit}`,
     }),
     getBlogPost: builder.query<IBlogPost, string>({
       query: (id) => `${BLOG_POST + id}/`,
+    }),
+    getPartners: builder.query<IPartnersData[], void>({
+      query: () => PARTNERS,
     }),
   }),
 });
@@ -42,4 +46,5 @@ export const {
   useGetCityQuery,
   useGetBlogPostsQuery,
   useGetBlogPostQuery,
+  useGetPartnersQuery,
 } = toolsApi;

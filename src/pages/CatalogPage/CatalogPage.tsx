@@ -49,7 +49,6 @@ const Catalog = ({ role }: { role: string }) => {
     country: '',
   });
   const isMasterCatalogue = location.pathname === '/master_catalog';
-
   const { data: MasterCatalog } = useGetMasterCatalogQuery({
     role,
     name: searchValues.name,
@@ -135,7 +134,7 @@ const Catalog = ({ role }: { role: string }) => {
         </Button>
       </Box>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        {MasterCatalog?.map((master: IProfileData) => (
+        {MasterCatalog?.results.map((master: IProfileData) => (
           <CatalogCard
             key={master.user.id}
             firstName={master.user.first_name || ''}
