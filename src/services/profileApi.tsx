@@ -18,6 +18,7 @@ interface ICatalogParams {
   name: string;
   city: string;
   country: string;
+  limit: number;
 }
 
 export const profileApi = createApi({
@@ -25,10 +26,10 @@ export const profileApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: LOCAL_SERVER }),
   endpoints: (builder) => ({
     getMasterCatalog: builder.query<ICatalogData, ICatalogParams>({
-      query: ({ role, name, city, country }) =>
+      query: ({ role, name, city, country, limit }) =>
         `${
           PROFILES_BY_ROLE + role
-        }/?name=${name}&city=${city}&$country=${country}&count=10`,
+        }/?name=${name}&city=${city}&$country=${country}&page=1&page_size=${limit}`,
     }),
     getProfileData: builder.query<IProfileData, number>({
       query: (userId) => `${PROFILE_USER + `${userId}/`}`,
