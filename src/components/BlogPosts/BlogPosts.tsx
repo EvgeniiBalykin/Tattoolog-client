@@ -11,12 +11,14 @@ import {
 import { useNavigate } from 'react-router';
 import { useEffect, useState } from 'react';
 import { LoadingButton } from '@mui/lab';
+import { useTranslation } from 'react-i18next';
 
 const BlogPosts = () => {
   const [limit, setLimit] = useState(6);
   const [desableButton, setDisableButton] = useState(false);
   const { data: posts, isLoading } = useGetBlogPostsQuery(limit);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const loadMoreClick = () => {
     setLimit((prev) => prev + 3);
@@ -64,7 +66,7 @@ const BlogPosts = () => {
           color="primary"
           onClick={loadMoreClick}
         >
-          Load more
+          {t('buttons.load_more')}
         </LoadingButton>
       </Box>
     </>

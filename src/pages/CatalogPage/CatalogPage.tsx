@@ -1,3 +1,4 @@
+import { LoadingButton } from '@mui/lab';
 import {
   Box,
   Button,
@@ -10,7 +11,7 @@ import CatalogCard from 'components/CatalogCard/CatalogCard';
 import DescriptionIcons from 'components/DescriptionIcons/DescriptionIcons';
 import { MainImageBox } from 'components/Home';
 import JointNow from 'components/JoinNow/JoinNow';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import { useGetMasterCatalogQuery } from 'services/profileApi';
 import { IProfileData } from 'types';
@@ -43,18 +44,29 @@ const FILTERS: { name: keyof IStateProps; label: string }[] = [
 
 const Catalog = ({ role }: { role: string }) => {
   const location = useLocation();
+  const [limit, setLimit] = useState<number>(6);
+  const [desableButton, setDisableButton] = useState(false);
   const [searchValues, setSearchValues] = useState<IStateProps>({
     name: '',
     city: '',
     country: '',
   });
   const isMasterCatalogue = location.pathname === '/master_catalog';
-  const { data: MasterCatalog } = useGetMasterCatalogQuery({
+  const { data: MasterCatalog, isLoading } = useGetMasterCatalogQuery({
     role,
     name: searchValues.name,
     city: searchValues.city,
     country: searchValues.country,
+    limit,
   });
+
+  const loadMoreClick = () => {
+    setLimit((prev) => prev + 3);
+  };
+
+  useEffect(() => {
+    MasterCatalog?.next === null && setDisableButton(true);
+  }, [MasterCatalog]);
 
   const resetFilters = () =>
     setSearchValues({ name: '', city: '', country: '' });
@@ -141,9 +153,22 @@ const Catalog = ({ role }: { role: string }) => {
             lastName={master.user.last_name || ''}
             avatar={master.avatar || ''}
             id={master.user.id || 0}
+            city={master.city}
+            country={master.country}
           />
         ))}
       </Grid>
+      <Box mt={4} display="flex" justifyContent="center">
+        <LoadingButton
+          disabled={desableButton}
+          loading={isLoading}
+          variant="contained"
+          color="primary"
+          onClick={loadMoreClick}
+        >
+          Load more
+        </LoadingButton>
+      </Box>
     </Container>
   );
 };

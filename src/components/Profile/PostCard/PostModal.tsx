@@ -12,8 +12,6 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import { IProfilePortfolio } from 'types';
 import './PostModal.scss';
 
-//To do: Доделать стили и разобравться с post description
-
 const PostModal = ({
   post,
   isOpen,

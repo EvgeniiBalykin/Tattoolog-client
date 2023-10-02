@@ -25,6 +25,7 @@ import {
   useGetWorkTypesQuery,
 } from 'services/profileApi';
 import './ModalDownload_v2.scss';
+import { useTranslation } from 'react-i18next';
 
 interface IInputValues {
   files: File[] | null;
@@ -38,6 +39,7 @@ interface IModalProps {
 }
 
 const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
   const { data } = useGetWorkTypesQuery();
@@ -135,7 +137,7 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
                   color="primary"
                   onClick={onUploadClick}
                 >
-                  Upload Images
+                  {t('buttons.upload_img')}
                 </Button>
               </Box>
               <Box className="modal-img">
@@ -235,7 +237,7 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
               }
               onClick={onPostData}
             >
-              Publish
+              {t('buttons.publish')}
             </Button>
           </Box>
         </Container>

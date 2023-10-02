@@ -1,10 +1,12 @@
 import { Box, Grid, ImageList, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { useGetProfilePortfolioQuery } from 'services/profileApi';
 import PostCard from '../PostCard/PostCard';
 
 const ProfilePortfolio = () => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const { data: profilePortfolio } = useGetProfilePortfolioQuery(Number(id));
   const [isMobileScreen, setIsMobileScreen] = useState<boolean>(
@@ -42,7 +44,7 @@ const ProfilePortfolio = () => {
         </Box>
       ) : (
         <Typography textAlign="center" width="100%" sx={{}}>
-          No works yet
+          {t('pages.no_work')}
         </Typography>
       )}
     </Grid>

@@ -37,6 +37,7 @@ import {
 import { useSelector } from 'react-redux';
 import { selectUser } from 'store/reducers/userSlice';
 import ModalDownload_v2 from 'components/ModalDownload_v2/ModalDownload_v2';
+import { useTranslation } from 'react-i18next';
 
 const SOCIAL_MEDIA_ICONS: { [key: string]: ReactElement } = {
   Facebook: <Facebook />,
@@ -46,6 +47,7 @@ const SOCIAL_MEDIA_ICONS: { [key: string]: ReactElement } = {
 };
 
 const ProfileCard = ({ id }: { id: number }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { data: profileData, refetch } = useGetProfileDataQuery(id);
   const [isModal, setIsModal] = useState(false);
@@ -119,7 +121,7 @@ const ProfileCard = ({ id }: { id: number }) => {
               size="small"
               onClick={handleButtonClick}
             >
-              Change photo
+              {t('buttons.change_photo')}
             </Button>
           )}
           <input
@@ -185,7 +187,7 @@ const ProfileCard = ({ id }: { id: number }) => {
         size="large"
         onClick={toggleModal}
       >
-        Add Work
+        {t('buttons.add_work')}
       </Button>
     </Grid>
   );

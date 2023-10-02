@@ -10,6 +10,7 @@ import {
 import ErrorAlert from 'components/ErrorAlert';
 import { MuiTelInput } from 'mui-tel-input';
 import { ChangeEvent, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import {
   useGetProfileDataQuery,
@@ -40,6 +41,7 @@ interface IState {
 }
 
 const ProfileEdit = ({ id }: { id: number }) => {
+  const { t } = useTranslation();
   const { data, refetch } = useGetProfileDataQuery(id);
   const dispatch = useDispatch();
   const [fieldsValue, setFieldsValue] = useState<IState>({
@@ -239,7 +241,7 @@ const ProfileEdit = ({ id }: { id: number }) => {
           <TextField
             variant="outlined"
             color="secondary"
-            label="About"
+            label={t('form.about')}
             name="about"
             value={fieldsValue.about}
             onChange={onChange}
@@ -254,7 +256,7 @@ const ProfileEdit = ({ id }: { id: number }) => {
               color="success"
               onClick={onSubmit}
             >
-              Save
+              {t('buttons.save')}
             </Button>
             <Button
               sx={{ width: '50%', borderRadius: '10px' }}
@@ -262,7 +264,7 @@ const ProfileEdit = ({ id }: { id: number }) => {
               color="error"
               onClick={() => dispatch(toggleAddChange())}
             >
-              Close
+              {t('buttons.close')}
             </Button>
           </Box>
         </Grid>

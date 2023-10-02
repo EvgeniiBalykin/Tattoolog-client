@@ -1,3 +1,5 @@
+import i18next from 'i18next';
+
 const REQUIRED_FIELD = 'This field is required';
 const REG_EXP_EMAIL = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 const REG_EXP_PASSWORD = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+/;
@@ -6,7 +8,7 @@ export const nameValidation = {
   required: REQUIRED_FIELD,
   validate: (value: string) => {
     if (value.match(/[а-яА-Я]/)) {
-      return 'Incorrect name';
+      return i18next.t('validation.error_name');
     }
 
     return true;
@@ -17,7 +19,7 @@ export const emailValidation = {
   required: REQUIRED_FIELD,
   validate: (value: string) => {
     if (!REG_EXP_EMAIL.test(value)) {
-      return 'Invalid email format';
+      return i18next.t('validation.error_email');
     }
 
     return true;
@@ -28,11 +30,11 @@ export const passwordValidation = {
   required: REQUIRED_FIELD,
   validate: (value: string) => {
     if (value.length < 8) {
-      return 'Password must be at least 8 characters';
+      return i18next.t('validation.error_password');
     }
 
     if (!REG_EXP_PASSWORD.test(value)) {
-      return 'Password must contain at least one uppercase letter, one lowercase letter, and one digit';
+      return i18next.t('validation.error_password_2');
     }
 
     return true;
