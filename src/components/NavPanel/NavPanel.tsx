@@ -23,8 +23,10 @@ import Logo from 'images/Logo.svg';
 import { clearUser, selectUser } from 'store/reducers/userSlice';
 import { useState } from 'react';
 import { Logout } from '@mui/icons-material';
+import { useTranslation } from 'react-i18next';
 
 export const NavPanel = () => {
+  const { t } = useTranslation();
   const loginState = useSelector(selectLogin);
   const token = loginState?.token;
   const dispatch = useAppDispatch();
@@ -152,7 +154,7 @@ export const NavPanel = () => {
                 <ListItemIcon>
                   <Avatar />
                 </ListItemIcon>
-                My Profile
+                {t('buttons.my_profile')}
               </Box>
             </MenuItem>
             <Divider />
@@ -167,7 +169,7 @@ export const NavPanel = () => {
                 <ListItemIcon>
                   <Logout />
                 </ListItemIcon>
-                Logout
+                {t('registration.logout')}
               </Box>
             </MenuItem>
           </Menu>

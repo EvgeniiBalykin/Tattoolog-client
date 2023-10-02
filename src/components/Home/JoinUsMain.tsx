@@ -9,6 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 import { AddMasterPhoto, AddStudioPhoto } from 'images/index';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { selectUser } from 'store/reducers/userSlice';
@@ -16,12 +17,13 @@ import { selectUser } from 'store/reducers/userSlice';
 const JoinUsMain = () => {
   const navigate = useNavigate();
   const { id } = useSelector(selectUser);
+  const { t } = useTranslation();
 
   return (
     <Box className="wrapper">
       <Container maxWidth="xl">
         <Typography variant="h1" textAlign="center" textTransform="uppercase">
-          Join us
+          {t('pages.join')}
         </Typography>
         <Container maxWidth="lg" sx={{ mb: 12 }}>
           <Typography variant="h5" textAlign="center">
@@ -52,7 +54,7 @@ const JoinUsMain = () => {
                 />
                 <div className="card-text">
                   <Typography variant="h3" textTransform="uppercase">
-                    tattoo artist
+                    {t('pages.masters')}
                   </Typography>
                 </div>
                 <div className="card-button">
@@ -64,7 +66,7 @@ const JoinUsMain = () => {
                       id ? navigate(`/profile/${id}`) : navigate('/signin')
                     }
                   >
-                    Add
+                    {t('buttons.add')}
                   </Button>
                 </div>
               </CardContent>
@@ -85,7 +87,7 @@ const JoinUsMain = () => {
                 />
                 <div className="card-text">
                   <Typography variant="h3" textTransform="uppercase">
-                    tattoo studio
+                    {t('pages.studios')}
                   </Typography>
                 </div>
                 <div className="card-button">
@@ -97,7 +99,7 @@ const JoinUsMain = () => {
                       id ? navigate(`/profile/${id}`) : navigate('/signin')
                     }
                   >
-                    Add
+                    {t('buttons.add')}
                   </Button>
                 </div>
               </CardContent>

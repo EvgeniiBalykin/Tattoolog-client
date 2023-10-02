@@ -1,13 +1,15 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
 import DescriptionIcons from 'components/DescriptionIcons/DescriptionIcons';
 import { WHY_US_ICONS } from 'pages/HomePage/contants';
+import { useTranslation } from 'react-i18next';
 
 const WhyUsMain = () => {
+  const { t } = useTranslation();
   return (
     <Box className="wrapper-reverse">
       <Container maxWidth="xl">
         <Typography variant="h1" textAlign="center" textTransform="uppercase">
-          Why us?
+          {t('pages.why_us')}
         </Typography>
         <Container maxWidth="lg" sx={{ mb: 10 }}>
           <Typography variant="h5" textAlign="center">

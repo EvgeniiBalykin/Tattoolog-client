@@ -10,6 +10,7 @@ import {
 } from 'images/index';
 import { ReactElement, useMemo } from 'react';
 import ExpandedPanel from './ExpanedPanel';
+import { useTranslation } from 'react-i18next';
 
 const SliderImages: string[] = [
   Partner_1,
@@ -20,6 +21,7 @@ const SliderImages: string[] = [
 ];
 
 const PartnersSlider = () => {
+  const { t } = useTranslation();
   const SliderItems = useMemo(
     (): ReactElement<string, string>[] =>
       SliderImages.map((el, key) => (
@@ -41,7 +43,7 @@ const PartnersSlider = () => {
     <Box className="wrapper-reverse">
       <Container maxWidth="lg">
         <Typography variant="h1" textAlign="center">
-          Partners
+          {t('pages.partners')}
         </Typography>
         <AliceCarousel
           disableDotsControls

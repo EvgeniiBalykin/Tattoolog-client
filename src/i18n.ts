@@ -23,7 +23,7 @@ i18n.use(initReactI18next).init({
     },
   },
   lng: getSelectedLanguage(),
-  fallbackLng: 'en',
+  fallbackLng: 'ru',
   interpolation: {
     escapeValue: false,
   },

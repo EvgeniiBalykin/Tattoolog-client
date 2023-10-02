@@ -1,18 +1,20 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { About_Photo_1, About_Photo_2 } from 'images/index';
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const AboutMain = () => {
   const reverseGrid = useMemo(
     () => (window.innerWidth <= 390 ? 'column-reverse' : undefined),
     [window.innerWidth]
   );
+  const { t } = useTranslation();
 
   return (
     <Box className="wrapper" mt={8}>
       <Container component="main">
         <Typography variant="h1" textAlign="center" textTransform="uppercase">
-          About us
+          {t('pages.about')}
         </Typography>
         <Grid
           container
