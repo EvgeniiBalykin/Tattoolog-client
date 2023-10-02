@@ -31,7 +31,7 @@ export const HEADER_ROUTES: IRoutes[] = [
     element: <PartnersPage />,
   },
   {
-    name: 'Contacts',
+    name: 'pages.contacts',
     path: HeaderRoutesList.CONTACTS,
     element: <div>Contacts</div>,
   },

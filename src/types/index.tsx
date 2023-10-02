@@ -32,9 +32,9 @@ export interface IProfileData {
   avatar?: string;
   salons_and_masters?: [];
   status?: string;
-  country?: number | null;
+  country?: any;
   phone_number?: string;
-  city?: number | null;
+  city?: any;
   birthday?: Date;
   user: {
     email?: string;

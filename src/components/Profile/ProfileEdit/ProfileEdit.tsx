@@ -241,7 +241,7 @@ const ProfileEdit = ({ id }: { id: number }) => {
           <TextField
             variant="outlined"
             color="secondary"
-            label="About"
+            label={t('form.about')}
             name="about"
             value={fieldsValue.about}
             onChange={onChange}

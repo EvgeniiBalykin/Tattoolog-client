@@ -10,6 +10,7 @@ import {
   PublicRounded,
   Storefront,
 } from '@mui/icons-material';
+import i18next from 'i18next';
 import { ReactElement } from 'react';
 
 export const PROFILE_EDIT_INPUTS: {
@@ -20,45 +21,45 @@ export const PROFILE_EDIT_INPUTS: {
   label: string;
 }[] = [
   {
-    label: 'Name',
+    label: i18next.t('form.name'),
     type: 'text',
     icon: <Storefront />,
     name: 'first_name',
   },
   {
-    label: 'Last name',
+    label: i18next.t('form.surname'),
     type: 'text',
     icon: <Storefront />,
     name: 'last_name',
   },
   {
-    label: 'Phone Number',
+    label: i18next.t('form.phone'),
     type: 'phone',
     icon: <Phone />,
     name: 'phone_number',
   },
   {
-    label: 'Data of birth',
+    label: i18next.t('form.birthday'),
     type: 'text',
     icon: <Cake />,
     name: 'birthday',
   },
   {
-    label: 'Country',
+    label: i18next.t('form.country'),
     type: 'text',
     component: 'select',
     icon: <PublicRounded />,
     name: 'country',
   },
   {
-    label: 'City',
+    label: i18next.t('form.city'),
     type: 'text',
     component: 'select',
     icon: <LocationCity />,
     name: 'city',
   },
   {
-    label: 'Adress',
+    label: i18next.t('form.adress'),
     type: 'text',
     icon: <LocationOnRounded />,
     name: 'adress',

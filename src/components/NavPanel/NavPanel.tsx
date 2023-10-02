@@ -24,6 +24,7 @@ import { clearUser, selectUser } from 'store/reducers/userSlice';
 import { useState } from 'react';
 import { Logout } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
+import LangSwitcher from 'components/LangSwitcher/LangSwitcher';
 
 export const NavPanel = () => {
   const { t } = useTranslation();
@@ -86,6 +87,7 @@ export const NavPanel = () => {
           ))}
         </Box>
         <Box sx={{ display: 'flex', gap: '10px' }}>
+          <LangSwitcher isSelect={true} />
           {!token ? (
             LOGIN_ROUTES.map((route) => (
               <Button
@@ -114,7 +116,6 @@ export const NavPanel = () => {
             id="account-menu"
             open={open}
             onClose={handleClose}
-            onClick={handleClose}
             PaperProps={{
               elevation: 0,
               sx: {

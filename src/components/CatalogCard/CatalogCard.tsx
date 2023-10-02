@@ -14,6 +14,8 @@ interface ICatalogCardProps {
   lastName: string;
   id: number;
   avatar: string;
+  city: string;
+  country: string;
 }
 
 const CatalogCard = ({
@@ -21,6 +23,8 @@ const CatalogCard = ({
   lastName,
   id,
   avatar,
+  city,
+  country,
 }: ICatalogCardProps) => {
   const navigate = useNavigate();
 
@@ -42,7 +46,9 @@ const CatalogCard = ({
             <Typography variant="h3">
               {firstName} {lastName}
             </Typography>
-            <Typography variant="h5">Poland, Krakow</Typography>
+            <Typography variant="h5">
+              {country ? `${country},` : ''} {city}
+            </Typography>
           </div>
         </CardActionArea>
       </Card>

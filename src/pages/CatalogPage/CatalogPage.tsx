@@ -153,6 +153,8 @@ const Catalog = ({ role }: { role: string }) => {
             lastName={master.user.last_name || ''}
             avatar={master.avatar || ''}
             id={master.user.id || 0}
+            city={master.city}
+            country={master.country}
           />
         ))}
       </Grid>

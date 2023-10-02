@@ -2,6 +2,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import en from '../src/locales/en/translation.json';
 import ru from '../src/locales/ru/translation.json';
+import ua from '../src/locales/ua/translation.json';
 
 const LANGUAGE_LOCAL_STORAGE_KEY = 'selectedLanguage';
 
@@ -20,6 +21,9 @@ i18n.use(initReactI18next).init({
     },
     ru: {
       translation: ru,
+    },
+    ua: {
+      translation: ua,
     },
   },
   lng: getSelectedLanguage(),

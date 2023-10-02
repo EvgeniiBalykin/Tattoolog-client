@@ -15,6 +15,7 @@ import { useAppDispatch } from 'hooks/redux';
 import i18next from 'i18next';
 import './NavDrawer.scss';
 import { selectUser } from 'store/reducers/userSlice';
+import LangSwitcher from 'components/LangSwitcher/LangSwitcher';
 
 const drawerWidth = 240;
 
@@ -63,6 +64,7 @@ export default function ResponsiveDrawer(props: Props) {
         )}
       </Stack>
       <Divider />
+      <LangSwitcher isSelect={false} />
       <Stack justifyContent="start" alignItems="start" gap={2}>
         {HEADER_ROUTES.map((route) => (
           <Button

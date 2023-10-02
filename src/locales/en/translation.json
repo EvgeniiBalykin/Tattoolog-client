@@ -1,25 +1,55 @@
 {
   "registration": {
-    "login": "Login",
-    "forgot_password": "Forgot password?",
-    "need_signup": "Don't have an account? Sign Up",
+    "login": "Log in",
+    "forgot_password": "Forgot your password?",
+    "need_signup": "Don't have an account?",
     "welcome": "Welcome",
-    "logout": "Logout",
+    "logout": "Log out",
     "signin": "Sign in",
-    "create_acc": "Create account",
-    "email_invite": "An email has been sent to you",
-    "make_access": "Follow the instructions in the email to complete your registration"
+    "create_acc": "Create an account",
+    "email_invite": "An email has been sent to your address",
+    "make_access": "Follow the instructions in the email to complete registration"
   },
   "form": {
     "password": "Password",
     "name": "Name",
     "surname": "Surname",
-    "repeat_password": "Repeat password"
+    "repeat_password": "Repeat password",
+    "phone": "Phone number",
+    "birthday": "Date of birth",
+    "country": "Country",
+    "city": "City",
+    "address": "Address",
+    "about": "About yourself"
   },
   "pages": {
-    "masters": "Masters Catalog",
-    "studios": "Studios Catalog",
+    "contacts": "Contacts",
+    "masters": "Masters catalog",
+    "studios": "Studios catalog",
     "blog": "Blog",
-    "partners": "Partners"
+    "partners": "Partners",
+    "about": "About us",
+    "join": "Join us",
+    "why_us": "Why us?",
+    "ready_to_join": "Ready to join our catalog of tattoo artists?",
+    "no_works": "No works added yet"
+  },
+  "buttons": {
+    "load_more": "Load more",
+    "add": "Add",
+    "join": "Join now",
+    "upload_img": "Upload photo",
+    "publish": "Publish",
+    "my_profile": "My profile",
+    "change_photo": "Change photo",
+    "add_work": "Add work",
+    "save": "Save",
+    "close": "Close"
+  },
+  "validation": {
+    "error_name": "Invalid name",
+    "error_email": "Invalid email format",
+    "error_password": "Password should be at least 8 characters long",
+    "error_password_2": "Password must include at least one uppercase letter and a special character"
   }
 }
