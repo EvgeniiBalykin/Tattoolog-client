@@ -4,7 +4,7 @@ import {
   JoinUsMain,
   PartnersSlider,
   MainImageBox,
-} from 'components/Home';
+} from '@components/Home';
 import { HOME_IMAGE_BOX } from './contants';
 import './HomePage.scss';
 

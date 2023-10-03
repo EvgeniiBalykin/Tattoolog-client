@@ -1,13 +1,13 @@
-import Catalog from 'pages/CatalogPage/CatalogPage';
-import Profile from 'components/Profile';
-import AcceptSignupPage from 'pages/AcceptPage/AcceptSignupPage';
-import { LoginPage } from 'pages/LoginPage/LoginPage';
-import { SingInPage } from 'pages/SigInPage/SignInPage';
-import { IRoutes } from 'types';
+import Catalog from '@pages/CatalogPage/CatalogPage';
+import Profile from '@components/Profile';
+import AcceptSignupPage from '@pages/AcceptPage/AcceptSignupPage';
+import { LoginPage } from '@pages/LoginPage/LoginPage';
+import { SingInPage } from '@pages/SigInPage/SignInPage';
+import { IRoutes } from '@interfaces/index';
 import { HeaderRoutesList } from './enums';
-import BlogPage from 'pages/BlogPage/BlogPage';
-import PostPage from 'pages/PostPage/PostPage';
-import PartnersPage from 'pages/PartnersPage/PartnersPage';
+import BlogPage from '@pages/BlogPage/BlogPage';
+import PostPage from '@pages/PostPage/PostPage';
+import PartnersPage from '@pages/PartnersPage/PartnersPage';
 
 export const HEADER_ROUTES: IRoutes[] = [
   {

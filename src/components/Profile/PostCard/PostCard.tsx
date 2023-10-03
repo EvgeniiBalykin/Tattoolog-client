@@ -1,6 +1,6 @@
 import { ImageListItem, ImageListItemBar } from '@mui/material';
 import { useState } from 'react';
-import { IProfilePortfolio } from 'types';
+import { IProfilePortfolio } from '@interfaces/index';
 import PostModal from './PostModal';
 
 const PostCard = ({ post }: { post: IProfilePortfolio }) => {

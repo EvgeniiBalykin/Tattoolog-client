@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
-import DescriptionIcons from 'components/DescriptionIcons/DescriptionIcons';
-import { WHY_US_ICONS } from 'pages/HomePage/contants';
+import DescriptionIcons from '@components/DescriptionIcons/DescriptionIcons';
+import { WHY_US_ICONS } from '@pages/HomePage/contants';
 import { useTranslation } from 'react-i18next';
 
 const WhyUsMain = () => {

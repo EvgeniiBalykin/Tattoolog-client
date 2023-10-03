@@ -1,9 +1,9 @@
 import { Instagram, Facebook, YouTube } from '@mui/icons-material';
 import { Container, Box, Button, Typography, Grid } from '@mui/material';
 import i18next from 'i18next';
-import { Logo } from 'images/index';
+import { Logo } from '@images/index';
 import { Link } from 'react-router-dom';
-import { HEADER_ROUTES } from 'routes/HeaderRoutes';
+import { HEADER_ROUTES } from '@routes/HeaderRoutes';
 import './Footer.scss';
 
 const Footer = () => {

@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import { IProfilePortfolio } from 'types';
+import { IProfilePortfolio } from '@interfaces/index';
 import './PostModal.scss';
 
 const PostModal = ({

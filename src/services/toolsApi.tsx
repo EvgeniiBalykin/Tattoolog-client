@@ -6,8 +6,13 @@ import {
   COUNTRIES,
   LOCAL_SERVER,
   PARTNERS,
-} from 'api/index';
-import { IBlogPost, ICountriesData, IPartnersData, IPostData } from 'types';
+} from '@api/index';
+import {
+  IBlogPost,
+  ICountriesData,
+  IPartnersData,
+  IPostData,
+} from '@interfaces/index';
 
 export const toolsApi = createApi({
   reducerPath: 'toolsApi',

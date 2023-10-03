@@ -1,16 +1,16 @@
-import Layout from 'components/Layout';
-import { HomePage } from 'pages/HomePage/HomePage';
+import Layout from '@components/Layout';
+import { HomePage } from '@pages/HomePage/HomePage';
 import { Route, Routes, useNavigate } from 'react-router';
-import { HEADER_ROUTES, HELP_PAGES, LOGIN_ROUTES } from 'routes/HeaderRoutes';
+import { HEADER_ROUTES, HELP_PAGES, LOGIN_ROUTES } from '@routes/HeaderRoutes';
 import Cookies from 'js-cookie';
-import { selectUser, setUser } from 'store/reducers/userSlice';
+import { selectUser, setUser } from '@store/reducers/userSlice';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useUserDataMutation } from 'services/authApi';
-import ErrorPage from 'pages/ErrorPage/ErrorPage';
-import { logoutUser } from 'store/reducers/loginSlice';
+import { useUserDataMutation } from '@services/authApi';
+import ErrorPage from '@pages/ErrorPage/ErrorPage';
+import { logoutUser } from '@store/reducers/loginSlice';
 import { useSelector } from 'react-redux';
-import { useGetProfileDataQuery } from 'services/profileApi';
+import { useGetProfileDataQuery } from '@services/profileApi';
 
 export const App = () => {
   const token = Cookies.get('accessToken');

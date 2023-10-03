@@ -7,7 +7,7 @@ import {
   TextField,
   Tooltip,
 } from '@mui/material';
-import ErrorAlert from 'components/ErrorAlert';
+import ErrorAlert from '@components/ErrorAlert';
 import { MuiTelInput } from 'mui-tel-input';
 import { ChangeEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -15,9 +15,9 @@ import { useDispatch } from 'react-redux';
 import {
   useGetProfileDataQuery,
   useUpdateProfileMutation,
-} from 'services/profileApi';
-import { useGetCityQuery, useGetCountryQuery } from 'services/toolsApi';
-import { toggleAddChange } from 'store/reducers/profileSlice';
+} from '@services/profileApi';
+import { useGetCityQuery, useGetCountryQuery } from '@services/toolsApi';
+import { toggleAddChange } from '@store/reducers/profileSlice';
 import { PROFILE_EDIT_INPUTS } from './constants/inputs';
 
 interface MutateResult {

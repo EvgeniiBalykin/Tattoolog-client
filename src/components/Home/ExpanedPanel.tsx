@@ -6,9 +6,9 @@ import {
   Container,
   Typography,
 } from '@mui/material';
-import { CloseExpand, OpenExpand } from 'images/index';
+import { CloseExpand, OpenExpand } from '@images/index';
 import { useState } from 'react';
-import { COLORS } from 'ui/colors';
+import { COLORS } from '@ui/colors';
 
 interface IContentPanel {
   expanded: string;

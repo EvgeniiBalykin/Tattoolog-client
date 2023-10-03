@@ -9,17 +9,17 @@ import {
   InputAdornment,
   IconButton,
 } from '@mui/material';
-import { useAppDispatch } from 'hooks/redux';
-import { useLoginUserMutation, useUserDataMutation } from 'services/authApi';
+import { useAppDispatch } from '@hooks/redux';
+import { useLoginUserMutation, useUserDataMutation } from '@services/authApi';
 import { Controller, useForm, useFormState } from 'react-hook-form';
-import { emailValidation, passwordValidation } from 'helpers/validation';
+import { emailValidation, passwordValidation } from '@helpers/validation';
 import { useNavigate } from 'react-router';
-import { setToken } from 'store/reducers/loginSlice';
+import { setToken } from '@store/reducers/loginSlice';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { Alert } from '@mui/material';
 import Cookies from 'js-cookie';
-import { setUser } from '../../store/reducers/userSlice';
+import { setUser } from '@store/reducers/userSlice';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 interface ILoginForm {

@@ -7,7 +7,7 @@ import {
   Partner_3,
   Partner_4,
   Partner_5,
-} from 'images/index';
+} from '@images/index';
 import { ReactElement, useMemo } from 'react';
 import ExpandedPanel from './ExpanedPanel';
 import { useTranslation } from 'react-i18next';
