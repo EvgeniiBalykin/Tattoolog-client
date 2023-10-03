@@ -11,7 +11,12 @@ const PartnersPage = () => {
       </Typography>
       <Grid container gap={8} mb={8} justifyContent="center">
         {data?.map((el) => (
-          <PartnersCard logo={el.logo} link={el.link} name={el.name} />
+          <PartnersCard
+            key={el.name}
+            logo={el.logo}
+            link={el.link}
+            name={el.name}
+          />
         ))}
       </Grid>
     </Container>
