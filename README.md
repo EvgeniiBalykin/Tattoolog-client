@@ -33,20 +33,20 @@ Various folders and files are used to efficiently organize the project and code.
 
 ## Your project has the following directory structure:
 
-/public: Static files accessible to the client.
-/src: The source code of your application.
-/api: Endpoints for app.
-/components: Components of your application.
-/constants: Constants and variables.
-/helpers: Utility functions.
-/hooks: Custom hooks.
-/pages: Page components.
-/routes: Application routes.
-/services: Services and business logic.
-/store: State management using Redux.
-/interfaces: Data types and interfaces.
-/UI: Reusable user interface components.
-App.tsx: The main application component.
-globalStyles.scss: Global CSS styles.
-i18n.ts: Configuration for multilingual support.
-main.tsx: Entry point to the application
+- **/public**/: Static files accessible to the client.
+- **/src**/: The source code of your application.
+  - **/api**/: Endpoints for app.
+  - **/components**/: Components of your application.
+  - **/constants**/: Constants and variables.
+  - **/helpers**/: Utility functions.
+  - **/hooks**/: Custom hooks.
+  - **/pages**/: Page components.
+  - **/routes**/: Application routes.
+  - **/services**/: Services and business logic.
+  - **/store**/: State management using Redux.
+  - **/interfaces**/: Data types and interfaces.
+  - **/UI**/: Reusable user interface components.
+- **App.tsx**/: The main application component.
+- **globalStyles.scss**/: Global CSS styles.
+- **i18n.ts**/: Configuration for multilingual support.
+- **main.tsx**/: Entry point to the application
