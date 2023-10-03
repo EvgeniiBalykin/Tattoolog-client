@@ -50,8 +50,8 @@ const BlogPosts = () => {
                 <CardMedia
                   component="img"
                   height="240"
+                  width="240"
                   image={post.image}
-                  alt="green iguana"
                 />
               </CardActionArea>
             </Card>

@@ -29,6 +29,7 @@ import {
 import {
   ChangeEvent,
   ReactElement,
+  useCallback,
   useEffect,
   useMemo,
   useRef,
@@ -87,8 +88,10 @@ const ProfileCard = ({ id }: { id: number }) => {
     dispatch(toggleAddChange());
   };
 
-  const handleButtonClick = () =>
-    fileInputRef.current && fileInputRef.current.click();
+  const handleButtonClick = useCallback(
+    () => fileInputRef.current && fileInputRef.current.click(),
+    [fileInputRef]
+  );
 
   useEffect(() => {
     if (selectedImg) {

@@ -11,4 +11,9 @@ export const LANGUAGES: ILanguages[] = [
     country_code: 'en',
     name: 'English',
   },
+  {
+    code: 'ua',
+    country_code: 'ua',
+    name: 'Українська',
+  },
 ];

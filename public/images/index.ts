@@ -20,8 +20,10 @@ import Medal from '@images/Medal.png';
 import MainHand from '@images/MainHand.png';
 import StudioCatalogue from '@images/StudioCatalogue.png';
 import MasterCatalogue from '@images/MasterCatalogue.png';
+import Background_V8 from '@images/Background_V8.svg';
 
 export {
+  Background_V8,
   Logo,
   AddMasterPhoto,
   AddStudioPhoto,
