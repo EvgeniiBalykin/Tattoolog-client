@@ -21,13 +21,13 @@ Tattolog is a web application created for tattoo enthusiasts that serves as a gl
 
 ## The Tattolog project is developed using the following technologies:
 
-React and Vite: For creating a modern and fast web application.
-TypeScript: For improved type safety and code quality.
-ESlint: For enforcing coding standards.
-MUI (Material-UI): For creating stylish components and user interfaces.
-Redux: For state management.
-RTK Query: For simplified data fetching and state management for APIs.
-Various folders and files are used to efficiently organize the project and code.
+- **React and Vite**: For creating a modern and fast web application.
+- **TypeScript**: For improved type safety and code quality.
+- **ESlint**: For enforcing coding standards.
+- **MUI (Material-UI)**: For creating stylish components and user interfaces.
+- **Redux**: For state management.
+- **RTK Query**: For simplified data fetching and state management for APIs.
+- **Various folders and files are used to efficiently organize the project and code.**
 
 # Project Structure
 
