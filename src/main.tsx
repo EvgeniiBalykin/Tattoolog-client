@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material';
 import theme from '@ui/theme/theme';
 import { Provider } from 'react-redux';
-import { store } from './store/store';
+import { store } from '@store/store';
 import './i18n';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

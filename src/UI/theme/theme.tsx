@@ -42,17 +42,17 @@ const theme = createTheme({
       color: 'white',
     },
     body1: {
-      fontSize: '18px', // Размер для параграфов
-      fontWeight: 400, // Обычный шрифт
+      fontSize: '18px',
+      fontWeight: 400,
       color: 'white',
     },
     body2: {
-      fontSize: '14px', // Размер для меньших параграфов
+      fontSize: '14px',
       fontWeight: 400,
       color: 'white',
     },
     caption: {
-      fontSize: '12px', // Размер для подписей или мелкого текста
+      fontSize: '12px',
       fontWeight: 400,
       color: 'white',
     },
@@ -158,28 +158,27 @@ const theme = createTheme({
           },
         },
         {
-          props: { variant: 'text', color: 'primary', size: 'small' }, // Применяется, когда вы используете variant="custom3"
+          props: { variant: 'text', color: 'primary', size: 'small' },
           style: {
-            backgroundColor: 'transparent', // Прозрачный фон для третьей кнопки
-            color: 'white', // Цвет текста для третьей кнопки
-            border: 'none', // Убрать границу для третьей кнопки
+            backgroundColor: 'transparent',
+            color: 'white',
+            border: 'none',
             fontWeight: 400,
             fontFamily: 'Roboto',
             ':hover': {
-              backgroundColor: 'white', // Изменения при наведении
-              color: 'black', // Изменение цвета текста при наведении
+              backgroundColor: 'white',
+              color: 'black',
             },
           },
         },
       ],
       styleOverrides: {
         containedPrimary: {
-          color: 'white', // Изменяет цвет текста для primary кнопок
+          color: 'white',
         },
         containedSecondary: {
-          color: 'black', // Изменяет цвет текста для secondary кнопок
+          color: 'black',
         },
-        // Другие стили по вашему выбору
       },
     },
   },
