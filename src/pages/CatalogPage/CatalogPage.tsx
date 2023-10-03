@@ -7,14 +7,14 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import CatalogCard from 'components/CatalogCard/CatalogCard';
-import DescriptionIcons from 'components/DescriptionIcons/DescriptionIcons';
-import { MainImageBox } from 'components/Home';
-import JointNow from 'components/JoinNow/JoinNow';
+import CatalogCard from '@components/CatalogCard/CatalogCard';
+import DescriptionIcons from '@components/DescriptionIcons/DescriptionIcons';
+import { MainImageBox } from '@components/Home';
+import JointNow from '@components/JoinNow/JoinNow';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
-import { useGetMasterCatalogQuery } from 'services/profileApi';
-import { IProfileData } from 'types';
+import { useGetMasterCatalogQuery } from '@services/profileApi';
+import { IProfileData } from '@interfaces/index';
 import {
   MASTER_CATALOGUE_MAIN,
   MASTER_CATALOG_ICONS,

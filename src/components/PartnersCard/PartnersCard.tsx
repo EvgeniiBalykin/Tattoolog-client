@@ -1,5 +1,5 @@
 import { Box, Grid } from '@mui/material';
-import { IPartnersData } from 'types';
+import { IPartnersData } from '@interfaces/index';
 
 const PartnersCard = ({ logo, link }: IPartnersData) => {
   return (

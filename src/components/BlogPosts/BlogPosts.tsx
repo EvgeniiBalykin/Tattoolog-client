@@ -1,4 +1,4 @@
-import { useGetBlogPostsQuery } from 'services/toolsApi';
+import { useGetBlogPostsQuery } from '@services/toolsApi';
 import {
   CardActionArea,
   Typography,

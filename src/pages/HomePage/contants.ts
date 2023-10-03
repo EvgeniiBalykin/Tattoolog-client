@@ -1,5 +1,8 @@
-import { Cup, Lens, MainHand, Rocket } from 'images/index';
-import { IDescriptionIcons, IMainImageBox } from 'types';
+// import { Cup, Lens, MainHand, Rocket } from '../../../public/images/index';
+// import { IDescriptionIcons, IMainImageBox } from '@types';
+
+import { Cup, MainHand, Rocket, Lens } from '@images/index';
+import { IDescriptionIcons, IMainImageBox } from '@interfaces/index';
 
 export const WHY_US_ICONS: IDescriptionIcons[] = [
   {

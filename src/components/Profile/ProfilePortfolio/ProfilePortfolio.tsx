@@ -2,8 +2,8 @@ import { Box, Grid, ImageList, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
-import { useGetProfilePortfolioQuery } from 'services/profileApi';
-import PostCard from '../PostCard/PostCard';
+import { useGetProfilePortfolioQuery } from '@services/profileApi';
+import PostCard from '@components/Profile/PostCard/PostCard';
 
 const ProfilePortfolio = () => {
   const { t } = useTranslation();

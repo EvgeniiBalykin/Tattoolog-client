@@ -1,13 +1,13 @@
-import { useRegisterUserMutation } from 'services/authApi';
+import { useRegisterUserMutation } from '@services/authApi';
 import { useForm, Controller, useFormState } from 'react-hook-form';
 import {
   emailValidation,
   nameValidation,
   passwordValidation,
-} from '../../helpers/validation';
+} from '@helpers/validation';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import { IUserData } from 'types';
+import { IUserData } from '@interfaces/index';
 import {
   FormControl,
   MenuItem,

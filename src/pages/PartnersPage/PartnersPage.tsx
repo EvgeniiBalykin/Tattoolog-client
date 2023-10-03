@@ -1,6 +1,6 @@
 import { Container, Grid, Typography } from '@mui/material';
-import PartnersCard from 'components/PartnersCard/PartnersCard';
-import { useGetPartnersQuery } from 'services/toolsApi';
+import PartnersCard from '@components/PartnersCard/PartnersCard';
+import { useGetPartnersQuery } from '@services/toolsApi';
 
 const PartnersPage = () => {
   const { data } = useGetPartnersQuery();

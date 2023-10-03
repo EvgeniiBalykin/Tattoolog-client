@@ -1,5 +1,5 @@
 import { Grid, Box, Container, Typography } from '@mui/material';
-import { IDescriptionIcons } from 'types';
+import { IDescriptionIcons } from '@interfaces/index';
 import './DescriptionIcons.scss';
 
 const DescriptionIcons = ({

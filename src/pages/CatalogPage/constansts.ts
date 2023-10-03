@@ -5,8 +5,8 @@ import {
   Location,
   Target,
   Amazing_art,
-} from 'images/index';
-import { IDescriptionIcons, IMainImageBox } from 'types';
+} from '@images/index';
+import { IDescriptionIcons, IMainImageBox } from '@interfaces/index';
 
 export const MASTER_CATALOGUE_MAIN: IMainImageBox = {
   title: 'Unleash Your Inner Canvas!',

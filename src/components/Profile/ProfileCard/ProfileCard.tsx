@@ -21,11 +21,11 @@ import {
 } from '@mui/material';
 import './ProfileCard.scss';
 import { useDispatch } from 'react-redux';
-import { toggleAddChange } from 'store/reducers/profileSlice';
+import { toggleAddChange } from '@store/reducers/profileSlice';
 import {
   useGetProfileDataQuery,
   useUpdateProfileMutation,
-} from 'services/profileApi';
+} from '@services/profileApi';
 import {
   ChangeEvent,
   ReactElement,
@@ -35,8 +35,8 @@ import {
   useState,
 } from 'react';
 import { useSelector } from 'react-redux';
-import { selectUser } from 'store/reducers/userSlice';
-import ModalDownload_v2 from 'components/ModalDownload_v2/ModalDownload_v2';
+import { selectUser } from '@store/reducers/userSlice';
+import ModalDownload_v2 from '@components/ModalDownload_v2/ModalDownload_v2';
 import { useTranslation } from 'react-i18next';
 
 const SOCIAL_MEDIA_ICONS: { [key: string]: ReactElement } = {

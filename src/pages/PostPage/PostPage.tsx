@@ -2,7 +2,7 @@ import { Box, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
-import { useGetBlogPostQuery } from 'services/toolsApi';
+import { useGetBlogPostQuery } from '@services/toolsApi';
 
 const PostPage = () => {
   const { id } = useParams<{ id: string }>();

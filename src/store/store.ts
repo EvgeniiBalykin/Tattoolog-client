@@ -1,11 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query/react';
-import loginReducer from 'store/reducers/loginSlice';
-import { authApi } from 'services/authApi';
-import userReduser from 'store/reducers/userSlice';
-import { profileApi } from 'services/profileApi';
+import loginReducer from '@store/reducers/loginSlice';
+import { authApi } from '@services/authApi';
+import userReduser from '@store/reducers/userSlice';
+import { profileApi } from '@services/profileApi';
 import profileReducer from './reducers/profileSlice';
-import { toolsApi } from 'services/toolsApi';
+import { toolsApi } from '@services/toolsApi';
 
 const rootReducer = combineReducers({
   login: loginReducer,

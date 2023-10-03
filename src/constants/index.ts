@@ -1,4 +1,4 @@
-import { ILanguages } from 'types';
+import { ILanguages } from '@interfaces/index';
 
 export const LANGUAGES: ILanguages[] = [
   {

@@ -2,10 +2,10 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import { HEADER_ROUTES, LOGIN_ROUTES } from 'routes/HeaderRoutes';
+import { HEADER_ROUTES, LOGIN_ROUTES } from '@routes/HeaderRoutes';
 import i18next from 'i18next';
-import { useAppDispatch } from 'hooks/redux';
-import { logoutUser, selectLogin } from 'store/reducers/loginSlice';
+import { useAppDispatch } from '@hooks/redux';
+import { logoutUser, selectLogin } from '@store/reducers/loginSlice';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import {
@@ -18,13 +18,13 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import ResponsiveDrawer from 'components/NavDrawer/NavDrawer';
-import Logo from 'images/Logo.svg';
-import { clearUser, selectUser } from 'store/reducers/userSlice';
+import ResponsiveDrawer from '@components/NavDrawer/NavDrawer';
+import { Logo } from '@images/index';
+import { clearUser, selectUser } from '@store/reducers/userSlice';
 import { useState } from 'react';
 import { Logout } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
-import LangSwitcher from 'components/LangSwitcher/LangSwitcher';
+import LangSwitcher from '@components/LangSwitcher/LangSwitcher';
 
 export const NavPanel = () => {
   const { t } = useTranslation();

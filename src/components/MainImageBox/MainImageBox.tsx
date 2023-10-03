@@ -1,6 +1,6 @@
 import { Box, Button, Container, Typography } from '@mui/material';
 import { useNavigate } from 'react-router';
-import { IMainImageBox } from 'types';
+import { IMainImageBox } from '@interfaces/index';
 
 const MainImageBox = ({ title, subtitle, buttons, img }: IMainImageBox) => {
   const navigate = useNavigate();

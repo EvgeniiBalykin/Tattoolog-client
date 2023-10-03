@@ -5,13 +5,13 @@ import {
   LOCAL_SERVER,
   PROFILES_BY_ROLE,
   WORK_TYPES,
-} from 'api';
+} from '@api/index';
 import {
   ICatalogData,
   IProfileData,
   IProfilePortfolio,
   IWorkTypes,
-} from 'types';
+} from '@interfaces/index';
 
 interface ICatalogParams {
   role: string;

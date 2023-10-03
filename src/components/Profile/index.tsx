@@ -3,9 +3,9 @@ import ProfileCard from './ProfileCard/ProfileCard';
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import ProfileEdit from './ProfileEdit/ProfileEdit';
-import { addChangeValue } from 'store/reducers/profileSlice';
+import { addChangeValue } from '@store/reducers/profileSlice';
 import ProfilePortfolio from './ProfilePortfolio/ProfilePortfolio';
-import { selectUser } from 'store/reducers/userSlice';
+import { selectUser } from '@store/reducers/userSlice';
 
 const Profile = () => {
   const { id }: { id?: string } = useParams();

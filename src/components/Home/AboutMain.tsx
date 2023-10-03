@@ -1,7 +1,7 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
-import { About_Photo_1, About_Photo_2 } from 'images/index';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { About_Photo_2, About_Photo_1 } from '@images/index';
 
 const AboutMain = () => {
   const reverseGrid = useMemo(

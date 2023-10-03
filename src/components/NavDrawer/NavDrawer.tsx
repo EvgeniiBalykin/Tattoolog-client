@@ -5,17 +5,17 @@ import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Logo } from 'images/index';
-import { HEADER_ROUTES, LOGIN_ROUTES } from 'routes/HeaderRoutes';
+import { Logo } from '@images/index';
+import { HEADER_ROUTES, LOGIN_ROUTES } from '@routes/HeaderRoutes';
 import { Link } from 'react-router-dom';
 import { Avatar, Button, Container, Stack, Toolbar } from '@mui/material';
 import { useSelector } from 'react-redux';
-import { logoutUser, selectLogin } from 'store/reducers/loginSlice';
-import { useAppDispatch } from 'hooks/redux';
+import { logoutUser, selectLogin } from '@store/reducers/loginSlice';
+import { useAppDispatch } from '@hooks/redux';
 import i18next from 'i18next';
 import './NavDrawer.scss';
-import { selectUser } from 'store/reducers/userSlice';
-import LangSwitcher from 'components/LangSwitcher/LangSwitcher';
+import { selectUser } from '@store/reducers/userSlice';
+import LangSwitcher from '@components/LangSwitcher/LangSwitcher';
 
 const drawerWidth = 240;
 

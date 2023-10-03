@@ -8,11 +8,11 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
-import { AddMasterPhoto, AddStudioPhoto } from 'images/index';
+import { AddMasterPhoto, AddStudioPhoto } from '@images/index';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { selectUser } from 'store/reducers/userSlice';
+import { selectUser } from '@store/reducers/userSlice';
 
 const JoinUsMain = () => {
   const navigate = useNavigate();

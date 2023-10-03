@@ -19,11 +19,11 @@ import { ChangeEvent, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
-import { ADD_POST, ADD_POST_PHOTO, LOCAL_SERVER } from 'api/index';
+import { ADD_POST, ADD_POST_PHOTO, LOCAL_SERVER } from '@api/index';
 import {
   useGetProfilePortfolioQuery,
   useGetWorkTypesQuery,
-} from 'services/profileApi';
+} from '@services/profileApi';
 import './ModalDownload_v2.scss';
 import { useTranslation } from 'react-i18next';
 
