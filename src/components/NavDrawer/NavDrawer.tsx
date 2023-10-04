@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+// import MenuIcon from '@mui/icons-material/Menu';
 import { Logo } from '@images/index';
 import { HEADER_ROUTES, LOGIN_ROUTES } from '@routes/HeaderRoutes';
 import { Link } from 'react-router-dom';
@@ -133,7 +133,7 @@ export default function ResponsiveDrawer(props: Props) {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: 'block' } }}
           >
-            <MenuIcon />
+            {/* <MenuIcon /> */}
           </IconButton>
           <Box
             component={Link}

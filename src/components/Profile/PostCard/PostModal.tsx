@@ -1,4 +1,4 @@
-import { Close } from '@mui/icons-material';
+// import { Close } from '@mui/icons-material';
 import {
   Box,
   Dialog,
@@ -25,7 +25,7 @@ const PostModal = ({
     <Dialog open={isOpen} onClose={onClose} fullWidth>
       <Box className="post-modal">
         <IconButton className="post-modal_close" onClick={onClose}>
-          <Close />
+          {/* <Close /> */}
         </IconButton>
         <DialogContent className="post-modal_content">
           <AliceCarousel>

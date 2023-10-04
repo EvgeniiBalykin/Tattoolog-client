@@ -1,13 +1,13 @@
-import {
-  AddPhotoAlternate,
-  Email,
-  Facebook,
-  Instagram,
-  MusicNote,
-  Phone,
-  Pinterest,
-  Settings,
-} from '@mui/icons-material';
+// import {
+//   AddPhotoAlternate,
+//   Email,
+//   Facebook,
+//   Instagram,
+//   MusicNote,
+//   Phone,
+//   Pinterest,
+//   Settings,
+// } from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -28,7 +28,6 @@ import {
 } from '@services/profileApi';
 import {
   ChangeEvent,
-  ReactElement,
   useCallback,
   useEffect,
   useMemo,
@@ -40,11 +39,11 @@ import { selectUser } from '@store/reducers/userSlice';
 import ModalDownload_v2 from '@components/ModalDownload_v2/ModalDownload_v2';
 import { useTranslation } from 'react-i18next';
 
-const SOCIAL_MEDIA_ICONS: { [key: string]: ReactElement } = {
-  Facebook: <Facebook />,
-  Instagram: <Instagram />,
-  TikTok: <MusicNote />,
-  Pinterest: <Pinterest />,
+const SOCIAL_MEDIA_ICONS: { [key: string]: string } = {
+  Facebook: '',
+  Instagram: '',
+  TikTok: '',
+  Pinterest: '',
 };
 
 const ProfileCard = ({ id }: { id: number }) => {
@@ -107,7 +106,7 @@ const ProfileCard = ({ id }: { id: number }) => {
         <CardContent className="card-content">
           {userAccess && (
             <IconButton className="profile-settings" onClick={onEditClick}>
-              <Settings />
+              {/* <Settings /> */}
             </IconButton>
           )}
           <CardMedia
@@ -147,14 +146,14 @@ const ProfileCard = ({ id }: { id: number }) => {
             <Grid className="contact-item" item xs={1} md={1}>
               <Tooltip title={profileData?.phone_number}>
                 <IconButton href={`tel:${profileData?.user?.email}`}>
-                  <Phone />
+                  {/* <Phone /> */}
                 </IconButton>
               </Tooltip>
             </Grid>
             <Grid className="contact-item" item xs={1} md={1}>
               <Tooltip title={profileData?.user?.email}>
                 <IconButton href={`mailto:${profileData?.user?.email}`}>
-                  <Email />
+                  {/* <Email /> */}
                 </IconButton>
               </Tooltip>
             </Grid>
@@ -183,7 +182,7 @@ const ProfileCard = ({ id }: { id: number }) => {
       </Card>
       <ModalDownload_v2 isOpen={isModal} toggle={toggleModal} />
       <Button
-        startIcon={<AddPhotoAlternate />}
+        // startIcon={<AddPhotoAlternate />}
         fullWidth
         color="primary"
         variant="contained"

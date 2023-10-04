@@ -22,7 +22,7 @@ import ResponsiveDrawer from '@components/NavDrawer/NavDrawer';
 import { Logo } from '@images/index';
 import { clearUser, selectUser } from '@store/reducers/userSlice';
 import { useState } from 'react';
-import { Logout } from '@mui/icons-material';
+// import { Logout } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 import LangSwitcher from '@components/LangSwitcher/LangSwitcher';
 
@@ -167,9 +167,7 @@ export const NavPanel = () => {
                 onClick={logOutClick}
                 display="flex"
               >
-                <ListItemIcon>
-                  <Logout />
-                </ListItemIcon>
+                <ListItemIcon>{/* <Logout /> */}</ListItemIcon>
                 {t('registration.logout')}
               </Box>
             </MenuItem>

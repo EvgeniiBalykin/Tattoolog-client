@@ -1,4 +1,4 @@
-import { ExpandMore } from '@mui/icons-material';
+// import { ExpandMore } from '@mui/icons-material';
 import {
   Accordion,
   AccordionDetails,
@@ -60,7 +60,7 @@ const ExpandedPanel = () => {
           }}
         >
           <AccordionSummary
-            expandIcon={<ExpandMore />}
+            expandIcon={''}
             aria-controls={`${el.expanded}bh-content`}
             id={`${el.expanded}bh-header`}
             style={{ backgroundColor: COLORS.PRIMARY }}

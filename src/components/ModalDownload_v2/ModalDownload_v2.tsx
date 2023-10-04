@@ -17,7 +17,7 @@ import {
 } from '@mui/material';
 import { ChangeEvent, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
-import CloseIcon from '@mui/icons-material/Close';
+// import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 import { ADD_POST, ADD_POST_PHOTO, LOCAL_SERVER } from '@api/index';
 import {
@@ -116,7 +116,7 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
         <Container className="modal-container">
           <Box textAlign="end" mb={2}>
             <IconButton aria-label="close" onClick={toggle}>
-              <CloseIcon fontSize="large" />
+              {/* <CloseIcon fontSize="large" /> */}
             </IconButton>
           </Box>
           <Grid container spacing={2}>
@@ -167,7 +167,7 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
                             }}
                             onClick={() => onRemoveClick(index)}
                           >
-                            <CloseIcon />
+                            {/* <CloseIcon /> */}
                           </IconButton>
                           <img
                             src={URL.createObjectURL(img)}

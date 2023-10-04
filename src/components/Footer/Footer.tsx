@@ -1,4 +1,4 @@
-import { Instagram, Facebook, YouTube } from '@mui/icons-material';
+// import { Instagram, Facebook, YouTube } from '@mui/icons-material';
 import { Container, Box, Button, Typography, Grid } from '@mui/material';
 import i18next from 'i18next';
 import { Logo } from '@images/index';
@@ -42,9 +42,9 @@ const Footer = () => {
           ))}
         </Grid>
         <Box sx={{ display: 'flex', gap: '25px' }} mb={2}>
-          <Instagram color="action" fontSize="large" />
+          {/* <Instagram color="action" fontSize="large" />
           <Facebook color="action" fontSize="large" />
-          <YouTube color="action" fontSize="large" />
+          <YouTube color="action" fontSize="large" /> */}
         </Box>
         <Container maxWidth="xs">
           <Typography variant="body2" textAlign="center">

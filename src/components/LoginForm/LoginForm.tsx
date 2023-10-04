@@ -7,7 +7,6 @@ import {
   TextField,
   Button,
   InputAdornment,
-  IconButton,
 } from '@mui/material';
 import { useAppDispatch } from '@hooks/redux';
 import { useLoginUserMutation, useUserDataMutation } from '@services/authApi';
@@ -16,11 +15,11 @@ import { emailValidation, passwordValidation } from '@helpers/validation';
 import { useNavigate } from 'react-router';
 import { setToken } from '@store/reducers/loginSlice';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Alert } from '@mui/material';
 import Cookies from 'js-cookie';
 import { setUser } from '@store/reducers/userSlice';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+// import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 interface ILoginForm {
   email: string;
@@ -29,7 +28,7 @@ interface ILoginForm {
 
 export const LoginForm = () => {
   const { t } = useTranslation();
-  const [showPassword, setShowPassword] = useState(false);
+  // const [showPassword, setShowPassword] = useState(false);
   const dispatch = useAppDispatch();
   const [loginUser, { data: loginData, error: loginError }] =
     useLoginUserMutation<any>();
@@ -67,7 +66,7 @@ export const LoginForm = () => {
     }
   }, [token]);
 
-  const togglePasswordVisibility = () => setShowPassword((prev) => !prev);
+  // const togglePasswordVisibility = () => setShowPassword((prev) => !prev);
 
   return (
     <Container maxWidth="xs">
@@ -106,7 +105,7 @@ export const LoginForm = () => {
               render={({ field }) => (
                 <TextField
                   margin="normal"
-                  type={showPassword ? 'text' : 'password'}
+                  type={'text'}
                   fullWidth
                   error={!!errors.password?.message}
                   label={t('form.password')}
@@ -116,9 +115,9 @@ export const LoginForm = () => {
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
-                        <IconButton onClick={togglePasswordVisibility}>
+                        {/* <IconButton onClick={togglePasswordVisibility}>
                           {showPassword ? <VisibilityOff /> : <Visibility />}
-                        </IconButton>
+                        </IconButton> */}
                       </InputAdornment>
                     ),
                   }}
