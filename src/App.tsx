@@ -1,6 +1,6 @@
 import Layout from '@components/Layout';
 import { HomePage } from '@pages/HomePage/HomePage';
-import { Route, Routes, useNavigate } from 'react-router';
+import { Route, Routes, useLocation, useNavigate } from 'react-router';
 import { HEADER_ROUTES, HELP_PAGES, LOGIN_ROUTES } from '@routes/HeaderRoutes';
 import Cookies from 'js-cookie';
 import { selectUser, setUser } from '@store/reducers/userSlice';
@@ -18,9 +18,14 @@ export const App = () => {
   const { id } = useSelector(selectUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const { data: profileData } = useGetProfileDataQuery(id, {
     skip: id === 0,
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     if (token) {

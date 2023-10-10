@@ -164,7 +164,7 @@ const theme = createTheme({
             color: 'white',
             border: 'none',
             fontWeight: 400,
-            fontFamily: 'Roboto',
+            fontFamily: 'PT Sans, sans-serif;',
             ':hover': {
               backgroundColor: 'white',
               color: 'black',

@@ -89,6 +89,7 @@ export const LoginForm = () => {
               rules={emailValidation}
               render={({ field }) => (
                 <TextField
+                  color="secondary"
                   margin="normal"
                   fullWidth
                   error={!!errors.email?.message}
@@ -105,6 +106,7 @@ export const LoginForm = () => {
               rules={passwordValidation}
               render={({ field }) => (
                 <TextField
+                  color="secondary"
                   margin="normal"
                   type={showPassword ? 'text' : 'password'}
                   fullWidth
@@ -136,13 +138,17 @@ export const LoginForm = () => {
           </form>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
-                {t('registration.forgot_password')}
+              <Link href="#">
+                <Typography variant="body2">
+                  {t('registration.forgot_password')}
+                </Typography>
               </Link>
             </Grid>
             <Grid item>
-              <Link href="/signin" variant="body2">
-                {t('registration.need_signup')}
+              <Link href="/signin">
+                <Typography variant="body2">
+                  {t('registration.need_signup')}
+                </Typography>
               </Link>
             </Grid>
           </Grid>

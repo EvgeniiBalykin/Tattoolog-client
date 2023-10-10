@@ -7,7 +7,7 @@ const WhyUsMain = () => {
   const { t } = useTranslation();
   return (
     <Box className="wrapper">
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Typography variant="h1" textAlign="center" textTransform="uppercase">
           {t('pages.why_us')}
         </Typography>
