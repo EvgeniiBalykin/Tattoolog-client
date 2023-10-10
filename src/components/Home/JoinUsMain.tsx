@@ -26,7 +26,7 @@ const JoinUsMain = () => {
           {t('pages.join')}
         </Typography>
         <Container maxWidth="lg" sx={{ mb: 12 }}>
-          <Typography variant="h5" textAlign="center">
+          <Typography variant="h5" textAlign="justify">
             Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
             impedit quo minus id quod maxime placeat facere possimus, omnis
             voluptas assumenda est, omnis dolor repellendus.
@@ -107,7 +107,7 @@ const JoinUsMain = () => {
           </Grid>
         </Grid>
         <Container maxWidth="lg" sx={{ mt: 12 }}>
-          <Typography variant="h5" textAlign="center">
+          <Typography variant="h5" textAlign="justify">
             Help your customer imagine how life will be like when using your
             product. Paint a picture of the practical, emotional, or
             psychological benefits of purchasing. Nam libero tempore, cum soluta

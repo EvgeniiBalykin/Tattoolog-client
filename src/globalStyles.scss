@@ -3,23 +3,24 @@
   padding: 0;
 }
 
-// html,
-// #root {
-//   height: 100%;
-//   margin: 0;
-//   padding: 0;
-// }
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-// #root {
-//   display: flex;
-//   flex-direction: column;
-// }
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 body {
   background: #0b0b0b;
   background-image: url('/public/images/Background_V8.svg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
   font-family: 'PT Sans', sans-serif;
 }

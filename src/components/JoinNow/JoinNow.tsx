@@ -5,7 +5,11 @@ import './JoinNow.scss';
 const JointNow = () => {
   const { t } = useTranslation();
   return (
-    <Container className="join-now-wrapper" maxWidth="lg">
+    <Container
+      data-testid="test-container"
+      className="join-now-wrapper"
+      maxWidth="lg"
+    >
       <Typography variant="h1">{t('pages.ready_to_join')}</Typography>
       <Typography variant="h4" mb={4}>
         The cult of tattoo legends — where innovation meets inspiration and

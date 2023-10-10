@@ -40,8 +40,8 @@ const PartnersSlider = () => {
   );
 
   return (
-    <Box className="wrapper-reverse">
-      <Container maxWidth="lg">
+    <Box className="wrapper">
+      <Container maxWidth="xl">
         <Typography variant="h1" textAlign="center">
           {t('pages.partners')}
         </Typography>

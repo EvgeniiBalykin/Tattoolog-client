@@ -59,6 +59,7 @@ export const SingInForm = () => {
               name="first_name"
               render={({ field }) => (
                 <TextField
+                  color="secondary"
                   margin="normal"
                   fullWidth
                   label={t('form.name')}
@@ -76,6 +77,7 @@ export const SingInForm = () => {
               rules={nameValidation}
               render={({ field }) => (
                 <TextField
+                  color="secondary"
                   margin="normal"
                   fullWidth
                   label={t('form.surname')}
@@ -102,6 +104,7 @@ export const SingInForm = () => {
                     Role
                   </InputLabel>
                   <Select
+                    color="secondary"
                     required
                     value={field.value}
                     onChange={(e) => field.onChange(e)}
@@ -119,6 +122,7 @@ export const SingInForm = () => {
               rules={emailValidation}
               render={({ field }) => (
                 <TextField
+                  color="secondary"
                   margin="normal"
                   fullWidth
                   error={!!errors.email?.message}
@@ -136,6 +140,7 @@ export const SingInForm = () => {
               rules={passwordValidation}
               render={({ field }) => (
                 <TextField
+                  color="secondary"
                   margin="normal"
                   type="password"
                   fullWidth
@@ -154,6 +159,7 @@ export const SingInForm = () => {
               rules={passwordValidation}
               render={({ field }) => (
                 <TextField
+                  color="secondary"
                   margin="normal"
                   fullWidth
                   label={t('form.repeat_password')}

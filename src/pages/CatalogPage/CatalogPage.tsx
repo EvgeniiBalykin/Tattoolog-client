@@ -75,7 +75,7 @@ const Catalog = ({ role }: { role: string }) => {
     setSearchValues({ ...searchValues, [e.target.name]: e.target.value });
 
   return (
-    <Container maxWidth="xl" sx={{ mb: 10 }}>
+    <Container maxWidth="lg" sx={{ mb: 10 }}>
       <MainImageBox
         title={
           isMasterCatalogue

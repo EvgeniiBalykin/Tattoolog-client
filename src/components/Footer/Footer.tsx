@@ -11,7 +11,7 @@ const Footer = () => {
     <footer className="footer-wrapper">
       <Container maxWidth="lg" className="footer">
         <Box component={Link} to={'/'} mb={2}>
-          <img src={Logo} />
+          <img src={Logo} alt="company-logo" />
         </Box>
 
         <Grid
@@ -22,6 +22,7 @@ const Footer = () => {
         >
           {HEADER_ROUTES.map((route) => (
             <Grid
+              data-testid="links-test"
               key={route.name}
               item
               xs={12}

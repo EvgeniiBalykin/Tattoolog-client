@@ -29,9 +29,10 @@ const CatalogCard = ({
   const navigate = useNavigate();
 
   return (
-    <Grid item xs={12} sm={6} md={4}>
+    <Grid item xs={12} sm={6} md={4} data-testid="catalog-card-test">
       <Card className="catalog-card">
         <CardActionArea
+          data-testid="card-action-test"
           className="catalog-card-content"
           onClick={() => navigate(`/profile/${id}`)}
         >
@@ -40,6 +41,7 @@ const CatalogCard = ({
             height="100%"
             width="100%"
             image={avatar}
+            alt="avatar-img"
           />
           <div className="catalog-card-text">
             <BasicRating readOnly />

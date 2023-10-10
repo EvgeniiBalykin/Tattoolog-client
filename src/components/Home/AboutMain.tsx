@@ -2,6 +2,8 @@ import { Box, Container, Grid, Typography } from '@mui/material';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { About_Photo_2, About_Photo_1 } from '@images/index';
+import { MainImageBox } from '.';
+import { HOME_IMAGE_BOX } from '@pages/HomePage/contants';
 
 const AboutMain = () => {
   const reverseGrid = useMemo(
@@ -11,7 +13,13 @@ const AboutMain = () => {
   const { t } = useTranslation();
 
   return (
-    <Box className="wrapper" mt={8}>
+    <Box className="wrapper">
+      <MainImageBox
+        title={HOME_IMAGE_BOX.title}
+        subtitle={HOME_IMAGE_BOX.subtitle}
+        buttons={HOME_IMAGE_BOX.buttons}
+        img={HOME_IMAGE_BOX.img}
+      />
       <Container component="main">
         <Typography variant="h1" textAlign="center" textTransform="uppercase">
           {t('pages.about')}
@@ -29,7 +37,7 @@ const AboutMain = () => {
           <Grid item xs={12} sm={6} md={6}>
             <div className="text-wrapper">
               <Typography variant="h2">Primary benefit showcase</Typography>
-              <Typography variant="h5">
+              <Typography variant="h5" textAlign="justify">
                 Show how your product's features matter, how they set you apart
                 from the competition, and how you can transform your customer's
                 experience at work or at home
@@ -47,7 +55,7 @@ const AboutMain = () => {
           <Grid item xs={12} sm={6} md={6}>
             <div className="text-wrapper">
               <Typography variant="h2">Primary benefit showcase</Typography>
-              <Typography variant="h5">
+              <Typography variant="h5" textAlign="justify">
                 Show how your product's features matter, how they set you apart
                 from the competition, and how you can transform your customer's
                 experience at work or at home
