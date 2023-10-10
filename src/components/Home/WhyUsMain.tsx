@@ -6,13 +6,13 @@ import { useTranslation } from 'react-i18next';
 const WhyUsMain = () => {
   const { t } = useTranslation();
   return (
-    <Box className="wrapper-reverse">
+    <Box className="wrapper">
       <Container maxWidth="xl">
         <Typography variant="h1" textAlign="center" textTransform="uppercase">
           {t('pages.why_us')}
         </Typography>
         <Container maxWidth="lg" sx={{ mb: 10 }}>
-          <Typography variant="h5" textAlign="center">
+          <Typography variant="h5" textAlign="justify">
             Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
             impedit quo minus id quod maxime placeat facere possimus, omnis
             voluptas assumenda est, omnis dolor repellendus.

@@ -7,7 +7,7 @@ const MainImageBox = ({ title, subtitle, buttons, img }: IMainImageBox) => {
   return (
     <Container
       className="main-slider"
-      maxWidth="lg"
+      maxWidth="xl"
       sx={{
         marginTop: 4,
         marginBottom: 8,
@@ -15,11 +15,11 @@ const MainImageBox = ({ title, subtitle, buttons, img }: IMainImageBox) => {
         backgroundImage: `url(${img})`,
       }}
     >
-      <Container maxWidth="sm" sx={{ p: 0, pt: 8, m: 0 }}>
+      <Container maxWidth="lg" sx={{ p: 0, pt: '5%', m: 0 }}>
         <Typography variant="h1" mb={2} textTransform="uppercase">
           {title}
         </Typography>
-        <Box maxWidth={500}>
+        <Box maxWidth={700}>
           <Typography variant="h5" mb={2} textAlign="start">
             {subtitle}
           </Typography>

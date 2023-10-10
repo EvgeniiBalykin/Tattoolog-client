@@ -37,9 +37,10 @@ const BlogPosts = () => {
         gap={5}
         maxWidth="lg"
         mb={4}
+        data-testid="blog-posts-test"
       >
         {posts?.results.map((post) => (
-          <Grid key={post.id} item md={3}>
+          <Grid key={post.id} item md={3} data-testid="post-item-test">
             <Card>
               <CardActionArea onClick={() => navigate(`/post/${post.id}`)}>
                 <CardContent>
@@ -60,6 +61,7 @@ const BlogPosts = () => {
       </Grid>
       <Box mb={4} display="flex" justifyContent="center">
         <LoadingButton
+          data-testid="load-more-test"
           disabled={desableButton}
           loading={isLoading}
           variant="contained"
