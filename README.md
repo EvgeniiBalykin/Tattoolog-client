@@ -12,10 +12,35 @@ Tattolog is a web application created for tattoo enthusiasts that serves as a gl
    git clone https://github.com/EvgeniiBalykin/Tattoolog-client.git
    ```
 
-2. Change to the project directory: cd Tattoolog-client
-3. Install all dependencies: npm install
-4. To start the application in development mode, use the command: npm run dev
-5. For deployment, run: npm run build
+2. Change to the project directory:
+
+```bash
+cd Tattoolog-client
+```
+
+3. Install all dependencies:
+
+```bash
+npm install
+```
+
+4. To start the application in development mode, use the command:
+
+```bash
+npm run dev
+```
+
+5. To run tests, use the command:
+
+```bash
+npm run test
+```
+
+6. For deployment, run:
+
+```bash
+npm run build
+```
 
 # Technologies Used
 
