@@ -8,6 +8,8 @@ import { HeaderRoutesList } from './enums';
 import BlogPage from '@pages/BlogPage/BlogPage';
 import PostPage from '@pages/PostPage/PostPage';
 import PartnersPage from '@pages/PartnersPage/PartnersPage';
+import ResetPage from '@pages/ResetPage/ResetPage';
+import NewPasswordPage from '@pages/NewPasswordPage/NewPasswordPage';
 
 export const HEADER_ROUTES: IRoutes[] = [
   {
@@ -57,6 +59,16 @@ export const HELP_PAGES: IRoutes[] = [
     name: 'Sign in success',
     path: HeaderRoutesList.SIGNIN_SUCCESS,
     element: <AcceptSignupPage />,
+  },
+  {
+    name: 'Reset password',
+    path: HeaderRoutesList.RESET_PSWRD,
+    element: <ResetPage />,
+  },
+  {
+    name: 'Set new password',
+    path: HeaderRoutesList.NEW_PASSWORD,
+    element: <NewPasswordPage />,
   },
   {
     name: 'Profile',

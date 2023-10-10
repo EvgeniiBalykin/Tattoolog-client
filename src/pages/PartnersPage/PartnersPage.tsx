@@ -10,9 +10,9 @@ const PartnersPage = () => {
         Our Partners
       </Typography>
       <Grid container gap={8} mb={8} justifyContent="space-around">
-        {data?.map((el) => (
+        {data?.map((el, index) => (
           <PartnersCard
-            key={el.name}
+            key={index}
             logo={el.logo}
             link={el.link}
             name={el.name}
