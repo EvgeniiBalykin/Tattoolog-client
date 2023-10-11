@@ -8,6 +8,7 @@ import {
 import { useNavigate } from 'react-router';
 import './CatalogCard.scss';
 import BasicRating from '../UserRating';
+import { useMemo } from 'react';
 
 interface ICatalogCardProps {
   firstName: string;
@@ -16,6 +17,7 @@ interface ICatalogCardProps {
   avatar: string;
   city: string;
   country: string;
+  about: string;
 }
 
 const CatalogCard = ({
@@ -25,8 +27,18 @@ const CatalogCard = ({
   avatar,
   city,
   country,
+  about,
 }: ICatalogCardProps) => {
   const navigate = useNavigate();
+  const textLengthLimit = 100;
+
+  const trimText = useMemo(
+    (): string =>
+      about.length <= textLengthLimit
+        ? about
+        : about.slice(0, textLengthLimit) + '...',
+    [about]
+  );
 
   return (
     <Grid item xs={12} sm={6} md={4} data-testid="catalog-card-test">
@@ -47,6 +59,9 @@ const CatalogCard = ({
             <BasicRating readOnly />
             <Typography variant="h3">
               {firstName} {lastName}
+            </Typography>
+            <Typography variant="h4" textAlign="justify" padding={3}>
+              {trimText}
             </Typography>
             <Typography variant="h5">
               {country ? `${country},` : ''} {city}
