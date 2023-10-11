@@ -134,3 +134,16 @@ export interface IPartnersData {
   link: string;
   logo: string;
 }
+
+export interface IQueryData {
+  isLoading: boolean;
+  error: { data: any };
+  isError: boolean;
+  data: any;
+}
+
+export interface ISetNewPassword {
+  uid?: string;
+  token?: string;
+  new_password: string;
+}

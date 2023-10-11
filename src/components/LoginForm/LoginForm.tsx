@@ -21,6 +21,7 @@ import { Alert } from '@mui/material';
 import Cookies from 'js-cookie';
 import { setUser } from '@store/reducers/userSlice';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { IQueryData } from '@interfaces/index';
 
 interface ILoginForm {
   email: string;
@@ -32,7 +33,7 @@ export const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useAppDispatch();
   const [loginUser, { data: loginData, error: loginError }] =
-    useLoginUserMutation<any>();
+    useLoginUserMutation<IQueryData>();
   const navigate = useNavigate();
   const { handleSubmit, control } = useForm<ILoginForm>();
   const { errors } = useFormState({
@@ -138,7 +139,7 @@ export const LoginForm = () => {
           </form>
           <Grid container>
             <Grid item xs>
-              <Link href="#">
+              <Link href="/reset">
                 <Typography variant="body2">
                   {t('registration.forgot_password')}
                 </Typography>

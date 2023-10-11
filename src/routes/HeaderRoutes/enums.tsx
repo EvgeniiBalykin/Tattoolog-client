@@ -2,6 +2,7 @@ export enum HeaderRoutesList {
   HOME = '/',
   LOGIN = 'login',
   SIGNIN = 'signin',
+  RESET_PSWRD = 'reset',
   MASTER_CATALOG = 'master_catalog',
   STUDIO_CATALOG = 'salon_catalog',
   BLOG = 'blog',
@@ -11,4 +12,5 @@ export enum HeaderRoutesList {
   CONTACTS = 'contacts',
   ERROR = 'error_page',
   BLOG_POST = '/post/:id',
+  NEW_PASSWORD = '/reset_password_confirm/:uid/:token',
 }
