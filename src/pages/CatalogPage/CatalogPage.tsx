@@ -74,6 +74,8 @@ const Catalog = ({ role }: { role: string }) => {
   const onChangeFilters = (e: ChangeEvent<HTMLInputElement>) =>
     setSearchValues({ ...searchValues, [e.target.name]: e.target.value });
 
+  console.log(MasterCatalog);
+
   return (
     <Container maxWidth="lg" sx={{ mb: 10 }}>
       <MainImageBox
@@ -155,6 +157,7 @@ const Catalog = ({ role }: { role: string }) => {
             id={master.user.id || 0}
             city={master.city}
             country={master.country}
+            about={master.about || ''}
           />
         ))}
       </Grid>

@@ -26,14 +26,14 @@
   },
   "pages": {
     "contacts": "Contacts",
-    "masters": "Masters Directory",
-    "studios": "Studios Directory",
+    "masters": "Masters Catalog",
+    "studios": "Studios Catalog",
     "blog": "Blog",
     "partners": "Partners",
     "about": "About Us",
     "join": "Join Us",
     "why_us": "Why Us?",
-    "ready_to_join": "Ready to join our tattoo artists directory?",
+    "ready_to_join": "Ready to join our tattoo artists catalog?",
     "no_works": "No works added yet"
   },
   "buttons": {
