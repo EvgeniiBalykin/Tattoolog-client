@@ -7,7 +7,7 @@ import {
   IconButton,
   Alert,
 } from '@mui/material';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { ChangeEvent, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { LoadingButton } from '@mui/lab';
@@ -18,7 +18,7 @@ import { IQueryData } from '@interfaces/index';
 // TODO: Перевести
 export const NewPasswordForm = () => {
   const { uid, token } = useParams<{ uid?: string; token?: string }>();
-  //   const { t } = useTranslation();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showRepassword, setShowRepassword] = useState(false);
@@ -65,7 +65,7 @@ export const NewPasswordForm = () => {
             margin="normal"
             name="password"
             fullWidth
-            label="Password"
+            label={t('form.password')}
             value={passwords.password}
             onChange={onChange}
             InputProps={{
@@ -84,9 +84,10 @@ export const NewPasswordForm = () => {
             margin="normal"
             name="re_password"
             fullWidth
-            label="Repeat password"
+            label={t('form.repeat_password')}
             value={passwords.re_password}
             onChange={onChange}
+            error={passwords.password !== passwords.re_password}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
@@ -104,7 +105,7 @@ export const NewPasswordForm = () => {
             variant="contained"
             sx={{ mt: 3, mb: 4 }}
           >
-            Confirm
+            {t('buttons.confirm')}
           </LoadingButton>
         </Box>
       </Box>

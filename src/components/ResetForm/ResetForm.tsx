@@ -35,7 +35,10 @@ export const ResetForm = () => {
           alignItems: 'center',
         }}
       >
-        <Typography variant="h5">Reset password</Typography>
+        <Typography variant="h5">
+          {' '}
+          {t('registration.reset_password')}
+        </Typography>
         <Box sx={{ mt: 1 }}>
           <TextField
             color="secondary"
@@ -52,7 +55,7 @@ export const ResetForm = () => {
             variant="contained"
             sx={{ mt: 3, mb: 4 }}
           >
-            {t('registration.login')}
+            {t('registration.reset')}
           </LoadingButton>
         </Box>
       </Box>

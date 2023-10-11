@@ -1,0 +1,58 @@
+{
+  "registration": {
+    "login": "Zaloguj się",
+    "forgot_password": "Zapomniałeś hasła?",
+    "need_signup": "Nie masz konta?",
+    "welcome": "Witaj",
+    "logout": "Wyloguj się",
+    "signin": "Zarejestruj się",
+    "create_acc": "Utwórz konto",
+    "email_invite": "Na twój adres e-mail został wysłany e-mail",
+    "make_access": "Postępuj zgodnie z instrukcjami w e-mailu, aby zakończyć rejestrację",
+    "reset_password": "Zresetuj hasło",
+    "reset": "Zresetuj"
+  },
+  "form": {
+    "password": "Hasło",
+    "name": "Imię",
+    "surname": "Nazwisko",
+    "repeat_password": "Powtórz hasło",
+    "phone": "Numer telefonu",
+    "birthday": "Data urodzenia",
+    "country": "Kraj",
+    "city": "Miasto",
+    "adress": "Adres",
+    "about": "O sobie"
+  },
+  "pages": {
+    "contacts": "Kontakty",
+    "masters": "Katalog mistrzów",
+    "studios": "Katalog studiów",
+    "blog": "Blog",
+    "partners": "Partnerzy",
+    "about": "O nas",
+    "join": "Dołącz do nas",
+    "why_us": "Dlaczego my?",
+    "ready_to_join": "Gotów, aby dołączyć do naszego katalogu mistrzów tatuażu?",
+    "no_works": "Nie dodano jeszcze prac"
+  },
+  "buttons": {
+    "load_more": "Ładuj więcej",
+    "add": "Dodaj",
+    "join": "Dołącz teraz",
+    "upload_img": "Załaduj zdjęcie",
+    "publish": "Opublikuj",
+    "my_profile": "Mój profil",
+    "change_photo": "Zmień zdjęcie",
+    "add_work": "Dodaj pracę",
+    "save": "Zapisz",
+    "close": "Zamknij",
+    "confirm": "Potwierdź"
+  },
+  "validation": {
+    "error_name": "Nieprawidłowe imię",
+    "error_email": "Nieprawidłowy format e-maila",
+    "error_password": "Hasło musi mieć co najmniej 8 znaków",
+    "error_password_2": "Hasło musi zawierać co najmniej jedną wielką literę i znak specjalny"
+  }
+}
