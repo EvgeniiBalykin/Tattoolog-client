@@ -68,13 +68,13 @@ const Catalog = ({ role }: { role: string }) => {
     MasterCatalog?.next === null && setDisableButton(true);
   }, [MasterCatalog]);
 
+  console.log(MasterCatalog);
+
   const resetFilters = () =>
     setSearchValues({ name: '', city: '', country: '' });
 
   const onChangeFilters = (e: ChangeEvent<HTMLInputElement>) =>
     setSearchValues({ ...searchValues, [e.target.name]: e.target.value });
-
-  console.log(MasterCatalog);
 
   return (
     <Container maxWidth="lg" sx={{ mb: 10 }}>
@@ -158,6 +158,7 @@ const Catalog = ({ role }: { role: string }) => {
             city={master.city}
             country={master.country}
             about={master.about || ''}
+            avg_rating={master.average_rating || ''}
           />
         ))}
       </Grid>

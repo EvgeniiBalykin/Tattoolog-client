@@ -44,6 +44,8 @@ export interface IProfileData {
     id?: number;
   };
   social_media_profile?: ISocialMedia[];
+  average_rating?: string;
+  count_visit?: number;
 }
 
 export interface ICatalogData {
@@ -146,4 +148,10 @@ export interface ISetNewPassword {
   uid?: string;
   token?: string;
   new_password: string;
+}
+
+export interface IUserMark {
+  profile: number;
+  mark: number;
+  comment?: string;
 }
