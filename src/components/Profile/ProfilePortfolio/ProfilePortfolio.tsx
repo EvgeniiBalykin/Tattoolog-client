@@ -44,7 +44,7 @@ const ProfilePortfolio = () => {
         </Box>
       ) : (
         <Typography textAlign="center" width="100%" sx={{}}>
-          {t('pages.no_work')}
+          {t('pages.no_works')}
         </Typography>
       )}
     </Grid>

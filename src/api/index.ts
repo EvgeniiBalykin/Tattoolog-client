@@ -15,3 +15,6 @@ export const BLOG_POST = 'tools/blog/';
 export const PARTNERS = 'tools/partners/';
 export const RESET_PASSWORD = 'auth/users/reset_password/';
 export const SET_NEW_PASSWORD = 'auth/users/reset_password_confirm/';
+export const GET_AVG_RATING = (id: number) =>
+  `tools/profile/${id}/average-rating`;
+export const UPDATE_RATING = 'tools/rating/';

@@ -39,6 +39,7 @@ import { useSelector } from 'react-redux';
 import { selectUser } from '@store/reducers/userSlice';
 import ModalDownload_v2 from '@components/ModalDownload_v2/ModalDownload_v2';
 import { useTranslation } from 'react-i18next';
+import UserRating from '@components/UserRating/UserRating';
 
 const SOCIAL_MEDIA_ICONS: { [key: string]: ReactElement } = {
   Facebook: <Facebook />,
@@ -58,6 +59,7 @@ const ProfileCard = ({ id }: { id: number }) => {
   const [updateProfile] = useUpdateProfileMutation();
   const { id: storeId } = useSelector(selectUser);
   const userAccess = id === storeId;
+
   const renderSocialLinks = useMemo(
     () =>
       profileData?.social_media_profile?.map((socialMedia) => {
@@ -99,7 +101,7 @@ const ProfileCard = ({ id }: { id: number }) => {
       formData.append('avatar', selectedImg);
       updateProfile({ id, formData }).then(() => refetch());
     }
-  }, [selectedImg]);
+  }, [selectedImg, id, updateProfile, refetch]);
 
   return (
     <Grid item xs={12} md={4} className="card-box">
@@ -110,6 +112,7 @@ const ProfileCard = ({ id }: { id: number }) => {
               <Settings />
             </IconButton>
           )}
+          <UserRating id={id} rating={Number(profileData?.average_rating)} />
           <CardMedia
             className="profile-avatar"
             component="img"

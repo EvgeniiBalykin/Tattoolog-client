@@ -5,11 +5,13 @@ import {
   LOCAL_SERVER,
   PROFILES_BY_ROLE,
   WORK_TYPES,
+  UPDATE_RATING,
 } from '@api/index';
 import {
   ICatalogData,
   IProfileData,
   IProfilePortfolio,
+  IUserMark,
   IWorkTypes,
 } from '@interfaces/index';
 
@@ -26,10 +28,7 @@ export const profileApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: LOCAL_SERVER }),
   endpoints: (builder) => ({
     getMasterCatalog: builder.query<ICatalogData, ICatalogParams>({
-      query: ({ role, name, city, country, limit }) =>
-        `${
-          PROFILES_BY_ROLE + role
-        }/?name=${name}&city=${city}&$country=${country}&page=1&page_size=${limit}`,
+      query: (params) => buildQueryString(params),
     }),
     getProfileData: builder.query<IProfileData, number>({
       query: (userId) => `${PROFILE_USER + `${userId}/`}`,
@@ -54,6 +53,13 @@ export const profileApi = createApi({
         body: formData,
       }),
     }),
+    updateProfileRating: builder.mutation<void, IUserMark>({
+      query: (body) => ({
+        url: UPDATE_RATING,
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 });
 
@@ -63,4 +69,18 @@ export const {
   useGetMasterCatalogQuery,
   useUpdateProfileMutation,
   useGetWorkTypesQuery,
+  useUpdateProfileRatingMutation,
 } = profileApi;
+
+function buildQueryString(params: ICatalogParams): string {
+  const { role, name, city, country, limit } = params;
+  const queryParams = new URLSearchParams({
+    role,
+    name,
+    city,
+    country,
+    page: '1',
+    page_size: limit.toString(),
+  });
+  return `${PROFILES_BY_ROLE}${role}/?${queryParams.toString()}`;
+}

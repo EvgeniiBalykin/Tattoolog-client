@@ -27,3 +27,5 @@ export const LANGUAGES: ILanguages[] = [
     name: 'Polski',
   },
 ];
+
+export const LANGUAGE_LOCAL_STORAGE_KEY = 'selectedLanguage';

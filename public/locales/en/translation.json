@@ -26,15 +26,108 @@
   },
   "pages": {
     "contacts": "Contacts",
-    "masters": "Masters Catalog",
-    "studios": "Studios Catalog",
+    "masters": "Artist",
+    "studios": "Studio",
     "blog": "Blog",
     "partners": "Partners",
     "about": "About Us",
     "join": "Join Us",
     "why_us": "Why Us?",
     "ready_to_join": "Ready to join our tattoo artists catalog?",
-    "no_works": "No works added yet"
+    "no_works": "No works added yet",
+    "main": {
+      "title": "Discover Tattoo World now!",
+      "subtitle": "Dive into the world's first exclusive catalog of top-notch tattoo artists and studios. Discover their stunning works, experience, and styles, all in one place!",
+      "about_block": {
+        "title_1": "Unb﻿eatable Catalog",
+        "subtitle_1": "Welcome to the exclusive directory of top tattoo artists from across the European Union. Our platform showcases their finest work so you can find your perfect match – guided by TattooLog’s personal ratings to make the choice even easier.",
+        "title_2": "Incredib﻿le Ink Creations",
+        "subtitle_2": "Feast your eyes on our mesmerizing tattoo art gallery. Bold designs, intricate details, and awe-inspiring creativity – it’s all here!"
+      },
+      "why_us_block": {
+        "title_1": "Job Opportunities",
+        "subtitle_1": "Looking for an opportunity? Join the Tattoolog association and boost your career.",
+        "title_2": "Exclusive Benefits",
+        "subtitle_2": "Tattoo artist members enjoy equipment discounts, festival entries, and championship participation.",
+        "title_3": "Visible Impact",
+        "subtitle_3": "View the portfolio with artworks of tattoo artists on our platform, where we showcase their best works."
+      },
+      "join_us_block": {
+        "title": "Can’t wait to get a taste of tattoo stardom? Click the button below, fill out a simple form about yourself and your work, and join our catalogue. Let the world witness the outstanding talent that is you."
+      },
+      "additional_block": {
+        "title": "Your Ultimate Tattoo Guide",
+        "subtitle": "TattooLog is the go-to platform for tattoo enthusiasts seeking pro-level ink artists and remarkable studios. Whether you're looking for inspiration or itching for fresh ink, we’ve got you covered. ",
+        "subtitle_1": "Keep your awesome ink art gallery up-to-date, impressing clients with your passion and vibrant creativity.",
+        "subtitle_2": "Customize your profile with your unique tattoo style preferences, location, and more, letting clients find you with ease."
+      },
+      "faq": {
+        "block_1": {
+          "title": "How do I join the platform?",
+          "content": "Register for an account on our website, then set up your profile and start exploring the fantastic art and community."
+        },
+        "block_2": {
+          "title": "Is that free?",
+          "content": " Certainly, it's absolutely free to join the catalog. You will have the opportunity for self-made recognition and a chance to promote your works and showcase your talent."
+        },
+        "block_3": {
+          "title": "How long would I be a member of the catalog?",
+          "content": "It's permanent and available without any trial period. However, you can edit your profile at any time, and if you choose, you can delete it entirely."
+        }
+      }
+    },
+    "artists_page": {
+      "title": "Unleash Your Inner Canvas",
+      "subtitle": "Discover top-notch tattoo artists and their jaw-dropping creations",
+      "subtitle_1": "TattooLog Portfolio is your gateway to the world of amazing tattoo art. Discover countless tattoo artists with unique styles, ratings, and jaw-dropping designs that’ll leave you craving for more ink. From delicate watercolor designs to intricate realism, our platform boasts the perfect experience for tattoo enthusiasts and passionate artists alike. ",
+      "info": {
+        "title": "Spotlight Features",
+        "1": {
+          "title": "Global Reach",
+          "subtitle": "Discover exceptional talent from artists based in every corner of the world."
+        },
+        "2": {
+          "title": "Top Rated",
+          "subtitle": "Experience the remarkable works of top-rated tattoo artists worldwide."
+        },
+        "3": {
+          "title": "Amazing Art",
+          "subtitle": "Feast your eyes on jaw-dropping masterpieces etched on human canvases."
+        },
+        "4": {
+          "title": "Ink Locator",
+          "subtitle": "Find the tattoo that calls out to you and the artist who brought it to life."
+        }
+      },
+      "join": {
+        "title": "Ready to Join Our Tattoo Artist Catalogue?",
+        "subtitle": "Don’t miss out on the opportunity to be part of our ever-growing tattoo artist network. Showcase your artistry and gain well-deserved recognition."
+      }
+    },
+    "studios_page": {
+      "title": "Inked paradise — this is where the best converge",
+      "subtitle": "Breathtaking Studios List",
+      "subtitle_1": "Step into the world of the best Tattoo Studios, where only the finest ink masters dwell. We’ve handpicked the most prestigious studios that house the crème de la crème of tattoo artists. Our catalog showcases a wealth of talent, creativity, and passion that knows no boundaries. Unleash your inner maverick with a visit to the absolute best tattoo studios on the planet.",
+      "info": {
+        "title": "Spotlight Features",
+        "1": {
+          "title": "Stellar Artists",
+          "subtitle": "Handpicked artistic talent at studios with extraordinary creativity."
+        },
+        "2": {
+          "title": "Safety First",
+          "subtitle": "Clean and hygienic studios prioritizing client well-being."
+        },
+        "3": {
+          "title": "Customer Love",
+          "subtitle": "Studios with rave reviews and dedicated followings."
+        }
+      },
+      "join": {
+        "title": "Ready to Join Our Tattoo Studio Catalogue?",
+        "subtitle": "The cult of tattoo legends — where innovation meets inspiration and forever transforms your body canvas. Escape into the immersive realm of artistic odysseys and treasure the opportunity to adorn your skin with timeless masterpieces."
+      }
+    }
   },
   "buttons": {
     "load_more": "Load More",
@@ -47,7 +140,11 @@
     "add_work": "Add Work",
     "save": "Save",
     "close": "Close",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "reset_filters": "Reset filters",
+    "artists": "Artists",
+    "studios": "Studios",
+    "catalogue": "Catalogue"
   },
   "validation": {
     "error_name": "Invalid Name",

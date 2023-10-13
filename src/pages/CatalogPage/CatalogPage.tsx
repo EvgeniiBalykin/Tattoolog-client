@@ -19,7 +19,9 @@ import {
   MASTER_CATALOGUE_MAIN,
   MASTER_CATALOG_ICONS,
   SALON_CATALOGUE_MAIN,
+  STUDIO_CATALOG_ICONS,
 } from './constansts';
+import { useTranslation } from 'react-i18next';
 
 interface IStateProps {
   name: string;
@@ -44,6 +46,7 @@ const FILTERS: { name: keyof IStateProps; label: string }[] = [
 
 const Catalog = ({ role }: { role: string }) => {
   const location = useLocation();
+  const { t } = useTranslation();
   const [limit, setLimit] = useState<number>(6);
   const [desableButton, setDisableButton] = useState(false);
   const [searchValues, setSearchValues] = useState<IStateProps>({
@@ -74,20 +77,18 @@ const Catalog = ({ role }: { role: string }) => {
   const onChangeFilters = (e: ChangeEvent<HTMLInputElement>) =>
     setSearchValues({ ...searchValues, [e.target.name]: e.target.value });
 
-  console.log(MasterCatalog);
-
   return (
     <Container maxWidth="lg" sx={{ mb: 10 }}>
       <MainImageBox
         title={
           isMasterCatalogue
-            ? MASTER_CATALOGUE_MAIN.title
-            : SALON_CATALOGUE_MAIN.title
+            ? t(MASTER_CATALOGUE_MAIN.title)
+            : t(SALON_CATALOGUE_MAIN.title)
         }
         subtitle={
           isMasterCatalogue
-            ? MASTER_CATALOGUE_MAIN.subtitle
-            : SALON_CATALOGUE_MAIN.subtitle
+            ? t(MASTER_CATALOGUE_MAIN.subtitle)
+            : t(SALON_CATALOGUE_MAIN.subtitle)
         }
         buttons={
           isMasterCatalogue
@@ -114,19 +115,32 @@ const Catalog = ({ role }: { role: string }) => {
         justifyContent="center"
         mb={8}
       >
-        {MASTER_CATALOG_ICONS.map((el, index) => (
-          <DescriptionIcons
-            key={index}
-            icon={el.icon}
-            title={el.title}
-            subtitle={el.subtitle}
-            xs={14}
-            sm={5}
-            md={3}
-          />
-        ))}
+        {(isMasterCatalogue ? MASTER_CATALOG_ICONS : STUDIO_CATALOG_ICONS).map(
+          (el, index) => (
+            <DescriptionIcons
+              key={index}
+              icon={el.icon}
+              title={t(el.title)}
+              subtitle={t(el.subtitle)}
+              xs={14}
+              sm={5}
+              md={3}
+            />
+          )
+        )}
       </Grid>
-      <JointNow />
+      <JointNow
+        title={
+          isMasterCatalogue
+            ? t(MASTER_CATALOGUE_MAIN.joinTitle)
+            : t(SALON_CATALOGUE_MAIN.joinTitle)
+        }
+        subtitle={
+          isMasterCatalogue
+            ? t(MASTER_CATALOGUE_MAIN.joinSubtitle)
+            : t(SALON_CATALOGUE_MAIN.joinSubtitle)
+        }
+      />
       <Grid container gap={2} justifyContent="center">
         {FILTERS.map((el) => (
           <Grid key={el.name} item xs={8} md={3}>
@@ -144,7 +158,7 @@ const Catalog = ({ role }: { role: string }) => {
       </Grid>
       <Box textAlign="center" margin={'30px 0'}>
         <Button variant="outlined" color="secondary" onClick={resetFilters}>
-          Reset filters
+          {t('buttons.reset_filters')}
         </Button>
       </Box>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -158,6 +172,7 @@ const Catalog = ({ role }: { role: string }) => {
             city={master.city}
             country={master.country}
             about={master.about || ''}
+            avg_rating={master.average_rating || ''}
           />
         ))}
       </Grid>
@@ -169,7 +184,7 @@ const Catalog = ({ role }: { role: string }) => {
           color="primary"
           onClick={loadMoreClick}
         >
-          Load more
+          {t('buttons.load_more')}
         </LoadingButton>
       </Box>
     </Container>
