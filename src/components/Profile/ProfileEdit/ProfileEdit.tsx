@@ -160,7 +160,7 @@ const ProfileEdit = ({ id }: { id: number }) => {
                         InputLabelProps={{}}
                       />
                       <Box display="flex" sx={{ backgroundColor: '#4A2352' }}>
-                        <Tooltip title={field.label}>
+                        <Tooltip title={t(field.label)}>
                           <IconButton>{field.icon}</IconButton>
                         </Tooltip>
                       </Box>
@@ -194,7 +194,7 @@ const ProfileEdit = ({ id }: { id: number }) => {
                       />
 
                       <Box display="flex" sx={{ backgroundColor: '#4A2352' }}>
-                        <Tooltip title={field.label}>
+                        <Tooltip title={t(field.label)}>
                           <IconButton>{field.icon}</IconButton>
                         </Tooltip>
                       </Box>
@@ -229,7 +229,7 @@ const ProfileEdit = ({ id }: { id: number }) => {
                 )}
 
                 <Box display="flex" sx={{ backgroundColor: '#4A2352' }}>
-                  <Tooltip title={field.label}>
+                  <Tooltip title={t(field.label)}>
                     <IconButton>{field.icon}</IconButton>
                   </Tooltip>
                 </Box>

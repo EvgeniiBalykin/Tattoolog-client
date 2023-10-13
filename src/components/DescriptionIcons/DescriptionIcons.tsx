@@ -15,13 +15,13 @@ const DescriptionIcons = ({
       <Box className="img-wrapper">
         <img src={icon} alt="icon-img" />
       </Box>
-      <Container maxWidth="sm" sx={{ mt: 4 }}>
+      <Container maxWidth="md" sx={{ mt: 2 }}>
         {title && (
-          <Typography variant="h2" fontWeight="bold" textAlign="center">
+          <Typography mb={2} variant="h3" fontWeight="bold" textAlign="center">
             {title}
           </Typography>
         )}
-        <Typography variant="h5" textAlign="center">
+        <Typography variant="h5" textAlign="justify">
           {subtitle}
         </Typography>
       </Container>

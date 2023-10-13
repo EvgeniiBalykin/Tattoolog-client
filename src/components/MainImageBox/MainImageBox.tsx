@@ -1,9 +1,11 @@
 import { Box, Button, Container, Typography } from '@mui/material';
 import { useNavigate } from 'react-router';
 import { IMainImageBox } from '@interfaces/index';
+import { useTranslation } from 'react-i18next';
 
 const MainImageBox = ({ title, subtitle, buttons, img }: IMainImageBox) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   return (
     <Container
       className="main-slider"
@@ -37,7 +39,7 @@ const MainImageBox = ({ title, subtitle, buttons, img }: IMainImageBox) => {
               size="medium"
               onClick={() => navigate(el.link)}
             >
-              {el.text}
+              {t(el.text)}
             </Button>
           ))}
         </Box>

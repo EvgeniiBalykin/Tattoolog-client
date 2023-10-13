@@ -1,12 +1,13 @@
 import { Instagram, Facebook, YouTube } from '@mui/icons-material';
 import { Container, Box, Button, Typography, Grid } from '@mui/material';
-import i18next from 'i18next';
 import { Logo } from '@images/index';
 import { Link } from 'react-router-dom';
 import { HEADER_ROUTES } from '@routes/HeaderRoutes';
 import './Footer.scss';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer className="footer-wrapper">
       <Container maxWidth="lg" className="footer">
@@ -37,7 +38,7 @@ const Footer = () => {
                 variant="text"
                 size="small"
               >
-                {i18next.t(route.name)}
+                {t(route.name)}
               </Button>
             </Grid>
           ))}

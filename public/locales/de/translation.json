@@ -26,28 +26,125 @@
   },
   "pages": {
     "contacts": "Kontakte",
-    "masters": "Meisterverzeichnis",
-    "studios": "Studios Verzeichnis",
+    "masters": "Meister",
+    "studios": "Studio",
     "blog": "Blog",
     "partners": "Partner",
     "about": "Über uns",
     "join": "Treten Sie bei",
     "why_us": "Warum wir?",
     "ready_to_join": "Bereit, sich unserem Verzeichnis von Tattoo-Künstlern anzuschließen?",
-    "no_works": "Bisher wurden keine Werke hinzugefügt"
+    "no_works": "Bisher wurden keine Werke hinzugefügt",
+    "main": {
+      "title": "Entdecken Sie jetzt die Tattoo-Welt!",
+      "subtitle": "Tauchen Sie ein in den weltweit ersten exklusiven Katalog von erstklassigen Tattoo-Künstlern und Studios. Entdecken Sie ihre atemberaubenden Werke, Erfahrungen und Stile - alles an einem Ort!",
+      "about_block": {
+        "title_1": "Unschlagbarer Katalog",
+        "subtitle_1": "Willkommen im exklusiven Verzeichnis der Top-Tattoo-Künstler aus der gesamten Europäischen Union. Unsere Plattform präsentiert ihre besten Arbeiten, damit Sie Ihre perfekte Wahl treffen können - geführt von den persönlichen Bewertungen von TattooLog, um die Auswahl noch einfacher zu machen.",
+        "title_2": "Unglaubliche Tintenkreationen",
+        "subtitle_2": "Lassen Sie sich von unserer faszinierenden Tattoo-Kunstgalerie verzaubern. Kühne Designs, komplexe Details und atemberaubende Kreativität - alles ist hier!"
+      },
+      "why_us_block": {
+        "title_1": "Jobchancen",
+        "subtitle_1": "Suchen Sie nach einer Gelegenheit? Treten Sie dem Tattoolog-Verband bei und fördern Sie Ihre Karriere.",
+        "title_2": "Exklusive Vorteile",
+        "subtitle_2": "Mitglieder der Tattoo-Künstler genießen Ausrüstungsrabatte, Festivalteilnahmen und die Teilnahme an Meisterschaften.",
+        "title_3": "Sichtbare Auswirkungen",
+        "subtitle_3": "Sehen Sie sich das Portfolio mit den Kunstwerken von Tattoo-Künstlern auf unserer Plattform an, auf der wir ihre besten Werke präsentieren."
+      },
+      "join_us_block": {
+        "title": "Können es kaum erwarten, einen Vorgeschmack auf den Tattoo-Ruhm zu bekommen? Klicken Sie unten auf die Schaltfläche, füllen Sie ein einfaches Formular über sich selbst und Ihre Arbeit aus und treten Sie unserem Katalog bei. Lassen Sie die Welt das herausragende Talent sehen, das in Ihnen steckt."
+      },
+      "additional_block": {
+        "title": "Ihr ultimativer Tattoo-Leitfaden",
+        "subtitle": "TattooLog ist die Anlaufstelle für Tattoo-Enthusiasten, die Profi-Tuschkünstler und bemerkenswerte Studios suchen. Egal, ob Sie nach Inspiration suchen oder frische Tinte wünschen, wir haben Sie abgedeckt.",
+        "subtitle_1": "Halten Sie Ihre beeindruckende Tintenkunstgalerie auf dem neuesten Stand und beeindrucken Sie Kunden mit Ihrer Leidenschaft und lebendigen Kreativität.",
+        "subtitle_2": "Passen Sie Ihr Profil an Ihre einzigartigen Vorlieben für Tattoo-Stile, Ihren Standort und mehr an, damit Kunden Sie leicht finden können."
+      },
+      "faq": {
+        "block_1": {
+          "title": "Wie trete ich der Plattform bei?",
+          "content": "Registrieren Sie sich auf unserer Website, richten Sie Ihr Profil ein und beginnen Sie, die fantastische Kunst und die Gemeinschaft zu erkunden."
+        },
+        "block_2": {
+          "title": "Ist das kostenlos?",
+          "content": "Ja, es ist absolut kostenlos, dem Katalog beizutreten. Sie haben die Möglichkeit zur Eigenwerbung und können Ihre Arbeiten präsentieren und Ihr Talent zeigen."
+        },
+        "block_3": {
+          "title": "Wie lange bleibe ich Mitglied des Katalogs?",
+          "content": "Es ist dauerhaft und ohne Probezeit verfügbar. Sie können jedoch Ihr Profil jederzeit bearbeiten und es bei Bedarf vollständig löschen."
+        }
+      }
+    },
+    "artists_page": {
+      "title": "Entfesseln Sie Ihre innere Leinwand",
+      "subtitle": "Entdecken Sie erstklassige Tätowierungskünstler und ihre atemberaubenden Kreationen",
+      "subtitle_1": "Das TattooLog-Portfolio ist Ihr Tor zur Welt der erstaunlichen Tätowierungskunst. Entdecken Sie unzählige Tätowierungskünstler mit einzigartigen Stilen, Bewertungen und atemberaubenden Designs, die Sie nach mehr Tinte verlangen lassen. Von zarten Aquarell-Designs bis hin zu aufwendigem Realismus bietet unsere Plattform das perfekte Erlebnis für Tätowierungsbegeisterte und leidenschaftliche Künstler gleichermaßen.",
+      "info": {
+        "title": "Höhepunkte",
+        "1": {
+          "title": "Weltweite Reichweite",
+          "subtitle": "Entdecken Sie außergewöhnliches Talent von Künstlern aus aller Welt."
+        },
+        "2": {
+          "title": "Höchstbewertet",
+          "subtitle": "Erleben Sie die bemerkenswerten Arbeiten der bestbewerteten Tätowierungskünstler weltweit."
+        },
+        "3": {
+          "title": "Erstaunliche Kunst",
+          "subtitle": "Genießen Sie atemberaubende Meisterwerke, die auf menschlichen Leinwänden eingeätzt sind."
+        },
+        "4": {
+          "title": "Tattoo-Locator",
+          "subtitle": "Finden Sie das Tattoo, das zu Ihnen spricht, und den Künstler, der es zum Leben erweckt hat."
+        }
+      },
+      "join": {
+        "title": "Bereit, unserem Katalog der Tätowierungskünstler beizutreten?",
+        "subtitle": "Verpassen Sie nicht die Gelegenheit, Teil unseres ständig wachsenden Netzwerks von Tätowierungskünstlern zu werden. Präsentieren Sie Ihre Künstlerkunst und verdienen Sie die Anerkennung, die Sie verdienen."
+      }
+    },
+    "studios_page": {
+      "title": "Tätowiertes Paradies - hier treffen die Besten zusammen",
+      "subtitle": "Atemberaubende Studios-Liste",
+      "subtitle_1": "Betreten Sie die Welt der besten Tattoo-Studios, in denen nur die besten Tintenmeister leben. Wir haben die angesehensten Studios ausgewählt, die die Crème de la Crème der Tätowierungskünstler beherbergen. Unser Katalog präsentiert einen Reichtum an Talent, Kreativität und Leidenschaft, der keine Grenzen kennt. Lassen Sie Ihren inneren Maverick bei einem Besuch in den absolut besten Tattoo-Studios auf der Welt frei und schmücken Sie Ihre Haut mit zeitlosen Meisterwerken.",
+      "info": {
+        "title": "Höhepunkte",
+        "1": {
+          "title": "Ausgezeichnete Künstler",
+          "subtitle": "Ausgewähltes künstlerisches Talent in Studios mit außergewöhnlicher Kreativität."
+        },
+        "2": {
+          "title": "Sicherheit an erster Stelle",
+          "subtitle": "Sauber und hygienische Studios mit Priorität für das Wohlergehen der Kunden."
+        },
+        "3": {
+          "title": "Kundenliebe",
+          "subtitle": "Studios mit begeisterten Kundenbewertungen und engagierten Anhängern."
+        }
+      },
+      "join": {
+        "title": "Bereit, unserem Tattoo-Studio-Katalog beizutreten?",
+        "subtitle": "Die Kultgemeinschaft der Tätowierungslegenden - wo Innovation auf Inspiration trifft und Ihren Körper als Leinwand für zeitlose Meisterwerke verwandelt. Tauchen Sie ein in die immersive Welt künstlerischer Abenteuer und schätzen Sie die Gelegenheit, Ihre Haut mit zeitlosen Meisterwerken zu schmücken."
+      }
+    }
   },
   "buttons": {
     "load_more": "Mehr laden",
     "add": "Hinzufügen",
     "join": "Jetzt beitreten",
-    "upload_img": "Foto hochladen",
+    "upload_img": "Bild hochladen",
     "publish": "Veröffentlichen",
     "my_profile": "Mein Profil",
     "change_photo": "Foto ändern",
     "add_work": "Arbeit hinzufügen",
     "save": "Speichern",
     "close": "Schließen",
-    "confirm": "Bestätigen"
+    "confirm": "Bestätigen",
+    "reset_filters": "Filter zurücksetzen",
+    "artists": "Künstler",
+    "studios": "Studios",
+    "catalogue": "Katalog"
   },
   "validation": {
     "error_name": "Ungültiger Name",

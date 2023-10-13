@@ -36,11 +36,11 @@ const AboutMain = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={6}>
             <div className="text-wrapper">
-              <Typography variant="h2">Primary benefit showcase</Typography>
+              <Typography variant="h2">
+                {t('pages.main.about_block.title_1')}
+              </Typography>
               <Typography variant="h5" textAlign="justify">
-                Show how your product's features matter, how they set you apart
-                from the competition, and how you can transform your customer's
-                experience at work or at home
+                {t('pages.main.about_block.subtitle_1')}
               </Typography>
             </div>
           </Grid>
@@ -54,11 +54,11 @@ const AboutMain = () => {
         >
           <Grid item xs={12} sm={6} md={6}>
             <div className="text-wrapper">
-              <Typography variant="h2">Primary benefit showcase</Typography>
+              <Typography variant="h2">
+                {t('pages.main.about_block.title_2')}
+              </Typography>
               <Typography variant="h5" textAlign="justify">
-                Show how your product's features matter, how they set you apart
-                from the competition, and how you can transform your customer's
-                experience at work or at home
+                {t('pages.main.about_block.subtitle_2')}
               </Typography>
             </div>
           </Grid>

@@ -12,10 +12,10 @@ import { Avatar, Button, Container, Stack, Toolbar } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { logoutUser, selectLogin } from '@store/reducers/loginSlice';
 import { useAppDispatch } from '@hooks/redux';
-import i18next from 'i18next';
 import './NavDrawer.scss';
 import { selectUser } from '@store/reducers/userSlice';
 import LangSwitcher from '@components/LangSwitcher/LangSwitcher';
+import { useTranslation } from 'react-i18next';
 
 const drawerWidth = 240;
 
@@ -25,6 +25,7 @@ interface Props {
 
 export default function ResponsiveDrawer(props: Props) {
   const { window } = props;
+  const { t } = useTranslation();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const loginState = useSelector(selectLogin);
   const token = loginState?.token;
@@ -75,7 +76,7 @@ export default function ResponsiveDrawer(props: Props) {
             fullWidth
             onClick={handleDrawerToggle}
           >
-            {i18next.t(route.name)}
+            {t(route.name)}
           </Button>
         ))}
         {token ? (
@@ -90,7 +91,7 @@ export default function ResponsiveDrawer(props: Props) {
             }}
             fullWidth
           >
-            {i18next.t('registration.logout')}
+            {t('registration.logout')}
           </Button>
         ) : (
           LOGIN_ROUTES.map((route) => (
@@ -103,7 +104,7 @@ export default function ResponsiveDrawer(props: Props) {
               onClick={handleDrawerToggle}
               fullWidth
             >
-              {i18next.t(route.name)}
+              {t(route.name)}
             </Button>
           ))
         )}

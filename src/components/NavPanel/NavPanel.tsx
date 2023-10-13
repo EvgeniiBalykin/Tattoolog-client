@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import { HEADER_ROUTES, LOGIN_ROUTES } from '@routes/HeaderRoutes';
-import i18next from 'i18next';
 import { useAppDispatch } from '@hooks/redux';
 import { logoutUser, selectLogin } from '@store/reducers/loginSlice';
 import { Link } from 'react-router-dom';
@@ -82,7 +81,7 @@ export const NavPanel = () => {
               variant="text"
               size="small"
             >
-              {i18next.t(route.name)}
+              {t(route.name)}
             </Button>
           ))}
         </Box>
@@ -99,7 +98,7 @@ export const NavPanel = () => {
                 }
                 size="small"
               >
-                {i18next.t(route.name)}
+                {t(route.name)}
               </Button>
             ))
           ) : (

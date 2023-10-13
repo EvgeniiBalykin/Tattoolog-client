@@ -34,24 +34,121 @@
     "join": "Dołącz do nas",
     "why_us": "Dlaczego my?",
     "ready_to_join": "Gotów, aby dołączyć do naszego katalogu mistrzów tatuażu?",
-    "no_works": "Nie dodano jeszcze prac"
+    "no_works": "Nie dodano jeszcze prac",
+    "main": {
+      "title": "Odkryj świat tatuażu teraz!",
+      "subtitle": "Zanurz się w pierwszym na świecie ekskluzywnym katalogu najlepszych artystów tatuażu i studiów. Odkrywaj ich imponujące prace, doświadczenie i style, wszystko w jednym miejscu!",
+      "about_block": {
+        "title_1": "Nie do pobicia Katalog",
+        "subtitle_1": "Witaj w ekskluzywnym katalogu najlepszych artystów tatuażu z całej Unii Europejskiej. Nasza platforma prezentuje ich najlepsze prace, dzięki czemu możesz znaleźć idealne dopasowanie - kierując się ocenami osobistymi TattooLog, aby ułatwić wybór.",
+        "title_2": "Niezwykłe kreacje tuszu",
+        "subtitle_2": "Rozkoszuj się naszą hipnotyzującą galerią sztuki tatuażu. Odważne wzory, skomplikowane szczegóły i inspirująca kreatywność - to wszystko tutaj!"
+      },
+      "why_us_block": {
+        "title_1": "Oferty pracy",
+        "subtitle_1": "Szukasz okazji? Dołącz do stowarzyszenia Tattoolog i rozwijaj swoją karierę.",
+        "title_2": "Wyjątkowe korzyści",
+        "subtitle_2": "Członkowie stowarzyszenia artystów tatuażu korzystają z rabatów na sprzęt, wstępów na festiwale i uczestnictwa w mistrzostwach.",
+        "title_3": "Widoczny wpływ",
+        "subtitle_3": "Oglądaj portfolio z pracami artystów tatuażu na naszej platformie, gdzie prezentujemy ich najlepsze dzieła."
+      },
+      "join_us_block": {
+        "title": "Nie możesz się doczekać smaku sławy w tatuażu? Kliknij poniższy przycisk, wypełnij prosty formularz dotyczący siebie i swojej pracy, i dołącz do naszego katalogu. Pozwól światu zobaczyć wybitny talent, którym jesteś."
+      },
+      "additional_block": {
+        "title": "Twój ostateczny przewodnik po tatuażu",
+        "subtitle": "TattooLog to platforma dla entuzjastów tatuażu poszukujących profesjonalnych artystów tatuażu i niezwykłych studiów. Niezależnie od tego, czy szukasz inspiracji, czy masz ochotę na nowy tatuaż, mamy Cię! ",
+        "subtitle_1": "Aktualizuj swoją niesamowitą galerię tatuaży, imponując klientom swoją pasją i żywą kreatywnością.",
+        "subtitle_2": "Dostosuj swój profil do swoich unikalnych preferencji dotyczących stylu tatuażu, lokalizacji i nie tylko, pozwalając klientom łatwo Cię znaleźć."
+      },
+      "faq": {
+        "block_1": {
+          "title": "Jak dołączyć do platformy?",
+          "content": "Zarejestruj się na naszej stronie internetowej, utwórz swój profil i zacznij odkrywać fantastyczną sztukę i społeczność."
+        },
+        "block_2": {
+          "title": "Czy to jest darmowe?",
+          "content": "Oczywiście, dołączenie do katalogu jest całkowicie darmowe. Masz możliwość zdobycia rozpoznania i promowania swoich prac oraz prezentowania swojego talentu."
+        },
+        "block_3": {
+          "title": "Jak długo będę członkiem katalogu?",
+          "content": "To jest stałe i dostępne bez okresu próbnego. Możesz jednak edytować swój profil w dowolnym momencie i, jeśli zechcesz, całkowicie go usunąć."
+        }
+      }
+    },
+    "artists_page": {
+      "title": "Uwolnij swoje wewnętrzne płótno",
+      "subtitle": "Odkryj najlepszych artystów tatuażu i ich oszałamiające twórczości",
+      "subtitle_1": "Portfolio TattooLog to Twoja brama do świata niesamowitej sztuki tatuażu. Odkryj niezliczonych artystów tatuażu o unikalnych stylach, ocenach i oszałamiających wzorach, które sprawią, że będziesz pragnąć więcej tuszu. Od delikatnych wzorów akwarelowych po skomplikowaną realizm, nasza platforma oferuje doskonałe doświadczenie zarówno dla entuzjastów tatuażu, jak i pasjonatów sztuki. ",
+      "info": {
+        "title": "Funkcje w centrum uwagi",
+        "1": {
+          "title": "Zasięg globalny",
+          "subtitle": "Odkryj wyjątkowy talent artystów z całego świata."
+        },
+        "2": {
+          "title": "Najlepiej ocenieni",
+          "subtitle": "Doświadcz niezwykłych dzieł najlepiej ocenianych artystów tatuażu na całym świecie."
+        },
+        "3": {
+          "title": "Niesamowita sztuka",
+          "subtitle": "Rozkoszuj się oszałamiającymi arcydziełami wytłaczanymi na ludzkich płótnach."
+        },
+        "4": {
+          "title": "Lokalizator tuszu",
+          "subtitle": "Znajdź tatuaż, który do Ciebie przemawia, i artystę, który go stworzył."
+        }
+      },
+      "join": {
+        "title": "Gotów do dołączenia do naszego katalogu artystów tatuażu?",
+        "subtitle": "Nie przegap okazji, aby być częścią naszej stale rosnącej sieci artystów tatuażu. Zaprezentuj swoje mistrzostwo i zdobądź zasłużone uznanie."
+      }
+    },
+    "studios_page": {
+      "title": "Raj tatuażu - to tutaj spotykają się najlepsi",
+      "subtitle": "Lista niezwykłych studiów tatuażu",
+      "subtitle_1": "Wejdź do świata najlepszych studiów tatuażu, gdzie mieszkają tylko najwybitniejsi mistrzowie tuszu. Wybraliśmy osobiście najbardziej prestiżowe studia, które są domem dla śmietanki artystów tatuażu. Nasz katalog prezentuje bogactwo talentu, kreatywności i pasji, które nie mają granic. Rozpętaj swojego wewnętrznego buntownika odwiedzając absolutnie najlepsze studia tatuażu na świecie.",
+      "info": {
+        "title": "Funkcje w centrum uwagi",
+        "1": {
+          "title": "Mistrzowie sztuki",
+          "subtitle": "Wyselekcjonowany artystyczny talent w studiach o niezwykłej kreatywności."
+        },
+        "2": {
+          "title": "Bezpieczeństwo na pierwszym miejscu",
+          "subtitle": "Czyste i higieniczne studia, dbające o dobro klienta."
+        },
+        "3": {
+          "title": "Miłość klientów",
+          "subtitle": "Studia z entuzjastycznymi recenzjami i oddanymi klientami."
+        }
+      },
+      "join": {
+        "title": "Gotowy, aby dołączyć do naszego katalogu studiów tatuażu?",
+        "subtitle": "Kult legend tatuażu - tam, gdzie innowacja spotyka inspirację i na zawsze przekształca twoje ciało w płótno. Zanurz się w immersyjnym świecie artystycznych odysei i skorzystaj z okazji ozdobienia swojej skóry nieśmiertelnymi arcydziełami."
+      }
+    }
   },
   "buttons": {
-    "load_more": "Ładuj więcej",
+    "load_more": "Załaduj więcej",
     "add": "Dodaj",
-    "join": "Dołącz teraz",
-    "upload_img": "Załaduj zdjęcie",
+    "join": "Dołącz teraz",
+    "upload_img": "Prześlij zdjęcie",
     "publish": "Opublikuj",
     "my_profile": "Mój profil",
     "change_photo": "Zmień zdjęcie",
     "add_work": "Dodaj pracę",
     "save": "Zapisz",
     "close": "Zamknij",
-    "confirm": "Potwierdź"
+    "confirm": "Potwierdź",
+    "reset_filters": "Zresetuj filtry",
+    "artists": "Artyści",
+    "studios": "Studia",
+    "catalogue": "Katalog"
   },
   "validation": {
     "error_name": "Nieprawidłowe imię",
-    "error_email": "Nieprawidłowy format e-maila",
+    "error_email": "Nieprawidłowy format adresu email",
     "error_password": "Hasło musi mieć co najmniej 8 znaków",
     "error_password_2": "Hasło musi zawierać co najmniej jedną wielką literę i znak specjalny"
   }

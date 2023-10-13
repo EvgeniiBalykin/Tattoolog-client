@@ -27,7 +27,8 @@ const WhyUsMain = () => {
             <DescriptionIcons
               key={index}
               icon={el.icon}
-              subtitle={el.subtitle}
+              title={t(el.title)}
+              subtitle={t(el.subtitle)}
               xs={14}
               sm={4}
               md={4}

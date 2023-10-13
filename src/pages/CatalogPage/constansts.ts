@@ -9,43 +9,60 @@ import {
 import { IDescriptionIcons, IMainImageBox } from '@interfaces/index';
 
 export const MASTER_CATALOGUE_MAIN: IMainImageBox = {
-  title: 'Unleash Your Inner Canvas!',
-  subtitle:
-    'Discover top-notch tattoo artists and their jaw-dropping creations',
-  buttons: [{ text: 'catalogue', link: '' }],
+  title: 'pages.artists_page.title',
+  subtitle: 'pages.artists_page.subtitle',
+  joinTitle: 'pages.artists_page.join.title',
+  joinSubtitle: 'pages.artists_page.join.subtitle',
+  buttons: [{ text: 'buttons.catalogue', link: '' }],
   img: MasterCatalogue,
 };
 
 export const SALON_CATALOGUE_MAIN: IMainImageBox = {
-  title: 'Inked paradise — this is where the best converge',
-  subtitle: 'Breathtaking Studios List',
-  buttons: [{ text: 'catalogue', link: '' }],
+  title: 'pages.studios_page.title',
+  subtitle: 'pages.studios_page.subtitle',
+  joinTitle: 'pages.studios_page.join.title',
+  joinSubtitle: 'pages.studios_page.join.subtitle',
+  buttons: [{ text: 'buttons.catalogue', link: '' }],
   img: StudioCatalogue,
 };
 
 export const MASTER_CATALOG_ICONS: IDescriptionIcons[] = [
   {
     icon: Medal,
-    title: 'Top Rated',
-    subtitle:
-      'Experience the remarkable works of top-rated tattoo artists worldwide.',
+    title: 'pages.artists_page.info.1.title',
+    subtitle: 'pages.artists_page.info.1.subtitle',
   },
   {
     icon: Location,
-    title: 'Global Reach',
-    subtitle:
-      'Discover exceptional talent from artists based in every corner of the world.',
+    title: 'pages.artists_page.info.2.title',
+    subtitle: 'pages.artists_page.info.2.subtitle',
   },
   {
     icon: Amazing_art,
-    title: 'Amazing Art',
-    subtitle:
-      'Feast your eyes on jaw-dropping masterpieces etched on human canvases.',
+    title: 'pages.artists_page.info.3.title',
+    subtitle: 'pages.artists_page.info.3.subtitle',
   },
   {
     icon: Target,
-    title: 'Ink Locator',
-    subtitle:
-      'Find the tattoo that calls out to you and the artist who brought it to life.',
+    title: 'pages.artists_page.info.4.title',
+    subtitle: 'pages.artists_page.info.4.subtitle',
+  },
+];
+
+export const STUDIO_CATALOG_ICONS: IDescriptionIcons[] = [
+  {
+    icon: Medal,
+    title: 'pages.studios_page.info.1.title',
+    subtitle: 'pages.studios_page.info.1.subtitle',
+  },
+  {
+    icon: Location,
+    title: 'pages.studios_page.info.2.title',
+    subtitle: 'pages.studios_page.info.2.subtitle',
+  },
+  {
+    icon: Amazing_art,
+    title: 'pages.studios_page.info.3.title',
+    subtitle: 'pages.studios_page.info.3.subtitle',
   },
 ];
