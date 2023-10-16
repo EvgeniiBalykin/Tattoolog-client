@@ -35,7 +35,7 @@ export interface IProfileData {
   country?: any;
   phone_number?: string;
   city?: any;
-  birthday?: Date;
+  birthday?: Date | string;
   user: {
     email?: string;
     first_name?: string;

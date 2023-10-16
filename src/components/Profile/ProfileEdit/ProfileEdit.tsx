@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import ErrorAlert from '@components/ErrorAlert';
 import { MuiTelInput } from 'mui-tel-input';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import {
@@ -18,50 +18,57 @@ import {
 } from '@services/profileApi';
 import { useGetCityQuery, useGetCountryQuery } from '@services/toolsApi';
 import { toggleAddChange } from '@store/reducers/profileSlice';
-import { PROFILE_EDIT_INPUTS } from './constants/inputs';
-
-interface MutateResult {
-  data?: any;
-  error?: any;
-}
-
-interface IState {
-  phone_number?: string;
-  birthday?: Date;
-  adress?: string;
-  country?: { value: string; id: number | null };
-  city?: { value: string; id: number | null };
-  about?: string;
-  first_name?: string;
-  last_name?: string;
-  instagram: string;
-  facebook: string;
-  pinterest: string;
-  tiktok: string;
-}
+import {
+  initialState,
+  IState,
+  MutateResult,
+  PROFILE_EDIT_INPUTS,
+} from './constants/inputs';
 
 const ProfileEdit = ({ id }: { id: number }) => {
   const { t } = useTranslation();
   const { data, refetch } = useGetProfileDataQuery(id);
   const dispatch = useDispatch();
-  const [fieldsValue, setFieldsValue] = useState<IState>({
-    phone_number: data?.phone_number,
-    birthday: data?.birthday,
-    adress: '',
-    country: { value: '', id: null },
-    city: { value: '', id: null },
-    about: data?.about,
-    first_name: data?.user?.first_name,
-    last_name: data?.user?.last_name,
-    instagram: '',
-    facebook: '',
-    pinterest: '',
-    tiktok: '',
-  });
-  const { data: Countries } = useGetCountryQuery(fieldsValue.country?.value);
+  const [fieldsValue, setFieldsValue] = useState<IState>(initialState);
+
+  console.log(data);
+
+  useEffect(() => {
+    if (data) {
+      setFieldsValue({
+        phone_number: data?.phone_number,
+        birthday: data?.birthday || '',
+        adress: '',
+        country: { value: data?.country.name, id: data?.country.id },
+        city: { value: data?.city.name, id: data?.city.id },
+        about: data?.about,
+        first_name: data?.user?.first_name,
+        last_name: data?.user?.last_name,
+        instagram:
+          data?.social_media_profile?.find(
+            (profile) => profile.social_media_type.name === 'Instagram'
+          )?.link || '',
+        facebook:
+          data?.social_media_profile?.find(
+            (profile) => profile.social_media_type.name === 'Facebook'
+          )?.link || '',
+        pinterest:
+          data?.social_media_profile?.find(
+            (profile) => profile.social_media_type.name === 'Pinterest'
+          )?.link || '',
+        tiktok:
+          data?.social_media_profile?.find(
+            (profile) => profile.social_media_type.name === 'TikTok'
+          )?.link || '',
+      });
+    }
+  }, [data]);
+  const [countrySearch, setCountrySearch] = useState('');
+  const [citySearch, setCitySearch] = useState('');
+  const { data: Countries } = useGetCountryQuery(countrySearch);
   const { data: Cities } = useGetCityQuery({
-    country: fieldsValue.country?.value,
-    city: fieldsValue.city?.value,
+    country: countrySearch,
+    city: citySearch,
   });
   const cityOptions = Cities?.results.map((el) => ({
     label: el.name,
@@ -72,18 +79,27 @@ const ProfileEdit = ({ id }: { id: number }) => {
     value: el.id,
   }));
   const [mutate, { error }] = useUpdateProfileMutation();
+
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    console.log(fieldsValue.country);
     const { name, value } = e.target;
     setFieldsValue({ ...fieldsValue, [name]: value });
   };
+
   const onSubmit = async () => {
     try {
       const result: MutateResult = await mutate({
         id,
         formData: {
-          birthday: fieldsValue.birthday,
-          city: fieldsValue.city?.id ? fieldsValue.city.id : null,
-          country: fieldsValue.country?.id ? fieldsValue.country.id : null,
+          birthday: fieldsValue.birthday || '',
+          city: {
+            name: fieldsValue.city?.value,
+            id: fieldsValue.city?.id,
+          },
+          country: {
+            name: fieldsValue.country?.value,
+            id: fieldsValue.country?.id,
+          },
           phone_number: fieldsValue.phone_number,
           about: fieldsValue.about,
           user: {
@@ -140,12 +156,16 @@ const ProfileEdit = ({ id }: { id: number }) => {
                 <Autocomplete
                   disablePortal
                   options={countryOptions || []}
+                  value={{
+                    value: fieldsValue.country?.id,
+                    label: fieldsValue.country?.value,
+                  }}
                   onChange={(_, value) =>
                     setFieldsValue({
                       ...fieldsValue,
                       country: {
                         value: value?.label || '',
-                        id: value?.value || null,
+                        id: value?.value || undefined,
                       },
                     })
                   }
@@ -155,6 +175,14 @@ const ProfileEdit = ({ id }: { id: number }) => {
                         {...params}
                         color="secondary"
                         variant="outlined"
+                        value={fieldsValue.country?.value}
+                        onChange={(e) => {
+                          setFieldsValue({
+                            ...fieldsValue,
+                            country: { value: e.target.value, id: null },
+                          });
+                          setCountrySearch(e.target.value);
+                        }}
                         name={field.name}
                         size="small"
                         InputLabelProps={{}}
@@ -172,12 +200,16 @@ const ProfileEdit = ({ id }: { id: number }) => {
                   disablePortal
                   id="combo-box-demo"
                   options={cityOptions || []}
+                  value={{
+                    value: fieldsValue.city?.id,
+                    label: fieldsValue.city?.value,
+                  }}
                   onChange={(_, value) =>
                     setFieldsValue({
                       ...fieldsValue,
                       city: {
                         value: value?.label || '',
-                        id: value?.value || null,
+                        id: value?.value || undefined,
                       },
                     })
                   }
@@ -187,8 +219,15 @@ const ProfileEdit = ({ id }: { id: number }) => {
                         {...params}
                         color="secondary"
                         variant="outlined"
+                        value={fieldsValue.city?.value}
+                        onChange={(e) => {
+                          setFieldsValue({
+                            ...fieldsValue,
+                            city: { value: e.target.value, id: null },
+                          });
+                          setCitySearch(e.target.value);
+                        }}
                         name={field.name}
-                        onChange={onChange}
                         size="small"
                         InputLabelProps={{}}
                       />
@@ -210,7 +249,7 @@ const ProfileEdit = ({ id }: { id: number }) => {
                     variant="outlined"
                     size="small"
                     name="phone_number"
-                    value={fieldsValue.phone_number}
+                    value={fieldsValue.phone_number || ''}
                     onChange={(newValue) =>
                       setFieldsValue({ ...fieldsValue, phone_number: newValue })
                     }
@@ -227,7 +266,6 @@ const ProfileEdit = ({ id }: { id: number }) => {
                     size="small"
                   />
                 )}
-
                 <Box display="flex" sx={{ backgroundColor: '#4A2352' }}>
                   <Tooltip title={t(field.label)}>
                     <IconButton>{field.icon}</IconButton>
