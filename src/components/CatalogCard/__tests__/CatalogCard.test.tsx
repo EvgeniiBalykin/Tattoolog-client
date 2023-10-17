@@ -19,6 +19,7 @@ const MOCK_PROPS = {
   city: 'test city',
   country: 'test country',
   about: trimText(randomString(100), 47),
+  avg_rating: '4',
 };
 
 jest.mock(
@@ -42,6 +43,7 @@ describe(CatalogCard, () => {
             city={MOCK_PROPS.city}
             country={MOCK_PROPS.country}
             about={MOCK_PROPS.about}
+            avg_rating={MOCK_PROPS.avg_rating}
           />
         </Router>
       </Provider>
