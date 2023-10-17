@@ -10,6 +10,7 @@ import PostPage from '@pages/PostPage/PostPage';
 import PartnersPage from '@pages/PartnersPage/PartnersPage';
 import ResetPage from '@pages/ResetPage/ResetPage';
 import NewPasswordPage from '@pages/NewPasswordPage/NewPasswordPage';
+import ActivationPage from '@pages/ActivationPage/ActivationPage';
 
 export const HEADER_ROUTES: IRoutes[] = [
   {
@@ -57,8 +58,13 @@ export const LOGIN_ROUTES: IRoutes[] = [
 export const HELP_PAGES: IRoutes[] = [
   {
     name: 'Sign in success',
-    path: HeaderRoutesList.SIGNIN_SUCCESS,
+    path: HeaderRoutesList.SUCCESS_PAGE,
     element: <AcceptSignupPage />,
+  },
+  {
+    name: 'Activation page',
+    path: HeaderRoutesList.ACTIVATION_PAGE,
+    element: <ActivationPage />,
   },
   {
     name: 'Reset password',
