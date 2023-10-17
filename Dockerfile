@@ -10,5 +10,8 @@ COPY package*.json ./
 # Устанавливаем зависимости
 RUN npm install
 
-# Указываем команду для запуска приложения (можно заменить на npm run dev для режима разработки)
-CMD ["npm", "run", "build"]
+COPY ./docker-entrypoint.sh /
+
+RUN chmod +x /docker-entrypoint.sh
+
+ENTRYPOINT ["/docker-entrypoint.sh"] # Указываем команду для запуска приложения (можно заменить на npm run dev для режима разработки)
