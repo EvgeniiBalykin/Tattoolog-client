@@ -88,3 +88,38 @@ export const PROFILE_EDIT_INPUTS: {
     name: 'pinterest',
   },
 ];
+
+export interface MutateResult {
+  data?: any;
+  error?: any;
+}
+
+export interface IState {
+  phone_number?: string;
+  birthday?: Date | string;
+  adress?: string;
+  country?: { value: string; id?: number | null };
+  city?: { value: string; id?: number | null };
+  about?: string;
+  first_name?: string;
+  last_name?: string;
+  instagram: string;
+  facebook: string;
+  pinterest: string;
+  tiktok: string;
+}
+
+export const initialState: IState = {
+  phone_number: '',
+  birthday: '',
+  adress: '',
+  country: { value: '', id: 0 },
+  city: { value: '', id: 0 },
+  about: '',
+  first_name: '',
+  last_name: '',
+  instagram: '',
+  facebook: '',
+  pinterest: '',
+  tiktok: '',
+};

@@ -173,8 +173,8 @@ const ProfileCard = ({ id }: { id: number }) => {
               {profileData?.user?.role?.toUpperCase()}
             </Typography>
             <Typography mt={1} variant="body2">
-              {profileData?.city}
-              {profileData?.country}
+              {profileData?.city.name}
+              {profileData?.country.name}
             </Typography>
           </Box>
         </Box>
