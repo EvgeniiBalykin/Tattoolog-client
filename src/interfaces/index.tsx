@@ -147,8 +147,8 @@ export interface IQueryData {
 }
 
 export interface IAcceptData {
-  uid: string;
-  token: string;
+  uid?: string;
+  token?: string;
 }
 
 export interface ISetNewPassword extends IAcceptData {
