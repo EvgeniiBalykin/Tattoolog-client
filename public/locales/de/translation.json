@@ -144,7 +144,10 @@
     "reset_filters": "Filter zurücksetzen",
     "artists": "Künstler",
     "studios": "Studios",
-    "catalogue": "Katalog"
+    "catalogue": "Katalog",
+    "accept_all": "Alles akzeptieren",
+    "decline_all": "Alle ablehnen",
+    "learn_more": "Erfahre mehr"
   },
   "validation": {
     "error_name": "Ungültiger Name",

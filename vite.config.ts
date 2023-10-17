@@ -15,7 +15,7 @@ export default {
       '@services': '/src/services',
       '@helpers': '/src/helpers',
       '@hooks': '/src/hooks',
-      '@images': '/public/images',
+      '@images': '/src/images',
       '@locales': '/public/locales',
       '@store': '/src/store',
       '@api': '/src/api',
