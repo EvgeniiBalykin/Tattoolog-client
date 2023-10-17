@@ -94,11 +94,9 @@ const ProfileEdit = ({ id }: { id: number }) => {
           birthday: fieldsValue.birthday || '',
           city: {
             name: fieldsValue.city?.value,
-            id: fieldsValue.city?.id,
           },
           country: {
             name: fieldsValue.country?.value,
-            id: fieldsValue.country?.id,
           },
           phone_number: fieldsValue.phone_number,
           about: fieldsValue.about,
