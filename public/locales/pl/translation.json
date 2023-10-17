@@ -144,7 +144,10 @@
     "reset_filters": "Zresetuj filtry",
     "artists": "Artyści",
     "studios": "Studia",
-    "catalogue": "Katalog"
+    "catalogue": "Katalog",
+    "accept_all": "Zaakceptuj wszystkie",
+    "decline_all": "Odrzuć wszystkie",
+    "learn_more": "Dowiedz się więcej"
   },
   "validation": {
     "error_name": "Nieprawidłowe imię",

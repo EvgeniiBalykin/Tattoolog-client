@@ -144,7 +144,10 @@
     "reset_filters": "Reset filters",
     "artists": "Artists",
     "studios": "Studios",
-    "catalogue": "Catalogue"
+    "catalogue": "Catalogue",
+    "accept_all": "Accept all",
+    "decline_all": "Decline all",
+    "learn_more": "Learn more"
   },
   "validation": {
     "error_name": "Invalid Name",
