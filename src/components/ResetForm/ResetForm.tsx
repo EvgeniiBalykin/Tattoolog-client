@@ -17,8 +17,7 @@ export const ResetForm = () => {
 
   const onSubmit = () => {
     resetPassword(email).then(
-      (res: any) =>
-        !res?.error && navigate(`/${HeaderRoutesList.SIGNIN_SUCCESS}`)
+      (res: any) => !res?.error && navigate(`/${HeaderRoutesList.SUCCESS_PAGE}`)
     );
   };
 

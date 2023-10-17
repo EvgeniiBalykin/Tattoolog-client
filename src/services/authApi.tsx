@@ -4,10 +4,16 @@ import {
   PROFILE_DATA,
   RESET_PASSWORD,
   SET_NEW_PASSWORD,
+  SIGNUP_ACTIVATION,
   SIGN_IN,
   SING_UP,
 } from '@api/index';
-import { ILoginBody, ISetNewPassword, IUserData } from '@interfaces/index';
+import {
+  IAcceptData,
+  ILoginBody,
+  ISetNewPassword,
+  IUserData,
+} from '@interfaces/index';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
@@ -62,6 +68,15 @@ export const authApi = createApi({
         };
       },
     }),
+    acceptRegistration: builder.mutation({
+      query: (body: IAcceptData) => {
+        return {
+          url: SIGNUP_ACTIVATION,
+          method: 'POST',
+          body,
+        };
+      },
+    }),
   }),
 });
 
@@ -71,4 +86,5 @@ export const {
   useUserDataMutation,
   useResetPasswordMutation,
   useSetNewPasswordMutation,
+  useAcceptRegistrationMutation,
 } = authApi;

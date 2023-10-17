@@ -146,9 +146,12 @@ export interface IQueryData {
   data: any;
 }
 
-export interface ISetNewPassword {
-  uid?: string;
-  token?: string;
+export interface IAcceptData {
+  uid: string;
+  token: string;
+}
+
+export interface ISetNewPassword extends IAcceptData {
   new_password: string;
 }
 
