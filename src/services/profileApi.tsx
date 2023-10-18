@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import {
   PROFILE_PORTFOLIO,
   PROFILE_USER,
-  LOCAL_SERVER,
+  API_BASE_URL,
   PROFILES_BY_ROLE,
   WORK_TYPES,
   UPDATE_RATING,
@@ -25,7 +25,7 @@ interface ICatalogParams {
 
 export const profileApi = createApi({
   reducerPath: 'profileApi',
-  baseQuery: fetchBaseQuery({ baseUrl: LOCAL_SERVER }),
+  baseQuery: fetchBaseQuery({ baseUrl: API_BASE_URL }),
   endpoints: (builder) => ({
     getMasterCatalog: builder.query<ICatalogData, ICatalogParams>({
       query: (params) => buildQueryString(params),
