@@ -10,7 +10,8 @@
     "email_invite": "Na twój adres e-mail został wysłany e-mail",
     "make_access": "Postępuj zgodnie z instrukcjami w e-mailu, aby zakończyć rejestrację",
     "reset_password": "Zresetuj hasło",
-    "reset": "Zresetuj"
+    "reset": "Zresetuj",
+    "already_with_us": "Już jesteś z nami, dziękujemy!"
   },
   "form": {
     "password": "Hasło",

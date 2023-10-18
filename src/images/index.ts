@@ -21,6 +21,7 @@ import MainHand from '@images/MainHand.png';
 import StudioCatalogue from '@images/StudioCatalogue.png';
 import MasterCatalogue from '@images/MasterCatalogue.png';
 import Background_V8 from '@images/Background_V8.svg';
+import Unknown_avatar from '@images/Unknown_avatar.png';
 
 export {
   Background_V8,
@@ -46,4 +47,5 @@ export {
   MainHand,
   StudioCatalogue,
   MasterCatalogue,
+  Unknown_avatar,
 };

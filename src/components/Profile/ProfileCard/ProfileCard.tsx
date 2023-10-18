@@ -40,6 +40,7 @@ import { selectUser } from '@store/reducers/userSlice';
 import ModalDownload_v2 from '@components/ModalDownload_v2/ModalDownload_v2';
 import { useTranslation } from 'react-i18next';
 import UserRating from '@components/UserRating/UserRating';
+import { Unknown_avatar } from '@images/index';
 
 const SOCIAL_MEDIA_ICONS: { [key: string]: ReactElement } = {
   Facebook: <Facebook />,
@@ -116,7 +117,7 @@ const ProfileCard = ({ id }: { id: number }) => {
           <CardMedia
             className="profile-avatar"
             component="img"
-            src={profileData?.avatar}
+            src={profileData?.avatar ? profileData.avatar : Unknown_avatar}
             alt="avatar"
           />
           {userAccess && (
@@ -173,8 +174,8 @@ const ProfileCard = ({ id }: { id: number }) => {
               {profileData?.user?.role?.toUpperCase()}
             </Typography>
             <Typography mt={1} variant="body2">
-              {profileData?.city.name}
-              {profileData?.country.name}
+              {profileData?.city?.name}
+              {profileData?.country?.name}
             </Typography>
           </Box>
         </Box>
