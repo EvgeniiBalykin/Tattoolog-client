@@ -10,6 +10,7 @@
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/(?!(.*\\.scss$))"
     ],
+    "module": "ES2020",
     "moduleNameMapper": {
       "\\.(png|svg|css|less|scss)$": "identity-obj-proxy",
       "^@components/(.*)$": "<rootDir>/src/components/$1",
