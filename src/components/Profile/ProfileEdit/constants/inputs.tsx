@@ -39,7 +39,7 @@ export const PROFILE_EDIT_INPUTS: {
   },
   {
     label: 'form.birthday',
-    type: 'text',
+    type: 'date',
     icon: <Cake />,
     name: 'birthday',
   },

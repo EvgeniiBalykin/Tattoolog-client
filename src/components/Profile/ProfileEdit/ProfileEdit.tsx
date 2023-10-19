@@ -30,15 +30,37 @@ const ProfileEdit = ({ id }: { id: number }) => {
   const { data, refetch } = useGetProfileDataQuery(id);
   const dispatch = useDispatch();
   const [fieldsValue, setFieldsValue] = useState<IState>(initialState);
+  const currentDate = new Date().toJSON().slice(0, 10);
+  const [countrySearch, setCountrySearch] = useState('');
+  const [citySearch, setCitySearch] = useState('');
+  const { data: Countries } = useGetCountryQuery(countrySearch);
+  const { data: Cities } = useGetCityQuery({
+    country: countrySearch,
+    city: citySearch,
+  });
+  const cityOptions = Cities?.results.map((el) => ({
+    label: el.name,
+    value: el.id,
+  }));
+  const countryOptions = Countries?.results.map((el) => ({
+    label: el.name,
+    value: el.id,
+  }));
 
   useEffect(() => {
-    if (data) {
+    if (data && cityOptions && countryOptions) {
       setFieldsValue({
         phone_number: data?.phone_number,
-        birthday: data?.birthday || '',
+        birthday: currentDate,
         adress: '',
-        country: { value: data?.country?.name, id: data?.country?.id },
-        city: { value: data?.city?.name, id: data?.city?.id },
+        country: {
+          value: data?.country?.name || countryOptions[0]?.label,
+          id: data?.country?.id || countryOptions[0]?.value,
+        },
+        city: {
+          value: data?.country?.name || cityOptions[0].label,
+          id: data?.country?.id || cityOptions[0].value,
+        },
         about: data?.about,
         first_name: data?.user?.first_name,
         last_name: data?.user?.last_name,
@@ -60,22 +82,8 @@ const ProfileEdit = ({ id }: { id: number }) => {
           )?.link || '',
       });
     }
-  }, [data]);
-  const [countrySearch, setCountrySearch] = useState('');
-  const [citySearch, setCitySearch] = useState('');
-  const { data: Countries } = useGetCountryQuery(countrySearch);
-  const { data: Cities } = useGetCityQuery({
-    country: countrySearch,
-    city: citySearch,
-  });
-  const cityOptions = Cities?.results.map((el) => ({
-    label: el.name,
-    value: el.id,
-  }));
-  const countryOptions = Countries?.results.map((el) => ({
-    label: el.name,
-    value: el.id,
-  }));
+  }, [data, cityOptions, countryOptions]);
+
   const [mutate, { error }] = useUpdateProfileMutation();
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
