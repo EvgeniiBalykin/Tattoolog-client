@@ -31,8 +31,6 @@ const ProfileEdit = ({ id }: { id: number }) => {
   const dispatch = useDispatch();
   const [fieldsValue, setFieldsValue] = useState<IState>(initialState);
 
-  console.log(data);
-
   useEffect(() => {
     if (data) {
       setFieldsValue({
@@ -46,19 +44,19 @@ const ProfileEdit = ({ id }: { id: number }) => {
         last_name: data?.user?.last_name,
         instagram:
           data?.social_media_profile?.find(
-            (profile) => profile.social_media_type.name === 'Instagram'
+            (profile) => profile?.social_media_type?.name === 'Instagram'
           )?.link || '',
         facebook:
           data?.social_media_profile?.find(
-            (profile) => profile.social_media_type.name === 'Facebook'
+            (profile) => profile?.social_media_type?.name === 'Facebook'
           )?.link || '',
         pinterest:
           data?.social_media_profile?.find(
-            (profile) => profile.social_media_type.name === 'Pinterest'
+            (profile) => profile?.social_media_type?.name === 'Pinterest'
           )?.link || '',
         tiktok:
           data?.social_media_profile?.find(
-            (profile) => profile.social_media_type.name === 'TikTok'
+            (profile) => profile?.social_media_type?.name === 'TikTok'
           )?.link || '',
       });
     }
