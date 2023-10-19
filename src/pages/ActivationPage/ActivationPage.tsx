@@ -30,8 +30,8 @@ const ActivationPage = () => {
           Sign in success
         </Alert>
       ) : (
-        <Alert variant="outlined" color="error">
-          Something went wrong
+        <Alert variant="outlined" color="info">
+          Loading...
         </Alert>
       )}
       <Button
