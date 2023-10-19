@@ -10,7 +10,8 @@
     "email_invite": "Eine E-Mail wurde an Ihre Mailbox gesendet",
     "make_access": "Folgen Sie den Anweisungen in der E-Mail, um die Registrierung abzuschließen",
     "reset_password": "Passwort zurücksetzen",
-    "reset": "Zurücksetzen"
+    "reset": "Zurücksetzen",
+    "already_with_us": "Du bist bereits bei uns, danke!"
   },
   "form": {
     "password": "Passwort",

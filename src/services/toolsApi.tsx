@@ -4,7 +4,7 @@ import {
   BLOG_POSTS,
   CITIES,
   COUNTRIES,
-  LOCAL_SERVER,
+  API_BASE_URL,
   PARTNERS,
 } from '@api/index';
 import {
@@ -16,7 +16,7 @@ import {
 
 export const toolsApi = createApi({
   reducerPath: 'toolsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: LOCAL_SERVER }),
+  baseQuery: fetchBaseQuery({ baseUrl: API_BASE_URL }),
   endpoints: (builder) => ({
     getCountry: builder.query<
       { results: ICountriesData[] },

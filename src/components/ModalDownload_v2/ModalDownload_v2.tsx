@@ -19,7 +19,7 @@ import { ChangeEvent, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
-import { ADD_POST, ADD_POST_PHOTO, LOCAL_SERVER } from '@api/index';
+import { ADD_POST, ADD_POST_PHOTO, API_BASE_URL } from '@api/index';
 import {
   useGetProfilePortfolioQuery,
   useGetWorkTypesQuery,
@@ -65,7 +65,7 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
   const onPostData = async () => {
     try {
       if (inputValues.files && id) {
-        const postResponse = await axios.post(LOCAL_SERVER + ADD_POST, {
+        const postResponse = await axios.post(API_BASE_URL + ADD_POST, {
           profile: id,
           description: inputValues.title,
           work_type: inputValues.workType,
@@ -76,7 +76,7 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
             const formData = new FormData();
             formData.append('photos', el);
             formData.append('post', postResponse.data.id);
-            await axios.post(LOCAL_SERVER + ADD_POST_PHOTO, formData, {
+            await axios.post(API_BASE_URL + ADD_POST_PHOTO, formData, {
               headers: { 'Content-Type': 'multipart/form-data' },
             });
           })

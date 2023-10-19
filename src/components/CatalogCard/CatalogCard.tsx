@@ -10,6 +10,7 @@ import './CatalogCard.scss';
 import UserRating from '@components/UserRating/UserRating';
 import { useMemo } from 'react';
 import { trimText } from '@helpers/trimText/trimText';
+import { Unknown_avatar } from '@images/index';
 
 interface ICatalogCardProps {
   firstName: string;
@@ -63,7 +64,7 @@ const CatalogCard = ({
             component="img"
             height="100%"
             width="100%"
-            image={avatar}
+            image={avatar ? avatar : Unknown_avatar}
             alt="avatar-img"
           />
           <div className="catalog-card-text">

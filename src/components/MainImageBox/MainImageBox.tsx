@@ -1,10 +1,9 @@
 import { Box, Button, Container, Typography } from '@mui/material';
-import { useNavigate } from 'react-router';
 import { IMainImageBox } from '@interfaces/index';
 import { useTranslation } from 'react-i18next';
+import { scrollToComponent } from '@helpers/scrollToComponents';
 
 const MainImageBox = ({ title, subtitle, buttons, img }: IMainImageBox) => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
   return (
     <Container
@@ -37,7 +36,7 @@ const MainImageBox = ({ title, subtitle, buttons, img }: IMainImageBox) => {
               key={index}
               variant="contained"
               size="medium"
-              onClick={() => navigate(el.link)}
+              onClick={() => scrollToComponent('catalog-card')}
             >
               {t(el.text)}
             </Button>
