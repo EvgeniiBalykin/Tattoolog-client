@@ -22,8 +22,10 @@ import StudioCatalogue from '@images/StudioCatalogue.png';
 import MasterCatalogue from '@images/MasterCatalogue.png';
 import Background_V8 from '@images/Background_V8.svg';
 import Unknown_avatar from '@images/Unknown_avatar.png';
+import BlogPage_2 from '@images/BlogPage_2.png';
 
 export {
+  BlogPage_2,
   Background_V8,
   Logo,
   AddMasterPhoto,

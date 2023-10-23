@@ -105,10 +105,10 @@ export interface IDescriptionIcons {
 
 export interface IMainImageBox {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   joinTitle?: string;
   joinSubtitle?: string;
-  buttons: { text: string; link: string }[];
+  buttons?: { text: string; link: string }[];
   img: string;
 }
 
