@@ -32,18 +32,19 @@
     "blog": "Blog",
     "partners": "Partners",
     "about": "About Us",
-    "join": "Join Us",
+    "join": "Join Today",
     "why_us": "Why Us?",
     "ready_to_join": "Ready to join our tattoo artists catalog?",
     "no_works": "No works added yet",
     "main": {
       "title": "Discover Tattoo World now!",
-      "subtitle": "Dive into the world's first exclusive catalog of top-notch tattoo artists and studios. Discover their stunning works, experience, and styles, all in one place!",
+      "subtitle": "Dive into the exciting catalog of outstanding tattoo artists and studios. Discover their stunning works, experience, and styles, all in one place!",
       "about_block": {
-        "title_1": "Unb﻿eatable Catalog",
-        "subtitle_1": "Welcome to the exclusive directory of top tattoo artists from across the European Union. Our platform showcases their finest work so you can find your perfect match – guided by TattooLog’s personal ratings to make the choice even easier.",
-        "title_2": "Incredib﻿le Ink Creations",
-        "subtitle_2": "Feast your eyes on our mesmerizing tattoo art gallery. Bold designs, intricate details, and awe-inspiring creativity – it’s all here!"
+        "title_1": "Matchless Catalog",
+        "subtitle_1": "Welcome to the catalog of the finest tattoo artists’ works from across Europe. Our platform showcases their works, and by using personal TattooLog ratings, you can confidently make a choice when You selecting an artist.",
+        "subtitle_1_2": "Rest assured, TattooLog will help you find a professional capable of bringing any ideas to life and creating a work of art. Our catalog provides a reliable foundation for decision-making, making it easier for you to find the best artist for you. Don't waste time – start your search for your specialist on TattooLog!",
+        "title_2": "Phenomenal Ink Creations",
+        "subtitle_2": "In our catalog, you'll find bold color palettes, geometric patterns, inspiration from various cultures, and much more. Explore, create your own personal ratings, and be inspired because the world of tattoos on TattooLog is brimming with diverse ideas and creativity."
       },
       "why_us_block": {
         "title_1": "Job Opportunities",
@@ -57,10 +58,9 @@
         "title": "Can’t wait to get a taste of tattoo stardom? Click the button below, fill out a simple form about yourself and your work, and join our catalogue. Let the world witness the outstanding talent that is you."
       },
       "additional_block": {
-        "title": "Your Ultimate Tattoo Guide",
-        "subtitle": "TattooLog is the go-to platform for tattoo enthusiasts seeking pro-level ink artists and remarkable studios. Whether you're looking for inspiration or itching for fresh ink, we’ve got you covered. ",
-        "subtitle_1": "Keep your awesome ink art gallery up-to-date, impressing clients with your passion and vibrant creativity.",
-        "subtitle_2": "Customize your profile with your unique tattoo style preferences, location, and more, letting clients find you with ease."
+        "title": "How to showcase yourself on our platform?",
+        "subtitle": "After registering, it's essential to set up your profile by specifying your unique tattoo style preferences, location, and a description about yourself, so that clients can easily find you.",
+        "subtitle_1": "For personal promotion in the catalog, we recommend regularly updating your gallery with sketches and works."
       },
       "faq": {
         "block_1": {
@@ -80,7 +80,7 @@
     "artists_page": {
       "title": "Unleash Your Inner Canvas",
       "subtitle": "Discover top-notch tattoo artists and their jaw-dropping creations",
-      "subtitle_1": "TattooLog Portfolio is your gateway to the world of amazing tattoo art. Discover countless tattoo artists with unique styles, ratings, and jaw-dropping designs that’ll leave you craving for more ink. From delicate watercolor designs to intricate realism, our platform boasts the perfect experience for tattoo enthusiasts and passionate artists alike. ",
+      "subtitle_1": "TattooLog is a platform for both professionals and tattoo enthusiasts. Professionals in the tattoo industry can establish their presence beyond their city and country by showcasing their best works on the platform and elevating their ranking in the European community of tattoo artists. TattooLog's portfolio is your gateway to the world of amazing tattoo art. Discover a multitude of tattoo artists with unique styles, ratings, and stunning designs that will leave you craving for more ink. From delicate watercolor drawings to intricate realism, our platform provides the perfect environment for both tattoo enthusiasts and passionate artists.",
       "info": {
         "title": "Spotlight Features",
         "1": {
@@ -107,8 +107,8 @@
     },
     "studios_page": {
       "title": "Inked paradise — this is where the best converge",
-      "subtitle": "Breathtaking Studios List",
-      "subtitle_1": "Step into the world of the best Tattoo Studios, where only the finest ink masters dwell. We’ve handpicked the most prestigious studios that house the crème de la crème of tattoo artists. Our catalog showcases a wealth of talent, creativity, and passion that knows no boundaries. Unleash your inner maverick with a visit to the absolute best tattoo studios on the planet.",
+      "subtitle": "Stunning Studios List",
+      "subtitle_1": "Immerse yourself in the world of the best tattoo studios where only top-rated tattoo artists work. We've carefully selected the most deserving studios featuring renowned tattoo masters. Our catalog showcases a blend of talent, creativity, and passion that knows no bounds. Unleash your inner individualist by visiting these marvelous tattoo studios.",
       "info": {
         "title": "Spotlight Features",
         "1": {
@@ -117,11 +117,11 @@
         },
         "2": {
           "title": "Safety First",
-          "subtitle": "Clean and hygienic studios prioritizing client well-being."
+          "subtitle": "Studios where sterility and hygiene are an absolute priority."
         },
         "3": {
           "title": "Customer Love",
-          "subtitle": "Studios with rave reviews and dedicated followings."
+          "subtitle": "Studios with high-rated reviews and dedicated followings."
         }
       },
       "join": {

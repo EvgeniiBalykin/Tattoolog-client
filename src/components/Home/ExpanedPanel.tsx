@@ -53,9 +53,6 @@ const ExpandedPanel = () => {
       <Typography variant="h4" textAlign="justify" mb={2}>
         {t('pages.main.additional_block.subtitle_1')}
       </Typography>
-      <Typography variant="h4" textAlign="justify" mb={2}>
-        {t('pages.main.additional_block.subtitle_2')}
-      </Typography>
       {CONTENT_PANELS.map((el, i) => (
         <Accordion
           expanded={expanded === el.expanded}

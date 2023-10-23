@@ -106,6 +106,7 @@ export interface IDescriptionIcons {
 export interface IMainImageBox {
   title: string;
   subtitle?: string;
+  extraSubtitle?: string;
   joinTitle?: string;
   joinSubtitle?: string;
   buttons?: { text: string; link: string }[];
