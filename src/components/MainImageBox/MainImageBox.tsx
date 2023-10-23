@@ -30,7 +30,7 @@ const MainImageBox = ({ title, subtitle, buttons, img }: IMainImageBox) => {
           </Typography>
         </Box>
         <Box maxWidth={700} className="buttons-main-slider">
-          {buttons.map((el, index) => (
+          {buttons?.map((el, index) => (
             <Button
               sx={{ width: '50%' }}
               key={index}
