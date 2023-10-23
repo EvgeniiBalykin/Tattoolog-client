@@ -49,7 +49,10 @@ const UserRating = ({ readOnly = false, id, rating }: IRatingProps) => {
           onClose={() => setMarked(false)}
           anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         >
-          <Alert severity="success" sx={{ width: '100%', top: '0' }}>
+          <Alert
+            severity={isMarked ? 'error' : 'success'}
+            sx={{ width: '100%', top: '0' }}
+          >
             {markedMessage}
           </Alert>
         </Snackbar>

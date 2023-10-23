@@ -6,6 +6,7 @@ import {
   MusicNote,
   Phone,
   Pinterest,
+  RemoveRedEye,
   Settings,
 } from '@mui/icons-material';
 import {
@@ -111,6 +112,12 @@ const ProfileCard = ({ id }: { id: number }) => {
           {userAccess && (
             <IconButton className="profile-settings" onClick={onEditClick}>
               <Settings />
+            </IconButton>
+          )}
+          {userAccess && (
+            <IconButton className="profile-views" onClick={onEditClick}>
+              <RemoveRedEye />
+              <Typography>{profileData?.count_visit}</Typography>
             </IconButton>
           )}
           <UserRating id={id} rating={Number(profileData?.average_rating)} />
