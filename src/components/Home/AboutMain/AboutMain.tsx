@@ -42,6 +42,9 @@ const AboutMain = () => {
               <Typography variant="h5" textAlign="justify">
                 {t('pages.main.about_block.subtitle_1')}
               </Typography>
+              <Typography variant="h5" textAlign="justify">
+                {t('pages.main.about_block.subtitle_1_2')}
+              </Typography>
             </div>
           </Grid>
         </Grid>

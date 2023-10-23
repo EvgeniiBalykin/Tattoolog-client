@@ -104,17 +104,6 @@ const JoinUsMain = () => {
             </Card>
           </Grid>
         </Grid>
-        <Container maxWidth="lg" sx={{ mt: 12 }}>
-          <Typography variant="h4" textAlign="justify">
-            Help your customer imagine how life will be like when using your
-            product. Paint a picture of the practical, emotional, or
-            psychological benefits of purchasing. Nam libero tempore, cum soluta
-            nobis est eligendi optio cumque nihil impedit quo minus id quod
-            maxime placeat facere possimus, omnis. Help your customer imagine
-            how life will be like when using your product. Paint a picture of
-            the practical, emotional, or psychological benefits of purchasing.
-          </Typography>
-        </Container>
       </Container>
     </Box>
   );

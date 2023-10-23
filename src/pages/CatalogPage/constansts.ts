@@ -11,6 +11,7 @@ import { IDescriptionIcons, IMainImageBox } from '@interfaces/index';
 export const MASTER_CATALOGUE_MAIN: IMainImageBox = {
   title: 'pages.artists_page.title',
   subtitle: 'pages.artists_page.subtitle',
+  extraSubtitle: 'pages.artists_page.subtitle_1',
   joinTitle: 'pages.artists_page.join.title',
   joinSubtitle: 'pages.artists_page.join.subtitle',
   buttons: [{ text: 'buttons.catalogue', link: '' }],
@@ -20,6 +21,7 @@ export const MASTER_CATALOGUE_MAIN: IMainImageBox = {
 export const SALON_CATALOGUE_MAIN: IMainImageBox = {
   title: 'pages.studios_page.title',
   subtitle: 'pages.studios_page.subtitle',
+  extraSubtitle: 'pages.studios_page.subtitle_1',
   joinTitle: 'pages.studios_page.join.title',
   joinSubtitle: 'pages.studios_page.join.subtitle',
   buttons: [{ text: 'buttons.catalogue', link: '' }],

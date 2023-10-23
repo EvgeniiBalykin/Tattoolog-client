@@ -85,6 +85,11 @@ const Catalog = ({ role }: { role: string }) => {
             ? t(MASTER_CATALOGUE_MAIN.title)
             : t(SALON_CATALOGUE_MAIN.title)
         }
+        extraSubtitle={
+          isMasterCatalogue
+            ? t(MASTER_CATALOGUE_MAIN.extraSubtitle)
+            : t(SALON_CATALOGUE_MAIN.extraSubtitle)
+        }
         subtitle={
           isMasterCatalogue
             ? t(MASTER_CATALOGUE_MAIN.subtitle)

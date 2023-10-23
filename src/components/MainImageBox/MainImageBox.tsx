@@ -3,7 +3,13 @@ import { IMainImageBox } from '@interfaces/index';
 import { useTranslation } from 'react-i18next';
 import { scrollToComponent } from '@helpers/scrollToComponents';
 
-const MainImageBox = ({ title, subtitle, buttons, img }: IMainImageBox) => {
+const MainImageBox = ({
+  title,
+  subtitle,
+  buttons,
+  img,
+  extraSubtitle,
+}: IMainImageBox) => {
   const { t } = useTranslation();
   return (
     <Container
@@ -27,6 +33,11 @@ const MainImageBox = ({ title, subtitle, buttons, img }: IMainImageBox) => {
         <Box maxWidth={700}>
           <Typography variant="h5" mb={2} textAlign="justify">
             {subtitle}
+          </Typography>
+        </Box>
+        <Box maxWidth={800}>
+          <Typography variant="h5" mb={2} textAlign="justify">
+            {extraSubtitle}
           </Typography>
         </Box>
         <Box maxWidth={700} className="buttons-main-slider">
