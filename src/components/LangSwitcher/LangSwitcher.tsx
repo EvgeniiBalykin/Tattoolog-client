@@ -12,7 +12,7 @@ const LangSwitcher = ({ isSelect }: { isSelect: boolean }) => {
   const [selectedLanguage, setSelectedLanguage] = useState(initialLang || 'en');
   const currentDomain = window.location.hostname;
   // TODO: Добавить язык в зависимости от домена
-  console.log(currentDomain);
+  console.log(currentDomain.endsWith('pl'));
 
   const handleChange = (event: any) => {
     const newLanguage = event.target.value as string;

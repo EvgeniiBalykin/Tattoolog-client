@@ -19,11 +19,11 @@ const MainImageBox = ({
       maxWidth="lg"
       sx={{
         marginBottom: 8,
-        height: '45vh',
+        maxHeight: '85vh',
         backgroundImage: `url(${img})`,
       }}
     >
-      <Container maxWidth="lg" sx={{ p: 0, pt: '5%', m: 0 }}>
+      <Container maxWidth="lg" sx={{ pb: '5%', pt: '5%', m: 0 }}>
         <Typography
           variant="h1"
           mb={2}
