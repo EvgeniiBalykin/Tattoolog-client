@@ -2,6 +2,12 @@
 
 Tattolog is a web application created for tattoo enthusiasts that serves as a global catalog of tattoo masters and studios located in different parts of the world. Our goal is to help you find a tattoo master or studio that suits you, no matter the city or country.
 
+## Production
+
+https://tattoolog.pl/
+https://tattoolog.de/
+https://tattoolog.uk/
+
 ## Installation and Running
 
 ## To install and run the Tattolog project, follow these steps:
