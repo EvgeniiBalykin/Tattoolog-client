@@ -50,10 +50,7 @@ const Footer = () => {
         </Box>
         <Container maxWidth="xs">
           <Typography variant="body2" textAlign="center">
-            1717 Harrison St, San Francisco, CA 94103, USA
-          </Typography>
-          <Typography variant="body2" textAlign="center">
-            © 2022 Your Company. All rights reserved.
+            © 2023 Tattoolog. All rights reserved.
           </Typography>
         </Container>
       </Container>
