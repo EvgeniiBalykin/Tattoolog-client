@@ -7,12 +7,20 @@ import de from '@locales/de/translation.json';
 import pl from '@locales/pl/translation.json';
 import { LANGUAGE_LOCAL_STORAGE_KEY } from './constants';
 
+export const LANG_BY_DOMAIN = () => {
+  const currentDomain = window.location.hostname.split('.');
+  const domainCountry = currentDomain[currentDomain.length - 1];
+  return domainCountry;
+};
+
 const saveSelectedLanguage = (language: string) => {
   localStorage.setItem(LANGUAGE_LOCAL_STORAGE_KEY, language);
 };
 
 const getSelectedLanguage = () => {
-  return localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY) || 'en';
+  return (
+    localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY) || LANG_BY_DOMAIN() || 'en'
+  );
 };
 
 i18n.use(initReactI18next).init({

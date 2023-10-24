@@ -15,8 +15,8 @@ const AboutMain = () => {
   return (
     <Box className="wrapper">
       <MainImageBox
-        title={HOME_IMAGE_BOX.title}
-        subtitle={HOME_IMAGE_BOX.subtitle}
+        title={t(HOME_IMAGE_BOX.title)}
+        subtitle={t(HOME_IMAGE_BOX.subtitle)}
         buttons={HOME_IMAGE_BOX.buttons}
         img={HOME_IMAGE_BOX.img}
       />
