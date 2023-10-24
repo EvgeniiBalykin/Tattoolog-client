@@ -32,7 +32,7 @@
     "blog": "Blog",
     "partners": "Partnerzy",
     "about": "O nas",
-    "join": "Dołącz do nas",
+    "join": "Dołącz już dzisiaj",
     "why_us": "Dlaczego my?",
     "ready_to_join": "Gotów, aby dołączyć do naszego katalogu mistrzów tatuażu?",
     "no_works": "Nie dodano jeszcze prac",
@@ -40,92 +40,93 @@
       "title": "Odkryj świat tatuażu teraz!",
       "subtitle": "Zanurz się w pierwszym na świecie ekskluzywnym katalogu najlepszych artystów tatuażu i studiów. Odkrywaj ich imponujące prace, doświadczenie i style, wszystko w jednym miejscu!",
       "about_block": {
-        "title_1": "Nie do pobicia Katalog",
-        "subtitle_1": "Witaj w ekskluzywnym katalogu najlepszych artystów tatuażu z całej Unii Europejskiej. Nasza platforma prezentuje ich najlepsze prace, dzięki czemu możesz znaleźć idealne dopasowanie - kierując się ocenami osobistymi TattooLog, aby ułatwić wybór.",
-        "title_2": "Niezwykłe kreacje tuszu",
-        "subtitle_2": "Rozkoszuj się naszą hipnotyzującą galerią sztuki tatuażu. Odważne wzory, skomplikowane szczegóły i inspirująca kreatywność - to wszystko tutaj!"
+        "title_1": "Nieporównywalny katalog",
+        "subtitle_1": "Witamy w katalogu najlepszych prac tatuażystów z całej Europy. Nasza platforma prezentuje ich prace, a korzystając z osobistych ocen w TattooLog, z pewnością będziesz w stanie dokonać wyboru specjalisty.",
+        "subtitle_1_2": "Miej pewność, że TattooLog pomoże Ci znaleźć profesjonalistę, zdolnego do ożywienia dowolnych pomysłów i tworzenia dzieł sztuki. Nasz katalog stanowi solidny fundament dla podejmowania decyzji, co ułatwia znalezienie najlepszego tatuażysty dla Ciebie. Nie trać czasu – rozpocznij poszukiwania swojego specjalisty na TattooLog!",
+        "title_2": "Fenomenalne INK tworzenia",
+        "subtitle_2": "W naszym katalogu znajdziesz odważne palety kolorów, geometryczne wzory, inspiracje z różnych kultur i wiele więcej. Odkrywaj, twórz własny ranking i szyukaj inspiracji, ponieważ świat tatuaży na TattooLog jest pełen różnorodnych pomysłów i twórczości."
       },
       "why_us_block": {
         "title_1": "Oferty pracy",
         "subtitle_1": "Szukasz okazji? Dołącz do stowarzyszenia Tattoolog i rozwijaj swoją karierę.",
-        "title_2": "Wyjątkowe korzyści",
-        "subtitle_2": "Członkowie stowarzyszenia artystów tatuażu korzystają z rabatów na sprzęt, wstępów na festiwale i uczestnictwa w mistrzostwach.",
+        "title_2": "Wyłączne korzyści",
+        "subtitle_2": "Artyści tatuażu otrzymują zniżki na sprzęt, uczestnictwo w festiwalach i mistrzostwach.",
         "title_3": "Widoczny wpływ",
-        "subtitle_3": "Oglądaj portfolio z pracami artystów tatuażu na naszej platformie, gdzie prezentujemy ich najlepsze dzieła."
+        "subtitle_3": "Przeglądaj portfolio z pracami każdego tatuażysty na naszej platformie, gdzie prezentujemy ich najlepsze tworzenia."
       },
       "join_us_block": {
-        "title": "Nie możesz się doczekać smaku sławy w tatuażu? Kliknij poniższy przycisk, wypełnij prosty formularz dotyczący siebie i swojej pracy, i dołącz do naszego katalogu. Pozwól światu zobaczyć wybitny talent, którym jesteś."
+        "title": "Nie możesz się doczekać, aby stać gwiazdą w świecie tatuażu? Kliknij poniższy przycisk, wypełnij prosty formularz o sobie i swojej pracy, i dołącz do naszego katalogu. Niech świat stanie się świadkiem twojego wyjątkowego talentu."
       },
       "additional_block": {
-        "title": "Twój ostateczny przewodnik po tatuażu",
-        "subtitle": "TattooLog to platforma dla entuzjastów tatuażu poszukujących profesjonalnych artystów tatuażu i niezwykłych studiów. Niezależnie od tego, czy szukasz inspiracji, czy masz ochotę na nowy tatuaż, mamy Cię! ",
-        "subtitle_1": "Aktualizuj swoją niesamowitą galerię tatuaży, imponując klientom swoją pasją i żywą kreatywnością."
+        "title": "Jak się zaprezentować na naszej platformie?",
+        "subtitle": "Po zarejestrowaniu się, istotne jest skonfigurowanie swojego profilu, podając swoje unikalne preferencje stylu tatuażu, lokalizację oraz krótki opis o sobie, aby klienci mogli łatwo Cię znaleźć.",
+        "subtitle_1": "W celu osobistego promowania w katalogu zalecamy regularnie aktualizować swoją galerię szkiców i prac."
       },
       "faq": {
         "block_1": {
           "title": "Jak dołączyć do platformy?",
-          "content": "Zarejestruj się na naszej stronie internetowej, utwórz swój profil i zacznij odkrywać fantastyczną sztukę i społeczność."
+          "content": "Zarejestruj konto na naszej stronie, a następnie dostosuj swój profil. Następnie możesz zagłębić się w galerii wspaniałych prac swoich kolegów, jednocześnie udostępniając swoje najlepsze pracy!"
         },
         "block_2": {
           "title": "Czy to jest darmowe?",
-          "content": "Oczywiście, dołączenie do katalogu jest całkowicie darmowe. Masz możliwość zdobycia rozpoznania i promowania swoich prac oraz prezentowania swojego talentu."
+          "content": "Oczywiście, dołączenie do katalogu jest całkowicie darmowe. Masz możliwość zdobycia własnego uznania oraz promowania swoich prac i prezentowania swojego talentu."
         },
         "block_3": {
           "title": "Jak długo będę członkiem katalogu?",
-          "content": "To jest stałe i dostępne bez okresu próbnego. Możesz jednak edytować swój profil w dowolnym momencie i, jeśli zechcesz, całkowicie go usunąć."
+          "content": "Jest to trwałe i dostępne bez okresu próbnego. Jednak możesz w dowolnym momencie edytować swój profil, a jeśli zechcesz, całkowicie go usunąć."
         }
       }
     },
     "artists_page": {
-      "title": "Uwolnij swoje wewnętrzne płótno",
-      "subtitle": "Odkryj najlepszych artystów tatuażu i ich oszałamiające twórczości",
-      "subtitle_1": "Portfolio TattooLog to Twoja brama do świata niesamowitej sztuki tatuażu. Odkryj niezliczonych artystów tatuażu o unikalnych stylach, ocenach i oszałamiających wzorach, które sprawią, że będziesz pragnąć więcej tuszu. Od delikatnych wzorów akwarelowych po skomplikowaną realizm, nasza platforma oferuje doskonałe doświadczenie zarówno dla entuzjastów tatuażu, jak i pasjonatów sztuki. ",
+      "title": "Uwolnij Swój Wewnętrzny Talent",
+      "subtitle": "Odkryj dla siebie najlepszych tatuażystów i ich oszałamiające prace.",
+      "subtitle_1": "TattooLog to platforma zarówno dla profesjonalistów, jak i entuzjastów tatuażu. Profesjonaliści w branży tatuażu mogą rozwijać się poza granicami swojego miasta i kraju, prezentując swoje najlepsze prace na platformie i podnosząc swoją pozycję w europejskiej społeczności artystów tatuażu. Portfolio TattooLog jest twoją drogą do świata niesamowitej sztuki tatuażu. Odkryj wielu artystów tatuażu o unikalnych stylach, ocenach i zachwycających projektach. Od delikatnych rysunków akwarelowych do skomplikowanego realizmu — nasza platforma zapewnia doskonałe warunki zarówno dla miłośników tatuaży, jak i pasjonatów.",
       "info": {
         "title": "Funkcje w centrum uwagi",
         "1": {
-          "title": "Zasięg globalny",
-          "subtitle": "Odkryj wyjątkowy talent artystów z całego świata."
+          "title": "Globalny Zasięg",
+          "subtitle": "Odkryj wyjątkowe talenty tatuażystów z każdego zakątka świata."
         },
         "2": {
-          "title": "Najlepiej ocenieni",
-          "subtitle": "Doświadcz niezwykłych dzieł najlepiej ocenianych artystów tatuażu na całym świecie."
+          "title": "Najlepiej Oceniani",
+          "subtitle": "Poznaj niezwykłe prace najwyżej ocenianych artystów tatuażu na całym świecie."
         },
         "3": {
-          "title": "Niesamowita sztuka",
-          "subtitle": "Rozkoszuj się oszałamiającymi arcydziełami wytłaczanymi na ludzkich płótnach."
+          "title": "Niesamowita Sztuka",
+          "subtitle": "Podziwiaj przepiękne prace wykonane na ciele."
         },
         "4": {
-          "title": "Lokalizator tuszu",
-          "subtitle": "Znajdź tatuaż, który do Ciebie przemawia, i artystę, który go stworzył."
+          "title": "Wyszukiwarka Tatuaży",
+          "subtitle": "Znajdź tatuaż, który Cię się podoba, i poznaj specjalistę, który go stworzył."
         }
       },
       "join": {
-        "title": "Gotów do dołączenia do naszego katalogu artystów tatuażu?",
-        "subtitle": "Nie przegap okazji, aby być częścią naszej stale rosnącej sieci artystów tatuażu. Zaprezentuj swoje mistrzostwo i zdobądź zasłużone uznanie."
+        "title": "Jesteś gotowy do dołączenia do naszego katalogu tatuażystów?",
+        "subtitle": "Nie przegap okazji, aby być częścią naszego ciągle rosnącego towarzystwa artystów tatuażu. Przedstaw swoje prace i zdobądź zasłużone uznanie."
       }
     },
     "studios_page": {
-      "title": "Raj tatuażu - to tutaj spotykają się najlepsi",
-      "subtitle": "Lista niezwykłych studiów tatuażu",
-      "subtitle_1": "Wejdź do świata najlepszych studiów tatuażu, gdzie mieszkają tylko najwybitniejsi mistrzowie tuszu. Wybraliśmy osobiście najbardziej prestiżowe studia, które są domem dla śmietanki artystów tatuażu. Nasz katalog prezentuje bogactwo talentu, kreatywności i pasji, które nie mają granic. Rozpętaj swojego wewnętrznego buntownika odwiedzając absolutnie najlepsze studia tatuażu na świecie.",
+      "title": "Raj tatuażu — to miejsce, gdzie spotykają się najlepsi",
+      "subtitle": "Zachwycająca lista studiów",
+      "subtitle_1": "Odkryj dla siebie najlepsze studia tatuażu, gdzie pracują tylko najwyżej oceniani tatuażyści. Starannie wybraliśmy najbardziej zasługujące studia, w których pracują renomowani artyści tatuażu. Nasz katalog prezentuje połączenie talentu, kreatywności i pasji, które nie zna granic. Odkryj swojego wewnętrznego indywidualistę, odwiedzając te wspaniałe studia tatuażu.",
       "info": {
         "title": "Funkcje w centrum uwagi",
         "1": {
-          "title": "Mistrzowie sztuki",
-          "subtitle": "Wyselekcjonowany artystyczny talent w studiach o niezwykłej kreatywności."
+          "title": "Uznane tatuażyści",
+          "subtitle": "Wyselekcjonowani artyści w studiach o niezwykłej kreatywności."
         },
         "2": {
-          "title": "Bezpieczeństwo na pierwszym miejscu",
-          "subtitle": "Czyste i higieniczne studia, dbające o dobro klienta."
+          "title": "Bezpieczeństwo na Pierwszym Miejscu",
+          "subtitle": "Studia, w których sterylność i higiena mają absolutne pierwszeństwo."
         },
         "3": {
-          "title": "Miłość klientów",
-          "subtitle": "Studia z entuzjastycznymi recenzjami i oddanymi klientami."
+          "title": "Miłość Klienta",
+          "subtitle": "Studia z wysoko ocenianymi recenzjami i oddanymi klientami."
         }
       },
       "join": {
-        "title": "Gotowy, aby dołączyć do naszego katalogu studiów tatuażu?",
-        "subtitle": "Kult legend tatuażu - tam, gdzie innowacja spotyka inspirację i na zawsze przekształca twoje ciało w płótno. Zanurz się w immersyjnym świecie artystycznych odysei i skorzystaj z okazji ozdobienia swojej skóry nieśmiertelnymi arcydziełami."
+        "title": "Jesteś gotowy do dołączenia do naszego katalogu studiów tatuażu?",
+        "subtitle": "Kult legend tatuażu — tam, gdzie innowacja spotyka się z inspiracją i na zawsze przemienia twoje ciało w płótno sztuki. Wyrusz w fascynujący świat artystycznych podróży i skorzystaj z okazji ozdobienia swojej skóry stałymi arcydziełami."
       }
     }
   },

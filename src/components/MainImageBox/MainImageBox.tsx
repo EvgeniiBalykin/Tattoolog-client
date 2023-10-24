@@ -2,6 +2,7 @@ import { Box, Button, Container, Typography } from '@mui/material';
 import { IMainImageBox } from '@interfaces/index';
 import { useTranslation } from 'react-i18next';
 import { scrollToComponent } from '@helpers/scrollToComponents';
+import { useNavigate } from 'react-router';
 
 const MainImageBox = ({
   title,
@@ -11,13 +12,14 @@ const MainImageBox = ({
   extraSubtitle,
 }: IMainImageBox) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   return (
     <Container
       className="main-slider"
       maxWidth="lg"
       sx={{
         marginBottom: 8,
-        height: '40vh',
+        height: '45vh',
         backgroundImage: `url(${img})`,
       }}
     >
@@ -47,7 +49,9 @@ const MainImageBox = ({
               key={index}
               variant="contained"
               size="medium"
-              onClick={() => scrollToComponent('catalog-card')}
+              onClick={() =>
+                el.link ? navigate(el.link) : scrollToComponent('catalog-card')
+              }
             >
               {t(el.text)}
             </Button>
