@@ -4,9 +4,9 @@ Tattolog is a web application created for tattoo enthusiasts that serves as a gl
 
 ## Production
 
-https://tattoolog.pl/
-https://tattoolog.de/
-https://tattoolog.uk/
+1. Poland - https://tattoolog.pl/
+2. Germany - https://tattoolog.de/
+3. United Kingdom - https://tattoolog.uk/
 
 ## Installation and Running
 
