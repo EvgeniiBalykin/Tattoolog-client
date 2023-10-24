@@ -5,15 +5,12 @@ import FormControl from '@mui/material/FormControl';
 import i18next from 'i18next';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { LANGUAGES, LANGUAGE_LOCAL_STORAGE_KEY } from '@constants/index';
-import { saveSelectedLanguage } from '../../i18n';
+import { LANG_BY_DOMAIN, saveSelectedLanguage } from '../../i18n';
 
 const LangSwitcher = ({ isSelect }: { isSelect: boolean }) => {
   const initialLang = localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY);
-  const currentDomain = window.location.hostname;
-  const domain = currentDomain.split('.');
-  const domainCountry = domain[domain.length - 1];
   const [selectedLanguage, setSelectedLanguage] = useState(
-    initialLang || domainCountry || 'en'
+    initialLang || LANG_BY_DOMAIN() || 'en'
   );
 
   const handleChange = (event: any) => {

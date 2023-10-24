@@ -20,9 +20,8 @@ export const WHY_US_ICONS: IDescriptionIcons[] = [
 ];
 
 export const HOME_IMAGE_BOX: IMainImageBox = {
-  title: 'Discover tattoo world now!',
-  subtitle:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.',
+  title: 'pages.main.title',
+  subtitle: 'pages.main.subtitle',
   buttons: [
     {
       text: 'buttons.artists',
