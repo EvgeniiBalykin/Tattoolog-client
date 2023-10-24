@@ -9,10 +9,12 @@ import { saveSelectedLanguage } from '../../i18n';
 
 const LangSwitcher = ({ isSelect }: { isSelect: boolean }) => {
   const initialLang = localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY);
-  const [selectedLanguage, setSelectedLanguage] = useState(initialLang || 'en');
   const currentDomain = window.location.hostname;
-  // TODO: Добавить язык в зависимости от домена
-  console.log(currentDomain.endsWith('pl'));
+  const domain = currentDomain.split('.');
+  const domainCountry = domain[domain.length - 1];
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    initialLang || domainCountry || 'en'
+  );
 
   const handleChange = (event: any) => {
     const newLanguage = event.target.value as string;
