@@ -14,4 +14,5 @@ export enum HeaderRoutesList {
   ERROR = 'error_page',
   BLOG_POST = '/post/:id',
   NEW_PASSWORD = '/reset_password_confirm/:uid/:token',
+  PROFILE_EDIT = 'profile/:id/edit',
 }

@@ -11,6 +11,7 @@ import PartnersPage from '@pages/PartnersPage/PartnersPage';
 import ResetPage from '@pages/ResetPage/ResetPage';
 import NewPasswordPage from '@pages/NewPasswordPage/NewPasswordPage';
 import ActivationPage from '@pages/ActivationPage/ActivationPage';
+import ProfileEdit from '@components/Profile/ProfileEdit/ProfileEdit';
 
 export const HEADER_ROUTES: IRoutes[] = [
   {
@@ -80,6 +81,11 @@ export const HELP_PAGES: IRoutes[] = [
     name: 'Profile',
     path: HeaderRoutesList.PROFILE,
     element: <Profile />,
+  },
+  {
+    name: 'Profile edit',
+    path: HeaderRoutesList.PROFILE_EDIT,
+    element: <ProfileEdit />,
   },
   {
     name: 'Post',

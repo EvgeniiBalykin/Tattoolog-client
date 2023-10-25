@@ -15,7 +15,7 @@
   },
   "form": {
     "password": "Hasło",
-    "name": "Imię",
+    "name": "Imiona",
     "surname": "Nazwisko",
     "repeat_password": "Powtórz hasło",
     "phone": "Numer telefonu",
@@ -27,7 +27,7 @@
   },
   "pages": {
     "contacts": "Kontakty",
-    "masters": "Katalog mistrzów",
+    "masters": "Katalog artystów",
     "studios": "Katalog studiów",
     "blog": "Blog",
     "partners": "Partnerzy",
@@ -82,7 +82,7 @@
       "subtitle": "Odkryj dla siebie najlepszych tatuażystów i ich oszałamiające prace.",
       "subtitle_1": "TattooLog to platforma zarówno dla profesjonalistów, jak i entuzjastów tatuażu. Profesjonaliści w branży tatuażu mogą rozwijać się poza granicami swojego miasta i kraju, prezentując swoje najlepsze prace na platformie i podnosząc swoją pozycję w europejskiej społeczności artystów tatuażu. Portfolio TattooLog jest twoją drogą do świata niesamowitej sztuki tatuażu. Odkryj wielu artystów tatuażu o unikalnych stylach, ocenach i zachwycających projektach. Od delikatnych rysunków akwarelowych do skomplikowanego realizmu — nasza platforma zapewnia doskonałe warunki zarówno dla miłośników tatuaży, jak i pasjonatów.",
       "info": {
-        "title": "Funkcje w centrum uwagi",
+        "title": "Nasze Przewagi",
         "1": {
           "title": "Globalny Zasięg",
           "subtitle": "Odkryj wyjątkowe talenty tatuażystów z każdego zakątka świata."
@@ -110,7 +110,7 @@
       "subtitle": "Zachwycająca lista studiów",
       "subtitle_1": "Odkryj dla siebie najlepsze studia tatuażu, gdzie pracują tylko najwyżej oceniani tatuażyści. Starannie wybraliśmy najbardziej zasługujące studia, w których pracują renomowani artyści tatuażu. Nasz katalog prezentuje połączenie talentu, kreatywności i pasji, które nie zna granic. Odkryj swojego wewnętrznego indywidualistę, odwiedzając te wspaniałe studia tatuażu.",
       "info": {
-        "title": "Funkcje w centrum uwagi",
+        "title": "Nasze Przewagi",
         "1": {
           "title": "Uznane tatuażyści",
           "subtitle": "Wyselekcjonowani artyści w studiach o niezwykłej kreatywności."
@@ -132,7 +132,7 @@
   },
   "buttons": {
     "load_more": "Załaduj więcej",
-    "add": "Dodaj",
+    "add": "Zarejestruj sie",
     "join": "Dołącz teraz",
     "upload_img": "Prześlij zdjęcie",
     "publish": "Opublikuj",

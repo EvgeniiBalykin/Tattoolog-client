@@ -32,15 +32,15 @@ interface IStateProps {
 const FILTERS: { name: keyof IStateProps; label: string }[] = [
   {
     name: 'name',
-    label: 'Name',
+    label: 'form.name',
   },
   {
     name: 'city',
-    label: 'City',
+    label: 'form.city',
   },
   {
     name: 'country',
-    label: 'Country',
+    label: 'form.country',
   },
 ];
 
@@ -112,7 +112,7 @@ const Catalog = ({ role }: { role: string }) => {
         textTransform="uppercase"
         mb={4}
       >
-        Spotlight Features
+        {t('pages.artists_page.info.title')}
       </Typography>
       <Grid
         container
@@ -152,7 +152,7 @@ const Catalog = ({ role }: { role: string }) => {
             <TextField
               fullWidth
               key={el.name}
-              label={el.label}
+              label={t(el.label)}
               color="secondary"
               value={searchValues[el.name]}
               name={el.name}
