@@ -20,7 +20,7 @@ import Medal from '@images/Medal.webp';
 import MainHand from '@images/MainHand.webp';
 import StudioCatalogue from '@images/StudioCatalogue.webp';
 import MasterCatalogue from '@images/MasterCatalogue.webp';
-import Background_V8 from '@images/Background_V8.webp';
+import Background_V8 from '@images/Background_V8.svg';
 import Unknown_avatar from '@images/Unknown_avatar.webp';
 import BlogPage_2 from '@images/BlogPage_2.webp';
 
