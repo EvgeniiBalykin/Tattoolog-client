@@ -126,6 +126,7 @@ const ProfileCard = ({ id }: { id: number }) => {
             component="img"
             src={profileData?.avatar ? profileData.avatar : Unknown_avatar}
             alt="avatar"
+            loading="lazy"
           />
           {userAccess && (
             <Button
