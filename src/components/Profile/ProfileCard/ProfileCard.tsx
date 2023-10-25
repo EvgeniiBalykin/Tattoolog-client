@@ -21,8 +21,6 @@ import {
   Typography,
 } from '@mui/material';
 import './ProfileCard.scss';
-import { useDispatch } from 'react-redux';
-import { toggleAddChange } from '@store/reducers/profileSlice';
 import {
   useGetProfileDataQuery,
   useUpdateProfileMutation,
@@ -42,6 +40,7 @@ import ModalDownload_v2 from '@components/ModalDownload_v2/ModalDownload_v2';
 import { useTranslation } from 'react-i18next';
 import UserRating from '@components/UserRating/UserRating';
 import { Unknown_avatar } from '@images/index';
+import { useNavigate } from 'react-router';
 
 const SOCIAL_MEDIA_ICONS: { [key: string]: ReactElement } = {
   Facebook: <Facebook />,
@@ -52,7 +51,7 @@ const SOCIAL_MEDIA_ICONS: { [key: string]: ReactElement } = {
 
 const ProfileCard = ({ id }: { id: number }) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { data: profileData, refetch } = useGetProfileDataQuery(id);
   const [isModal, setIsModal] = useState(false);
   const toggleModal = () => setIsModal((prev) => !prev);
@@ -89,7 +88,7 @@ const ProfileCard = ({ id }: { id: number }) => {
   );
 
   const onEditClick = () => {
-    dispatch(toggleAddChange());
+    navigate(`/profile/${id}/edit`);
   };
 
   const handleButtonClick = useCallback(
@@ -179,11 +178,13 @@ const ProfileCard = ({ id }: { id: number }) => {
               {profileData?.user?.first_name} {profileData?.user?.last_name}
             </Typography>
             <Typography variant="h4" fontWeight={700}>
-              {profileData?.user?.role?.toUpperCase()}
+              {profileData?.user?.role?.toUpperCase() === 'MASTER'
+                ? 'ARTIST'
+                : profileData?.user?.role?.toUpperCase()}
             </Typography>
             <Typography mt={1} variant="body2">
-              {profileData?.city?.name}
-              {profileData?.country?.name}
+              {profileData?.city?.name &&
+                `${profileData?.city?.name}, ${profileData?.country?.name}`}
             </Typography>
           </Box>
         </Box>

@@ -4,13 +4,11 @@ import loginReducer from '@store/reducers/loginSlice';
 import { authApi } from '@services/authApi';
 import userReduser from '@store/reducers/userSlice';
 import { profileApi } from '@services/profileApi';
-import profileReducer from './reducers/profileSlice';
 import { toolsApi } from '@services/toolsApi';
 
 const rootReducer = combineReducers({
   login: loginReducer,
   user: userReduser,
-  profile: profileReducer,
   [authApi.reducerPath]: authApi.reducer,
   [profileApi.reducerPath]: profileApi.reducer,
   [toolsApi.reducerPath]: toolsApi.reducer,

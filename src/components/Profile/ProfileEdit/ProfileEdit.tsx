@@ -11,29 +11,33 @@ import ErrorAlert from '@components/ErrorAlert';
 import { MuiTelInput } from 'mui-tel-input';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {
   useGetProfileDataQuery,
   useUpdateProfileMutation,
 } from '@services/profileApi';
 import { useGetCityQuery, useGetCountryQuery } from '@services/toolsApi';
-import { toggleAddChange } from '@store/reducers/profileSlice';
 import {
   initialState,
   IState,
   MutateResult,
   PROFILE_EDIT_INPUTS,
 } from './constants/inputs';
+import { selectUser } from '@store/reducers/userSlice';
+import { useNavigate } from 'react-router';
 
-const ProfileEdit = ({ id }: { id: number }) => {
+const ProfileEdit = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { id } = useSelector(selectUser);
   const { data, refetch } = useGetProfileDataQuery(id);
-  const dispatch = useDispatch();
   const [fieldsValue, setFieldsValue] = useState<IState>(initialState);
   const currentDate = new Date().toJSON().slice(0, 10);
   const [countrySearch, setCountrySearch] = useState('');
   const [citySearch, setCitySearch] = useState('');
   const { data: Countries } = useGetCountryQuery(countrySearch);
+  const [mutate] = useUpdateProfileMutation();
+  const [alertMessage, setAlertMessage] = useState('');
   const { data: Cities } = useGetCityQuery({
     country: countrySearch,
     city: citySearch,
@@ -48,18 +52,18 @@ const ProfileEdit = ({ id }: { id: number }) => {
   }));
 
   useEffect(() => {
-    if (data && cityOptions && countryOptions) {
+    if (data) {
       setFieldsValue({
         phone_number: data?.phone_number,
         birthday: currentDate,
         adress: '',
         country: {
-          value: data?.country?.name || countryOptions[0]?.label,
-          id: data?.country?.id || countryOptions[0]?.value,
+          value: data?.country?.name || '',
+          id: data?.country?.id || null,
         },
         city: {
-          value: data?.country?.name || cityOptions[0].label,
-          id: data?.country?.id || cityOptions[0].value,
+          value: data?.city?.name || '',
+          id: data?.city?.id || null,
         },
         about: data?.about,
         first_name: data?.user?.first_name,
@@ -82,12 +86,9 @@ const ProfileEdit = ({ id }: { id: number }) => {
           )?.link || '',
       });
     }
-  }, [data, cityOptions, countryOptions]);
-
-  const [mutate, { error }] = useUpdateProfileMutation();
+  }, [data]);
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(fieldsValue.country);
     const { name, value } = e.target;
     setFieldsValue({ ...fieldsValue, [name]: value });
   };
@@ -142,9 +143,9 @@ const ProfileEdit = ({ id }: { id: number }) => {
       });
       if (result.data) {
         await refetch();
-        dispatch(toggleAddChange());
+        navigate(`/profile/${id}`);
       } else {
-        console.log('Произошла ошибка при мутации:', result.error);
+        setAlertMessage(result.error);
       }
     } catch (error) {
       console.log(error);
@@ -152,8 +153,9 @@ const ProfileEdit = ({ id }: { id: number }) => {
   };
 
   return (
-    <Grid item xs={12} md={12} padding={2} height="100vh">
-      {error && <ErrorAlert error={error} />}
+    <Grid item xs={12} md={12} padding={2} height="100%">
+      {alertMessage && <ErrorAlert error={alertMessage} />}
+
       <Grid container justifyContent="center" gap={4}>
         {PROFILE_EDIT_INPUTS.map((field) => (
           <Grid item xs={12} md={5} key={field.name}>
@@ -306,7 +308,7 @@ const ProfileEdit = ({ id }: { id: number }) => {
               sx={{ width: '50%', borderRadius: '10px' }}
               variant="outlined"
               color="error"
-              onClick={() => dispatch(toggleAddChange())}
+              onClick={() => navigate(`/profile/${id}`)}
             >
               {t('buttons.close')}
             </Button>
