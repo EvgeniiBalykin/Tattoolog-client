@@ -46,6 +46,8 @@ const JoinUsMain = () => {
             >
               <CardContent className="card-content">
                 <CardMedia
+                  alt="master-photo"
+                  loading="lazy"
                   component="img"
                   height="100%"
                   image={AddMasterPhoto}
@@ -82,6 +84,8 @@ const JoinUsMain = () => {
                   component="img"
                   height="100%"
                   image={AddStudioPhoto}
+                  loading="lazy"
+                  alt="studio-img"
                 />
                 <div className="card-text">
                   <Typography variant="h3" textTransform="uppercase">

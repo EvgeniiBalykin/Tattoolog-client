@@ -6,9 +6,10 @@ import { MainImageBox } from '..';
 import { HOME_IMAGE_BOX } from '@pages/HomePage/contants';
 
 const AboutMain = () => {
+  const isMobileView = window.innerWidth <= 390;
   const reverseGrid = useMemo(
-    () => (window.innerWidth <= 390 ? 'column-reverse' : undefined),
-    [window.innerWidth]
+    () => (isMobileView ? 'column-reverse' : undefined),
+    [isMobileView]
   );
   const { t } = useTranslation();
 
@@ -31,7 +32,7 @@ const AboutMain = () => {
         >
           <Grid item xs={12} sm={6} md={6}>
             <div className="img-wrapper">
-              <img src={About_Photo_2} />
+              <img src={About_Photo_2} alt="about-img" loading="lazy" />
             </div>
           </Grid>
           <Grid item xs={12} sm={6} md={6}>
@@ -67,7 +68,7 @@ const AboutMain = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={6}>
             <div className="img-wrapper">
-              <img src={About_Photo_1} />
+              <img src={About_Photo_1} loading="lazy" alt="about-img" />
             </div>
           </Grid>
         </Grid>

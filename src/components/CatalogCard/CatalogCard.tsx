@@ -61,6 +61,7 @@ const CatalogCard = ({
           }}
         >
           <CardMedia
+            loading="lazy"
             component="img"
             height="100%"
             width="100%"

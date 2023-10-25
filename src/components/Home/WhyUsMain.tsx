@@ -11,13 +11,6 @@ const WhyUsMain = () => {
         <Typography variant="h1" textAlign="center" textTransform="uppercase">
           {t('pages.why_us')}
         </Typography>
-        <Container maxWidth="lg" sx={{ mb: 10 }}>
-          <Typography variant="h5" textAlign="justify">
-            Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
-            impedit quo minus id quod maxime placeat facere possimus, omnis
-            voluptas assumenda est, omnis dolor repellendus.
-          </Typography>
-        </Container>
         <Grid
           container
           spacing={{ xs: 2, sm: 8, md: 3 }}
