@@ -2,7 +2,7 @@ import { Box, Container, Grid, Typography } from '@mui/material';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { About_Photo_2, About_Photo_1 } from '@images/index';
-import { MainImageBox } from '..';
+import { MainImageBox } from '.';
 import { HOME_IMAGE_BOX } from '@pages/HomePage/contants';
 
 const AboutMain = () => {
