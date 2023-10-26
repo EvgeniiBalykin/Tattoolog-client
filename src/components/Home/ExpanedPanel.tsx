@@ -70,7 +70,11 @@ const ExpandedPanel = () => {
             id={`${el.expanded}bh-header`}
             style={{ backgroundColor: COLORS.PRIMARY }}
           >
-            <img src={expanded === el.expanded ? CloseExpand : OpenExpand} />
+            <img
+              src={expanded === el.expanded ? CloseExpand : OpenExpand}
+              width="50px"
+              height="50px"
+            />
             <Typography variant="h4" ml={5} display="flex" alignItems="center">
               {t(el.title)}
             </Typography>

@@ -1,4 +1,4 @@
-import AboutMain from './AboutMain/AboutMain';
+import AboutMain from './AboutMain';
 import ExpandedPanel from './ExpanedPanel';
 import JoinUsMain from './JoinUsMain';
 import MainImageBox from '../MainImageBox/MainImageBox';

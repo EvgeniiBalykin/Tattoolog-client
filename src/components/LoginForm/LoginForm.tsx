@@ -72,7 +72,7 @@ export const LoginForm = () => {
 
   return (
     <Container maxWidth="xs">
-      {loginError && <Alert severity="error">{loginError?.data.detail}</Alert>}
+      {loginError && <Alert severity="error">{loginError.data?.detail}</Alert>}
       <Box
         sx={{
           mt: 4,
