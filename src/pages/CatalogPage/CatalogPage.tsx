@@ -78,7 +78,7 @@ const Catalog = ({ role }: { role: string }) => {
     setSearchValues({ ...searchValues, [e.target.name]: e.target.value });
 
   return (
-    <Container maxWidth="lg" sx={{ mb: 10 }}>
+    <>
       <MainImageBox
         title={
           isMasterCatalogue
@@ -106,22 +106,25 @@ const Catalog = ({ role }: { role: string }) => {
             : SALON_CATALOGUE_MAIN.img
         }
       />
-      <Typography
-        variant="h1"
-        textAlign="center"
-        textTransform="uppercase"
-        mb={4}
-      >
-        {t('pages.artists_page.info.title')}
-      </Typography>
-      <Grid
-        container
-        spacing={{ xs: 2, sm: 8, md: 3 }}
-        justifyContent="center"
-        mb={8}
-      >
-        {(isMasterCatalogue ? MASTER_CATALOG_ICONS : STUDIO_CATALOG_ICONS).map(
-          (el, index) => (
+      <Container maxWidth="lg" sx={{ mb: 10 }}>
+        <Typography
+          variant="h1"
+          textAlign="center"
+          textTransform="uppercase"
+          mb={4}
+        >
+          {t('pages.artists_page.info.title')}
+        </Typography>
+        <Grid
+          container
+          spacing={{ xs: 2, sm: 8, md: 3 }}
+          justifyContent="center"
+          mb={8}
+        >
+          {(isMasterCatalogue
+            ? MASTER_CATALOG_ICONS
+            : STUDIO_CATALOG_ICONS
+          ).map((el, index) => (
             <DescriptionIcons
               key={index}
               icon={el.icon}
@@ -131,70 +134,70 @@ const Catalog = ({ role }: { role: string }) => {
               sm={5}
               md={3}
             />
-          )
-        )}
-      </Grid>
-      <JointNow
-        title={
-          isMasterCatalogue
-            ? t(MASTER_CATALOGUE_MAIN.joinTitle)
-            : t(SALON_CATALOGUE_MAIN.joinTitle)
-        }
-        subtitle={
-          isMasterCatalogue
-            ? t(MASTER_CATALOGUE_MAIN.joinSubtitle)
-            : t(SALON_CATALOGUE_MAIN.joinSubtitle)
-        }
-      />
-      <Grid container gap={2} justifyContent="center">
-        {FILTERS.map((el) => (
-          <Grid key={el.name} item xs={8} md={3}>
-            <TextField
-              fullWidth
-              key={el.name}
-              label={t(el.label)}
-              color="secondary"
-              value={searchValues[el.name]}
-              name={el.name}
-              onChange={onChangeFilters}
-            />
-          </Grid>
-        ))}
-      </Grid>
-      <Box textAlign="center" margin={'30px 0'}>
-        <Button variant="outlined" color="secondary" onClick={resetFilters}>
-          {t('buttons.reset_filters')}
-        </Button>
-      </Box>
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        {MasterCatalog?.results
-          .filter((master) => master.status === 'approved')
-          .map((master: IProfileData) => (
-            <CatalogCard
-              key={master.user.id}
-              firstName={master.user.first_name || ''}
-              lastName={master.user.last_name || ''}
-              avatar={master.avatar || ''}
-              id={master.user.id || 0}
-              city={master.city}
-              country={master.country}
-              about={master.about || ''}
-              avg_rating={master.average_rating || ''}
-            />
           ))}
-      </Grid>
-      <Box mt={4} display="flex" justifyContent="center">
-        <LoadingButton
-          disabled={desableButton}
-          loading={isLoading}
-          variant="contained"
-          color="primary"
-          onClick={loadMoreClick}
-        >
-          {t('buttons.load_more')}
-        </LoadingButton>
-      </Box>
-    </Container>
+        </Grid>
+        <JointNow
+          title={
+            isMasterCatalogue
+              ? t(MASTER_CATALOGUE_MAIN.joinTitle)
+              : t(SALON_CATALOGUE_MAIN.joinTitle)
+          }
+          subtitle={
+            isMasterCatalogue
+              ? t(MASTER_CATALOGUE_MAIN.joinSubtitle)
+              : t(SALON_CATALOGUE_MAIN.joinSubtitle)
+          }
+        />
+        <Grid container gap={2} justifyContent="center">
+          {FILTERS.map((el) => (
+            <Grid key={el.name} item xs={8} md={3}>
+              <TextField
+                fullWidth
+                key={el.name}
+                label={t(el.label)}
+                color="secondary"
+                value={searchValues[el.name]}
+                name={el.name}
+                onChange={onChangeFilters}
+              />
+            </Grid>
+          ))}
+        </Grid>
+        <Box textAlign="center" margin={'30px 0'}>
+          <Button variant="outlined" color="secondary" onClick={resetFilters}>
+            {t('buttons.reset_filters')}
+          </Button>
+        </Box>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          {MasterCatalog?.results
+            .filter((master) => master.status === 'approved')
+            .map((master: IProfileData) => (
+              <CatalogCard
+                key={master.user.id}
+                firstName={master.user.first_name || ''}
+                lastName={master.user.last_name || ''}
+                avatar={master.avatar || ''}
+                id={master.user.id || 0}
+                city={master.city}
+                country={master.country}
+                about={master.about || ''}
+                avg_rating={master.average_rating || ''}
+              />
+            ))}
+        </Grid>
+        <Box mt={4} display="flex" justifyContent="center">
+          <LoadingButton
+            disabled={desableButton}
+            loading={isLoading}
+            variant="contained"
+            color="primary"
+            onClick={loadMoreClick}
+          >
+            {t('buttons.load_more')}
+          </LoadingButton>
+        </Box>
+      </Container>
+    </>
   );
 };
 
