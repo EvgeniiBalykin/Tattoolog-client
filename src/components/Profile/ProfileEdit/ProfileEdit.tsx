@@ -153,9 +153,8 @@ const ProfileEdit = () => {
   };
 
   return (
-    <Grid item xs={12} md={12} padding={2} height="100%">
+    <Grid item xs={12} md={12} padding={2}>
       {alertMessage && <ErrorAlert error={alertMessage} />}
-
       <Grid container justifyContent="center" gap={4}>
         {PROFILE_EDIT_INPUTS.map((field) => (
           <Grid item xs={12} md={5} key={field.name}>
