@@ -43,8 +43,41 @@ h5 {
     }
 
     .post-image {
-      max-width: 100%;
-      max-height: 60vh;
+      width: 400px;
+      height: 500px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .dialog-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    .img-block {
+      padding-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      position: relative;
+      width: 80%;
+
+      .icon {
+        position: absolute;
+        &.right {
+          right: 0;
+          padding: 0;
+        }
+        &.left {
+          left: 0;
+          padding: 0;
+        }
+      }
+
+      .post-image {
+        width: 300px;
+        height: 400px;
+      }
     }
   }
 }
@@ -59,6 +92,10 @@ h5 {
       justify-content: center;
       align-content: center;
       position: relative;
+      image {
+        width: 400px;
+        height: 500px;
+      }
     }
   }
 }
@@ -68,13 +105,18 @@ h5 {
     .dialog-content {
       flex-direction: column;
       .img-block {
-        max-width: 100%;
-        max-height: 80vh;
         display: flex;
         align-items: center;
         justify-content: center;
         align-content: center;
         position: relative;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        img {
+          width: 300px;
+          height: 350px;
+        }
         .icon {
           position: absolute;
           &.right {
