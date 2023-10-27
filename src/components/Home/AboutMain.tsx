@@ -1,15 +1,16 @@
-import { Box, Container, Grid, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography, useMediaQuery } from '@mui/material';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { About_Photo_2, About_Photo_1 } from '@images/index';
 import { MainImageBox } from '.';
 import { HOME_IMAGE_BOX } from '@pages/HomePage/contants';
+import theme from '@ui/theme/theme';
 
 const AboutMain = () => {
-  const isMobileView = window.innerWidth <= 390;
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const reverseGrid = useMemo(
-    () => (isMobileView ? 'column-reverse' : undefined),
-    [isMobileView]
+    () => (isMobile ? 'column-reverse' : undefined),
+    [isMobile]
   );
   const { t } = useTranslation();
 

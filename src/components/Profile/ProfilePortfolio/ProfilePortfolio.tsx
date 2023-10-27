@@ -1,38 +1,24 @@
-import { Box, Grid, ImageList, Typography } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { Box, Grid, ImageList, Typography, useMediaQuery } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { useGetProfilePortfolioQuery } from '@services/profileApi';
 import PostCard from '@components/Profile/PostCard/PostCard';
+import theme from '@ui/theme/theme';
 
 const ProfilePortfolio = () => {
   const { t } = useTranslation();
   const { id } = useParams();
   const { data: profilePortfolio } = useGetProfilePortfolioQuery(Number(id));
-  const [isMobileScreen, setIsMobileScreen] = useState<boolean>(
-    window.innerWidth < 768
-  );
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobileScreen(window.innerWidth < 768);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Grid item xs={12} md={7} marginLeft={isMobileScreen ? 0 : 4}>
+    <Grid item xs={12} md={7} marginLeft={isMobile ? 0 : 4}>
       {profilePortfolio && profilePortfolio?.length > 0 ? (
         <Box minHeight="calc(100vh - 64px)">
           <Box sx={{ width: '100%', height: '100vh', overflowY: 'scroll' }}>
             <ImageList
               variant="masonry"
-              cols={isMobileScreen ? 1 : 3}
+              cols={isMobile ? 1 : 3}
               gap={5}
               sx={{ padding: 1 }}
             >

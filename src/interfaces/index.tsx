@@ -72,7 +72,7 @@ export interface IProfilePortfolio {
   id?: number;
   profile: number | null;
   photo_post: { id: number; post: number; photo: string | string }[];
-  description?: string;
+  description: string;
   work_type?: {
     id?: number;
     name: string;
