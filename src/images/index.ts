@@ -22,8 +22,10 @@ import StudioCatalogue from '@images/StudioCatalogue.webp';
 import MasterCatalogue from '@images/MasterCatalogue.webp';
 import Unknown_avatar from '@images/Unknown_avatar.webp';
 import BlogPage_2 from '@images/BlogPage_2.webp';
+import Festival from '@images/Festival.webp';
 
 export {
+  Festival,
   BlogPage_2,
   Logo,
   AddMasterPhoto,

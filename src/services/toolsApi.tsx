@@ -6,10 +6,13 @@ import {
   COUNTRIES,
   API_BASE_URL,
   PARTNERS,
+  FESTIVAL_POSTS,
 } from '@api/index';
 import {
   IBlogPost,
   ICountriesData,
+  IFestivalData,
+  IFestivalPost,
   IPartnersData,
   IPostData,
 } from '@interfaces/index';
@@ -40,6 +43,12 @@ export const toolsApi = createApi({
     getBlogPost: builder.query<IBlogPost, string>({
       query: (id) => `${BLOG_POST + id}/`,
     }),
+    getFesivalPosts: builder.query<IFestivalData, number>({
+      query: (limit) => FESTIVAL_POSTS + `?page=1&page_size=${limit}`,
+    }),
+    getFestivalPost: builder.query<IFestivalPost, string>({
+      query: (id) => `${FESTIVAL_POSTS + id}/`,
+    }),
     getPartners: builder.query<IPartnersData[], void>({
       query: () => PARTNERS,
     }),
@@ -52,4 +61,6 @@ export const {
   useGetBlogPostsQuery,
   useGetBlogPostQuery,
   useGetPartnersQuery,
+  useGetFesivalPostsQuery,
+  useGetFestivalPostQuery,
 } = toolsApi;

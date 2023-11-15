@@ -3,6 +3,7 @@ import { IMainImageBox } from '@interfaces/index';
 import { useTranslation } from 'react-i18next';
 import { scrollToComponent } from '@helpers/scrollToComponents';
 import { useNavigate } from 'react-router';
+import './MainImageBox.scss';
 
 const MainImageBox = ({
   title,
@@ -18,27 +19,25 @@ const MainImageBox = ({
       className="main-slider"
       maxWidth="lg"
       sx={{
-        marginBottom: 8,
-        maxHeight: '85vh',
         backgroundImage: `url(${img})`,
       }}
     >
-      <Container maxWidth="lg" sx={{ pb: '5%', pt: '5%', m: 0 }}>
+      <Container maxWidth="lg">
         <Typography
           variant="h1"
           mb={2}
           textTransform="uppercase"
-          textAlign="justify"
+          textAlign="start"
         >
           {title}
         </Typography>
         <Box maxWidth={700}>
-          <Typography variant="h5" mb={2} textAlign="justify">
+          <Typography variant="h5" mb={2} textAlign="start">
             {subtitle}
           </Typography>
         </Box>
         <Box maxWidth={800}>
-          <Typography variant="h5" mb={2} textAlign="justify">
+          <Typography variant="h5" mb={2} textAlign="start">
             {extraSubtitle}
           </Typography>
         </Box>

@@ -12,6 +12,8 @@ import ResetPage from '@pages/ResetPage/ResetPage';
 import NewPasswordPage from '@pages/NewPasswordPage/NewPasswordPage';
 import ActivationPage from '@pages/ActivationPage/ActivationPage';
 import ProfileEdit from '@components/Profile/ProfileEdit/ProfileEdit';
+import FestivalPage from '@pages/FestivalPage/FestivalPage';
+import FestivalsPage from '@pages/FestivalsPage/FestivalsPage';
 
 export const HEADER_ROUTES: IRoutes[] = [
   {
@@ -23,6 +25,11 @@ export const HEADER_ROUTES: IRoutes[] = [
     name: 'pages.studios',
     path: HeaderRoutesList.STUDIO_CATALOG,
     element: <Catalog role="salon" />,
+  },
+  {
+    name: 'Festivals',
+    path: HeaderRoutesList.FESTIVALS,
+    element: <FestivalsPage />,
   },
   {
     name: 'pages.blog',
@@ -91,5 +98,10 @@ export const HELP_PAGES: IRoutes[] = [
     name: 'Post',
     path: HeaderRoutesList.BLOG_POST,
     element: <PostPage />,
+  },
+  {
+    name: 'Festival',
+    path: HeaderRoutesList.FESTIVAL_POST,
+    element: <FestivalPage />,
   },
 ];

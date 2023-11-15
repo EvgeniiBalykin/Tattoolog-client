@@ -127,11 +127,30 @@ export interface IBlogPost {
   title: string;
 }
 
+export interface IFestivalPost {
+  id: number;
+  image: string;
+  title: string;
+  about: string;
+  rules: string;
+  slug: string;
+  date_end: Date;
+  created_at: Date;
+  form_url: string;
+}
+
 export interface IPostData {
   count: number;
   next: string;
   previous: string;
   results: IBlogPost[];
+}
+
+export interface IFestivalData {
+  count: number;
+  next: string;
+  previous: string;
+  results: IFestivalPost[];
 }
 
 export interface IPartnersData {

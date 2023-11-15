@@ -12,7 +12,9 @@ export enum HeaderRoutesList {
   PROFILE = 'profile/:id',
   CONTACTS = 'contacts',
   ERROR = 'error_page',
-  BLOG_POST = '/post/:id',
+  BLOG_POST = 'blog/:slug/:id',
   NEW_PASSWORD = '/reset_password_confirm/:uid/:token',
   PROFILE_EDIT = 'profile/:id/edit',
+  FESTIVALS = 'festivals',
+  FESTIVAL_POST = 'festivals/:slug/:id',
 }

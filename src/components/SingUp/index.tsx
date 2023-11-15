@@ -50,7 +50,7 @@ export const SingInForm = () => {
           alignItems: 'center',
         }}
       >
-        <Typography variant="h5">{t('registration.signin')}</Typography>
+        <Typography variant="h2">{t('registration.signin')}</Typography>
         <Box>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Controller

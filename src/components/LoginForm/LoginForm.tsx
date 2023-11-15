@@ -81,7 +81,7 @@ export const LoginForm = () => {
           alignItems: 'center',
         }}
       >
-        <Typography variant="h5">{t('registration.login')}</Typography>
+        <Typography variant="h2">{t('registration.login')}</Typography>
         <Box sx={{ mt: 1 }}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Controller
