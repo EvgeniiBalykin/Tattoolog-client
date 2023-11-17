@@ -53,7 +53,10 @@ export interface IAssociate {
   id?: any;
   name?: any;
   profile?: number;
-  type?: number;
+  type?: {
+    name: string;
+    id: number;
+  };
   status?: Statuses;
   comment?: string;
 }

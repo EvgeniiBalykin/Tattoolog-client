@@ -70,10 +70,6 @@ const ProfileEdit = () => {
     moderation_profile_associate,
   } = data || {};
 
-  console.log(moderation_profile_associate);
-
-  // TODO fix types
-
   useEffect(() => {
     if (data) {
       setFieldsValue({

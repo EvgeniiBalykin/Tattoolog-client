@@ -140,7 +140,7 @@ const ProfileCard = ({ id }: { id: number }) => {
               (el) => el.status === 'approved'
             ) ? (
               <div className="association-icon">
-                Member of VaenTattoo
+                Member of {moderation_profile_associate[0]?.type?.name}
                 <Icon color="success">
                   <Verified />
                 </Icon>
