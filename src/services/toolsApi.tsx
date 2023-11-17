@@ -7,8 +7,10 @@ import {
   API_BASE_URL,
   PARTNERS,
   FESTIVAL_POSTS,
+  ASSOCIATION_TYPES,
 } from '@api/index';
 import {
+  IAssociationType,
   IBlogPost,
   ICountriesData,
   IFestivalData,
@@ -52,6 +54,9 @@ export const toolsApi = createApi({
     getPartners: builder.query<IPartnersData[], void>({
       query: () => PARTNERS,
     }),
+    getAssociationsType: builder.query<IAssociationType[], void>({
+      query: () => ASSOCIATION_TYPES,
+    }),
   }),
 });
 
@@ -63,4 +68,5 @@ export const {
   useGetPartnersQuery,
   useGetFesivalPostsQuery,
   useGetFestivalPostQuery,
+  useGetAssociationsTypeQuery,
 } = toolsApi;

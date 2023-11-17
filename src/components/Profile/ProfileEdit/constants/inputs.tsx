@@ -1,5 +1,6 @@
 import {
   Cake,
+  CardMembership,
   Facebook,
   Instagram,
   LocationCity,
@@ -64,6 +65,13 @@ export const PROFILE_EDIT_INPUTS: {
     name: 'adress',
   },
   {
+    label: 'form.association',
+    type: 'text',
+    component: 'select',
+    icon: <CardMembership />,
+    name: 'associate',
+  },
+  {
     label: 'Instagram',
     type: 'text',
     icon: <Instagram />,
@@ -95,6 +103,7 @@ export interface MutateResult {
 }
 
 export interface IState {
+  associate?: { value?: string; id?: number | null };
   phone_number?: string;
   birthday?: Date | string;
   adress?: string;
@@ -110,6 +119,7 @@ export interface IState {
 }
 
 export const initialState: IState = {
+  associate: { value: '', id: 0 },
   phone_number: '',
   birthday: '',
   adress: '',

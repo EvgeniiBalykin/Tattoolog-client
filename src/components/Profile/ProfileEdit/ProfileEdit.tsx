@@ -1,5 +1,4 @@
 import {
-  Autocomplete,
   Box,
   Button,
   Grid,
@@ -16,7 +15,11 @@ import {
   useGetProfileDataQuery,
   useUpdateProfileMutation,
 } from '@services/profileApi';
-import { useGetCityQuery, useGetCountryQuery } from '@services/toolsApi';
+import {
+  useGetAssociationsTypeQuery,
+  useGetCityQuery,
+  useGetCountryQuery,
+} from '@services/toolsApi';
 import {
   initialState,
   IState,
@@ -25,6 +28,7 @@ import {
 } from './constants/inputs';
 import { selectUser } from '@store/reducers/userSlice';
 import { useNavigate } from 'react-router';
+import UniversalSelect from '@components/UnivesalSelect/UniversalSelect';
 
 const ProfileEdit = () => {
   const { t } = useTranslation();
@@ -42,6 +46,12 @@ const ProfileEdit = () => {
     country: countrySearch,
     city: citySearch,
   });
+  const { data: associationData } = useGetAssociationsTypeQuery();
+  const associateOptions = associationData?.map((el) => ({
+    label: el.name,
+    value: el.id,
+  }));
+
   const cityOptions = Cities?.results.map((el) => ({
     label: el.name,
     value: el.id,
@@ -50,38 +60,61 @@ const ProfileEdit = () => {
     label: el.name,
     value: el.id,
   }));
+  const {
+    phone_number,
+    country,
+    city,
+    about,
+    user,
+    social_media_profile,
+    moderation_profile_associate,
+  } = data || {};
+
+  console.log(moderation_profile_associate);
+
+  // TODO fix types
 
   useEffect(() => {
     if (data) {
       setFieldsValue({
-        phone_number: data?.phone_number,
+        associate: {
+          value:
+            (moderation_profile_associate &&
+              moderation_profile_associate[0]?.type?.name) ||
+            '',
+          id:
+            (moderation_profile_associate &&
+              moderation_profile_associate[0]?.type?.id) ||
+            null,
+        },
+        phone_number,
         birthday: currentDate,
         adress: '',
         country: {
-          value: data?.country?.name || '',
-          id: data?.country?.id || null,
+          value: country?.name || '',
+          id: country?.id || null,
         },
         city: {
-          value: data?.city?.name || '',
-          id: data?.city?.id || null,
+          value: city?.name || '',
+          id: city?.id || null,
         },
-        about: data?.about,
-        first_name: data?.user?.first_name,
-        last_name: data?.user?.last_name,
+        about: about,
+        first_name: user?.first_name,
+        last_name: user?.last_name,
         instagram:
-          data?.social_media_profile?.find(
+          social_media_profile?.find(
             (profile) => profile?.social_media_type?.name === 'Instagram'
           )?.link || '',
         facebook:
-          data?.social_media_profile?.find(
+          social_media_profile?.find(
             (profile) => profile?.social_media_type?.name === 'Facebook'
           )?.link || '',
         pinterest:
-          data?.social_media_profile?.find(
+          social_media_profile?.find(
             (profile) => profile?.social_media_type?.name === 'Pinterest'
           )?.link || '',
         tiktok:
-          data?.social_media_profile?.find(
+          social_media_profile?.find(
             (profile) => profile?.social_media_type?.name === 'TikTok'
           )?.link || '',
       });
@@ -98,6 +131,13 @@ const ProfileEdit = () => {
       const result: MutateResult = await mutate({
         id,
         formData: {
+          moderation_profile_associate:
+            [
+              {
+                name: fieldsValue.associate?.value,
+                id: fieldsValue.associate?.id,
+              },
+            ] || '',
           birthday: fieldsValue.birthday || '',
           city: {
             name: fieldsValue.city?.value,
@@ -152,6 +192,19 @@ const ProfileEdit = () => {
     }
   };
 
+  const switchOptions = (field: string) => {
+    switch (field) {
+      case 'country':
+        return countryOptions;
+      case 'city':
+        return cityOptions;
+      case 'associate':
+        return associateOptions;
+      default:
+        return [];
+    }
+  };
+
   return (
     <Grid item xs={12} md={12} padding={2}>
       {alertMessage && <ErrorAlert error={alertMessage} />}
@@ -159,95 +212,15 @@ const ProfileEdit = () => {
         {PROFILE_EDIT_INPUTS.map((field) => (
           <Grid item xs={12} md={5} key={field.name}>
             {field.component === 'select' ? (
-              field.name === 'country' ? (
-                <Autocomplete
-                  disablePortal
-                  options={countryOptions || []}
-                  value={{
-                    value: fieldsValue.country?.id,
-                    label: fieldsValue.country?.value,
-                  }}
-                  onChange={(_, value) =>
-                    setFieldsValue({
-                      ...fieldsValue,
-                      country: {
-                        value: value?.label || '',
-                        id: value?.value || undefined,
-                      },
-                    })
-                  }
-                  renderInput={(params) => (
-                    <Box display="flex">
-                      <TextField
-                        {...params}
-                        color="secondary"
-                        variant="outlined"
-                        value={fieldsValue.country?.value}
-                        onChange={(e) => {
-                          setFieldsValue({
-                            ...fieldsValue,
-                            country: { value: e.target.value, id: null },
-                          });
-                          setCountrySearch(e.target.value);
-                        }}
-                        name={field.name}
-                        size="small"
-                        InputLabelProps={{}}
-                      />
-                      <Box display="flex" sx={{ backgroundColor: '#4A2352' }}>
-                        <Tooltip title={t(field.label)}>
-                          <IconButton>{field.icon}</IconButton>
-                        </Tooltip>
-                      </Box>
-                    </Box>
-                  )}
-                />
-              ) : (
-                <Autocomplete
-                  disablePortal
-                  id="combo-box-demo"
-                  options={cityOptions || []}
-                  value={{
-                    value: fieldsValue.city?.id,
-                    label: fieldsValue.city?.value,
-                  }}
-                  onChange={(_, value) =>
-                    setFieldsValue({
-                      ...fieldsValue,
-                      city: {
-                        value: value?.label || '',
-                        id: value?.value || undefined,
-                      },
-                    })
-                  }
-                  renderInput={(params) => (
-                    <Box display="flex">
-                      <TextField
-                        {...params}
-                        color="secondary"
-                        variant="outlined"
-                        value={fieldsValue.city?.value}
-                        onChange={(e) => {
-                          setFieldsValue({
-                            ...fieldsValue,
-                            city: { value: e.target.value, id: null },
-                          });
-                          setCitySearch(e.target.value);
-                        }}
-                        name={field.name}
-                        size="small"
-                        InputLabelProps={{}}
-                      />
-
-                      <Box display="flex" sx={{ backgroundColor: '#4A2352' }}>
-                        <Tooltip title={t(field.label)}>
-                          <IconButton>{field.icon}</IconButton>
-                        </Tooltip>
-                      </Box>
-                    </Box>
-                  )}
-                />
-              )
+              <UniversalSelect
+                field={field}
+                options={switchOptions(field.name)}
+                fieldsValue={fieldsValue}
+                setFieldsValue={setFieldsValue}
+                setCountrySearch={setCountrySearch}
+                setCitySearch={setCitySearch}
+                // setAssociateOptions={setAssociateOptions}
+              />
             ) : (
               <Box display="flex">
                 {field.type === 'phone' ? (

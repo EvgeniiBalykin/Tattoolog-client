@@ -36,7 +36,7 @@ export interface IProfileData {
   phone_number?: string;
   city?: any;
   birthday?: Date | string;
-  user: {
+  user?: {
     email?: string;
     first_name?: string;
     last_name?: string;
@@ -46,7 +46,25 @@ export interface IProfileData {
   social_media_profile?: ISocialMedia[];
   average_rating?: string;
   count_visit?: number;
+  moderation_profile_associate?: IAssociate[];
 }
+
+export interface IAssociate {
+  id?: any;
+  name?: any;
+  profile?: number;
+  type?: number;
+  status?: Statuses;
+  comment?: string;
+}
+
+export interface IAssociationType {
+  id: number;
+  name: string;
+  link: string;
+}
+
+export type Statuses = 'pending' | 'approved' | 'canceled';
 
 export interface ICatalogData {
   count: number;

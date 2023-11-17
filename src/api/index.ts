@@ -16,6 +16,7 @@ export const CITIES = 'tools/cities/';
 export const BLOG_POSTS = 'tools/blogs/';
 export const BLOG_POST = 'tools/blog/';
 export const FESTIVAL_POSTS = 'tools/festival/';
+export const ASSOCIATION_TYPES = 'tools/association-type/';
 export const PARTNERS = 'tools/partners/';
 export const RESET_PASSWORD = 'auth/users/reset_password/';
 export const SET_NEW_PASSWORD = 'auth/users/reset_password_confirm/';
