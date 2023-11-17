@@ -30,10 +30,40 @@
       left: 10px;
       top: 10px;
     }
-    .profile-avatar {
-      height: 250px;
-      width: 250px;
-      border-radius: 20px;
+
+    .avatar-block {
+      display: flex;
+      justify-content: center;
+      .profile-avatar {
+        height: 250px;
+        width: 250px;
+        border-radius: 20px;
+      }
+      .association-icon {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        background: rgba(156, 156, 156, 0.812);
+        position: absolute;
+        color: white;
+        padding: 3px 0;
+        top: 0;
+        display: flex;
+        justify-content: space-around;
+        width: 250px;
+        z-index: 1;
+        font-weight: 700;
+      }
+      .open-work-icon {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        bottom: 0px;
+        background-color: #4caf4fb7; // Зеленый цвет, можно изменить
+        color: white;
+        border-radius: 5px;
+        padding: 10px 0;
+        font-weight: bold;
+      }
     }
 
     .change-avatar {

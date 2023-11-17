@@ -47,10 +47,10 @@ const ExpandedPanel = () => {
       <Typography variant="h3" mb={2} textAlign="center">
         {t('pages.main.additional_block.title')}
       </Typography>
-      <Typography variant="h4" textAlign="justify" mb={2}>
+      <Typography variant="h4" textAlign="start" mb={2}>
         {t('pages.main.additional_block.subtitle')}
       </Typography>
-      <Typography variant="h4" textAlign="justify" mb={2}>
+      <Typography variant="h4" textAlign="start" mb={2}>
         {t('pages.main.additional_block.subtitle_1')}
       </Typography>
       {CONTENT_PANELS.map((el, i) => (

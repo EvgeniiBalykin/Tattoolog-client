@@ -8,6 +8,7 @@ import {
   Pinterest,
   RemoveRedEye,
   Settings,
+  Verified,
 } from '@mui/icons-material';
 import {
   Box,
@@ -16,6 +17,7 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Icon,
   IconButton,
   Tooltip,
   Typography,
@@ -41,6 +43,7 @@ import { useTranslation } from 'react-i18next';
 import UserRating from '@components/UserRating/UserRating';
 import { Unknown_avatar } from '@images/index';
 import { useNavigate } from 'react-router';
+import { IProfileData } from '@interfaces/index';
 
 const SOCIAL_MEDIA_ICONS: { [key: string]: ReactElement } = {
   Facebook: <Facebook />,
@@ -60,10 +63,22 @@ const ProfileCard = ({ id }: { id: number }) => {
   const [updateProfile] = useUpdateProfileMutation();
   const { id: storeId } = useSelector(selectUser);
   const userAccess = id === storeId;
+  const {
+    social_media_profile,
+    count_visit,
+    user,
+    city,
+    country,
+    about,
+    avatar,
+    average_rating,
+    phone_number,
+    moderation_profile_associate,
+  }: IProfileData = profileData || {};
 
   const renderSocialLinks = useMemo(
     () =>
-      profileData?.social_media_profile?.map((socialMedia) => {
+      social_media_profile?.map((socialMedia) => {
         const { link, social_media_type } = socialMedia;
         const socialMediaName = social_media_type.name;
         const icon = SOCIAL_MEDIA_ICONS[socialMediaName];
@@ -84,7 +99,7 @@ const ProfileCard = ({ id }: { id: number }) => {
           </Grid>
         );
       }),
-    [profileData?.social_media_profile]
+    [social_media_profile]
   );
 
   const onEditClick = () => {
@@ -116,17 +131,39 @@ const ProfileCard = ({ id }: { id: number }) => {
           {userAccess && (
             <IconButton className="profile-views" onClick={onEditClick}>
               <RemoveRedEye />
-              <Typography>{profileData?.count_visit}</Typography>
+              <Typography>{count_visit}</Typography>
             </IconButton>
           )}
-          <UserRating id={id} rating={Number(profileData?.average_rating)} />
-          <CardMedia
-            className="profile-avatar"
-            component="img"
-            src={profileData?.avatar ? profileData.avatar : Unknown_avatar}
-            alt="avatar"
-            loading="lazy"
-          />
+          <UserRating id={id} rating={Number(average_rating)} />
+          <div style={{ position: 'relative' }} className="avatar-block">
+            {moderation_profile_associate?.some(
+              (el) => el.status === 'approved'
+            ) ? (
+              <div className="association-icon">
+                Member of {moderation_profile_associate[0]?.type?.name}
+                <Icon color="success">
+                  <Verified />
+                </Icon>
+              </div>
+            ) : (
+              ''
+            )}
+            {/* TODO: Open to work*/}
+            {/* {profileData?.moderation_profile_associate.some(
+              (el) => el.status === 'approved'
+            ) ? (
+              <div className="open-work-icon">#OpenToWork</div>
+            ) : (
+              ''
+            )} */}
+            <CardMedia
+              className="profile-avatar"
+              component="img"
+              src={avatar ? avatar : Unknown_avatar}
+              alt="avatar"
+              loading="lazy"
+            />
+          </div>
           {userAccess && (
             <Button
               className="change-avatar"
@@ -156,15 +193,15 @@ const ProfileCard = ({ id }: { id: number }) => {
             justifyContent="center"
           >
             <Grid className="contact-item" item xs={1} md={1}>
-              <Tooltip title={profileData?.phone_number}>
-                <IconButton href={`tel:${profileData?.user?.username}`}>
+              <Tooltip title={phone_number}>
+                <IconButton href={`tel:${user?.username}`}>
                   <Phone />
                 </IconButton>
               </Tooltip>
             </Grid>
             <Grid className="contact-item" item xs={1} md={1}>
-              <Tooltip title={profileData?.user?.email}>
-                <IconButton href={`mailto:${profileData?.user?.email}`}>
+              <Tooltip title={user?.email}>
+                <IconButton href={`mailto:${user?.email}`}>
                   <Email />
                 </IconButton>
               </Tooltip>
@@ -175,22 +212,21 @@ const ProfileCard = ({ id }: { id: number }) => {
         <Box display="flex" flexDirection="column" gap={1}>
           <Box textAlign="center">
             <Typography variant="h4" fontWeight={700}>
-              {profileData?.user?.first_name} {profileData?.user?.last_name}
+              {user?.first_name} {user?.last_name}
             </Typography>
             <Typography variant="h4" fontWeight={700}>
-              {profileData?.user?.role?.toUpperCase() === 'MASTER'
+              {user?.role?.toUpperCase() === 'MASTER'
                 ? 'ARTIST'
-                : profileData?.user?.role?.toUpperCase()}
+                : user?.role?.toUpperCase()}
             </Typography>
             <Typography mt={1} variant="body2">
-              {profileData?.city?.name &&
-                `${profileData?.city?.name}, ${profileData?.country?.name}`}
+              {city?.name && `${city?.name}, ${country?.name}`}
             </Typography>
           </Box>
         </Box>
         <CardContent className="card-content">
           <Typography textAlign="justify" variant="h5">
-            {profileData?.about}
+            {about}
           </Typography>
         </CardContent>
       </Card>

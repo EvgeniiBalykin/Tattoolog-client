@@ -42,10 +42,10 @@ const AboutMain = () => {
                 <Typography variant="h2">
                   {t('pages.main.about_block.title_1')}
                 </Typography>
-                <Typography variant="h5" textAlign="justify">
+                <Typography variant="h5" textAlign="start">
                   {t('pages.main.about_block.subtitle_1')}
                 </Typography>
-                <Typography variant="h5" textAlign="justify">
+                <Typography variant="h5" textAlign="start">
                   {t('pages.main.about_block.subtitle_1_2')}
                 </Typography>
               </div>
@@ -63,7 +63,7 @@ const AboutMain = () => {
                 <Typography variant="h2">
                   {t('pages.main.about_block.title_2')}
                 </Typography>
-                <Typography variant="h5" textAlign="justify">
+                <Typography variant="h5" textAlign="start">
                   {t('pages.main.about_block.subtitle_2')}
                 </Typography>
               </div>

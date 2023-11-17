@@ -1,14 +1,14 @@
-import { useGetBlogPostsQuery } from '@services/toolsApi';
+import { useGetFesivalPostsQuery } from '@services/toolsApi';
 import { Grid, Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import PostCard from '@components/PostCard/PostCard';
 
-const BlogPosts = () => {
+const FestivalPosts = () => {
   const [limit, setLimit] = useState(6);
   const [desableButton, setDisableButton] = useState(false);
-  const { data: posts, isLoading } = useGetBlogPostsQuery(limit);
+  const { data: festivals, isLoading } = useGetFesivalPostsQuery(limit);
   const { t } = useTranslation();
 
   const loadMoreClick = () => {
@@ -16,8 +16,8 @@ const BlogPosts = () => {
   };
 
   useEffect(() => {
-    posts?.next === null && setDisableButton(true);
-  }, [posts]);
+    festivals?.next === null && setDisableButton(true);
+  }, [festivals]);
 
   return (
     <>
@@ -29,15 +29,15 @@ const BlogPosts = () => {
         mb={4}
         data-testid="blog-posts-test"
       >
-        {posts?.results.map((post) => (
+        {festivals?.results.map((festival) => (
           <PostCard
-            slug={post.slug}
-            key={post.id}
-            id={post.id}
-            date={post.created_at}
-            image={post.image}
-            title={post.title}
-            body={post.body}
+            slug={festival.slug}
+            id={festival.id}
+            date={festival.created_at}
+            image={festival.image}
+            title={festival.title}
+            body={festival.about}
+            key={festival.id}
           />
         ))}
       </Grid>
@@ -57,4 +57,4 @@ const BlogPosts = () => {
   );
 };
 
-export default BlogPosts;
+export default FestivalPosts;

@@ -32,22 +32,17 @@ const PostPage = () => {
   }, [post]);
 
   return (
-    <Container
-      maxWidth="lg"
-      sx={{
-        backgroundColor: 'rgba(60, 60, 60, 0.3)',
-        padding: '30px 10px',
-        borderRadius: '10px',
-        marginBottom: '20px',
-      }}
-    >
+    <Container maxWidth="lg">
       <Box
         sx={{
           backgroundImage: `url(${post?.image})`,
           backgroundSize: 'cover',
+          backgroundPosition: 'center',
           position: 'relative',
+          borderRadius: '8px', // Округленные углы
+          overflow: 'hidden', // Обрезка изображения, чтобы округленные углы были видны
         }}
-        height="200px"
+        height="300px" // Увеличил высоту для лучшего эффекта
         display="flex"
         alignItems="center"
         justifyContent="center"
@@ -56,13 +51,25 @@ const PostPage = () => {
           position="absolute"
           width="100%"
           height="100%"
-          sx={{ backgroundColor: 'rgba(60, 60, 60, 0.4)' }}
+          sx={{ backgroundColor: 'rgba(60, 60, 60, 0.5)' }}
         />
-        <Typography variant="h1" position="relative">
+        <Typography
+          variant="h1"
+          position="relative"
+          color="white"
+          textAlign="center"
+          zIndex={1}
+        >
           {post?.title.toUpperCase()}
         </Typography>
       </Box>
-      <Typography variant="h5" textAlign="justify" paddingTop="40px">
+      <Typography
+        variant="h5"
+        textAlign="justify"
+        paddingTop="40px"
+        color="white"
+        lineHeight={1.6}
+      >
         {post?.body}
       </Typography>
     </Container>
