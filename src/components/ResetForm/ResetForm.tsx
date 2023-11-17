@@ -11,12 +11,12 @@ import { IQueryData } from '@interfaces/index';
 export const ResetForm = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [resetPassword, { error: resetError, isLoading }] =
     useResetPasswordMutation<IQueryData>();
 
   const onSubmit = () => {
-    resetPassword(email).then(
+    resetPassword(username).then(
       (res: any) => !res?.error && navigate(`/${HeaderRoutesList.SUCCESS_PAGE}`)
     );
   };
@@ -24,7 +24,7 @@ export const ResetForm = () => {
   return (
     <Container maxWidth="xs">
       {resetError && (
-        <Alert severity="error">{resetError?.data.email[0]}</Alert>
+        <Alert severity="error">{resetError?.data.username[0]}</Alert>
       )}
       <Box
         sx={{
@@ -43,9 +43,9 @@ export const ResetForm = () => {
             color="secondary"
             margin="normal"
             fullWidth
-            label="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            label="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <LoadingButton
             loading={isLoading}

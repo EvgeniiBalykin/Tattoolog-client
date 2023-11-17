@@ -194,7 +194,7 @@ const ProfileCard = ({ id }: { id: number }) => {
           >
             <Grid className="contact-item" item xs={1} md={1}>
               <Tooltip title={phone_number}>
-                <IconButton href={`tel:${user?.email}`}>
+                <IconButton href={`tel:${user?.username}`}>
                   <Phone />
                 </IconButton>
               </Tooltip>

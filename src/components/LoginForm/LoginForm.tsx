@@ -24,7 +24,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { IQueryData } from '@interfaces/index';
 
 interface ILoginForm {
-  email: string;
+  username: string;
   password: string;
 }
 
@@ -42,9 +42,9 @@ export const LoginForm = () => {
   const token = Cookies.get('accessToken');
   const [getUserData] = useUserDataMutation();
 
-  const onSubmit = async ({ email, password }: ILoginForm) => {
+  const onSubmit = async ({ username, password }: ILoginForm) => {
     await loginUser({
-      email,
+      username,
       password,
     });
   };
@@ -86,18 +86,18 @@ export const LoginForm = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <Controller
               control={control}
-              name="email"
+              name="username"
               rules={emailValidation}
               render={({ field }) => (
                 <TextField
                   color="secondary"
                   margin="normal"
                   fullWidth
-                  error={!!errors.email?.message}
+                  error={!!errors.username?.message}
                   label="Email"
                   value={field.value || ''}
                   onChange={(e) => field.onChange(e)}
-                  helperText={errors.email?.message}
+                  helperText={errors.username?.message}
                 />
               )}
             />

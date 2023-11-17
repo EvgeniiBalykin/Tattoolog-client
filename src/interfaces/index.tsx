@@ -14,7 +14,7 @@ export interface ILanguages {
 export interface IUserData {
   first_name: string;
   last_name: string;
-  email: string;
+  username: string;
   password: string;
   re_password: string;
   role: string;
@@ -37,6 +37,7 @@ export interface IProfileData {
   city?: any;
   birthday?: Date | string;
   user?: {
+    username?: string;
     email?: string;
     first_name?: string;
     last_name?: string;
@@ -86,7 +87,7 @@ export interface ICountriesData {
 }
 
 export interface ILoginBody {
-  email: string;
+  username: string;
   password: string;
 }
 export interface IProfilePortfolio {

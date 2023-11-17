@@ -40,7 +40,7 @@ export const SingInForm = () => {
   return (
     <Container maxWidth="xs">
       {registerError && (
-        <Alert severity="error">{registerError?.data.email}</Alert>
+        <Alert severity="error">{registerError?.data.username}</Alert>
       )}
       <Box
         sx={{
@@ -118,18 +118,18 @@ export const SingInForm = () => {
             />
             <Controller
               control={control}
-              name="email"
+              name="username"
               rules={emailValidation}
               render={({ field }) => (
                 <TextField
                   color="secondary"
                   margin="normal"
                   fullWidth
-                  error={!!errors.email?.message}
+                  error={!!errors.username?.message}
                   label="Email"
                   value={field.value || ''}
                   onChange={(e) => field.onChange(e)}
-                  helperText={errors.email?.message}
+                  helperText={errors.username?.message}
                   required
                 />
               )}
