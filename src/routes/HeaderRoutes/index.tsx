@@ -14,6 +14,7 @@ import ActivationPage from '@pages/ActivationPage/ActivationPage';
 import ProfileEdit from '@components/Profile/ProfileEdit/ProfileEdit';
 import FestivalPage from '@pages/FestivalPage/FestivalPage';
 import FestivalsPage from '@pages/FestivalsPage/FestivalsPage';
+import ContactsPage from '@pages/ContactsPage/ContactsPage';
 
 export const HEADER_ROUTES: IRoutes[] = [
   {
@@ -27,7 +28,7 @@ export const HEADER_ROUTES: IRoutes[] = [
     element: <Catalog role="salon" />,
   },
   {
-    name: 'Festivals',
+    name: 'pages.festivals',
     path: HeaderRoutesList.FESTIVALS,
     element: <FestivalsPage />,
   },
@@ -44,7 +45,7 @@ export const HEADER_ROUTES: IRoutes[] = [
   {
     name: 'pages.contacts',
     path: HeaderRoutesList.CONTACTS,
-    element: <div>Contacts</div>,
+    element: <ContactsPage />,
   },
 ];
 

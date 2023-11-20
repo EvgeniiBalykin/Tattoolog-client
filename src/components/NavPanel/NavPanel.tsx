@@ -64,7 +64,7 @@ export const NavPanel = () => {
     >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box component={Link} to={'/'}>
-          <img src={Logo} width="260px" height="60px" />
+          <img src={Logo} width="200px" height="40px" />
         </Box>
         <Box
           sx={{

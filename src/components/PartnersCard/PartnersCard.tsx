@@ -8,9 +8,9 @@ const PartnersCard = ({ logo, link }: IPartnersData) => {
         <img
           src={logo}
           width="200px"
-          height="100px"
+          height="200px"
           onClick={() => window.open(link)}
-          style={{ cursor: 'pointer' }}
+          style={{ cursor: 'pointer', backgroundColor: 'white' }}
         />
       </Box>
     </Grid>

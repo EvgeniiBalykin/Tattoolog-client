@@ -8,51 +8,60 @@ const theme = createTheme({
       main: '#4A2352',
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 990,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
   typography: {
-    fontFamily: 'PT Sans, sans-serif;',
+    fontFamily: 'PT Sans, sans-serif',
     h1: {
-      fontSize: '48px',
+      fontSize: '3em',
       fontWeight: 600,
-      marginBottom: '60px',
+      marginBottom: '2em',
       color: 'white',
     },
     h2: {
-      fontSize: '36px',
+      fontSize: '2.25em',
       fontWeight: 500,
       color: 'white',
     },
     h3: {
-      fontSize: '28px',
+      fontSize: '1.75em',
       fontWeight: 400,
       color: 'white',
     },
     h4: {
-      fontSize: '20px',
+      fontSize: '1.25em',
       fontWeight: 400,
       color: 'white',
     },
     h5: {
-      fontSize: '16px',
+      fontSize: '1em',
       fontWeight: 400,
       color: 'white',
     },
     h6: {
-      fontSize: '14px',
+      fontSize: '0.875em',
       fontWeight: 500,
       color: 'white',
     },
     body1: {
-      fontSize: '18px',
+      fontSize: '1.125em',
       fontWeight: 400,
       color: 'white',
     },
     body2: {
-      fontSize: '14px',
+      fontSize: '0.875em',
       fontWeight: 400,
       color: 'white',
     },
     caption: {
-      fontSize: '12px',
+      fontSize: '0.75em',
       fontWeight: 400,
       color: 'white',
     },
@@ -185,15 +194,15 @@ const theme = createTheme({
 });
 
 const mobileFontSizes = {
-  h1: '36px',
-  h2: '32px',
-  h3: '28px',
-  h4: '20px',
-  h5: '18px',
-  h6: '16px',
-  body1: '20px',
-  body2: '14px',
-  caption: '12px',
+  h1: '2.25em',
+  h2: '2em',
+  h3: '1.75em',
+  h4: '1.25em',
+  h5: '1em',
+  h6: '0.875em',
+  body1: '1.25em',
+  body2: '0.875em',
+  caption: '0.75em',
 };
 
 for (const key in mobileFontSizes) {

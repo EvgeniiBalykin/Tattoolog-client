@@ -9,7 +9,7 @@ export const LANGUAGES: ILanguages[] = [
   {
     code: 'en',
     country_code: 'en',
-    name: 'English',
+    name: 'ENG',
   },
   // {
   //   code: 'ua',
@@ -19,12 +19,12 @@ export const LANGUAGES: ILanguages[] = [
   {
     code: 'de',
     country_code: 'de',
-    name: 'Deutsch',
+    name: 'DE',
   },
   {
     code: 'pl',
     country_code: 'pl',
-    name: 'Polski',
+    name: 'PL',
   },
 ];
 

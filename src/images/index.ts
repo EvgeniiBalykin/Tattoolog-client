@@ -6,11 +6,6 @@ import About_Photo_2 from '@images/About_2.webp';
 import Cup from '@images/Cup.webp';
 import Lens from '@images/Lens.webp';
 import Rocket from '@images/Rocket.webp';
-import Partner_1 from '@images/Partner.svg';
-import Partner_2 from '@images/Partner_2.svg';
-import Partner_3 from '@images/Partner_3.svg';
-import Partner_4 from '@images/Partner_4.svg';
-import Partner_5 from '@images/Partner_5.svg';
 import CloseExpand from '@images/CloseExpand.svg';
 import OpenExpand from '@images/OpenExpand.svg';
 import Amazing_art from '@images/Amazing_art.webp';
@@ -35,11 +30,6 @@ export {
   Cup,
   Lens,
   Rocket,
-  Partner_1,
-  Partner_2,
-  Partner_3,
-  Partner_4,
-  Partner_5,
   CloseExpand,
   OpenExpand,
   Amazing_art,
