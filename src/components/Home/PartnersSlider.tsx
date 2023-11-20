@@ -1,43 +1,31 @@
 import { Box, Container, Typography } from '@mui/material';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import {
-  Partner_1,
-  Partner_2,
-  Partner_3,
-  Partner_4,
-  Partner_5,
-} from '@images/index';
 import { ReactElement, useMemo } from 'react';
 import ExpandedPanel from './ExpanedPanel';
 import { useTranslation } from 'react-i18next';
-
-const SliderImages: string[] = [
-  Partner_1,
-  Partner_2,
-  Partner_3,
-  Partner_4,
-  Partner_5,
-];
+import { useGetPartnersQuery } from '@services/toolsApi';
 
 const PartnersSlider = () => {
   const { t } = useTranslation();
-  const SliderItems = useMemo(
-    (): ReactElement<string, string>[] =>
-      SliderImages.map((el, key) => (
-        <Container
+  const { data } = useGetPartnersQuery();
+  const SliderItems = useMemo((): ReactElement<string, string>[] => {
+    if (data) {
+      return data.map((el, key) => (
+        <img
+          role="presentation"
+          loading="lazy"
+          width="200px"
+          height="200px"
           key={key}
-          maxWidth="xs"
-          sx={{
-            padding: 0,
-            margin: '0 50px',
-          }}
-        >
-          <img src={el} width="250px" height="200px" />
-        </Container>
-      )),
-    []
-  );
+          src={el.logo}
+          onClick={() => window.open(el.link)}
+          style={{ cursor: 'pointer', backgroundColor: '#f5f5f5' }}
+        />
+      ));
+    }
+    return [];
+  }, [data]);
 
   return (
     <Box className="wrapper">

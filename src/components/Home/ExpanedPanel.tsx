@@ -85,7 +85,7 @@ const ExpandedPanel = () => {
               border: `1px solid ${COLORS.PRIMARY}`,
             }}
           >
-            <Typography variant="h5" ml={10} mt={3}>
+            <Typography variant="h5" mt={3}>
               {t(el.content)}
             </Typography>
           </AccordionDetails>
