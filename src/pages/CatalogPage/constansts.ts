@@ -1,10 +1,13 @@
 import {
   MasterCatalogue,
   StudioCatalogue,
-  Medal,
-  Location,
-  Target,
-  Amazing_art,
+  TopRated,
+  GlobalReach,
+  Locator,
+  AmazingArt,
+  Star,
+  SafetyFirst,
+  CustomerLove,
 } from '@images/index';
 import { IDescriptionIcons, IMainImageBox } from '@interfaces/index';
 
@@ -30,22 +33,22 @@ export const SALON_CATALOGUE_MAIN: IMainImageBox = {
 
 export const MASTER_CATALOG_ICONS: IDescriptionIcons[] = [
   {
-    icon: Medal,
+    icon: TopRated,
     title: 'pages.artists_page.info.1.title',
     subtitle: 'pages.artists_page.info.1.subtitle',
   },
   {
-    icon: Location,
+    icon: GlobalReach,
     title: 'pages.artists_page.info.2.title',
     subtitle: 'pages.artists_page.info.2.subtitle',
   },
   {
-    icon: Amazing_art,
+    icon: AmazingArt,
     title: 'pages.artists_page.info.3.title',
     subtitle: 'pages.artists_page.info.3.subtitle',
   },
   {
-    icon: Target,
+    icon: Locator,
     title: 'pages.artists_page.info.4.title',
     subtitle: 'pages.artists_page.info.4.subtitle',
   },
@@ -53,17 +56,17 @@ export const MASTER_CATALOG_ICONS: IDescriptionIcons[] = [
 
 export const STUDIO_CATALOG_ICONS: IDescriptionIcons[] = [
   {
-    icon: Medal,
+    icon: Star,
     title: 'pages.studios_page.info.1.title',
     subtitle: 'pages.studios_page.info.1.subtitle',
   },
   {
-    icon: Location,
+    icon: SafetyFirst,
     title: 'pages.studios_page.info.2.title',
     subtitle: 'pages.studios_page.info.2.subtitle',
   },
   {
-    icon: Amazing_art,
+    icon: CustomerLove,
     title: 'pages.studios_page.info.3.title',
     subtitle: 'pages.studios_page.info.3.subtitle',
   },

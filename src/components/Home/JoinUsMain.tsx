@@ -41,7 +41,9 @@ const JoinUsMain = () => {
               className="card-shadow"
               sx={{
                 borderRadius: '20px',
-                boxShadow: '6px 6px 40px rgba(251, 143, 253, 0.7)',
+                '&:hover': {
+                  boxShadow: '6px 6px 40px rgba(251, 143, 253, 0.7)',
+                },
               }}
             >
               <CardContent className="card-content">
@@ -76,7 +78,9 @@ const JoinUsMain = () => {
             <Card
               sx={{
                 borderRadius: '20px',
-                boxShadow: '6px 6px 40px rgba(251, 143, 253, 0.7)',
+                '&:hover': {
+                  boxShadow: '6px 6px 40px rgba(251, 143, 253, 0.7)',
+                },
               }}
             >
               <CardContent className="card-content">

@@ -1,25 +1,34 @@
-import Logo from '@images/Logo.svg';
-import AddMasterPhoto from '@images/addMaster.webp';
-import AddStudioPhoto from '@images/addStudio.webp';
 import About_Photo_1 from '@images/About_1.webp';
 import About_Photo_2 from '@images/About_2.webp';
-import Cup from '@images/Cup.webp';
-import Lens from '@images/Lens.webp';
-import Rocket from '@images/Rocket.webp';
-import CloseExpand from '@images/CloseExpand.svg';
-import OpenExpand from '@images/OpenExpand.svg';
-import Amazing_art from '@images/Amazing_art.webp';
-import Location from '@images/Location.webp';
-import Target from '@images/Target.webp';
-import Medal from '@images/Medal.webp';
-import MainHand from '@images/MainHand.webp';
-import StudioCatalogue from '@images/StudioCatalogue.webp';
-import MasterCatalogue from '@images/MasterCatalogue.webp';
-import Unknown_avatar from '@images/Unknown_avatar.webp';
+import AddMasterPhoto from '@images/addMaster.webp';
+import AddStudioPhoto from '@images/addStudio.webp';
+import AmazingArt from '@images/AmazingArt.svg';
 import BlogPage_2 from '@images/BlogPage_2.webp';
+import CloseExpand from '@images/CloseExpand.svg';
+import Cup from '@images/Cup.webp';
 import Festival from '@images/Festival.webp';
+import GlobalReach from '@images/GlobalReach.svg';
+import Lens from '@images/Lens.webp';
+import Locator from '@images/Locator.svg';
+import Logo from '@images/Logo.svg';
+import MainHand from '@images/MainHand.webp';
+import MasterCatalogue from '@images/MasterCatalogue.webp';
+import OpenExpand from '@images/OpenExpand.svg';
+import Rocket from '@images/Rocket.webp';
+import StudioCatalogue from '@images/StudioCatalogue.webp';
+import TopRated from '@images/TopRated.svg';
+import Unknown_avatar from '@images/Unknown_avatar.webp';
+import CustomerLove from '@images/CustomerLove.svg';
+import SafetyFirst from '@images/SafetyFirst.svg';
+import Star from '@images/Star.svg';
 
 export {
+  Star,
+  CustomerLove,
+  SafetyFirst,
+  GlobalReach,
+  Locator,
+  TopRated,
   Festival,
   BlogPage_2,
   Logo,
@@ -32,10 +41,7 @@ export {
   Rocket,
   CloseExpand,
   OpenExpand,
-  Amazing_art,
-  Location,
-  Target,
-  Medal,
+  AmazingArt,
   MainHand,
   StudioCatalogue,
   MasterCatalogue,

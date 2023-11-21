@@ -13,9 +13,9 @@ const DescriptionIcons = ({
   return (
     <Grid item xs={xs} sm={sm} md={md}>
       <Box className="img-wrapper">
-        <img src={icon} alt="icon-img" width="270px" height="270px" />
+        <img src={icon} alt="icon-img" width="270px" height="200px" />
       </Box>
-      <Container maxWidth="md" sx={{ mt: 2 }}>
+      <Container maxWidth="md" sx={{ mt: 1 }}>
         {title && (
           <Typography mb={2} variant="h3" fontWeight="bold" textAlign="center">
             {title}
