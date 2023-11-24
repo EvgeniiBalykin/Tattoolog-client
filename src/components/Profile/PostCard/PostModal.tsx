@@ -70,7 +70,7 @@ const PostModal = ({
               <ArrowLeftRounded color="secondary" fontSize="large" />
             </IconButton>
             <img
-              src={post.photo_post[switchImg].photo}
+              src={post.photo_post[switchImg]?.photo}
               alt={`Post Image ${switchImg + 1}`}
               className="post-image"
             />
