@@ -60,8 +60,8 @@ export const App = () => {
           <Route key={route.path} path={route.path} element={route.element} />
         ))}
         <Route index element={<HomePage />} />
-        <Route path="error_page" element={<ErrorPage />} />
       </Route>
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 };
