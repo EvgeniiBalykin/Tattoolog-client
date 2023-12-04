@@ -135,19 +135,45 @@ export interface IMainImageBox {
   img: string;
 }
 
-export interface IBlogPost {
-  body: string;
-  created_at: Date;
-  id: number;
-  image: string;
-  meta_description: string;
-  meta_keywords: string;
-  meta_title_tag: string;
-  opengraph_description: string;
-  opengraph_title: string;
-  slug: string;
+export interface IBlogBody {
   title: string;
+  body: string;
+  blog_body_photo: { photo: string; alt_name: string }[];
 }
+
+export interface IBlogPost {
+  id: number;
+  language: string;
+  country: string;
+  image: string;
+  title: string;
+  created_at: Date;
+  slug: string;
+  blog_body: IBlogBody[];
+  blog_meta: {
+    meta_title_tag: string;
+    meta_description: string;
+    meta_keywords: string;
+    opengraph_title: string;
+    opengraph_description: string;
+    opengraph_image: string;
+  };
+  blog_photo_carousel: { photo: string }[];
+}
+
+// export interface IBlogPost {
+//   body: string;
+//   created_at: Date;
+//   id: number;
+//   image: string;
+//   meta_description: string;
+//   meta_keywords: string;
+//   meta_title_tag: string;
+//   opengraph_description: string;
+//   opengraph_title: string;
+//   slug: string;
+//   title: string;
+// }
 
 export interface IFestivalPost {
   id: number;

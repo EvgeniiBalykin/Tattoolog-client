@@ -39,11 +39,14 @@ export const toolsApi = createApi({
           city ? city : ''
         }&page_size=30`,
     }),
-    getBlogPosts: builder.query<IPostData, number>({
-      query: (limit) => BLOG_POSTS + `?page=1&page_size=${limit}`,
-    }),
-    getBlogPost: builder.query<IBlogPost, string>({
-      query: (id) => `${BLOG_POST + id}/`,
+    getBlogPosts: builder.query<IPostData, { limit: number; language: string }>(
+      {
+        query: ({ limit, language }) =>
+          BLOG_POSTS + `?language=${language}&page=1&page_size=${limit}`,
+      }
+    ),
+    getBlogPost: builder.query<IBlogPost, { slug?: string; lang?: string }>({
+      query: ({ slug, lang }) => `${BLOG_POST + `${slug || ''}/${lang}`}/`,
     }),
     getFesivalPosts: builder.query<IFestivalData, number>({
       query: (limit) => FESTIVAL_POSTS + `?page=1&page_size=${limit}`,

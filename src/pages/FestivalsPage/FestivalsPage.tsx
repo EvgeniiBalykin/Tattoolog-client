@@ -1,4 +1,4 @@
-import FestivalPosts from '@components/FistivalPosts/FistivalPosts';
+import FestivalPosts from '@components/FestivalPosts/FestivalPosts';
 import { MainImageBox } from '@components/Home';
 import { Festival } from '@images/index';
 import { Container } from '@mui/material';
@@ -9,7 +9,7 @@ const FestivalsPage = () => {
       <MainImageBox
         img={Festival}
         title="Exploring the Art of Ink: A Journey into the World of Tattoos"
-        subtitle=""
+        subtitle="."
       />
       <Container maxWidth="lg">
         <FestivalPosts />

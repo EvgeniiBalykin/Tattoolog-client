@@ -23,23 +23,12 @@ const MainImageBox = ({
       }}
     >
       <Container maxWidth="lg">
-        <Typography
-          variant="h1"
-          mb={2}
-          textTransform="uppercase"
-          textAlign="start"
-        >
-          {title}
-        </Typography>
+        <Typography variant="h1">{title}</Typography>
         <Box maxWidth={700}>
-          <Typography variant="h5" mb={2} textAlign="start">
-            {subtitle}
-          </Typography>
+          <Typography variant="h5">{subtitle}</Typography>
         </Box>
         <Box maxWidth={800}>
-          <Typography variant="h5" mb={2} textAlign="start">
-            {extraSubtitle}
-          </Typography>
+          <Typography variant="h5">{extraSubtitle}</Typography>
         </Box>
         <Box maxWidth={700} className="buttons-main-slider">
           {buttons?.map((el, index) => (

@@ -3,12 +3,14 @@ import { setupListeners } from '@reduxjs/toolkit/query/react';
 import loginReducer from '@store/reducers/loginSlice';
 import { authApi } from '@services/authApi';
 import userReduser from '@store/reducers/userSlice';
+import languageReducer from '@store/reducers/langSlice';
 import { profileApi } from '@services/profileApi';
 import { toolsApi } from '@services/toolsApi';
 
 const rootReducer = combineReducers({
   login: loginReducer,
   user: userReduser,
+  language: languageReducer,
   [authApi.reducerPath]: authApi.reducer,
   [profileApi.reducerPath]: profileApi.reducer,
   [toolsApi.reducerPath]: toolsApi.reducer,
@@ -27,7 +29,6 @@ const setupStore = () => {
 };
 
 export const store = setupStore();
-
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;
 export type AppDispatch = AppStore['dispatch'];

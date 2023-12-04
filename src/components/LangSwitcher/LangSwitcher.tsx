@@ -6,9 +6,12 @@ import i18next from 'i18next';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { LANGUAGES, LANGUAGE_LOCAL_STORAGE_KEY } from '@constants/index';
 import { LANG_BY_DOMAIN, saveSelectedLanguage } from '../../i18n';
+import { setLanguage } from '@store/reducers/langSlice';
+import { useDispatch } from 'react-redux';
 
 const LangSwitcher = ({ isSelect }: { isSelect: boolean }) => {
   const initialLang = localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY);
+  const dispatch = useDispatch();
   const [selectedLanguage, setSelectedLanguage] = useState(
     initialLang || LANG_BY_DOMAIN() || 'en'
   );
@@ -18,6 +21,7 @@ const LangSwitcher = ({ isSelect }: { isSelect: boolean }) => {
     i18next.changeLanguage(newLanguage);
     setSelectedLanguage(newLanguage);
     saveSelectedLanguage(newLanguage);
+    dispatch(setLanguage({ language: newLanguage }));
   };
 
   return (

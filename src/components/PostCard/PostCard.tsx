@@ -7,8 +7,10 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
+import { selectLanguage } from '@store/reducers/langSlice';
 import moment from 'moment';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import './PostCard.scss';
 
@@ -30,6 +32,7 @@ const PostCard: React.FC<IPostCard> = ({
   slug,
 }) => {
   const navigate = useNavigate();
+  const { language } = useSelector(selectLanguage);
 
   return (
     <Grid key={id} item lg={4} md={5} mb={2} data-testid="post-item-test">
@@ -47,7 +50,7 @@ const PostCard: React.FC<IPostCard> = ({
             {title.toUpperCase()}
           </Typography>
           <Typography className="post-body" textAlign="center">
-            {trimText(body, 130)}
+            {body ? trimText(body, 130) : ''}
           </Typography>
         </CardContent>
         <CardActions className="post-card-actions">
@@ -56,7 +59,7 @@ const PostCard: React.FC<IPostCard> = ({
             color="secondary"
             variant="outlined"
             fullWidth
-            onClick={() => navigate(`${slug}/${id}`)}
+            onClick={() => navigate(`${slug}/${language}`)}
           >
             Learn More
           </Button>
