@@ -35,7 +35,7 @@ const BlogPosts = () => {
         data-testid="blog-posts-test"
       >
         {posts
-          ? posts?.results.map((post) => (
+          ? posts.results?.map((post) => (
               <PostCard
                 slug={post.slug}
                 key={post.id}
