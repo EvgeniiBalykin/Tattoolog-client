@@ -3,7 +3,7 @@ export const SIGN_IN = 'auth/jwt/create/';
 export const API_BASE_URL =
   import.meta.env.MODE === 'development'
     ? import.meta.env.VITE_API_URL_LOCAL
-    : import.meta.env.production.VITE_API_URL_PROD;
+    : import.meta.env.VITE_API_URL_PROD;
 export const PROFILE_DATA = 'auth/users/me/';
 export const PROFILE_USER = `accounts/profile/`;
 export const PROFILES_BY_ROLE = `accounts/profiles/`;
