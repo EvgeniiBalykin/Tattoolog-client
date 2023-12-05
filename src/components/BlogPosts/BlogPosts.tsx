@@ -43,7 +43,7 @@ const BlogPosts = () => {
                 date={post.created_at}
                 image={post.image}
                 title={post.title}
-                body={post?.blog_body[0]?.body}
+                body={post.blog_body.length > 0 ? post.blog_body[0].body : ''}
               />
             ))
           : 'Empty'}
