@@ -1,3 +1,4 @@
+import React, { useState, useRef } from 'react';
 import {
   Box,
   Button,
@@ -13,11 +14,10 @@ import {
   ArrowRightRounded,
   Close,
 } from '@mui/icons-material';
-import { useState } from 'react';
 import { IProfilePortfolio } from '@interfaces/index';
-import './PostModal.scss';
 import { trimText } from '@helpers/trimText/trimText';
 import theme from '@ui/theme/theme';
+import './PostModal.scss';
 
 const PostModal = ({
   post,
@@ -33,12 +33,37 @@ const PostModal = ({
   const postImgCount = post.photo_post.length;
   const isDescriptionLarge = post.description.length > 150;
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const touchStartX = useRef<number | null>(null);
 
   const nextImgClick = () =>
     setSwitchImg((prev) => (prev === postImgCount - 1 ? 0 : prev + 1));
 
   const prevImgClick = () =>
     setSwitchImg((prev) => (prev !== 0 ? prev - 1 : postImgCount - 1));
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (touchStartX.current !== null) {
+      const diffX = touchStartX.current - e.touches[0].clientX;
+
+      if (Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+          nextImgClick();
+        } else {
+          prevImgClick();
+        }
+
+        touchStartX.current = null;
+      }
+    }
+  };
+
+  const handleTouchEnd = () => {
+    touchStartX.current = null;
+  };
 
   const onReadMoreClick = () => setReadMore((prev) => !prev);
 
@@ -50,7 +75,12 @@ const PostModal = ({
       fullWidth
       maxWidth="md"
     >
-      <Box className="wrapper-box">
+      <Box
+        className="wrapper-box"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <DialogTitle display="flex" justifyContent="flex-end">
           {' '}
           <IconButton
