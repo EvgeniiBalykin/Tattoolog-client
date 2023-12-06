@@ -1,23 +1,96 @@
-.modal-container {
-  background: rgba(74, 35, 82, 1);
-  background-image: url('/src/images/footer.svg');
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90vw;
-  max-width: 900px;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-
-  @media (max-width: 900px) {
-    width: 90vw;
-    max-width: 90vw;
+.modal {
+  .modal-container {
+    background-image: url('/src/images/AbstractPaper.svg');
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    width: 95vw;
+    border-radius: 15px;
+    .modal-upload {
+    }
+    .text-modal {
+      height: 40vh;
+    }
+    .modal-img {
+      height: 70%;
+      .image-list {
+        width: 100%;
+        height: 40vh;
+        margin-bottom: 20px;
+        img {
+          width: 100%;
+          height: 100%; // Adjusted to fill the container
+          object-fit: cover;
+        }
+      }
+    }
+    .publish-btn {
+    }
   }
 }
+
+// .modal-container {
+//   background: rgba(74, 35, 82, 1);
+//   background-image: url('/src/images/footer.svg');
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   width: 90vw;
+//   max-width: 900px;
+//   height: 70vh;
+//   border-radius: 20px;
+//   box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 20px;
+
+//   .image-list {
+//     width: 100%;
+//     max-height: 100px;
+//     height: 100%;
+//     margin-bottom: 20px;
+
+//     img {
+//       width: 100%;
+//       height: 100%; // Adjusted to fill the container
+//       object-fit: cover;
+//     }
+//   }
+//   .publish-btn {
+//     left: 10%;
+//     position: absolute;
+//     bottom: 2%;
+//     width: 80%;
+//   }
+
+//   @media (max-width: 900px) {
+//     width: 90vw;
+//     max-width: 90vw;
+//   }
+// }
+
+// .modal-upload {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+
+//   input[type='file'] {
+//     display: none;
+//   }
+// }
+
+// .modal-img {
+//   /* Adjust styles as needed */
+//   margin-top: 20px;
+// }
+
+// /* Add more styles as needed for responsiveness and aesthetics */

@@ -1,3 +1,4 @@
+// Import necessary components and libraries
 import {
   TextField,
   Container,
@@ -24,9 +25,10 @@ import {
   useGetProfilePortfolioQuery,
   useGetWorkTypesQuery,
 } from '@services/profileApi';
-import './ModalDownload_v2.scss';
+import './ModalDownload_v2.scss'; // Add your styling here
 import { useTranslation } from 'react-i18next';
 
+// Define input values and modal props interfaces
 interface IInputValues {
   files: File[] | null;
   title: string;
@@ -43,6 +45,7 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { data } = useGetWorkTypesQuery();
+  const [currentStep, setCurrentStep] = useState<number>(1);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [inputValues, setInputValues] = useState<IInputValues>({
     files: null,
@@ -50,6 +53,7 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
     workType: '',
   });
   const { refetch } = useGetProfilePortfolioQuery(Number(id));
+
   const onChangeImgs = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const imgArr = [...(inputValues.files || [])];
@@ -59,6 +63,7 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
       setInputValues({ ...inputValues, files: imgArr });
     }
   };
+
   const onUploadClick = () =>
     fileInputRef.current && fileInputRef.current.click();
 
@@ -81,6 +86,7 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
             });
           })
         );
+
         refetch();
         toggle();
         setInputValues({ workType: '', files: null, title: '' });
@@ -98,8 +104,17 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
     }
   };
 
+  const nextStep = () => {
+    setCurrentStep((prevStep) => prevStep + 1);
+  };
+
+  const prevStep = () => {
+    setCurrentStep((prevStep) => Math.max(prevStep - 1, 1));
+  };
+
   return (
     <Modal
+      className="modal"
       aria-labelledby="transition-modal-title"
       aria-describedby="transition-modal-description"
       open={isOpen}
@@ -120,126 +135,136 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
             </IconButton>
           </Box>
           <Grid container spacing={2}>
-            <Grid item xs={12} md={7}>
-              <Box className="modal-upload" mb={2}>
-                <input
-                  accept="image/*"
-                  type="file"
-                  id="select-image"
-                  ref={fileInputRef}
-                  style={{ display: 'none' }}
-                  multiple
-                  onChange={onChangeImgs}
-                />
-                <Button
-                  fullWidth
-                  variant="contained"
-                  color="primary"
-                  onClick={onUploadClick}
-                >
-                  {t('buttons.upload_img')}
-                </Button>
-              </Box>
-              <Box className="modal-img">
-                {/* ImageList */}
-                <ImageList
-                  sx={{
-                    width: '100%',
-                    height: 350,
-                    marginBottom: '20px',
-                  }}
-                  cols={2}
-                >
-                  {inputValues.files
-                    ? inputValues.files.map((img, index) => (
-                        <ImageListItem
-                          key={index}
-                          sx={{
-                            position: 'relative',
-                          }}
-                        >
-                          <IconButton
-                            sx={{
-                              position: 'absolute',
-                              top: 0,
-                              right: 0,
-                              zIndex: 1,
-                            }}
-                            onClick={() => onRemoveClick(index)}
-                          >
-                            <CloseIcon />
-                          </IconButton>
-                          <img
-                            src={URL.createObjectURL(img)}
-                            alt="img"
-                            style={{
-                              width: '100%',
-                              height: '250px',
-                              objectFit: 'cover',
-                            }}
-                          />
-                        </ImageListItem>
-                      ))
-                    : ''}
-                </ImageList>
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={5} alignContent="center" alignItems="center">
-              <FormControl fullWidth>
-                <Select
-                  variant="filled"
-                  color="secondary"
-                  inputProps={{ 'aria-label': 'Without label' }}
-                  displayEmpty
-                  value={inputValues.workType}
-                  onChange={(event: SelectChangeEvent) =>
-                    setInputValues({
-                      ...inputValues,
-                      workType: event.target.value || '',
-                    })
-                  }
-                >
-                  <MenuItem value="">
-                    <em>Select Work Type</em>
-                  </MenuItem>
-                  {data?.map((el) => (
-                    <MenuItem value={el.id} key={el.id}>
-                      {el.name} ({el.description})
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-              <TextField
-                id="outlined-textarea"
-                rows={5}
-                sx={{ mt: 4 }}
-                multiline
-                fullWidth
-                variant="filled"
-                placeholder="Post description..."
-                color="secondary"
-                value={inputValues.title}
-                onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                  setInputValues({ ...inputValues, title: e.target.value })
-                }
-              />
-            </Grid>
+            {currentStep === 1 && (
+              <Grid item xs={12} md={12}>
+                <>
+                  <Box className="modal-upload" mb={2}>
+                    <input
+                      accept="image/*"
+                      type="file"
+                      id="select-image"
+                      ref={fileInputRef}
+                      style={{ display: 'none' }}
+                      multiple
+                      onChange={onChangeImgs}
+                    />
+                    <Button
+                      fullWidth
+                      variant="outlined"
+                      color="primary"
+                      onClick={onUploadClick}
+                    >
+                      {t('buttons.upload_img')}
+                    </Button>
+                  </Box>
+                  <Box className="modal-img">
+                    <ImageList className="image-list" cols={2}>
+                      {inputValues.files
+                        ? inputValues.files.map((img, index) => (
+                            <ImageListItem
+                              key={index}
+                              sx={{
+                                position: 'relative',
+                              }}
+                            >
+                              <IconButton
+                                sx={{
+                                  position: 'absolute',
+                                  top: 0,
+                                  right: 0,
+                                  zIndex: 1,
+                                }}
+                                onClick={() => onRemoveClick(index)}
+                              >
+                                <CloseIcon />
+                              </IconButton>
+                              <img src={URL.createObjectURL(img)} alt="img" />
+                            </ImageListItem>
+                          ))
+                        : ''}
+                    </ImageList>
+                  </Box>
+                </>
+              </Grid>
+            )}
+            {currentStep === 2 && (
+              <Grid
+                item
+                xs={12}
+                md={12}
+                alignContent="center"
+                alignItems="center"
+              >
+                <>
+                  <FormControl fullWidth>
+                    <Select
+                      variant="outlined"
+                      color="secondary"
+                      inputProps={{ 'aria-label': 'Without label' }}
+                      displayEmpty
+                      value={inputValues.workType}
+                      onChange={(event: SelectChangeEvent) =>
+                        setInputValues({
+                          ...inputValues,
+                          workType: event.target.value || '',
+                        })
+                      }
+                    >
+                      <MenuItem value="">
+                        <em>Select Work Type</em>
+                      </MenuItem>
+                      {data?.map((el) => (
+                        <MenuItem value={el.id} key={el.id}>
+                          {el.name} ({el.description})
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                  <TextField
+                    className="text-modal"
+                    id="outlined-textarea"
+                    rows={10}
+                    sx={{ mt: 2 }}
+                    multiline
+                    fullWidth
+                    variant="outlined"
+                    placeholder="Post description..."
+                    color="secondary"
+                    value={inputValues.title}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                      setInputValues({ ...inputValues, title: e.target.value })
+                    }
+                  />
+                </>
+              </Grid>
+            )}
           </Grid>
-          <Box mt={2} textAlign="center">
+          <Grid display="flex" gap={5}>
+            {currentStep === 2 && (
+              <Button
+                fullWidth
+                variant="outlined"
+                color="error"
+                onClick={prevStep}
+              >
+                Back
+              </Button>
+            )}
             <Button
               fullWidth
-              color="primary"
-              variant="outlined"
+              color="secondary"
+              variant="contained"
               disabled={
-                !inputValues.files ||
-                !inputValues.title ||
-                !inputValues.workType
+                (!inputValues.files && currentStep === 1) ||
+                (!inputValues.title &&
+                  !inputValues.workType &&
+                  currentStep === 2)
               }
-              onClick={onPostData}
+              onClick={currentStep === 1 ? nextStep : onPostData}
             >
-              {t('buttons.publish')}
+              {currentStep === 1 ? 'Next step' : 'publish'}
             </Button>
-          </Box>
+          </Grid>
         </Container>
       </Fade>
     </Modal>
