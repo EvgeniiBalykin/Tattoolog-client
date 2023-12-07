@@ -27,6 +27,7 @@ import {
 } from '@services/profileApi';
 import './ModalDownload_v2.scss'; // Add your styling here
 import { useTranslation } from 'react-i18next';
+import { LoadingButton } from '@mui/lab';
 
 // Define input values and modal props interfaces
 interface IInputValues {
@@ -53,6 +54,7 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
     workType: '',
   });
   const { refetch } = useGetProfilePortfolioQuery(Number(id));
+  const [sendLoad, setSendLoad] = useState<boolean>(false);
 
   const onChangeImgs = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
@@ -68,6 +70,7 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
     fileInputRef.current && fileInputRef.current.click();
 
   const onPostData = async () => {
+    setSendLoad(true);
     try {
       if (inputValues.files && id) {
         const postResponse = await axios.post(API_BASE_URL + ADD_POST, {
@@ -89,6 +92,8 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
         refetch();
         toggle();
         setInputValues({ workType: '', files: null, title: '' });
+        setSendLoad(false);
+        setCurrentStep(1);
       }
     } catch (error) {
       navigate('/error_page');
@@ -249,8 +254,9 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
                 Back
               </Button>
             )}
-            <Button
+            <LoadingButton
               fullWidth
+              loading={sendLoad}
               color="secondary"
               variant="contained"
               disabled={
@@ -259,10 +265,10 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
                   !inputValues.workType &&
                   currentStep === 2)
               }
-              onClick={() => (currentStep === 1 ? nextStep() : onPostData())}
+              onClick={currentStep === 1 ? nextStep : onPostData}
             >
               {currentStep === 1 ? 'Next step' : 'publish'}
-            </Button>
+            </LoadingButton>
           </Grid>
         </Container>
       </Fade>
