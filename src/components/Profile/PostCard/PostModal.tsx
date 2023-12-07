@@ -74,6 +74,7 @@ const PostModal = ({
       className="dialog"
       fullWidth
       maxWidth="md"
+      sx={{ borderRadius: '25px' }}
     >
       <Box
         className="wrapper-box"
@@ -82,7 +83,6 @@ const PostModal = ({
         onTouchEnd={handleTouchEnd}
       >
         <DialogTitle display="flex" justifyContent="flex-end">
-          {' '}
           <IconButton
             onClick={onClose}
             sx={{ display: 'flex', justifyContent: 'flex-end' }}
@@ -126,6 +126,7 @@ const PostModal = ({
               {post.description}
             </Typography>
           )}
+          <Button color="error">Remove</Button>{' '}
         </DialogContent>
       </Box>
     </Dialog>
