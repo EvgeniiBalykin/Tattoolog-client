@@ -231,16 +231,18 @@ const ProfileCard = ({ id }: { id: number }) => {
         </CardContent>
       </Card>
       <ModalDownload_v2 isOpen={isModal} toggle={toggleModal} />
-      <Button
-        startIcon={<AddPhotoAlternate />}
-        fullWidth
-        color="primary"
-        variant="contained"
-        size="large"
-        onClick={toggleModal}
-      >
-        {t('buttons.add_work')}
-      </Button>
+      {userAccess && (
+        <Button
+          startIcon={<AddPhotoAlternate />}
+          fullWidth
+          color="primary"
+          variant="contained"
+          size="large"
+          onClick={toggleModal}
+        >
+          {t('buttons.add_work')}
+        </Button>
+      )}
     </Grid>
   );
 };
