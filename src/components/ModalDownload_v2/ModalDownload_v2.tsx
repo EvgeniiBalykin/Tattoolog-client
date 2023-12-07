@@ -86,7 +86,6 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
             });
           })
         );
-
         refetch();
         toggle();
         setInputValues({ workType: '', files: null, title: '' });
@@ -239,7 +238,7 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
               </Grid>
             )}
           </Grid>
-          <Grid display="flex" gap={5}>
+          <Grid display="flex" gap={5} mt={2}>
             {currentStep === 2 && (
               <Button
                 fullWidth
@@ -260,7 +259,7 @@ const ModalDownload_v2 = ({ isOpen, toggle }: IModalProps) => {
                   !inputValues.workType &&
                   currentStep === 2)
               }
-              onClick={currentStep === 1 ? nextStep : onPostData}
+              onClick={() => (currentStep === 1 ? nextStep() : onPostData())}
             >
               {currentStep === 1 ? 'Next step' : 'publish'}
             </Button>
