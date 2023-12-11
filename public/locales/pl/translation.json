@@ -23,7 +23,11 @@
     "country": "Kraj",
     "city": "Miasto",
     "adress": "Adres",
-    "about": "O sobie"
+    "about": "O sobie",
+    "upload_post": "Dodaj nowy post",
+    "select_type": "Wybierz rodzaj pracy",
+    "post_desc": "Opis posta",
+    "choose_files": "Wybierz pliki"
   },
   "pages": {
     "contacts": "Kontakty",

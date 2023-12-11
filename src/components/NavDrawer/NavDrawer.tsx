@@ -15,7 +15,7 @@ import { useAppDispatch } from '@hooks/redux';
 import './NavDrawer.scss';
 import { selectUser } from '@store/reducers/userSlice';
 import LangSwitcher from '@components/LangSwitcher/LangSwitcher';
-import { useTranslation } from 'react-i18next';
+import { t } from 'i18next';
 
 const drawerWidth = 240;
 
@@ -25,7 +25,6 @@ interface Props {
 
 export default function ResponsiveDrawer(props: Props) {
   const { window } = props;
-  const { t } = useTranslation();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const loginState = useSelector(selectLogin);
   const token = loginState?.token;

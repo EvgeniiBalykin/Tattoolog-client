@@ -2,7 +2,7 @@ import { Box, Grid, ImageList, Typography, useMediaQuery } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router';
 import { useGetProfilePortfolioQuery } from '@services/profileApi';
-import PostCard from '@components/Profile/PostCard/PostCard';
+import PostCard from '@components/Profile/PortfolioCard/PortfolioCard';
 import theme from '@ui/theme/theme';
 
 const ProfilePortfolio = () => {

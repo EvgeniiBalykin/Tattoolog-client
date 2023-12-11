@@ -17,4 +17,5 @@ export enum HeaderRoutesList {
   PROFILE_EDIT = 'profile/:id/edit',
   FESTIVALS = 'festivals',
   FESTIVAL_POST = 'festivals/:slug/:id',
+  PORTFOLIO_POST = 'post/:id',
 }
