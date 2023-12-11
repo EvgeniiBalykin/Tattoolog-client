@@ -38,7 +38,7 @@ import {
 } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from '@store/reducers/userSlice';
-import ModalDownload_v2 from '@components/ModalDownload_v2/ModalDownload_v2';
+import ModalDownload_v2 from '@components/UploadWorks/UploadWorks';
 import { useTranslation } from 'react-i18next';
 import UserRating from '@components/UserRating/UserRating';
 import { Unknown_avatar } from '@images/index';

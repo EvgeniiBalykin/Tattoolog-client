@@ -24,3 +24,4 @@ export const SIGNUP_ACTIVATION = 'auth/users/activation/';
 export const GET_AVG_RATING = (id: number) =>
   `tools/profile/${id}/average-rating`;
 export const UPDATE_RATING = 'tools/rating/';
+export const PORTFOLIO_POST = 'portfolio/post/';

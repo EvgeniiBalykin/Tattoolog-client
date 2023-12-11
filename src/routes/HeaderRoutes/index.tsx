@@ -15,6 +15,7 @@ import ProfileEdit from '@components/Profile/ProfileEdit/ProfileEdit';
 import FestivalPage from '@pages/FestivalPage/FestivalPage';
 import FestivalsPage from '@pages/FestivalsPage/FestivalsPage';
 import ContactsPage from '@pages/ContactsPage/ContactsPage';
+import PortfolioPostPage from '@pages/PortfolioPostPage/PortfolioPostPage';
 
 export const HEADER_ROUTES: IRoutes[] = [
   {
@@ -104,5 +105,10 @@ export const HELP_PAGES: IRoutes[] = [
     name: 'Festival',
     path: HeaderRoutesList.FESTIVAL_POST,
     element: <FestivalPage />,
+  },
+  {
+    name: 'Portfolio Post',
+    path: HeaderRoutesList.PORTFOLIO_POST,
+    element: <PortfolioPostPage />,
   },
 ];

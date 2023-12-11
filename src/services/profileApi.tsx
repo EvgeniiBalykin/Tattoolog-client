@@ -6,6 +6,7 @@ import {
   PROFILES_BY_ROLE,
   WORK_TYPES,
   UPDATE_RATING,
+  PORTFOLIO_POST,
 } from '@api/index';
 import {
   ICatalogData,
@@ -39,6 +40,9 @@ export const profileApi = createApi({
     getWorkTypes: builder.query<IWorkTypes[], void>({
       query: () => WORK_TYPES,
     }),
+    getPortfolioPost: builder.query<IProfilePortfolio, string>({
+      query: (id) => `${PORTFOLIO_POST}${id}/`,
+    }),
     updateProfile: builder.mutation<
       void,
       { id: number; formData: FormData | IProfileData }
@@ -70,6 +74,7 @@ export const {
   useUpdateProfileMutation,
   useGetWorkTypesQuery,
   useUpdateProfileRatingMutation,
+  useGetPortfolioPostQuery,
 } = profileApi;
 
 function buildQueryString(params: ICatalogParams): string {
