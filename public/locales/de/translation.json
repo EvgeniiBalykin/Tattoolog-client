@@ -131,6 +131,14 @@
         "title": "Bereit, unserem Tattoo-Studio-Katalog beizutreten?",
         "subtitle": "Die Kultgemeinschaft der Tätowierungslegenden - wo Innovation auf Inspiration trifft und Ihren Körper als Leinwand für zeitlose Meisterwerke verwandelt. Tauchen Sie ein in die immersive Welt künstlerischer Abenteuer und schätzen Sie die Gelegenheit, Ihre Haut mit zeitlosen Meisterwerken zu schmücken."
       }
+    },
+    "desc_partners": {
+      "block": "Rabatte bei Veranstaltungen der Organisation",
+      "block_1": "Rechtsberatung zu allen Fragen ist kostenlos",
+      "block_2": "Ohne Mitgliedsbeitrag",
+      "block_3": "Kostenlose Teilnahme an Veranstaltungen des Verbands",
+      "block_4": "Veröffentlichung Ihrer Website oder Ihres Portals",
+      "block_5": "Werbefläche und die Webseite"
     }
   },
   "buttons": {

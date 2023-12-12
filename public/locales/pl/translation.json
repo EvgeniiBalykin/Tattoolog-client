@@ -133,6 +133,14 @@
         "title": "Jesteś gotowy do dołączenia do naszego katalogu studiów tatuażu?",
         "subtitle": "Kult legend tatuażu — tam, gdzie innowacja spotyka się z inspiracją i na zawsze przemienia twoje ciało w płótno sztuki. Wyrusz w fascynujący świat artystycznych podróży i skorzystaj z okazji ozdobienia swojej skóry stałymi arcydziełami."
       }
+    },
+    "desc_partners": {
+      "block": "Zniżki na wydarzenia organizacji",
+      "block_1": "Darmowa porada prawna we wszystkich sprawach",
+      "block_2": "Bezskładkowy",
+      "block_3": "Bezpłatne uczestnictwo w wydarzeniach stowarzyszenia",
+      "block_4": "Publikacja twojej strony internetowej lub portalu",
+      "block_5": "Platforma reklamowa i strona internetowa"
     }
   },
   "buttons": {

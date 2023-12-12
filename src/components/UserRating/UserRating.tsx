@@ -22,12 +22,12 @@ const UserRating = ({ readOnly = false, id, rating }: IRatingProps) => {
   const isMarked = localStorage.getItem(String(id));
   const [markedMessage, setMarkedMessage] = useState('');
 
-  const markProfile = async () => {
+  const markProfile = () => {
     if (id && value && !isMarked) {
-      await updateRating({ profile: id, mark: value });
-      await refetch();
-      setMarked(true);
+      updateRating({ profile: id, mark: value });
+      refetch();
       setMarkedMessage('Thank you for mark');
+      setMarked(true);
       localStorage.setItem(String(id), 'true');
     } else {
       setMarkedMessage('You already marked this profile');
@@ -49,10 +49,7 @@ const UserRating = ({ readOnly = false, id, rating }: IRatingProps) => {
           onClose={() => setMarked(false)}
           anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         >
-          <Alert
-            severity={isMarked ? 'error' : 'success'}
-            sx={{ width: '100%', top: '0' }}
-          >
+          <Alert severity={'success'} sx={{ width: '100%', top: '0' }}>
             {markedMessage}
           </Alert>
         </Snackbar>
