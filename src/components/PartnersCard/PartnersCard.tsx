@@ -3,7 +3,7 @@ import { IPartnersData } from '@interfaces/index';
 
 const PartnersCard = ({ logo, link }: IPartnersData) => {
   return (
-    <Grid item sm={1} md={3}>
+    <Grid item sm={3} md={3}>
       <Box display="flex" flexDirection="column" alignItems="center">
         <img
           src={logo}
