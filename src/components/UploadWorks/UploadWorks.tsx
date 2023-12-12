@@ -139,7 +139,7 @@ const UploadWorks = ({ isOpen, toggle }: IUploadProps) => {
                   </MenuItem>
                   {data?.map((el) => (
                     <MenuItem value={el.id} key={el.id}>
-                      {el.name} ({el.description})
+                      {el.name} {el.description ? `(${el.description})` : ''}
                     </MenuItem>
                   ))}
                 </Select>
