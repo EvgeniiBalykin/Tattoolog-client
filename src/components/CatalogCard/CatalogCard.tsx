@@ -4,6 +4,8 @@ import {
   Grid,
   Typography,
   CardActionArea,
+  Icon,
+  Box,
 } from '@mui/material';
 import { useNavigate } from 'react-router';
 import './CatalogCard.scss';
@@ -11,6 +13,13 @@ import UserRating from '@components/UserRating/UserRating';
 import { useMemo } from 'react';
 import { trimText } from '@helpers/trimText/trimText';
 import { Unknown_avatar } from '@images/index';
+import {
+  School,
+  TravelExplore,
+  Work,
+  WorkspacePremiumSharp,
+} from '@mui/icons-material';
+import { IAssociate } from '@interfaces/index';
 
 interface ICatalogCardProps {
   firstName: string;
@@ -21,6 +30,10 @@ interface ICatalogCardProps {
   country: string;
   about: string;
   avg_rating: string;
+  openToWork?: boolean;
+  relocate?: boolean;
+  mentor?: boolean;
+  association?: IAssociate[] | [];
 }
 
 const CatalogCard = ({
@@ -32,6 +45,10 @@ const CatalogCard = ({
   country,
   about,
   avg_rating,
+  openToWork,
+  relocate,
+  association,
+  mentor,
 }: ICatalogCardProps) => {
   const navigate = useNavigate();
   const textLengthLimit = 100;
@@ -40,9 +57,44 @@ const CatalogCard = ({
     [about, textLengthLimit]
   );
 
+  console.log(openToWork, relocate, association, mentor);
+
   return (
     <Grid item xs={12} sm={6} md={4} data-testid="catalog-card-test">
       <Card className="catalog-card">
+        <Box
+          sx={{
+            position: 'absolute',
+            zIndex: 1,
+            top: '2%',
+            left: '2%',
+            display: 'flex',
+            gap: '10px',
+          }}
+        >
+          {relocate && (
+            <Icon className="icon" color="warning">
+              <TravelExplore />
+            </Icon>
+          )}
+          {association && association?.length > 0 && (
+            <Icon className="icon" color="warning">
+              <WorkspacePremiumSharp />
+            </Icon>
+          )}
+
+          {mentor && (
+            <Icon className="icon" color="warning">
+              <School />
+            </Icon>
+          )}
+
+          {openToWork && (
+            <Icon className="icon" color="warning">
+              <Work />
+            </Icon>
+          )}
+        </Box>
         <CardActionArea
           data-testid="card-action-test"
           className="catalog-card-content"

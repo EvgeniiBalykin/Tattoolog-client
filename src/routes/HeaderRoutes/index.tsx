@@ -1,4 +1,3 @@
-import Catalog from '@pages/CatalogPage/CatalogPage';
 import Profile from '@components/Profile';
 import AcceptSignupPage from '@pages/AcceptPage/AcceptSignupPage';
 import { LoginPage } from '@pages/LoginPage/LoginPage';
@@ -16,17 +15,19 @@ import FestivalPage from '@pages/FestivalPage/FestivalPage';
 import FestivalsPage from '@pages/FestivalsPage/FestivalsPage';
 import ContactsPage from '@pages/ContactsPage/ContactsPage';
 import PortfolioPostPage from '@pages/PortfolioPostPage/PortfolioPostPage';
+import MasterCatalogPage from '@pages/MasterCatalogPage/MasterCatalogPage';
+import StudioCatalogPage from '@pages/StudioCatalogPage/StudioCatalogPage';
 
 export const HEADER_ROUTES: IRoutes[] = [
   {
     name: 'pages.masters',
     path: HeaderRoutesList.MASTER_CATALOG,
-    element: <Catalog role="master" />,
+    element: <MasterCatalogPage />,
   },
   {
     name: 'pages.studios',
     path: HeaderRoutesList.STUDIO_CATALOG,
-    element: <Catalog role="salon" />,
+    element: <StudioCatalogPage />,
   },
   {
     name: 'pages.festivals',
