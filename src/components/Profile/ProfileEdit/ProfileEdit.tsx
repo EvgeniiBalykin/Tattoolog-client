@@ -1,6 +1,8 @@
 import {
   Box,
   Button,
+  Checkbox,
+  FormLabel,
   Grid,
   IconButton,
   TextField,
@@ -207,7 +209,7 @@ const ProfileEdit = () => {
       <Grid container justifyContent="center" gap={4}>
         {PROFILE_EDIT_INPUTS.map((field) => (
           <Grid item xs={12} md={5} key={field.name}>
-            {field.component === 'select' ? (
+            {field.type === 'select' ? (
               <UniversalSelect
                 field={field}
                 options={switchOptions(field.name)}
@@ -215,7 +217,6 @@ const ProfileEdit = () => {
                 setFieldsValue={setFieldsValue}
                 setCountrySearch={setCountrySearch}
                 setCitySearch={setCitySearch}
-                // setAssociateOptions={setAssociateOptions}
               />
             ) : (
               <Box display="flex">
@@ -230,6 +231,15 @@ const ProfileEdit = () => {
                       setFieldsValue({ ...fieldsValue, phone_number: newValue })
                     }
                   />
+                ) : field.type === 'checkbox' ? (
+                  <FormLabel>
+                    {field.label}
+                    <Checkbox
+                      color="success"
+                      onChange={onChange}
+                      title={field.name}
+                    />
+                  </FormLabel>
                 ) : (
                   <TextField
                     color="secondary"
@@ -238,15 +248,16 @@ const ProfileEdit = () => {
                     onChange={onChange}
                     value={fieldsValue[field.name as keyof IState]}
                     fullWidth
-                    variant="outlined"
                     size="small"
                   />
                 )}
-                <Box display="flex" sx={{ backgroundColor: '#4A2352' }}>
-                  <Tooltip title={t(field.label)}>
-                    <IconButton>{field.icon}</IconButton>
-                  </Tooltip>
-                </Box>
+                {field.icon && (
+                  <Box display="flex" sx={{ backgroundColor: '#4A2352' }}>
+                    <Tooltip title={t(field.label)}>
+                      <IconButton>{field.icon}</IconButton>
+                    </Tooltip>
+                  </Box>
+                )}
               </Box>
             )}
           </Grid>

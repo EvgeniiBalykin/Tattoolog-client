@@ -8,7 +8,7 @@ import {
   Pinterest,
   RemoveRedEye,
   Settings,
-  Verified,
+  WorkspacePremiumSharp,
 } from '@mui/icons-material';
 import {
   Box,
@@ -16,6 +16,8 @@ import {
   Card,
   CardContent,
   CardMedia,
+  Checkbox,
+  FormControlLabel,
   Grid,
   Icon,
   IconButton,
@@ -52,6 +54,21 @@ const SOCIAL_MEDIA_ICONS: { [key: string]: ReactElement } = {
   Pinterest: <Pinterest />,
 };
 
+const CHECKBOXES = [
+  {
+    label: 'Open to work',
+    name: 'open_to_work',
+  },
+  {
+    label: 'Mentor',
+    name: 'mentor',
+  },
+  {
+    label: 'Open to relocate',
+    name: 'relocate',
+  },
+];
+
 const ProfileCard = ({ id }: { id: number }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -74,7 +91,28 @@ const ProfileCard = ({ id }: { id: number }) => {
     average_rating,
     phone_number,
     moderation_profile_associate,
+    open_to_work,
+    relocate,
+    mentor,
   }: IProfileData = profileData || {};
+
+  const [checkboxValues, setCheckboxValues] = useState<{
+    [key: string]: boolean | undefined;
+  }>({
+    open_to_work: false,
+    mentor: false,
+    relocate: false,
+  });
+
+  useEffect(() => {
+    if (profileData) {
+      setCheckboxValues({
+        open_to_work,
+        mentor,
+        relocate,
+      });
+    }
+  }, [profileData]);
 
   const renderSocialLinks = useMemo(
     () =>
@@ -119,43 +157,52 @@ const ProfileCard = ({ id }: { id: number }) => {
     }
   }, [selectedImg, id, updateProfile, refetch]);
 
+  const onCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = event.target;
+
+    setCheckboxValues((prevValues) => {
+      const updatedValues = {
+        ...prevValues,
+        [name]: checked,
+      };
+      updateProfile({ id, formData: updatedValues });
+      return updatedValues;
+    });
+  };
+
   return (
     <Grid item xs={12} md={4} className="card-box">
       <Card className="card" sx={{ mb: 2 }}>
+        {moderation_profile_associate?.some(
+          (el) => el.status === 'approved'
+        ) ? (
+          <div className="association-icon">
+            <Icon className="icon" color="warning">
+              <WorkspacePremiumSharp />
+            </Icon>
+            <Typography variant="body1">
+              Member of {moderation_profile_associate[0]?.type?.name}
+            </Typography>
+          </div>
+        ) : (
+          ''
+        )}
         <CardContent className="card-content">
-          {userAccess && (
-            <IconButton className="profile-settings" onClick={onEditClick}>
-              <Settings />
-            </IconButton>
-          )}
-          {userAccess && (
-            <IconButton className="profile-views" onClick={onEditClick}>
-              <RemoveRedEye />
-              <Typography>{count_visit}</Typography>
-            </IconButton>
-          )}
-          <UserRating id={id} rating={Number(average_rating)} />
-          <div style={{ position: 'relative' }} className="avatar-block">
-            {moderation_profile_associate?.some(
-              (el) => el.status === 'approved'
-            ) ? (
-              <div className="association-icon">
-                Member of {moderation_profile_associate[0]?.type?.name}
-                <Icon color="success">
-                  <Verified />
-                </Icon>
-              </div>
-            ) : (
-              ''
+          <div className="profile-tools">
+            {userAccess && (
+              <IconButton className="profile-views" onClick={onEditClick}>
+                <RemoveRedEye />
+                <Typography>{count_visit}</Typography>
+              </IconButton>
             )}
-            {/* TODO: Open to work*/}
-            {/* {profileData?.moderation_profile_associate.some(
-              (el) => el.status === 'approved'
-            ) ? (
-              <div className="open-work-icon">#OpenToWork</div>
-            ) : (
-              ''
-            )} */}
+            <UserRating id={id} rating={Number(average_rating)} />
+            {userAccess && (
+              <IconButton className="profile-settings" onClick={onEditClick}>
+                <Settings />
+              </IconButton>
+            )}
+          </div>
+          <div className="avatar-block">
             <CardMedia
               className="profile-avatar"
               component="img"
@@ -163,18 +210,18 @@ const ProfileCard = ({ id }: { id: number }) => {
               alt="avatar"
               loading="lazy"
             />
+            {userAccess && (
+              <Button
+                className="change-avatar"
+                variant="contained"
+                color="warning"
+                size="small"
+                onClick={handleButtonClick}
+              >
+                {t('buttons.change_photo')}
+              </Button>
+            )}
           </div>
-          {userAccess && (
-            <Button
-              className="change-avatar"
-              variant="outlined"
-              color="primary"
-              size="small"
-              onClick={handleButtonClick}
-            >
-              {t('buttons.change_photo')}
-            </Button>
-          )}
           <input
             accept="image/*"
             type="file"
@@ -210,6 +257,26 @@ const ProfileCard = ({ id }: { id: number }) => {
           </Grid>
         </CardContent>
         <Box display="flex" flexDirection="column" gap={1}>
+          <Box display="flex" justifyContent="space-between">
+            {CHECKBOXES.map((el) => (
+              <FormControlLabel
+                value="top"
+                control={
+                  <Checkbox
+                    color="secondary"
+                    name={el.name}
+                    checked={checkboxValues[el.name]}
+                    onChange={userAccess ? onCheckboxChange : () => null}
+                    sx={{
+                      '& .MuiSvgIcon-root': { fontSize: 28 },
+                    }}
+                  />
+                }
+                label={<Typography variant="body2">{el.label}</Typography>}
+                labelPlacement="top"
+              />
+            ))}
+          </Box>
           <Box textAlign="center">
             <Typography variant="h4" fontWeight={700}>
               {user?.first_name} {user?.last_name}

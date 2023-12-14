@@ -27,7 +27,8 @@
     "upload_post": "Neuen Beitrag hochladen",
     "select_type": "Arbeitsart auswählen",
     "post_desc": "Beitragsbeschreibung",
-    "choose_files": "Dateien auswählen"
+    "choose_files": "Dateien auswählen",
+    "association": "Verein"
   },
   "pages": {
     "contacts": "Kontakte",

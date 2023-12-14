@@ -48,6 +48,9 @@ export interface IProfileData {
   average_rating?: string;
   count_visit?: number;
   moderation_profile_associate?: IAssociate[];
+  open_to_work?: boolean;
+  mentor?: boolean;
+  relocate?: boolean;
 }
 
 export interface IAssociate {
