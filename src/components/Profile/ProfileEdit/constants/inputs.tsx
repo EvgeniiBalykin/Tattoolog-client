@@ -17,7 +17,7 @@ export const PROFILE_EDIT_INPUTS: {
   name: string;
   type: string;
   component?: string;
-  icon: ReactElement;
+  icon?: ReactElement;
   label: string;
 }[] = [
   {
@@ -46,15 +46,13 @@ export const PROFILE_EDIT_INPUTS: {
   },
   {
     label: 'form.country',
-    type: 'text',
-    component: 'select',
+    type: 'select',
     icon: <PublicRounded />,
     name: 'country',
   },
   {
     label: 'form.city',
-    type: 'text',
-    component: 'select',
+    type: 'select',
     icon: <LocationCity />,
     name: 'city',
   },
@@ -66,8 +64,7 @@ export const PROFILE_EDIT_INPUTS: {
   },
   {
     label: 'form.association',
-    type: 'text',
-    component: 'select',
+    type: 'select',
     icon: <CardMembership />,
     name: 'associate',
   },

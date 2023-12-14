@@ -27,7 +27,8 @@
     "upload_post": "Upload new post",
     "select_type": "Select Work Type",
     "post_desc": "Post description",
-    "choose_files": "Choose files"
+    "choose_files": "Choose files",
+    "association": "Association"
   },
   "pages": {
     "contacts": "Contacts",
