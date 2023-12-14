@@ -45,7 +45,7 @@ import { selectUser } from '@store/reducers/userSlice';
 import ModalDownload_v2 from '@components/UploadWorks/UploadWorks';
 import { useTranslation } from 'react-i18next';
 import UserRating from '@components/UserRating/UserRating';
-import { Unknown_avatar } from '@images/index';
+import { UnknownAvatarImg } from '@images/index';
 import { useNavigate } from 'react-router';
 import { IProfileData } from '@interfaces/index';
 
@@ -211,7 +211,7 @@ const ProfileCard = ({ id }: { id: number }) => {
             <CardMedia
               className="profile-avatar"
               component="img"
-              src={avatar ? avatar : Unknown_avatar}
+              src={avatar ? avatar : UnknownAvatarImg}
               alt="avatar"
               loading="lazy"
             />

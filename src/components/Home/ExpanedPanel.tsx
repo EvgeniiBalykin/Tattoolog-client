@@ -6,7 +6,7 @@ import {
   Container,
   Typography,
 } from '@mui/material';
-import { CloseExpand, OpenExpand } from '@images/index';
+import { CloseExpandImg, OpenExpandImg } from '@images/index';
 import { useState } from 'react';
 import { COLORS } from '@ui/colors';
 import { useTranslation } from 'react-i18next';
@@ -71,7 +71,7 @@ const ExpandedPanel = () => {
             style={{ backgroundColor: COLORS.PRIMARY }}
           >
             <img
-              src={expanded === el.expanded ? CloseExpand : OpenExpand}
+              src={expanded === el.expanded ? CloseExpandImg : OpenExpandImg}
               width="50px"
               height="50px"
             />

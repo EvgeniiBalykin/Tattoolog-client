@@ -1,49 +1,49 @@
-import About_Photo_1 from '@images/About_1.webp';
-import About_Photo_2 from '@images/About_2.webp';
-import AddMasterPhoto from '@images/addMaster.webp';
-import AddStudioPhoto from '@images/addStudio.webp';
-import AmazingArt from '@images/AmazingArt.svg';
-import BlogPage_2 from '@images/BlogPage_2.webp';
-import CloseExpand from '@images/CloseExpand.svg';
-import Cup from '@images/Cup.webp';
-import Festival from '@images/Festival.webp';
-import GlobalReach from '@images/GlobalReach.svg';
-import Lens from '@images/Lens.webp';
-import Locator from '@images/Locator.svg';
-import Logo from '@images/Logo.svg';
-import MainHand from '@images/MainHand.webp';
-import MasterCatalogue from '@images/MasterCatalogue.webp';
-import OpenExpand from '@images/OpenExpand.svg';
-import Rocket from '@images/Rocket.webp';
-import StudioCatalogue from '@images/StudioCatalogue.webp';
-import TopRated from '@images/TopRated.svg';
-import Unknown_avatar from '@images/Unknown_avatar.webp';
-import CustomerLove from '@images/CustomerLove.svg';
-import SafetyFirst from '@images/SafetyFirst.svg';
-import Star from '@images/Star.svg';
+import AboutImg_1 from '@images/aboutImg_1.webp';
+import AboutImg_2 from '@images/aboutImg_2.webp';
+import AddMasterImg from '@images/addMasterImg.webp';
+import AddStudioImg from '@images/addStudioImg.webp';
+import AmazingArtImg from '@images/amazingArtImg.webp';
+import BlogPageImg from '@images/blogPageImg_2.webp';
+import CloseExpandImg from '@images/closeExpandImg.webp';
+import CupImg from '@images/cupImg.webp';
+import FestivalImg from '@images/festivalImg.webp';
+import GlobalReachImg from '@images/globalReachImg.svg';
+import LensImg from '@images/lensImg.webp';
+import LocatorImg from '@images/locatorImg.webp';
+import LogoImg from '@images/logoImg.webp';
+import MainHandImg from '@images/mainHandImg.webp';
+import MasterCatalogueImg from '@images/masterCatalogueImg.webp';
+import OpenExpandImg from '@images/openExpandImg.webp';
+import RocketImg from '@images/rocketImg.webp';
+import SafetyFirstImg from '@images/safetyFirstImg.webp';
+import StudioCatalogueImg from '@images/studioCatalogueImg.webp';
+import TopRatedImg from '@images/topRatedImg.webp';
+import UnknownAvatarImg from '@images/unknownAvatarImg.webp';
+import CustomerLoveImg from '@images/customerLoveImg.webp';
+import StarImg from '@images/starImg.webp';
 
 export {
-  Star,
-  CustomerLove,
-  SafetyFirst,
-  GlobalReach,
-  Locator,
-  TopRated,
-  Festival,
-  BlogPage_2,
-  Logo,
-  AddMasterPhoto,
-  AddStudioPhoto,
-  About_Photo_1,
-  About_Photo_2,
-  Cup,
-  Lens,
-  Rocket,
-  CloseExpand,
-  OpenExpand,
-  AmazingArt,
-  MainHand,
-  StudioCatalogue,
-  MasterCatalogue,
-  Unknown_avatar,
+  AboutImg_1,
+  AboutImg_2,
+  AddMasterImg,
+  AddStudioImg,
+  AmazingArtImg,
+  BlogPageImg,
+  CloseExpandImg,
+  CupImg,
+  FestivalImg,
+  GlobalReachImg,
+  LensImg,
+  LocatorImg,
+  LogoImg,
+  MainHandImg,
+  MasterCatalogueImg,
+  OpenExpandImg,
+  RocketImg,
+  SafetyFirstImg,
+  StudioCatalogueImg,
+  TopRatedImg,
+  UnknownAvatarImg,
+  CustomerLoveImg,
+  StarImg,
 };

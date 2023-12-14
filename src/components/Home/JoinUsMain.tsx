@@ -8,7 +8,7 @@ import {
   Grid,
   Typography,
 } from '@mui/material';
-import { AddMasterPhoto, AddStudioPhoto } from '@images/index';
+import { AddMasterImg, AddStudioImg } from '@images/index';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
@@ -52,7 +52,7 @@ const JoinUsMain = () => {
                   loading="lazy"
                   component="img"
                   height="100%"
-                  image={AddMasterPhoto}
+                  image={AddMasterImg}
                 />
                 <div className="card-text">
                   <Typography variant="h3" textTransform="uppercase">
@@ -87,7 +87,7 @@ const JoinUsMain = () => {
                 <CardMedia
                   component="img"
                   height="100%"
-                  image={AddStudioPhoto}
+                  image={AddStudioImg}
                   loading="lazy"
                   alt="studio-img"
                 />

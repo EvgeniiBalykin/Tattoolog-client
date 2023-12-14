@@ -1,7 +1,7 @@
 import { Box, Container, Grid, Typography, useMediaQuery } from '@mui/material';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { About_Photo_2, About_Photo_1 } from '@images/index';
+import { AboutImg_2, AboutImg_1 } from '@images/index';
 import { MainImageBox } from '.';
 import { HOME_IMAGE_BOX } from '@pages/HomePage/contants';
 import theme from '@ui/theme/theme';
@@ -34,7 +34,7 @@ const AboutMain = () => {
           >
             <Grid item xs={12} sm={6} md={6}>
               <div className="img-wrapper">
-                <img src={About_Photo_2} alt="about-img" loading="lazy" />
+                <img src={AboutImg_2} alt="about-img" loading="lazy" />
               </div>
             </Grid>
             <Grid item xs={12} sm={6} md={6}>
@@ -70,7 +70,7 @@ const AboutMain = () => {
             </Grid>
             <Grid item xs={12} sm={6} md={6}>
               <div className="img-wrapper">
-                <img src={About_Photo_1} loading="lazy" alt="about-img" />
+                <img src={AboutImg_1} loading="lazy" alt="about-img" />
               </div>
             </Grid>
           </Grid>
