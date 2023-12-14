@@ -5,7 +5,7 @@ import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Logo } from '@images/index';
+import { LogoImg } from '@images/index';
 import { HEADER_ROUTES, LOGIN_ROUTES } from '@routes/HeaderRoutes';
 import { Link } from 'react-router-dom';
 import { Avatar, Button, Container, Stack, Toolbar } from '@mui/material';
@@ -140,7 +140,7 @@ export default function ResponsiveDrawer(props: Props) {
             to={'/'}
             sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
           >
-            <img className="logo" src={Logo} />
+            <img className="logo" src={LogoImg} />
           </Box>
         </Toolbar>
       </AppBar>

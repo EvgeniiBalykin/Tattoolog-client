@@ -1,13 +1,13 @@
 import FestivalPosts from '@components/FestivalPosts/FestivalPosts';
 import { MainImageBox } from '@components/Home';
-import { Festival } from '@images/index';
+import { FestivalImg } from '@images/index';
 import { Container } from '@mui/material';
 
 const FestivalsPage = () => {
   return (
     <>
       <MainImageBox
-        img={Festival}
+        img={FestivalImg}
         title="Exploring the Art of Ink: A Journey into the World of Tattoos"
         subtitle="."
       />

@@ -12,7 +12,7 @@ import './CatalogCard.scss';
 import UserRating from '@components/UserRating/UserRating';
 import { useMemo } from 'react';
 import { trimText } from '@helpers/trimText/trimText';
-import { Unknown_avatar } from '@images/index';
+import { UnknownAvatarImg } from '@images/index';
 import {
   School,
   TravelExplore,
@@ -117,7 +117,7 @@ const CatalogCard = ({
             component="img"
             height="100%"
             width="100%"
-            image={avatar ? avatar : Unknown_avatar}
+            image={avatar ? avatar : UnknownAvatarImg}
             alt="avatar-img"
           />
           <div className="catalog-card-text">

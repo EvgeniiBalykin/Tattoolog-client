@@ -1,6 +1,6 @@
 import { Instagram, Facebook, YouTube } from '@mui/icons-material';
 import { Container, Box, Button, Typography, Grid } from '@mui/material';
-import { Logo } from '@images/index';
+import { LogoImg } from '@images/index';
 import { Link } from 'react-router-dom';
 import { HEADER_ROUTES } from '@routes/HeaderRoutes';
 import './Footer.scss';
@@ -12,7 +12,7 @@ const Footer = () => {
     <footer className="footer-wrapper">
       <Container maxWidth="lg" className="footer">
         <Box component={Link} to={'/'} mb={2}>
-          <img src={Logo} alt="company-logo" width="260px" height="60px" />
+          <img src={LogoImg} alt="company-logo" width="260px" height="60px" />
         </Box>
 
         <Grid

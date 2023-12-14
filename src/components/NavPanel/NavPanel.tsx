@@ -18,7 +18,7 @@ import {
   useTheme,
 } from '@mui/material';
 import ResponsiveDrawer from '@components/NavDrawer/NavDrawer';
-import { Logo } from '@images/index';
+import { LogoImg } from '@images/index';
 import { clearUser, selectUser } from '@store/reducers/userSlice';
 import { useState } from 'react';
 import { Logout } from '@mui/icons-material';
@@ -64,7 +64,7 @@ export const NavPanel = () => {
     >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box component={Link} to={'/'}>
-          <img src={Logo} width="200px" height="40px" />
+          <img src={LogoImg} width="200px" height="40px" />
         </Box>
         <Box
           sx={{
