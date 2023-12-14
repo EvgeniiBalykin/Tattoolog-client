@@ -41,7 +41,7 @@ const UserRating = ({ readOnly = false, id, rating }: IRatingProps) => {
   }, [id, value, refetch, updateRating]);
 
   return (
-    <Box>
+    <Box margin="0 auto">
       {marked && (
         <Snackbar
           open={marked}
