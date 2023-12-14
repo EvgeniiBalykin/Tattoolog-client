@@ -7,7 +7,10 @@ import {
   Phone,
   Pinterest,
   RemoveRedEye,
+  School,
   Settings,
+  TravelExplore,
+  Work,
   WorkspacePremiumSharp,
 } from '@mui/icons-material';
 import {
@@ -17,7 +20,6 @@ import {
   CardContent,
   CardMedia,
   Checkbox,
-  FormControlLabel,
   Grid,
   Icon,
   IconButton,
@@ -58,14 +60,17 @@ const CHECKBOXES = [
   {
     label: 'Open to work',
     name: 'open_to_work',
+    icon: <Work />,
   },
   {
     label: 'Mentor',
     name: 'mentor',
+    icon: <School />,
   },
   {
     label: 'Open to relocate',
     name: 'relocate',
+    icon: <TravelExplore />,
   },
 ];
 
@@ -257,24 +262,31 @@ const ProfileCard = ({ id }: { id: number }) => {
           </Grid>
         </CardContent>
         <Box display="flex" flexDirection="column" gap={1}>
-          <Box display="flex" justifyContent="space-between">
+          <Box display="flex" justifyContent="space-around">
             {CHECKBOXES.map((el) => (
-              <FormControlLabel
-                value="top"
-                control={
-                  <Checkbox
-                    color="secondary"
-                    name={el.name}
-                    checked={checkboxValues[el.name]}
-                    onChange={userAccess ? onCheckboxChange : () => null}
-                    sx={{
-                      '& .MuiSvgIcon-root': { fontSize: 28 },
-                    }}
-                  />
-                }
-                label={<Typography variant="body2">{el.label}</Typography>}
-                labelPlacement="top"
-              />
+              // <FormControlLabel
+              //   value="top"
+              //   control={
+              <Box display="flex" flexDirection="column">
+                <Box display="flex" gap={1}>
+                  <Typography variant="body2">{el.label}</Typography>
+                  <Icon className="icon" color="warning">
+                    {el.icon}
+                  </Icon>
+                </Box>
+                <Checkbox
+                  color="secondary"
+                  name={el.name}
+                  checked={checkboxValues[el.name]}
+                  onChange={userAccess ? onCheckboxChange : () => null}
+                  sx={{
+                    '& .MuiSvgIcon-root': { fontSize: 28 },
+                  }}
+                />
+              </Box>
+
+              //   labelPlacement="top"
+              // />
             ))}
           </Box>
           <Box textAlign="center">
