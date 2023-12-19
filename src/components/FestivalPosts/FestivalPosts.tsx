@@ -4,9 +4,10 @@ import { useEffect, useState } from 'react';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import PostCard from '@components/PostCard/PostCard';
+import SkeletonBlocks from '@components/SkeletonBlocks/SkeletonBlocks';
 
 const FestivalPosts = () => {
-  const [limit, setLimit] = useState(6);
+  const [limit, setLimit] = useState(18);
   const [desableButton, setDisableButton] = useState(false);
   const { data: festivals, isLoading } = useGetFesivalPostsQuery(limit);
   const { t } = useTranslation();
@@ -16,7 +17,7 @@ const FestivalPosts = () => {
   };
 
   useEffect(() => {
-    festivals?.next === null && setDisableButton(true);
+    festivals?.next ? setDisableButton(false) : setDisableButton(true);
   }, [festivals]);
 
   return (
@@ -29,17 +30,21 @@ const FestivalPosts = () => {
         mb={4}
         data-testid="blog-posts-test"
       >
-        {festivals?.results.map((festival) => (
-          <PostCard
-            slug={festival.slug}
-            id={festival.id}
-            date={festival.created_at}
-            image={festival.image}
-            title={festival.title}
-            body={festival.about}
-            key={festival.id}
-          />
-        ))}
+        {isLoading ? (
+          <SkeletonBlocks />
+        ) : (
+          festivals?.results.map((festival) => (
+            <PostCard
+              slug={festival.slug}
+              id={festival.id}
+              date={festival.created_at}
+              image={festival.image}
+              title={festival.title}
+              body={festival.about}
+              key={festival.id}
+            />
+          )) || 'Empty'
+        )}
       </Grid>
       <Box mb={4} display="flex" justifyContent="center">
         <LoadingButton

@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
@@ -95,18 +95,29 @@ const PostPage = () => {
             >
               {el.body}
             </Typography>
-            <Box maxWidth={1200} display="flex" justifyContent="space-around">
+            <Grid
+              container
+              justifyContent="center"
+              alignContent="center"
+              alignItems="center"
+              textAlign="center"
+              spacing={2}
+            >
               {el?.blog_body_photo.map((el) => (
-                <img
-                  style={{
-                    width: '400px',
-                    height: '300px',
-                  }}
-                  src={el.photo}
-                  alt={el.alt_name}
-                />
+                <Grid item md={6} xs={8}>
+                  <img
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      maxHeight: '25em',
+                      maxWidth: '25em',
+                    }}
+                    src={el.photo}
+                    alt={el.alt_name}
+                  />
+                </Grid>
               ))}
-            </Box>
+            </Grid>
           </>
         ))}
       </Box>

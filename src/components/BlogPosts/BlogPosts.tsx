@@ -6,9 +6,10 @@ import { useTranslation } from 'react-i18next';
 import PostCard from '@components/PostCard/PostCard';
 import { useSelector } from 'react-redux';
 import { selectLanguage } from '@store/reducers/langSlice';
+import SkeletonBlocks from '@components/SkeletonBlocks/SkeletonBlocks';
 
 const BlogPosts = () => {
-  const [limit, setLimit] = useState(6);
+  const [limit, setLimit] = useState(18);
   const { language } = useSelector(selectLanguage);
   const [disableButton, setDisableButton] = useState(false);
   const { data: posts, isLoading } = useGetBlogPostsQuery({ limit, language });
@@ -19,8 +20,10 @@ const BlogPosts = () => {
   };
 
   useEffect(() => {
-    posts?.next === null && setDisableButton(true);
+    posts?.next ? setDisableButton(false) : setDisableButton(true);
   }, [posts]);
+
+  console.log(posts?.next);
 
   return (
     <>
@@ -34,19 +37,21 @@ const BlogPosts = () => {
         mb={4}
         data-testid="blog-posts-test"
       >
-        {posts
-          ? posts.results?.map((post) => (
-              <PostCard
-                slug={post.slug}
-                key={post.id}
-                id={post.id}
-                date={post.created_at}
-                image={post.image}
-                title={post.title}
-                body={post?.blog_body?.length > 0 ? post.blog_body[0].body : ''}
-              />
-            ))
-          : 'Empty'}
+        {isLoading ? (
+          <SkeletonBlocks />
+        ) : (
+          posts?.results?.map((post) => (
+            <PostCard
+              slug={post.slug}
+              key={post.id}
+              id={post.id}
+              date={post.created_at}
+              image={post.image}
+              title={post.title}
+              body={post?.blog_body?.length > 0 ? post.blog_body[0].body : ''}
+            />
+          ))
+        )}
       </Grid>
       <Box mb={4} textAlign="center">
         <LoadingButton
