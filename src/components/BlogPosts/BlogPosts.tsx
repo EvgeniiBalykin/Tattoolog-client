@@ -3,7 +3,7 @@ import { Grid, Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
-import PostCard from '@components/PostCard/PostCard';
+import BlogCard from '@components/BlogCard/BlogCard';
 import { useSelector } from 'react-redux';
 import { selectLanguage } from '@store/reducers/langSlice';
 import SkeletonBlocks from '@components/SkeletonBlocks/SkeletonBlocks';
@@ -41,7 +41,7 @@ const BlogPosts = () => {
           <SkeletonBlocks />
         ) : (
           posts?.results?.map((post) => (
-            <PostCard
+            <BlogCard
               slug={post.slug}
               key={post.id}
               id={post.id}

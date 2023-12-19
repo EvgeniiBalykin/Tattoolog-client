@@ -73,14 +73,18 @@ const ProfileCard = ({ id }: { id: number }) => {
         <CardContent className="card-content">
           <div className="profile-tools">
             {userAccess && (
-              <IconButton className="profile-views" onClick={onEditClick}>
+              <Box className="profile-views">
                 <RemoveRedEye />
                 <Typography>{count_visit}</Typography>
-              </IconButton>
+              </Box>
             )}
             <UserRating id={id} rating={Number(average_rating)} />
             {userAccess && (
-              <IconButton className="profile-settings" onClick={onEditClick}>
+              <IconButton
+                name="profile-settings"
+                className="profile-settings"
+                onClick={onEditClick}
+              >
                 <Settings />
               </IconButton>
             )}

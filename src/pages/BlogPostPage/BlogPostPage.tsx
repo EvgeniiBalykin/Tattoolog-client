@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { useGetBlogPostQuery } from '@services/toolsApi';
 
-const PostPage = () => {
+const BlogPostPage = () => {
   const { slug, id } = useParams<string>();
   const { data: post } = useGetBlogPostQuery({ slug, lang: id });
 
@@ -125,4 +125,4 @@ const PostPage = () => {
   );
 };
 
-export default PostPage;
+export default BlogPostPage;

@@ -12,9 +12,9 @@ import moment from 'moment';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
-import './PostCard.scss';
+import './BlogCard.scss';
 
-export interface IPostCard {
+export interface IBlogCard {
   id: number;
   image: string;
   date: Date;
@@ -23,7 +23,7 @@ export interface IPostCard {
   slug: string;
 }
 
-const PostCard: React.FC<IPostCard> = ({
+const BlogCard: React.FC<IBlogCard> = ({
   id,
   image,
   date,
@@ -69,4 +69,4 @@ const PostCard: React.FC<IPostCard> = ({
   );
 };
 
-export default PostCard;
+export default BlogCard;
