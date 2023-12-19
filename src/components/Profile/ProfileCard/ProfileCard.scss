@@ -5,15 +5,17 @@
     background-image: url('/src/images/footerImg.webp');
     border-radius: 20px;
     .association-icon {
-      background: linear-gradient(
-        0deg,
-        rgba(114, 10, 135, 1) 0%,
-        rgba(121, 9, 102, 1) 54%,
-        rgba(185, 0, 170, 1) 100%
+      background: radial-gradient(
+        circle,
+        rgba(245, 245, 220, 1) 0%,
+        rgba(210, 180, 140, 1) 100%
       );
       display: flex;
+      border-radius: 20px;
+      margin: 10px;
       justify-content: center;
       padding: 5px 15px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 1);
     }
   }
 

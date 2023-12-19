@@ -40,7 +40,7 @@ const FILTERS: { name: keyof IStateProps; label: string }[] = [
 
 const StudioCatalogPage = () => {
   const { t } = useTranslation();
-  const [limit, setLimit] = useState<number>(6);
+  const [limit, setLimit] = useState<number>(18);
   const [desableButton, setDisableButton] = useState(false);
   const [searchValues, setSearchValues] = useState<IStateProps>({
     name: '',
@@ -60,7 +60,7 @@ const StudioCatalogPage = () => {
   };
 
   useEffect(() => {
-    MasterCatalog?.next === null && setDisableButton(true);
+    MasterCatalog?.next ? setDisableButton(false) : setDisableButton(true);
   }, [MasterCatalog]);
 
   const resetFilters = () =>
@@ -146,6 +146,7 @@ const StudioCatalogPage = () => {
               />
             ))}
         </Grid>
+
         <Box mt={4} display="flex" justifyContent="center">
           <LoadingButton
             disabled={desableButton}
