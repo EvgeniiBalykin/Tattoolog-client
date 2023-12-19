@@ -3,7 +3,7 @@ import { Grid, Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
-import PostCard from '@components/PostCard/PostCard';
+import BlogCard from '@components/BlogCard/BlogCard';
 import SkeletonBlocks from '@components/SkeletonBlocks/SkeletonBlocks';
 
 const FestivalPosts = () => {
@@ -34,7 +34,7 @@ const FestivalPosts = () => {
           <SkeletonBlocks />
         ) : (
           festivals?.results.map((festival) => (
-            <PostCard
+            <BlogCard
               slug={festival.slug}
               id={festival.id}
               date={festival.created_at}

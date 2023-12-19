@@ -5,7 +5,7 @@ import { SingInPage } from '@pages/SigInPage/SignInPage';
 import { IRoutes } from '@interfaces/index';
 import { HeaderRoutesList } from './enums';
 import BlogPage from '@pages/BlogPage/BlogPage';
-import PostPage from '@pages/PostPage/PostPage';
+import BlogPostPage from '@pages/BlogPostPage/BlogPostPage';
 import PartnersPage from '@pages/PartnersPage/PartnersPage';
 import ResetPage from '@pages/ResetPage/ResetPage';
 import NewPasswordPage from '@pages/NewPasswordPage/NewPasswordPage';
@@ -100,7 +100,7 @@ export const HELP_PAGES: IRoutes[] = [
   {
     name: 'Post',
     path: HeaderRoutesList.BLOG_POST,
-    element: <PostPage />,
+    element: <BlogPostPage />,
   },
   {
     name: 'Festival',
