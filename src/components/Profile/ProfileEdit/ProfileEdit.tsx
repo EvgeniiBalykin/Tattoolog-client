@@ -31,6 +31,7 @@ import {
 import { selectUser } from '@store/reducers/userSlice';
 import { useNavigate } from 'react-router';
 import UniversalSelect from '@components/UnivesalSelect/UniversalSelect';
+import { token } from '@helpers/getToken';
 
 const ProfileEdit = () => {
   const { t } = useTranslation();
@@ -125,68 +126,71 @@ const ProfileEdit = () => {
   };
 
   const onSubmit = async () => {
-    try {
-      const result: MutateResult = await mutate({
-        id,
-        formData: {
-          moderation_profile_associate:
-            [
+    if (token) {
+      try {
+        const result: MutateResult = await mutate({
+          id,
+          token,
+          formData: {
+            moderation_profile_associate:
+              [
+                {
+                  name: fieldsValue.associate?.value,
+                  id: fieldsValue.associate?.id,
+                },
+              ] || '',
+            birthday: fieldsValue.birthday || '',
+            city: {
+              name: fieldsValue.city?.value,
+              id: fieldsValue.city?.id,
+            },
+            country: {
+              name: fieldsValue.country?.value,
+              id: fieldsValue.country?.id,
+            },
+            phone_number: fieldsValue.phone_number,
+            about: fieldsValue.about,
+            user: {
+              first_name: fieldsValue.first_name,
+              last_name: fieldsValue.last_name,
+            },
+            social_media_profile: [
               {
-                name: fieldsValue.associate?.value,
-                id: fieldsValue.associate?.id,
+                social_media_type: {
+                  name: 'Instagram',
+                },
+                link: fieldsValue.instagram,
               },
-            ] || '',
-          birthday: fieldsValue.birthday || '',
-          city: {
-            name: fieldsValue.city?.value,
-            id: fieldsValue.city?.id,
+              {
+                social_media_type: {
+                  name: 'Facebook',
+                },
+                link: fieldsValue.facebook,
+              },
+              {
+                social_media_type: {
+                  name: 'TikTok',
+                },
+                link: fieldsValue.tiktok,
+              },
+              {
+                social_media_type: {
+                  name: 'Pinterest',
+                },
+                link: fieldsValue.pinterest,
+              },
+            ],
           },
-          country: {
-            name: fieldsValue.country?.value,
-            id: fieldsValue.country?.id,
-          },
-          phone_number: fieldsValue.phone_number,
-          about: fieldsValue.about,
-          user: {
-            first_name: fieldsValue.first_name,
-            last_name: fieldsValue.last_name,
-          },
-          social_media_profile: [
-            {
-              social_media_type: {
-                name: 'Instagram',
-              },
-              link: fieldsValue.instagram,
-            },
-            {
-              social_media_type: {
-                name: 'Facebook',
-              },
-              link: fieldsValue.facebook,
-            },
-            {
-              social_media_type: {
-                name: 'TikTok',
-              },
-              link: fieldsValue.tiktok,
-            },
-            {
-              social_media_type: {
-                name: 'Pinterest',
-              },
-              link: fieldsValue.pinterest,
-            },
-          ],
-        },
-      });
-      if (result.data) {
-        await refetch();
-        navigate(`/profile/${id}`);
-      } else {
-        setAlertMessage(result.error);
+        });
+        if (result.data) {
+          await refetch();
+          navigate(`/profile/${id}`);
+        } else {
+          setAlertMessage(result.error);
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
   };
 

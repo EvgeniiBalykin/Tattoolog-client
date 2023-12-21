@@ -24,6 +24,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { LoadingButton } from '@mui/lab';
 import { ListElem } from './ListElem';
+import { token } from '@helpers/getToken';
 
 interface IInputValues {
   title: string;
@@ -53,31 +54,44 @@ const UploadWorks = ({ isOpen, toggle }: IUploadProps) => {
 
   const onPostData = async () => {
     setSendLoad(true);
-    try {
-      if (files && id) {
-        const postResponse = await axios.post(API_BASE_URL + ADD_POST, {
-          profile: id,
-          description: inputValues.title,
-          work_type: inputValues.workType,
-        });
+    if (token) {
+      try {
+        if (files && id) {
+          const postResponse = await axios.post(
+            API_BASE_URL + ADD_POST,
+            {
+              profile: id,
+              description: inputValues.title,
+              work_type: inputValues.workType,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
 
-        await Promise.all(
-          files.map(async (el: File) => {
-            const formData = new FormData();
-            formData.append('photos', el);
-            formData.append('post', postResponse.data.id);
-            await axios.post(API_BASE_URL + ADD_POST_PHOTO, formData, {
-              headers: { 'Content-Type': 'multipart/form-data' },
-            });
-          })
-        );
-        refetch();
-        toggle();
-        setInputValues({ workType: '', title: '' });
-        setSendLoad(false);
+          await Promise.all(
+            files.map(async (el: File) => {
+              const formData = new FormData();
+              formData.append('photos', el);
+              formData.append('post', postResponse.data.id);
+              await axios.post(API_BASE_URL + ADD_POST_PHOTO, formData, {
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                  Authorization: `Bearer ${token}`,
+                },
+              });
+            })
+          );
+          refetch();
+          toggle();
+          setInputValues({ workType: '', title: '' });
+          setSendLoad(false);
+        }
+      } catch (error) {
+        navigate('/error_page');
       }
-    } catch (error) {
-      navigate('/error_page');
     }
   };
 

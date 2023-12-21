@@ -1,3 +1,4 @@
+import { token } from '@helpers/getToken';
 import { IProfileData } from '@interfaces/index';
 import { School, TravelExplore, Work } from '@mui/icons-material';
 import { Checkbox, Icon, Typography } from '@mui/material';
@@ -49,7 +50,9 @@ const CheckboxStatus = ({
         ...prevValues,
         [name]: checked,
       };
-      updateProfile({ id, formData: updatedValues });
+      if (token) {
+        updateProfile({ id, formData: updatedValues, token });
+      }
       return updatedValues;
     });
   };
