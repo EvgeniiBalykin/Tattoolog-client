@@ -13,7 +13,6 @@ const PartnersSlider = () => {
     if (data) {
       return data.map((el, key) => (
         <img
-          role="presentation"
           loading="lazy"
           width="200px"
           height="200px"
@@ -34,14 +33,23 @@ const PartnersSlider = () => {
           {t('pages.partners')}
         </Typography>
         <AliceCarousel
-          disableDotsControls
-          autoPlayInterval={3000}
-          autoPlay
-          mouseTracking
-          infinite
-          disableButtonsControls
-          autoWidth
+          // disableDotsControls
+          // autoPlayInterval={1000}
+          // animationDuration={3000}
+          // autoPlay
+          // mouseTracking
+          // animationType="slide"
+          // infinite
+          // disableButtonsControls
+          // autoWidth
+          // items={SliderItems}
           items={SliderItems}
+          infinite
+          autoPlayInterval={1000}
+          animationDuration={3000}
+          autoWidth
+          autoPlay
+          disableButtonsControls
         />
         <Typography variant="h1" textAlign="center" mt={10}>
           FAQ
