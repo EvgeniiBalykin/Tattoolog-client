@@ -25,3 +25,5 @@ export const GET_AVG_RATING = (id: number) =>
   `tools/profile/${id}/average-rating`;
 export const UPDATE_RATING = 'tools/rating/';
 export const PORTFOLIO_POST = 'portfolio/post/';
+export const UPDATE_PROFILE_ASSOCIATE =
+  'portfolio/moderation-association/create/';
