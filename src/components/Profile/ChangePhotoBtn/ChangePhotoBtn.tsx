@@ -1,3 +1,4 @@
+import { token } from '@helpers/getToken';
 import { Button } from '@mui/material';
 import { useUpdateProfileMutation } from '@services/profileApi';
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
@@ -19,7 +20,9 @@ const ChangePhotoBtn = ({
     if (selectedImg) {
       const formData = new FormData();
       formData.append('avatar', selectedImg);
-      updateProfile({ id, formData }).then(() => refetch());
+      if (token) {
+        updateProfile({ id, formData, token }).then(() => refetch());
+      }
     }
   }, [selectedImg, id, updateProfile, refetch]);
 

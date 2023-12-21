@@ -20,7 +20,7 @@ import { useGetProfileDataQuery } from '@services/profileApi';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from '@store/reducers/userSlice';
-import ModalDownload_v2 from '@components/UploadWorks/UploadWorks';
+import UploadWorks from '@components/UploadWorks/UploadWorks';
 import { useTranslation } from 'react-i18next';
 import UserRating from '@components/UserRating/UserRating';
 import { UnknownAvatarImg } from '@images/index';
@@ -134,7 +134,7 @@ const ProfileCard = ({ id }: { id: number }) => {
           </Typography>
         </CardContent>
       </Card>
-      <ModalDownload_v2 isOpen={isModal} toggle={toggleModal} />
+      <UploadWorks isOpen={isModal} toggle={toggleModal} />
       {userAccess && (
         <Button
           startIcon={<AddPhotoAlternate />}

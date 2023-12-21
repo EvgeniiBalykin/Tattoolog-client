@@ -10,7 +10,7 @@ import { LANGUAGE_LOCAL_STORAGE_KEY } from './constants';
 export const LANG_BY_DOMAIN = () => {
   const currentDomain = window.location.hostname.split('.');
   const domainCountry = currentDomain[currentDomain.length - 1];
-  return domainCountry;
+  return domainCountry !== 'localhost' ? domainCountry : 'en';
 };
 
 const saveSelectedLanguage = (language: string) => {
@@ -18,9 +18,7 @@ const saveSelectedLanguage = (language: string) => {
 };
 
 const getSelectedLanguage = () => {
-  return (
-    localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY) || LANG_BY_DOMAIN() || 'en'
-  );
+  return localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY) || LANG_BY_DOMAIN();
 };
 
 i18n.use(initReactI18next).init({

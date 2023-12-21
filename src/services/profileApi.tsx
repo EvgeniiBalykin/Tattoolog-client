@@ -45,11 +45,14 @@ export const profileApi = createApi({
     }),
     updateProfile: builder.mutation<
       void,
-      { id: number; formData: FormData | IProfileData }
+      { id: number; formData: FormData | IProfileData; token: string }
     >({
-      query: ({ id, formData }) => ({
+      query: ({ id, formData, token }) => ({
         url: `accounts/profile/${id}/`,
         method: 'PATCH',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
         prepareHeaders: (headers: any) => {
           headers.set('Content-Type', 'multipart/form-data');
           return headers;
