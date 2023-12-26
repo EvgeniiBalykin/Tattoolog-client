@@ -59,17 +59,17 @@ const UserRating = ({ readOnly = false, id, rating }: IRatingProps) => {
         onChange={(_, newValue) => setValue(newValue)}
         readOnly={readOnly}
         precision={0.5}
-        size="large"
+        size="medium"
         onClick={onRatingClick}
         icon={
           <StarRate
-            style={{ opacity: 1, color: '#cd7f32' }}
+            style={{ opacity: 1, color: '#ffa726' }}
             fontSize="inherit"
           />
         }
         emptyIcon={
           <StarBorder
-            style={{ opacity: 1, color: '#cd7f32' }}
+            style={{ opacity: 1, color: '#ffa726' }}
             fontSize="inherit"
           />
         }

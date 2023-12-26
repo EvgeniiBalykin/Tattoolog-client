@@ -19,6 +19,7 @@ const UniversalSelect = ({
 
   return (
     <Autocomplete
+      fullWidth
       disablePortal
       options={options || []}
       value={{

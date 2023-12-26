@@ -1,6 +1,8 @@
 .card-box {
   border-radius: 20px;
   height: 100%;
+  position: relative;
+
   .card {
     background-image: url('/src/images/footerImg.webp');
     border-radius: 20px;
@@ -17,6 +19,39 @@
       padding: 5px 15px;
       box-shadow: 0 0 10px rgba(255, 255, 255, 1);
     }
+    .profile-settings {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .premium-icon {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #c7a560 50%, transparent 50%);
+      img {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+      }
+    }
+
+    .associate-name {
+      position: absolute;
+      top: 4%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #5e2567;
+      padding: 10px 20px;
+      border-radius: 21.5px;
+      color: #c7a560;
+    }
+  }
+
+  .about {
+    border: 1px solid #848590;
+    margin: 20px;
+    border-radius: 10px;
   }
 
   .card-content {
@@ -31,7 +66,7 @@
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-around;
       .profile-views {
         display: flex;
         flex-direction: column;

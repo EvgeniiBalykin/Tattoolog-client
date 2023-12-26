@@ -1,45 +1,58 @@
 import { token } from '@helpers/getToken';
-import { IProfileData } from '@interfaces/index';
-import { School, TravelExplore, Work } from '@mui/icons-material';
-import { Checkbox, Icon, Typography } from '@mui/material';
+import {
+  School,
+  SchoolTwoTone,
+  TravelExplore,
+  TravelExploreTwoTone,
+  Work,
+  WorkOutlineTwoTone,
+} from '@mui/icons-material';
+import { Checkbox, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useUpdateProfileMutation } from '@services/profileApi';
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 const CHECKBOXES = [
   {
     label: 'Open to work',
     name: 'open_to_work',
     icon: <Work />,
+    disabledIcon: <WorkOutlineTwoTone />,
   },
   {
     label: 'Mentor',
     name: 'mentor',
     icon: <School />,
+    disabledIcon: <SchoolTwoTone />,
   },
   {
     label: 'Open to relocate',
     name: 'relocate',
     icon: <TravelExplore />,
+    disabledIcon: <TravelExploreTwoTone />,
   },
 ];
 
 const CheckboxStatus = ({
-  profileData,
+  isMentor,
+  openToWork,
+  isRelocate,
   id,
   userAccess,
 }: {
-  profileData: IProfileData | undefined;
+  isMentor: boolean;
+  openToWork: boolean;
+  isRelocate: boolean;
   id: number;
   userAccess: boolean;
 }) => {
   const [updateProfile] = useUpdateProfileMutation();
   const [checkboxValues, setCheckboxValues] = useState<{
-    [key: string]: boolean | undefined;
+    [key: string]: boolean;
   }>({
-    open_to_work: false,
-    mentor: false,
-    relocate: false,
+    open_to_work: openToWork,
+    mentor: isMentor,
+    relocate: isRelocate,
   });
 
   const onCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -57,28 +70,15 @@ const CheckboxStatus = ({
     });
   };
 
-  useEffect(() => {
-    if (profileData) {
-      setCheckboxValues({
-        open_to_work: profileData.open_to_work,
-        mentor: profileData.mentor,
-        relocate: profileData.relocate,
-      });
-    }
-  }, [profileData]);
-
   return (
     <Box display="flex" justifyContent="space-around">
       {CHECKBOXES.map((el) => (
         <Box display="flex" flexDirection="column">
-          <Box display="flex" gap={1}>
-            <Typography variant="body2">{el.label}</Typography>
-            <Icon className="icon" color="warning">
-              {el.icon}
-            </Icon>
-          </Box>
           <Checkbox
-            color="secondary"
+            size="small"
+            icon={el.disabledIcon}
+            checkedIcon={el.icon}
+            color="warning"
             name={el.name}
             checked={checkboxValues[el.name]}
             onChange={userAccess ? onCheckboxChange : () => null}
@@ -89,6 +89,7 @@ const CheckboxStatus = ({
               margin: '0 auto',
             }}
           />
+          <Typography variant="body2">{el.label}</Typography>
         </Box>
       ))}
     </Box>

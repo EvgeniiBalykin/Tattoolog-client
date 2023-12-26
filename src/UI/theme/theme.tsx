@@ -81,6 +81,17 @@ const theme = createTheme({
           },
         },
         {
+          props: { variant: 'contained', color: 'inherit' },
+          style: {
+            backgroundColor: '#FFFF',
+            color: COLORS.PRIMARY,
+            border: 'none',
+            ':hover': {
+              backgroundColor: '#A9A9A9',
+            },
+          },
+        },
+        {
           props: { variant: 'contained', color: 'info' },
           style: {
             backgroundColor: 'white',

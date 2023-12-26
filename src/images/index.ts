@@ -21,6 +21,7 @@ import TopRatedImg from '@images/topRatedImg.webp';
 import UnknownAvatarImg from '@images/unknownAvatarImg.webp';
 import CustomerLoveImg from '@images/customerLoveImg.webp';
 import StarImg from '@images/starImg.webp';
+import CrownIconImg from '@images/crownIcon.svg';
 
 export {
   AboutImg_1,
@@ -46,4 +47,5 @@ export {
   UnknownAvatarImg,
   CustomerLoveImg,
   StarImg,
+  CrownIconImg,
 };

@@ -134,10 +134,10 @@ const StudioCatalogPage = () => {
             .filter((master) => master.status === 'approved')
             .map((master: IProfileData) => (
               <CatalogCard
-                key={master?.user?.id}
-                firstName={master?.user?.first_name || ''}
-                lastName={master?.user?.last_name || ''}
-                avatar={master.avatar || ''}
+                key={master.user.id}
+                firstName={master.user?.first_name || ''}
+                lastName={master.user?.last_name || ''}
+                avatar={master?.avatar || ''}
                 id={master?.user?.id || 0}
                 city={master.city}
                 country={master.country}
