@@ -1,12 +1,5 @@
 import { IProfileData } from '@interfaces/index';
-import {
-  Email,
-  Facebook,
-  Instagram,
-  MusicNote,
-  Phone,
-  Pinterest,
-} from '@mui/icons-material';
+import { Facebook, Instagram, MusicNote, Pinterest } from '@mui/icons-material';
 import { Grid, IconButton, Tooltip } from '@mui/material';
 import { ReactElement } from 'react';
 
@@ -17,29 +10,11 @@ const SOCIAL_MEDIA_ICONS: { [key: string]: ReactElement } = {
   Pinterest: <Pinterest />,
 };
 
-const ProfileLinks = ({
-  profileData,
-}: {
-  profileData: IProfileData | undefined;
-}) => {
-  const { social_media_profile, user, phone_number } = profileData || {};
+const ProfileLinks = ({ profileData }: { profileData: IProfileData }) => {
+  const { social_media_profile } = profileData || {};
 
   return (
     <>
-      <Grid className="contact-item" item xs={1} md={1}>
-        <Tooltip title={phone_number}>
-          <IconButton href={`tel:${user?.username}`}>
-            <Phone />
-          </IconButton>
-        </Tooltip>
-      </Grid>
-      <Grid className="contact-item" item xs={1} md={1}>
-        <Tooltip title={user?.email}>
-          <IconButton href={`mailto:${user?.email}`}>
-            <Email />
-          </IconButton>
-        </Tooltip>
-      </Grid>
       {social_media_profile?.map((profileLink) => (
         <Grid
           className="contact-item"

@@ -12,12 +12,14 @@ export interface ILanguages {
 }
 
 export interface IUserData {
-  first_name: string;
-  last_name: string;
-  username: string;
-  password: string;
-  re_password: string;
-  role: string;
+  first_name?: string;
+  last_name?: string;
+  username?: string;
+  password?: string;
+  re_password?: string;
+  role?: string;
+  email?: string;
+  id?: number;
 }
 
 export interface ISocialMedia {
@@ -36,14 +38,7 @@ export interface IProfileData {
   phone_number?: string;
   city?: any;
   birthday?: Date | string;
-  user?: {
-    username?: string;
-    email?: string;
-    first_name?: string;
-    last_name?: string;
-    role?: string;
-    id?: number;
-  };
+  user: IUserData;
   social_media_profile?: ISocialMedia[];
   average_rating?: string;
   count_visit?: number;
@@ -163,20 +158,6 @@ export interface IBlogPost {
   };
   blog_photo_carousel: { photo: string }[];
 }
-
-// export interface IBlogPost {
-//   body: string;
-//   created_at: Date;
-//   id: number;
-//   image: string;
-//   meta_description: string;
-//   meta_keywords: string;
-//   meta_title_tag: string;
-//   opengraph_description: string;
-//   opengraph_title: string;
-//   slug: string;
-//   title: string;
-// }
 
 export interface IFestivalPost {
   id: number;

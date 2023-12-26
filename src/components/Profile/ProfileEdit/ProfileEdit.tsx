@@ -148,11 +148,11 @@ const ProfileEdit = () => {
               name: fieldsValue.country?.value,
               id: fieldsValue.country?.id,
             },
-            phone_number: fieldsValue.phone_number,
-            about: fieldsValue.about,
+            phone_number: fieldsValue.phone_number || '',
+            about: fieldsValue.about || '',
             user: {
-              first_name: fieldsValue.first_name,
-              last_name: fieldsValue.last_name,
+              first_name: fieldsValue.first_name || '',
+              last_name: fieldsValue.last_name || '',
             },
             social_media_profile: [
               {
@@ -213,57 +213,58 @@ const ProfileEdit = () => {
       <Grid container justifyContent="center" gap={4}>
         {PROFILE_EDIT_INPUTS.map((field) => (
           <Grid item xs={12} md={5} key={field.name}>
-            {field.type === 'select' ? (
-              <UniversalSelect
-                field={field}
-                options={switchOptions(field.name)}
-                fieldsValue={fieldsValue}
-                setFieldsValue={setFieldsValue}
-                setCountrySearch={setCountrySearch}
-                setCitySearch={setCitySearch}
-              />
-            ) : (
-              <Box display="flex">
-                {field.type === 'phone' ? (
-                  <MuiTelInput
-                    fullWidth
-                    variant="outlined"
-                    size="small"
-                    name="phone_number"
-                    value={fieldsValue.phone_number || ''}
-                    onChange={(newValue) =>
-                      setFieldsValue({ ...fieldsValue, phone_number: newValue })
-                    }
-                  />
-                ) : field.type === 'checkbox' ? (
-                  <FormLabel>
-                    {field.label}
-                    <Checkbox
-                      color="success"
-                      onChange={onChange}
-                      title={field.name}
-                    />
-                  </FormLabel>
-                ) : (
-                  <TextField
-                    color="secondary"
-                    type={field.type}
-                    name={field.name}
+            <Box display="flex">
+              {field.type === 'select' && (
+                <UniversalSelect
+                  field={field}
+                  options={switchOptions(field.name)}
+                  fieldsValue={fieldsValue}
+                  setFieldsValue={setFieldsValue}
+                  setCountrySearch={setCountrySearch}
+                  setCitySearch={setCitySearch}
+                />
+              )}
+              {field.type === 'phone' && (
+                <MuiTelInput
+                  fullWidth
+                  variant="outlined"
+                  size="small"
+                  name="phone_number"
+                  value={fieldsValue.phone_number || ''}
+                  onChange={(newValue) =>
+                    setFieldsValue({ ...fieldsValue, phone_number: newValue })
+                  }
+                />
+              )}
+              {field.type === 'checkbox' && (
+                <FormLabel>
+                  {field.label}
+                  <Checkbox
+                    color="success"
                     onChange={onChange}
-                    value={fieldsValue[field.name as keyof IState]}
-                    fullWidth
-                    size="small"
+                    title={field.name}
                   />
-                )}
-                {field.icon && (
-                  <Box display="flex" sx={{ backgroundColor: '#4A2352' }}>
-                    <Tooltip title={t(field.label)}>
-                      <IconButton>{field.icon}</IconButton>
-                    </Tooltip>
-                  </Box>
-                )}
-              </Box>
-            )}
+                </FormLabel>
+              )}
+              {(field.type === 'text' || field.type === 'date') && (
+                <TextField
+                  color="secondary"
+                  type={field.type}
+                  name={field.name}
+                  onChange={onChange}
+                  value={fieldsValue[field.name as keyof IState]}
+                  fullWidth
+                  size="small"
+                />
+              )}
+              {field.icon && field.type !== 'select' && (
+                <Box display="flex" sx={{ backgroundColor: '#4A2352' }}>
+                  <Tooltip title={t(field.label)}>
+                    <IconButton>{field.icon}</IconButton>
+                  </Tooltip>
+                </Box>
+              )}
+            </Box>
           </Grid>
         ))}
         <Grid item md={11} xs={12}>
