@@ -37,6 +37,7 @@ export const SingInForm = () => {
     registerUser(data).then((res: any) => !res?.error && navigate('/success/'));
   };
 
+  // TODO: Fix rules validation
   return (
     <Container maxWidth="xs">
       {registerError && (
@@ -55,7 +56,7 @@ export const SingInForm = () => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <Controller
               control={control}
-              rules={nameValidation}
+              rules={nameValidation as any}
               name="first_name"
               render={({ field }) => (
                 <TextField
@@ -74,7 +75,7 @@ export const SingInForm = () => {
             <Controller
               control={control}
               name="last_name"
-              rules={nameValidation}
+              rules={nameValidation as any}
               render={({ field }) => (
                 <TextField
                   color="secondary"
@@ -119,7 +120,7 @@ export const SingInForm = () => {
             <Controller
               control={control}
               name="username"
-              rules={emailValidation}
+              rules={emailValidation as any}
               render={({ field }) => (
                 <TextField
                   color="secondary"
@@ -137,7 +138,7 @@ export const SingInForm = () => {
             <Controller
               control={control}
               name="password"
-              rules={passwordValidation}
+              rules={passwordValidation as any}
               render={({ field }) => (
                 <TextField
                   color="secondary"
@@ -156,7 +157,7 @@ export const SingInForm = () => {
             <Controller
               control={control}
               name="re_password"
-              rules={passwordValidation}
+              rules={passwordValidation as any}
               render={({ field }) => (
                 <TextField
                   color="secondary"

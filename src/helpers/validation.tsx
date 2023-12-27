@@ -6,7 +6,7 @@ const REG_EXP_PASSWORD = /(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+/;
 
 export const nameValidation = {
   required: REQUIRED_FIELD,
-  validate: (value: string) => {
+  validate: (value: string): boolean => {
     if (value.match(/[а-яА-Я]/)) {
       return i18next.t('validation.error_name');
     }
@@ -17,7 +17,7 @@ export const nameValidation = {
 
 export const emailValidation = {
   required: REQUIRED_FIELD,
-  validate: (value: string) => {
+  validate: (value: string): boolean => {
     if (!REG_EXP_EMAIL.test(value)) {
       return i18next.t('validation.error_email');
     }
@@ -28,7 +28,7 @@ export const emailValidation = {
 
 export const passwordValidation = {
   required: REQUIRED_FIELD,
-  validate: (value: string) => {
+  validate: (value: string): boolean => {
     if (value.length < 8) {
       return i18next.t('validation.error_password');
     }
