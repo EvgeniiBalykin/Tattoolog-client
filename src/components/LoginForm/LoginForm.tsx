@@ -12,7 +12,7 @@ import {
 import { useAppDispatch } from '@hooks/redux';
 import { useLoginUserMutation, useUserDataMutation } from '@services/authApi';
 import { Controller, useForm, useFormState } from 'react-hook-form';
-import { emailValidation, passwordValidation } from '@helpers/validation';
+import { passwordValidation } from '@helpers/validation';
 import { useNavigate } from 'react-router';
 import { setToken } from '@store/reducers/loginSlice';
 import { useTranslation } from 'react-i18next';
@@ -87,7 +87,7 @@ export const LoginForm = () => {
             <Controller
               control={control}
               name="username"
-              rules={emailValidation}
+              // rules={emailValidation}
               render={({ field }) => (
                 <TextField
                   color="secondary"
