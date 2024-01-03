@@ -22,9 +22,12 @@ const ProfilePortfolio = () => {
             gap={5}
             sx={{ padding: 1 }}
           >
-            {profilePortfolio?.map((post) => (
-              <PostCard post={post} key={post.id} />
-            ))}
+            {profilePortfolio?.map(
+              (post) =>
+                post.photo_post.length > 0 && (
+                  <PostCard post={post} key={post.id} />
+                )
+            )}
           </ImageList>
         </Box>
       ) : (
