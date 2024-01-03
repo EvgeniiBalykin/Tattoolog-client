@@ -36,9 +36,9 @@ const UserRating = ({ readOnly = false, id, rating }: IRatingProps) => {
 
   return (
     <Box>
-      {isMarked && (
+      {!!markedMessage && (
         <Snackbar
-          open={isMarked}
+          open={!!markedMessage}
           autoHideDuration={3000}
           onClose={() => setIsMarked(false)}
           anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
