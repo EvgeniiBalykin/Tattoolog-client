@@ -1,5 +1,12 @@
-import { Instagram, Facebook, YouTube } from '@mui/icons-material';
-import { Container, Box, Button, Typography, Grid } from '@mui/material';
+import { Instagram, Facebook, Email } from '@mui/icons-material';
+import {
+  Container,
+  Box,
+  Button,
+  Typography,
+  Grid,
+  IconButton,
+} from '@mui/material';
 import { LogoImg } from '@images/index';
 import { Link } from 'react-router-dom';
 import { HEADER_ROUTES } from '@routes/HeaderRoutes';
@@ -44,9 +51,21 @@ const Footer = () => {
           ))}
         </Grid>
         <Box sx={{ display: 'flex', gap: '25px' }} mb={2}>
-          <Instagram color="action" fontSize="large" />
-          <Facebook color="action" fontSize="large" />
-          <YouTube color="action" fontSize="large" />
+          <IconButton
+            href="https://www.instagram.com/tattoolog_eu/"
+            target="_blank"
+          >
+            <Instagram color="action" fontSize="large" />
+          </IconButton>
+          <IconButton
+            href="https://www.facebook.com/people/Tattoolog-EU/61553526006018/?is_tour_completed=true"
+            target="_blank"
+          >
+            <Facebook color="action" fontSize="large" />
+          </IconButton>
+          <IconButton href="mailto:tattoolog.eu@gmail.com" target="_blank">
+            <Email color="action" fontSize="large" />
+          </IconButton>
         </Box>
         <Container maxWidth="xs">
           <Typography variant="body2" textAlign="center">

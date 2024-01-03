@@ -11,42 +11,36 @@ import { Alert, Snackbar } from '@mui/material';
 interface IRatingProps {
   readOnly?: boolean;
   id?: number;
-  rating?: number;
+  rating: number | null;
 }
 
 const UserRating = ({ readOnly = false, id, rating }: IRatingProps) => {
-  const [value, setValue] = useState<number | null | undefined>(rating);
   const [updateRating] = useUpdateProfileRatingMutation();
   const { refetch } = useGetProfileDataQuery(Number(id), { skip: !id });
-  const [marked, setMarked] = useState(false);
-  const isMarked = localStorage.getItem(String(id));
+  const [isMarked, setIsMarked] = useState(false);
   const [markedMessage, setMarkedMessage] = useState('');
 
-  const markProfile = () => {
-    if (id && value && !isMarked) {
-      updateRating({ profile: id, mark: value });
+  const markProfile = async (value: number | null) => {
+    if (id && value) {
+      await updateRating({ profile: id, mark: value });
       refetch();
       setMarkedMessage('Thank you for mark');
-      setMarked(true);
+      setIsMarked(true);
       localStorage.setItem(String(id), 'true');
-    } else {
-      setMarkedMessage('You already marked this profile');
     }
   };
 
-  const onRatingClick = () => !!isMarked && setMarked(true);
-
   useEffect(() => {
-    markProfile();
-  }, [id, value, refetch, updateRating]);
+    setIsMarked(!!localStorage.getItem(String(id)));
+  }, [localStorage, id]);
 
   return (
-    <Box margin="0 auto">
-      {marked && (
+    <Box>
+      {isMarked && (
         <Snackbar
-          open={marked}
+          open={isMarked}
           autoHideDuration={3000}
-          onClose={() => setMarked(false)}
+          onClose={() => setIsMarked(false)}
           anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         >
           <Alert severity={'success'} sx={{ width: '100%', top: '0' }}>
@@ -56,20 +50,19 @@ const UserRating = ({ readOnly = false, id, rating }: IRatingProps) => {
       )}
       <Rating
         value={rating}
-        onChange={(_, newValue) => setValue(newValue)}
-        readOnly={readOnly}
+        onChange={(_, newValue) => markProfile(newValue)}
+        readOnly={readOnly || !!isMarked}
         precision={0.5}
-        size="medium"
-        onClick={onRatingClick}
+        size="large"
         icon={
           <StarRate
-            style={{ opacity: 1, color: '#ffa726' }}
+            style={{ opacity: 1, color: '#cd7f32' }}
             fontSize="inherit"
           />
         }
         emptyIcon={
           <StarBorder
-            style={{ opacity: 1, color: '#ffa726' }}
+            style={{ opacity: 1, color: '#cd7f32' }}
             fontSize="inherit"
           />
         }

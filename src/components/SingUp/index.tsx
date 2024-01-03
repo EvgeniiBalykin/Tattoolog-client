@@ -41,7 +41,9 @@ export const SingInForm = () => {
   return (
     <Container maxWidth="xs">
       {registerError && (
-        <Alert severity="error">{registerError?.data.username}</Alert>
+        <Alert severity="error">
+          {registerError?.data.username || registerError?.data.password}
+        </Alert>
       )}
       <Box
         sx={{

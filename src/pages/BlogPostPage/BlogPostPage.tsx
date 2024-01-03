@@ -85,17 +85,13 @@ const BlogPostPage = () => {
             >
               {el?.title}
             </Typography>
-            <Typography
-              variant="h5"
-              textAlign="start"
-              paddingTop="40px"
-              color="white"
-              lineHeight={1.6}
-              marginBottom={4}
-            >
-              {el.body}
-            </Typography>
+            <Box
+              mt={3}
+              sx={{ color: 'white' }}
+              dangerouslySetInnerHTML={{ __html: el.body }}
+            />
             <Grid
+              mt={2}
               container
               justifyContent="center"
               alignContent="center"
