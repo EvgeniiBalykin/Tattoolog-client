@@ -1,53 +1,64 @@
 import { Box, Grid, Typography } from '@mui/material';
 import { Container } from '@mui/system';
-import { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { useGetBlogPostQuery } from '@services/toolsApi';
+import { Helmet } from 'react-helmet';
 
 const BlogPostPage = () => {
   const { slug, id } = useParams<string>();
   const { data: post } = useGetBlogPostQuery({ slug, lang: id });
 
-  useEffect(() => {
-    document.title = post?.blog_meta?.meta_title_tag || 'Tattolog';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const ogImage = document.querySelector('meta[property="og:image"]');
-    const ogDescription = document.querySelector(
-      'meta[property="og:description"]'
-    );
+  // useEffect(() => {
+  //   document.title = post?.blog_meta?.meta_title_tag || 'Tattolog';
+  //   const metaDescription = document.querySelector('meta[name="description"]');
+  //   const metaKeywords = document.querySelector('meta[name="keywords"]');
+  //   const ogTitle = document.querySelector('meta[property="og:title"]');
+  //   const ogImage = document.querySelector('meta[property="og:image"]');
+  //   const ogDescription = document.querySelector(
+  //     'meta[property="og:description"]'
+  //   );
 
-    if (post) {
-      if (metaDescription) {
-        metaDescription.setAttribute(
-          'content',
-          post?.blog_meta?.meta_description || ''
-        );
-      }
-      if (metaKeywords) {
-        metaKeywords.setAttribute(
-          'content',
-          post?.blog_meta?.meta_keywords || ''
-        );
-      }
-      if (ogTitle) {
-        ogTitle.setAttribute('content', post?.blog_meta?.opengraph_title || '');
-      }
-      if (ogDescription) {
-        ogDescription.setAttribute(
-          'content',
-          post?.blog_meta?.opengraph_description || ''
-        );
-      }
-      if (ogImage) {
-        ogImage.setAttribute('content', post?.blog_meta?.opengraph_image || '');
-      }
-    }
-  }, [post]);
+  //   if (post) {
+  //     if (metaDescription) {
+  //       metaDescription.setAttribute(
+  //         'content',
+  //         post?.blog_meta?.meta_description || ''
+  //       );
+  //     }
+  //     if (metaKeywords) {
+  //       metaKeywords.setAttribute(
+  //         'content',
+  //         post?.blog_meta?.meta_keywords || ''
+  //       );
+  //     }
+  //     if (ogTitle) {
+  //       ogTitle.setAttribute('content', post?.blog_meta?.opengraph_title || '');
+  //     }
+  //     if (ogDescription) {
+  //       ogDescription.setAttribute(
+  //         'content',
+  //         post?.blog_meta?.opengraph_description || ''
+  //       );
+  //     }
+  //     if (ogImage) {
+  //       ogImage.setAttribute('content', post?.blog_meta?.opengraph_image || '');
+  //     }
+  //   }
+  // }, [post]);
 
   return (
     <Container maxWidth="lg">
+      <Helmet>
+        <meta name="title" content={post?.blog_meta?.meta_title_tag} />
+        <meta name="description" content={post?.blog_meta?.meta_description} />
+        <meta name="keywords" content={post?.blog_meta?.meta_keywords} />
+        <meta property="og:title" content={post?.blog_meta?.opengraph_title} />
+        <meta
+          property="og:description"
+          content={post?.blog_meta?.opengraph_description}
+        />
+        <meta property="og:image" content={post?.blog_meta?.opengraph_image} />
+      </Helmet>
       <Box
         sx={{
           backgroundImage: `url(${post?.image})`,
