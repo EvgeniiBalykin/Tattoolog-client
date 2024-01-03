@@ -57,8 +57,6 @@ const CatalogCard = ({
     [about, textLengthLimit]
   );
 
-  console.log(openToWork, relocate, association, mentor);
-
   return (
     <Grid item xs={12} sm={6} md={4} data-testid="catalog-card-test">
       <Card className="catalog-card">

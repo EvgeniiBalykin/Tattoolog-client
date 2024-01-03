@@ -23,8 +23,6 @@ const BlogPosts = () => {
     posts?.next ? setDisableButton(false) : setDisableButton(true);
   }, [posts]);
 
-  console.log(posts?.next);
-
   return (
     <>
       <Grid

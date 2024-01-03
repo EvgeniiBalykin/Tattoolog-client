@@ -1,5 +1,6 @@
 import { trimText } from '@helpers/trimText/trimText';
 import {
+  Box,
   Button,
   Card,
   CardActions,
@@ -49,9 +50,11 @@ const BlogCard: React.FC<IBlogCard> = ({
           >
             {title.toUpperCase()}
           </Typography>
-          <Typography className="post-body" textAlign="center">
-            {body ? trimText(body, 130) : ''}
-          </Typography>
+          <Box
+            mt={3}
+            sx={{ color: 'white' }}
+            dangerouslySetInnerHTML={{ __html: trimText(body, 250) }}
+          />
         </CardContent>
         <CardActions className="post-card-actions">
           <Button
