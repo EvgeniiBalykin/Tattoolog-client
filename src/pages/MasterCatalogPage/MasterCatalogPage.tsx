@@ -56,7 +56,7 @@ const MasterCatalogPage = () => {
   });
 
   const loadMoreClick = () => {
-    setLimit((prev) => prev + 3);
+    setLimit((prev) => prev + 10);
   };
 
   useEffect(() => {
