@@ -1,9 +1,9 @@
-import { IProfilePortfolio } from '@interfaces/index';
+import { IProfilePost } from '@interfaces/index';
 import { Container, Grid, Typography } from '@mui/material';
 import { ReactElement, useMemo } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 
-const PortfolioPost = ({ data }: { data?: IProfilePortfolio }) => {
+const PortfolioPost = ({ data }: { data?: IProfilePost }) => {
   const SliderItems = useMemo((): ReactElement<string, string>[] => {
     if (data) {
       return data.photo_post.map((el) => (

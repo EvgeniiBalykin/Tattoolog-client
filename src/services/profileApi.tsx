@@ -12,35 +12,43 @@ import {
   ICatalogData,
   IProfileData,
   IProfilePortfolio,
+  IProfilePost,
   IUserMark,
   IWorkTypes,
 } from '@interfaces/index';
-
-interface ICatalogParams {
-  role: string;
-  name: string;
-  city: string;
-  country: string;
-  limit: number;
-}
 
 export const profileApi = createApi({
   reducerPath: 'profileApi',
   baseQuery: fetchBaseQuery({ baseUrl: API_BASE_URL }),
   endpoints: (builder) => ({
-    getMasterCatalog: builder.query<ICatalogData, ICatalogParams>({
-      query: (params) => buildQueryString(params),
+    getMasterCatalog: builder.query<
+      ICatalogData,
+      Record<string, string | number>
+    >({
+      query: ({ role, city, country, name, limit }) => ({
+        url: `${PROFILES_BY_ROLE}${role}`,
+        params: { role, city, country, name, page_size: limit, page: 1 },
+      }),
     }),
     getProfileData: builder.query<IProfileData, number>({
       query: (userId) => `${PROFILE_USER + `${userId}/`}`,
     }),
-    getProfilePortfolio: builder.query<IProfilePortfolio[], number>({
-      query: (userId) => `${PROFILE_PORTFOLIO + `${userId}/`}`,
+    getProfilePortfolio: builder.query<
+      IProfilePortfolio,
+      Record<string, number | undefined>
+    >({
+      query: ({ userId, page = 1, pageSize = 9 }) => ({
+        url: PROFILE_PORTFOLIO({ userId }),
+        params: {
+          page_size: pageSize,
+          page,
+        },
+      }),
     }),
     getWorkTypes: builder.query<IWorkTypes[], void>({
       query: () => WORK_TYPES,
     }),
-    getPortfolioPost: builder.query<IProfilePortfolio, string>({
+    getPortfolioPost: builder.query<IProfilePost, string>({
       query: (id) => `${PORTFOLIO_POST}${id}/`,
     }),
     updateProfile: builder.mutation<
@@ -79,16 +87,3 @@ export const {
   useUpdateProfileRatingMutation,
   useGetPortfolioPostQuery,
 } = profileApi;
-
-function buildQueryString(params: ICatalogParams): string {
-  const { role, name, city, country, limit } = params;
-  const queryParams = new URLSearchParams({
-    role,
-    name,
-    city,
-    country,
-    page: '1',
-    page_size: limit.toString(),
-  });
-  return `${PROFILES_BY_ROLE}${role}/?${queryParams.toString()}`;
-}

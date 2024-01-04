@@ -36,8 +36,10 @@ const ProfileCard = ({ id }: { id: number }) => {
   const toggleModal = () => setIsModal((prev) => !prev);
   const { id: storeId } = useSelector(selectUser);
   const userAccess = id === storeId;
-  const { data: profilePortfolio } = useGetProfilePortfolioQuery(id);
-  const countPosts = profilePortfolio?.length;
+  const { data: profilePortfolio } = useGetProfilePortfolioQuery({
+    userId: id,
+  });
+  const countPosts = profilePortfolio?.count;
 
   if (!profileData) return <LoadingProcess />;
 
@@ -142,7 +144,7 @@ const ProfileCard = ({ id }: { id: number }) => {
             </Box>
           </Box>
           <UserRating id={id} rating={Number(average_rating)} />
-          <Box display="flex" width={400} gap={2}>
+          <Box maxWidth={400} display="flex" width="100%" gap={2}>
             <Button variant="outlined" fullWidth href={`tel:${user.username}`}>
               <Phone sx={{ marginRight: 1 }} />
               Call now

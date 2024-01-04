@@ -1,18 +1,18 @@
 import { ImageListItem, ImageListItemBar } from '@mui/material';
-import { IProfilePortfolio } from '@interfaces/index';
+import { IProfilePost } from '@interfaces/index';
 import { useNavigate } from 'react-router';
 
-const PostCard = ({ post }: { post: IProfilePortfolio }) => {
+const PortfolioCard = ({ post }: { post: IProfilePost }) => {
   const navigate = useNavigate();
 
   const redirectToPostPage = () => {
     navigate(`/post/${post.id}`);
   };
   return (
-    <ImageListItem key={post.id} cols={3} rows={4}>
+    <ImageListItem key={post.id} cols={1} rows={2}>
       <img
-        src={post.photo_post[0]?.photo}
-        srcSet={`${post.photo_post[0]?.photo}?w=248&fit=crop&auto=format&dpr=2 2x`}
+        src={`${post.photo_post[0]?.photo}?w=170&fit=crop&auto=format`}
+        srcSet={`${post.photo_post[0]?.photo}?w=170&fit=crop&auto=format&dpr=2 2x`}
         alt={post?.work_type?.description}
         loading="lazy"
         onClick={redirectToPostPage}
@@ -31,4 +31,4 @@ const PostCard = ({ post }: { post: IProfilePortfolio }) => {
   );
 };
 
-export default PostCard;
+export default PortfolioCard;
