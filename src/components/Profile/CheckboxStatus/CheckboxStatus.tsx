@@ -73,7 +73,7 @@ const CheckboxStatus = ({
   return (
     <Box display="flex" justifyContent="space-around">
       {CHECKBOXES.map((el) => (
-        <Box display="flex" flexDirection="column">
+        <Box display="flex" flexDirection="column" key={el.name}>
           <Checkbox
             size="small"
             icon={el.disabledIcon}

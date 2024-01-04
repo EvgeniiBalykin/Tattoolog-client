@@ -3,7 +3,14 @@ import { Box } from '@mui/system';
 
 const LoadingProcess = () => {
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '0 auto',
+      }}
+    >
       <CircularProgress />
     </Box>
   );

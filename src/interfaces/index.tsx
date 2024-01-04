@@ -89,6 +89,13 @@ export interface ILoginBody {
   password: string;
 }
 export interface IProfilePortfolio {
+  count: number;
+  next: number | null;
+  previous: number | null;
+  results: IProfilePost[];
+}
+
+export interface IProfilePost {
   id?: number;
   profile: number | null;
   photo_post: { id: number; post: number; photo: string | string }[];

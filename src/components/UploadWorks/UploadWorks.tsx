@@ -48,7 +48,7 @@ const UploadWorks = ({ isOpen, toggle }: IUploadProps) => {
     title: '',
     workType: '',
   });
-  const { refetch } = useGetProfilePortfolioQuery(Number(id));
+  const { refetch } = useGetProfilePortfolioQuery({ userId: Number(id) });
   const [sendLoad, setSendLoad] = useState<boolean>(false);
   const { t } = useTranslation();
 
