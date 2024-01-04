@@ -19,24 +19,27 @@ const ProfilePortfolio = () => {
   const { id } = useParams();
   const [page, setPage] = useState(1);
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const { data } = useGetProfilePortfolioQuery({
+  const { data: profilePortfolio } = useGetProfilePortfolioQuery({
     userId: Number(id),
     page,
     pageSize: isMobile ? 10 : 9,
   });
-  const portfolio = data?.results ?? [];
 
   const onHandleNext = () => {
-    data?.next ? setPage((prev) => prev + 1) : setPage((prev) => prev);
+    profilePortfolio?.next
+      ? setPage((prev) => prev + 1)
+      : setPage((prev) => prev);
   };
 
   const onHandlePrev = () => {
-    data?.previous ? setPage((prev) => prev - 1) : setPage((prev) => prev);
+    profilePortfolio?.previous
+      ? setPage((prev) => prev - 1)
+      : setPage((prev) => prev);
   };
 
   return (
     <Grid item xs={12} md={7} marginLeft={isMobile ? 0 : 4}>
-      {portfolio.length > 0 ? (
+      {profilePortfolio && profilePortfolio?.count > 0 ? (
         <Box
           display="flex"
           flexDirection="column"
@@ -50,7 +53,7 @@ const ProfilePortfolio = () => {
             sx={{ padding: 1 }}
             rowHeight={150}
           >
-            {portfolio.map(
+            {profilePortfolio.results.map(
               (post, index) =>
                 post.photo_post.length > 0 && (
                   <PortfolioCard post={post} key={index} />
