@@ -7,7 +7,7 @@ export const API_BASE_URL =
 export const PROFILE_DATA = 'auth/users/me/';
 export const PROFILE_USER = `accounts/profile/`;
 export const PROFILES_BY_ROLE = `accounts/profiles/`;
-export const PROFILE_PORTFOLIO = ({ userId }: { userId: number | undefined }) =>
+export const PROFILE_PORTFOLIO = (userId: number | undefined) =>
   `portfolio/posts/profile/${userId}`;
 export const ADD_POST = 'portfolio/post/create/';
 export const ADD_POST_PHOTO = 'portfolio/post-photo/create/';

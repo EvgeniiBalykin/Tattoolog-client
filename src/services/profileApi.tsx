@@ -38,7 +38,7 @@ export const profileApi = createApi({
       Record<string, number | undefined>
     >({
       query: ({ userId, page = 1, pageSize = 9 }) => ({
-        url: PROFILE_PORTFOLIO({ userId }),
+        url: PROFILE_PORTFOLIO(userId),
         params: {
           page_size: pageSize,
           page,

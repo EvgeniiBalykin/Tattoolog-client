@@ -25,6 +25,7 @@ import { useTranslation } from 'react-i18next';
 import { LoadingButton } from '@mui/lab';
 import { ListElem } from './ListElem';
 import { token } from '@helpers/getToken';
+import imageCompression from 'browser-image-compression';
 
 interface IInputValues {
   title: string;
@@ -54,6 +55,13 @@ const UploadWorks = ({ isOpen, toggle }: IUploadProps) => {
 
   const onPostData = async () => {
     setSendLoad(true);
+
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 1920,
+      useWebWorker: true,
+    };
+
     if (token) {
       try {
         if (files && id) {
@@ -73,15 +81,21 @@ const UploadWorks = ({ isOpen, toggle }: IUploadProps) => {
 
           await Promise.all(
             files.map(async (el: File) => {
-              const formData = new FormData();
-              formData.append('photos', el);
-              formData.append('post', postResponse.data.id);
-              await axios.post(API_BASE_URL + ADD_POST_PHOTO, formData, {
-                headers: {
-                  'Content-Type': 'multipart/form-data',
-                  Authorization: `Bearer ${token}`,
-                },
-              });
+              try {
+                const compressedImage = await imageCompression(el, options);
+                const formData = new FormData();
+                formData.append('post', postResponse.data.id);
+                formData.append('photos', compressedImage, el.name);
+
+                await axios.post(API_BASE_URL + ADD_POST_PHOTO, formData, {
+                  headers: {
+                    'Content-Type': 'multipart/form-data',
+                    Authorization: `Bearer ${token}`,
+                  },
+                });
+              } catch (compressionError) {
+                console.error('Image compression error:', compressionError);
+              }
             })
           );
           refetch();
