@@ -26,16 +26,12 @@ import { LoadingButton } from '@mui/lab';
 import { ListElem } from './ListElem';
 import { token } from '@helpers/getToken';
 import imageCompression from 'browser-image-compression';
-
-interface IInputValues {
-  title: string;
-  workType: string;
-}
-
-interface IUploadProps {
-  isOpen: boolean;
-  toggle: () => void;
-}
+import {
+  IInputValues,
+  IOptionsCompress,
+  IUploadProps,
+  optionsCompress,
+} from './constrants';
 
 const UploadWorks = ({ isOpen, toggle }: IUploadProps) => {
   const { id } = useParams();
@@ -56,48 +52,16 @@ const UploadWorks = ({ isOpen, toggle }: IUploadProps) => {
   const onPostData = async () => {
     setSendLoad(true);
 
-    const options = {
-      maxSizeMB: 1,
-      maxWidthOrHeight: 1920,
-      useWebWorker: true,
-    };
-
     if (token) {
       try {
         if (files && id) {
-          const postResponse = await axios.post(
-            API_BASE_URL + ADD_POST,
-            {
-              profile: id,
-              description: inputValues.title,
-              work_type: inputValues.workType,
-            },
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
+          const postResponse = await createPost(
+            id,
+            inputValues.title,
+            inputValues.workType
           );
 
-          await Promise.all(
-            files.map(async (el: File) => {
-              try {
-                const compressedImage = await imageCompression(el, options);
-                const formData = new FormData();
-                formData.append('post', postResponse.data.id);
-                formData.append('photos', compressedImage, el.name);
-
-                await axios.post(API_BASE_URL + ADD_POST_PHOTO, formData, {
-                  headers: {
-                    'Content-Type': 'multipart/form-data',
-                    Authorization: `Bearer ${token}`,
-                  },
-                });
-              } catch (compressionError) {
-                console.error('Image compression error:', compressionError);
-              }
-            })
-          );
+          await uploadPhotos(postResponse.data.id, files, token);
           refetch();
           toggle();
           setInputValues({ workType: '', title: '' });
@@ -107,6 +71,61 @@ const UploadWorks = ({ isOpen, toggle }: IUploadProps) => {
         navigate('/error_page');
       }
     }
+  };
+
+  const createPost = async (
+    profileId: string,
+    description: string,
+    workType: string
+  ) => {
+    return axios.post(
+      API_BASE_URL + ADD_POST,
+      {
+        profile: profileId,
+        description: description,
+        work_type: workType,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+  };
+
+  const uploadPhotos = async (postId: string, files: File[], token: string) => {
+    await Promise.all(
+      files.map(async (el) => {
+        try {
+          const compressedImage = await compressImage(el, optionsCompress);
+          await sendPhoto(postId, compressedImage, el.name, token);
+        } catch (compressionError) {
+          console.error('Image compression error:', compressionError);
+        }
+      })
+    );
+  };
+
+  const compressImage = async (image: File, options: IOptionsCompress) => {
+    return imageCompression(image, options);
+  };
+
+  const sendPhoto = async (
+    postId: string,
+    compressedImage: string | Blob,
+    fileName: string,
+    token: string
+  ) => {
+    const formData = new FormData();
+    formData.append('post', postId);
+    formData.append('photos', compressedImage, fileName);
+
+    return axios.post(API_BASE_URL + ADD_POST_PHOTO, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${token}`,
+      },
+    });
   };
 
   const onHandleClose = () => {
