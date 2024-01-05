@@ -31,12 +31,13 @@ import {
 import { selectUser } from '@store/reducers/userSlice';
 import { useNavigate } from 'react-router';
 import UniversalSelect from '@components/UnivesalSelect/UniversalSelect';
-import { token } from '@helpers/getToken';
+import { selectLogin } from '@store/reducers/loginSlice';
 
 const ProfileEdit = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { id } = useSelector(selectUser);
+  const { token } = useSelector(selectLogin);
   const { data, refetch } = useGetProfileDataQuery(id);
   const [fieldsValue, setFieldsValue] = useState<IState>(initialState);
   const currentDate = new Date().toJSON().slice(0, 10);

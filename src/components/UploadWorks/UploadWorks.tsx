@@ -24,7 +24,6 @@ import {
 import { useTranslation } from 'react-i18next';
 import { LoadingButton } from '@mui/lab';
 import { ListElem } from './ListElem';
-import { token } from '@helpers/getToken';
 import imageCompression from 'browser-image-compression';
 import {
   IInputValues,
@@ -32,6 +31,8 @@ import {
   IUploadProps,
   optionsCompress,
 } from './constrants';
+import { useSelector } from 'react-redux';
+import { selectLogin } from '@store/reducers/loginSlice';
 
 const UploadWorks = ({ isOpen, toggle }: IUploadProps) => {
   const { id } = useParams();
@@ -48,6 +49,7 @@ const UploadWorks = ({ isOpen, toggle }: IUploadProps) => {
   const { refetch } = useGetProfilePortfolioQuery({ userId: Number(id) });
   const [sendLoad, setSendLoad] = useState<boolean>(false);
   const { t } = useTranslation();
+  const { token } = useSelector(selectLogin);
 
   const onPostData = async () => {
     setSendLoad(true);

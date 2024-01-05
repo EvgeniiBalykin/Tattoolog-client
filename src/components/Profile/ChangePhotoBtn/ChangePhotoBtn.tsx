@@ -1,8 +1,9 @@
-import { token } from '@helpers/getToken';
 import { Button } from '@mui/material';
 import { useUpdateProfileMutation } from '@services/profileApi';
+import { selectLogin } from '@store/reducers/loginSlice';
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 const ChangePhotoBtn = ({
   id,
@@ -15,6 +16,7 @@ const ChangePhotoBtn = ({
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [selectedImg, setSelectedImg] = useState<File | null>(null);
   const [updateProfile] = useUpdateProfileMutation();
+  const { token } = useSelector(selectLogin);
 
   useEffect(() => {
     if (selectedImg) {
