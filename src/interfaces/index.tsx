@@ -196,6 +196,7 @@ export interface IPartnersData {
   name: string;
   link: string;
   logo: string;
+  type?: string;
 }
 
 export interface IQueryData {
