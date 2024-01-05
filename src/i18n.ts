@@ -10,7 +10,9 @@ import { LANGUAGE_LOCAL_STORAGE_KEY } from './constants';
 export const LANG_BY_DOMAIN = () => {
   const currentDomain = window.location.hostname.split('.');
   const domainCountry = currentDomain[currentDomain.length - 1];
-  return domainCountry !== 'localhost' ? domainCountry : 'en';
+  return domainCountry !== 'localhost' && domainCountry !== 'uk'
+    ? domainCountry
+    : 'en';
 };
 
 const saveSelectedLanguage = (language: string) => {
