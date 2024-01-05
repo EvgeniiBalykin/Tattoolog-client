@@ -1,4 +1,3 @@
-import { token } from '@helpers/getToken';
 import {
   School,
   SchoolTwoTone,
@@ -10,7 +9,9 @@ import {
 import { Checkbox, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useUpdateProfileMutation } from '@services/profileApi';
+import { selectLogin } from '@store/reducers/loginSlice';
 import { ChangeEvent, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const CHECKBOXES = [
   {
@@ -54,6 +55,8 @@ const CheckboxStatus = ({
     mentor: isMentor,
     relocate: isRelocate,
   });
+
+  const { token } = useSelector(selectLogin);
 
   const onCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = event.target;

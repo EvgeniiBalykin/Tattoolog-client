@@ -8,8 +8,8 @@ export interface LoginState {
 }
 
 const initialState: LoginState = {
-  token: Cookies?.get('accessToken') || null,
-  refreshToken: Cookies?.get('refreshToken') || null,
+  token: Cookies?.get('accessToken')?.replace(/"/g, '') || null,
+  refreshToken: Cookies?.get('refreshToken')?.replace(/"/g, '') || null,
 };
 
 export const loginSlice = createSlice({
