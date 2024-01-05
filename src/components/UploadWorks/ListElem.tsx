@@ -49,6 +49,7 @@ export const ListElem = React.memo(({ updateFiles }: IProps) => {
         const updatedFiles = [...localFiles];
         updatedFiles.splice(indexToRemove, 1);
         setLocalFiles(updatedFiles);
+        updateFiles(updatedFiles);
       }
     },
     [localFiles]
