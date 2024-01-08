@@ -25,8 +25,8 @@ import { useNavigate } from 'react-router';
 import { IProfileData } from '@interfaces/index';
 import ChangePhotoBtn from '../ChangePhotoBtn/ChangePhotoBtn';
 import CheckboxStatus from '../CheckboxStatus/CheckboxStatus';
-import ProfileLinks from '../ProfileLinks/ProfileLinks';
 import LoadingProcess from '@components/LoadingProcess/LoadingProcess';
+import ProfileSocial from '../ProfileSocial/ProfileLinks';
 
 const ProfileCard = ({ id }: { id: number }) => {
   const { t } = useTranslation();
@@ -178,7 +178,7 @@ const ProfileCard = ({ id }: { id: number }) => {
           gap={2}
           justifyContent="center"
         >
-          <ProfileLinks profileData={profileData} />
+          <ProfileSocial profileData={profileData} />
         </Grid>
         <Box width={300} margin="40px auto">
           {userAccess && (

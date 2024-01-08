@@ -10,7 +10,7 @@ const SOCIAL_MEDIA_ICONS: { [key: string]: ReactElement } = {
   Pinterest: <Pinterest />,
 };
 
-const ProfileLinks = ({ profileData }: { profileData: IProfileData }) => {
+const ProfileSocial = ({ profileData }: { profileData: IProfileData }) => {
   const { social_media_profile } = profileData || {};
 
   return (
@@ -34,4 +34,4 @@ const ProfileLinks = ({ profileData }: { profileData: IProfileData }) => {
   );
 };
 
-export default ProfileLinks;
+export default ProfileSocial;
