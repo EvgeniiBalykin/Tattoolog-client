@@ -21,7 +21,8 @@ export interface IBlogCard {
   date: Date;
   title: string;
   body: string;
-  slug: string;
+  slug?: string;
+  isBlog?: boolean;
 }
 
 const BlogCard: React.FC<IBlogCard> = ({
@@ -31,6 +32,7 @@ const BlogCard: React.FC<IBlogCard> = ({
   title,
   body,
   slug,
+  isBlog,
 }) => {
   const navigate = useNavigate();
   const { language } = useSelector(selectLanguage);
@@ -62,7 +64,11 @@ const BlogCard: React.FC<IBlogCard> = ({
             color="secondary"
             variant="outlined"
             fullWidth
-            onClick={() => navigate(`${slug}/${language}`)}
+            onClick={() =>
+              isBlog
+                ? navigate(`${slug}/${language}`)
+                : navigate(`festival/${id}`)
+            }
           >
             Learn More
           </Button>

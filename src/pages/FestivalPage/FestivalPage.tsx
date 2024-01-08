@@ -14,10 +14,10 @@ const FestivalPage = () => {
           backgroundImage: `url(${festival?.image})`,
           backgroundSize: 'cover',
           position: 'relative',
-          borderRadius: '8px', // Округленные углы
-          overflow: 'hidden', // Обрезка изображения, чтобы округленные углы были видны
+          borderRadius: '8px',
+          overflow: 'hidden',
         }}
-        height="300px" // Увеличил высоту для лучшего эффекта
+        height="300px"
         display="flex"
         alignItems="center"
         justifyContent="center"

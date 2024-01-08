@@ -40,6 +40,7 @@ const BlogPosts = () => {
         ) : (
           posts?.results?.map((post) => (
             <BlogCard
+              isBlog={true}
               slug={post.slug}
               key={post.id}
               id={post.id}

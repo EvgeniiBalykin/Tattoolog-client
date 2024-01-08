@@ -27,29 +27,44 @@ export const toolsApi = createApi({
       { results: ICountriesData[] },
       string | undefined
     >({
-      query: (country) =>
-        `${COUNTRIES}?country=${country ? country : ''}&page_size=30`,
+      query: (country) => ({
+        url: COUNTRIES,
+        country: country || '',
+        page_size: 30,
+      }),
     }),
     getCity: builder.query<
       { results: ICountriesData[] },
       { country: string | undefined; city: string | undefined }
     >({
-      query: ({ country, city }) =>
-        `${CITIES}?country=${country ? country : ''}&city=${
-          city ? city : ''
-        }&page_size=30`,
+      query: ({ country, city }) => ({
+        url: CITIES,
+        country: country || '',
+        city: city || '',
+        page_size: 30,
+      }),
     }),
     getBlogPosts: builder.query<IPostData, { limit: number; language: string }>(
       {
-        query: ({ limit, language }) =>
-          BLOG_POSTS + `?language=${language}&page=1&page_size=${limit}`,
+        query: ({ limit, language }) => ({
+          url: BLOG_POSTS,
+          params: {
+            language: language,
+            page: 1,
+            page_size: limit,
+          },
+        }),
       }
     ),
     getBlogPost: builder.query<IBlogPost, { slug?: string; lang?: string }>({
       query: ({ slug, lang }) => `${BLOG_POST + `${slug || ''}/${lang}`}/`,
     }),
     getFesivalPosts: builder.query<IFestivalData, number>({
-      query: (limit) => FESTIVAL_POSTS + `?page=1&page_size=${limit}`,
+      query: (limit) => ({
+        url: FESTIVAL_POSTS,
+        page: 1,
+        page_size: limit,
+      }),
     }),
     getFestivalPost: builder.query<IFestivalPost, string>({
       query: (id) => `${FESTIVAL_POSTS + id}/`,

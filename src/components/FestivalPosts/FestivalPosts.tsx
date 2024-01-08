@@ -35,7 +35,7 @@ const FestivalPosts = () => {
         ) : (
           festivals?.results.map((festival) => (
             <BlogCard
-              slug={festival.slug}
+            isBlog={false}
               id={festival.id}
               date={festival.created_at}
               image={festival.image}
