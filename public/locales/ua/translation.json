@@ -44,7 +44,10 @@
     "change_photo": "Змінити фотографію",
     "add_work": "Додати роботу",
     "save": "Зберегти",
-    "close": "Закрити"
+    "close": "Закрити",
+    "yes": "Yes",
+    "no": "No",
+    "none": "None"
   },
   "validation": {
     "error_name": "Невірне ім'я",

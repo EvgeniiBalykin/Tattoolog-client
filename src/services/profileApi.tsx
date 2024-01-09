@@ -25,9 +25,32 @@ export const profileApi = createApi({
       ICatalogData,
       Record<string, string | number>
     >({
-      query: ({ role, city, country, name, limit }) => ({
+      query: ({
+        role,
+        city,
+        country,
+        name,
+        limit,
+        open_to_work,
+        relocate,
+        mentor,
+        work_type,
+        rating_order,
+      }) => ({
         url: `${PROFILES_BY_ROLE}${role}`,
-        params: { role, city, country, name, page_size: limit, page: 1 },
+        params: {
+          role,
+          city,
+          country,
+          name,
+          page_size: limit,
+          page: 1,
+          open_to_work,
+          relocate,
+          mentor,
+          work_type,
+          rating_order,
+        },
       }),
     }),
     getProfileData: builder.query<IProfileData, number>({

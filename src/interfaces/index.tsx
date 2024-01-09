@@ -220,3 +220,14 @@ export interface IUserMark {
   mark: number;
   comment?: string;
 }
+
+export interface ICatalogueProps {
+  name: string;
+  city: string;
+  country: string;
+  mentor: string;
+  relocate: string;
+  open_to_work: string;
+  rating: string;
+  work_type: string;
+}

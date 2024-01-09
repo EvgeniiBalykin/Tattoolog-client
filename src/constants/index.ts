@@ -1,4 +1,4 @@
-import { ILanguages } from '@interfaces/index';
+import { ICatalogueProps, ILanguages } from '@interfaces/index';
 
 export const LANGUAGES: ILanguages[] = [
   // {
@@ -25,6 +25,67 @@ export const LANGUAGES: ILanguages[] = [
     code: 'pl',
     country_code: 'pl',
     name: 'PL',
+  },
+];
+
+const DEFAULT_CATALOGUE_OPTIONS = [
+  { name: 'buttons.none', value: '' },
+  { name: 'buttons.yes', value: 'true' },
+  { name: 'buttons.no', value: 'false' },
+];
+
+export const FILTERS_CATALOGUE: {
+  name: keyof ICatalogueProps;
+  label: string;
+  type: string;
+  options?: { name: string; value: string }[];
+}[] = [
+  {
+    name: 'name',
+    label: 'form.name',
+    type: 'text',
+  },
+  {
+    name: 'city',
+    label: 'form.city',
+    type: 'text',
+  },
+  {
+    name: 'country',
+    label: 'form.country',
+    type: 'text',
+  },
+  {
+    name: 'work_type',
+    label: 'Work type',
+    type: 'select',
+  },
+  {
+    name: 'relocate',
+    label: 'Relocate',
+    type: 'select',
+    options: DEFAULT_CATALOGUE_OPTIONS,
+  },
+  {
+    name: 'open_to_work',
+    label: 'Open to work',
+    type: 'select',
+    options: DEFAULT_CATALOGUE_OPTIONS,
+  },
+  {
+    name: 'mentor',
+    label: 'Mentor',
+    type: 'select',
+    options: DEFAULT_CATALOGUE_OPTIONS,
+  },
+  {
+    name: 'rating',
+    label: 'Rating',
+    type: 'select',
+    options: [
+      { name: '0-5', value: 'asc' },
+      { name: '5-0', value: 'desc' },
+    ],
   },
 ];
 
