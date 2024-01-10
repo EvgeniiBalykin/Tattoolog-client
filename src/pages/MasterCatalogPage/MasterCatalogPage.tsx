@@ -24,6 +24,7 @@ import { ICatalogueProps, IProfileData } from '@interfaces/index';
 import { MASTER_CATALOGUE_MAIN, MASTER_CATALOG_ICONS } from './constants';
 import { useTranslation } from 'react-i18next';
 import { FILTERS_CATALOGUE } from '@constants/index';
+import { Helmet } from 'react-helmet-async';
 
 const MasterCatalogPage = () => {
   const { t } = useTranslation();
@@ -78,6 +79,17 @@ const MasterCatalogPage = () => {
 
   return (
     <>
+      <Helmet prioritizeSeoTags>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tattoo artists catalogue</title>
+        <meta name="description" content="catalogue of tattoo artists" />
+        <meta name="keywords" content="catalogue tattoo artists worlwide" />
+        <meta property="og:title" content="Tattoo artists tattoolog" />
+        <meta
+          property="og:description"
+          content="Global catalogue of tattoo artists"
+        />
+      </Helmet>
       <MainImageBox
         title={t(MASTER_CATALOGUE_MAIN.title)}
         extraSubtitle={t(MASTER_CATALOGUE_MAIN.extraSubtitle)}
