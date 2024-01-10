@@ -47,6 +47,7 @@ const BlogPosts = () => {
               image={post.image}
               title={post.title}
               body={post?.blog_body?.length > 0 ? post.blog_body[0].body : ''}
+              isBlogPost={true}
             />
           ))
         )}

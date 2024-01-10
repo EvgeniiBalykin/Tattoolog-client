@@ -173,7 +173,10 @@
     "catalogue": "Catalogue",
     "accept_all": "Accept all",
     "decline_all": "Decline all",
-    "learn_more": "Learn more"
+    "learn_more": "Learn more",
+    "yes": "Yes",
+    "no": "No",
+    "none": "None"
   },
   "validation": {
     "error_name": "Invalid Name",

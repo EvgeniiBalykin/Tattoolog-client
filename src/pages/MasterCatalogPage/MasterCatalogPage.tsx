@@ -3,7 +3,11 @@ import {
   Box,
   Button,
   Container,
+  FormControl,
   Grid,
+  InputLabel,
+  MenuItem,
+  Select,
   TextField,
   Typography,
 } from '@mui/material';
@@ -12,40 +16,29 @@ import DescriptionIcons from '@components/DescriptionIcons/DescriptionIcons';
 import { MainImageBox } from '@components/Home';
 import JointNow from '@components/JoinNow/JoinNow';
 import { ChangeEvent, useEffect, useState } from 'react';
-import { useGetMasterCatalogQuery } from '@services/profileApi';
-import { IProfileData } from '@interfaces/index';
+import {
+  useGetMasterCatalogQuery,
+  useGetWorkTypesQuery,
+} from '@services/profileApi';
+import { ICatalogueProps, IProfileData } from '@interfaces/index';
 import { MASTER_CATALOGUE_MAIN, MASTER_CATALOG_ICONS } from './constants';
 import { useTranslation } from 'react-i18next';
-
-interface IStateProps {
-  name: string;
-  city: string;
-  country: string;
-}
-
-const FILTERS: { name: keyof IStateProps; label: string }[] = [
-  {
-    name: 'name',
-    label: 'form.name',
-  },
-  {
-    name: 'city',
-    label: 'form.city',
-  },
-  {
-    name: 'country',
-    label: 'form.country',
-  },
-];
+import { FILTERS_CATALOGUE } from '@constants/index';
 
 const MasterCatalogPage = () => {
   const { t } = useTranslation();
   const [limit, setLimit] = useState<number>(18);
+  const { data: workTypes } = useGetWorkTypesQuery();
   const [desableButton, setDisableButton] = useState(false);
-  const [searchValues, setSearchValues] = useState<IStateProps>({
+  const [searchValues, setSearchValues] = useState<ICatalogueProps>({
     name: '',
     city: '',
     country: '',
+    mentor: '',
+    relocate: '',
+    open_to_work: '',
+    work_type: '',
+    rating: '',
   });
   const { data: MasterCatalog, isLoading } = useGetMasterCatalogQuery({
     role: 'master',
@@ -53,6 +46,11 @@ const MasterCatalogPage = () => {
     city: searchValues.city,
     country: searchValues.country,
     limit,
+    open_to_work: searchValues.open_to_work,
+    relocate: searchValues.relocate,
+    mentor: searchValues.mentor,
+    work_type: searchValues.work_type,
+    rating_order: searchValues.rating,
   });
 
   const loadMoreClick = () => {
@@ -64,9 +62,18 @@ const MasterCatalogPage = () => {
   }, [MasterCatalog]);
 
   const resetFilters = () =>
-    setSearchValues({ name: '', city: '', country: '' });
+    setSearchValues({
+      name: '',
+      city: '',
+      country: '',
+      open_to_work: '',
+      mentor: '',
+      relocate: '',
+      rating: '',
+      work_type: '',
+    });
 
-  const onChangeFilters = (e: ChangeEvent<HTMLInputElement>) =>
+  const onChangeFilters = (e: ChangeEvent<HTMLInputElement> | any) =>
     setSearchValues({ ...searchValues, [e.target.name]: e.target.value });
 
   return (
@@ -109,18 +116,53 @@ const MasterCatalogPage = () => {
           title={t(MASTER_CATALOGUE_MAIN.joinTitle)}
           subtitle={t(MASTER_CATALOGUE_MAIN.joinSubtitle)}
         />
-        <Grid container gap={2} justifyContent="center">
-          {FILTERS.map((el) => (
+        <Grid
+          container
+          gap={1}
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 2, sm: 4, md: 14 }}
+          justifyContent="center"
+        >
+          {FILTERS_CATALOGUE.map((el) => (
             <Grid key={el.name} item xs={8} md={3}>
-              <TextField
-                fullWidth
-                key={el.name}
-                label={t(el.label)}
-                color="secondary"
-                value={searchValues[el.name]}
-                name={el.name}
-                onChange={onChangeFilters}
-              />
+              {el.type === 'text' && (
+                <TextField
+                  fullWidth
+                  key={el.name}
+                  label={t(el.label)}
+                  color="secondary"
+                  value={searchValues[el.name]}
+                  name={el.name}
+                  onChange={onChangeFilters}
+                />
+              )}
+              {el.type === 'select' && (
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">
+                    {el.label}
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={searchValues[el.name]}
+                    name={el.name}
+                    label={el.label}
+                    onChange={onChangeFilters}
+                  >
+                    {el.name === 'work_type'
+                      ? workTypes?.map((workType) => (
+                          <MenuItem value={workType.name}>
+                            {workType.name}
+                          </MenuItem>
+                        ))
+                      : el?.options?.map((option) => (
+                          <MenuItem value={option.value}>
+                            {t(option.name)}
+                          </MenuItem>
+                        ))}
+                  </Select>
+                </FormControl>
+              )}
             </Grid>
           ))}
         </Grid>

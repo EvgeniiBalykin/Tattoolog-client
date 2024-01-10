@@ -174,7 +174,10 @@
     "catalogue": "Katalog",
     "accept_all": "Zaakceptuj wszystkie",
     "decline_all": "Odrzuć wszystkie",
-    "learn_more": "Dowiedz się więcej"
+    "learn_more": "Dowiedz się więcej",
+    "yes": "Tak",
+    "no": "Nie",
+    "none": "Nic"
   },
   "validation": {
     "error_name": "Nieprawidłowe imię",

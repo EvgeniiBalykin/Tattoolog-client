@@ -167,11 +167,17 @@ export interface IBlogPost {
 }
 
 export interface IFestivalPost {
+  about_en: string;
+  about_uk: string;
+  about_pl: string;
+  about_de: string;
+  rules_en: string;
+  rules_uk: string;
+  rules_pl: string;
+  rules_de: string;
   id: number;
   image: string;
   title: string;
-  about: string;
-  rules: string;
   slug: string;
   date_end: Date;
   created_at: Date;
@@ -219,4 +225,15 @@ export interface IUserMark {
   profile: number;
   mark: number;
   comment?: string;
+}
+
+export interface ICatalogueProps {
+  name: string;
+  city: string;
+  country: string;
+  mentor: string;
+  relocate: string;
+  open_to_work: string;
+  rating: string;
+  work_type: string;
 }
