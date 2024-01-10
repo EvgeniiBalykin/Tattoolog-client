@@ -16,7 +16,7 @@ const BlogPostPage = () => {
 
   return (
     <Container maxWidth="lg">
-      <Helmet>
+      <Helmet prioritizeSeoTags>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{post.blog_meta?.meta_title_tag}</title>
         <meta name="description" content={post.blog_meta?.meta_description} />
