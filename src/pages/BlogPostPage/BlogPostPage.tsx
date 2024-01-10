@@ -2,37 +2,13 @@ import { Box, Grid, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { useParams } from 'react-router';
 import { useGetBlogPostQuery } from '@services/toolsApi';
-import React, { useEffect } from 'react';
+import React from 'react';
 import LoadingProcess from '@components/LoadingProcess/LoadingProcess';
+import { Helmet } from 'react-helmet-async';
 
 const BlogPostPage = () => {
   const { slug, id } = useParams<string>();
   const { data: post } = useGetBlogPostQuery({ slug, lang: id });
-
-  useEffect(() => {
-    if (post) {
-      document.title = post.title;
-
-      const setMetaContent = (name: string, content: string) => {
-        const metaElement = document.querySelector(`meta[name="${name}"]`);
-        metaElement?.setAttribute('content', content);
-      };
-
-      const setOgMetaContent = (property: string, content: string) => {
-        const metaElement = document.querySelector(
-          `meta[property="${property}"]`
-        );
-        metaElement?.setAttribute('content', content);
-      };
-
-      setMetaContent('title', post.blog_meta?.meta_title_tag);
-      setMetaContent('description', post.blog_meta?.meta_description);
-      setMetaContent('keywords', post.blog_meta?.meta_keywords);
-      setOgMetaContent('og:title', post.blog_meta?.opengraph_title);
-      setOgMetaContent('og:description', post.blog_meta?.opengraph_description);
-      setOgMetaContent('og:image', post.blog_meta?.opengraph_image);
-    }
-  }, [post]);
 
   if (!post) {
     return <LoadingProcess />;
@@ -40,6 +16,17 @@ const BlogPostPage = () => {
 
   return (
     <Container maxWidth="lg">
+      <Helmet>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{post.blog_meta?.meta_title_tag}</title>
+        <meta name="description" content={post.blog_meta?.meta_description} />
+        <meta name="keywords" content={post.blog_meta?.meta_keywords} />
+        <meta property="og:title" content={post.blog_meta?.opengraph_title} />
+        <meta
+          property="og:description"
+          content={post.blog_meta?.opengraph_description}
+        />
+      </Helmet>
       <Box
         sx={{
           backgroundImage: `url(${post?.image})`,
@@ -98,7 +85,7 @@ const BlogPostPage = () => {
               spacing={2}
             >
               {el?.blog_body_photo.map((el, index) => (
-                <Grid item md={6} xs={8}>
+                <Grid item md={6} xs={8} key={index}>
                   <img
                     style={{
                       width: '100%',
@@ -108,7 +95,6 @@ const BlogPostPage = () => {
                     }}
                     src={el.photo}
                     alt={el.alt_name}
-                    key={index}
                   />
                 </Grid>
               ))}
