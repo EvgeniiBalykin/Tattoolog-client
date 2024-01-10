@@ -1,16 +1,20 @@
 import { useGetFesivalPostsQuery } from '@services/toolsApi';
 import { Grid, Box } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import BlogCard from '@components/BlogCard/BlogCard';
 import SkeletonBlocks from '@components/SkeletonBlocks/SkeletonBlocks';
+import { useSelector } from 'react-redux';
+import { selectLanguage } from '@store/reducers/langSlice';
+import { IFestivalPost } from '@interfaces/index';
 
 const FestivalPosts = () => {
   const [limit, setLimit] = useState(18);
   const [desableButton, setDisableButton] = useState(false);
   const { data: festivals, isLoading } = useGetFesivalPostsQuery(limit);
   const { t } = useTranslation();
+  const { language } = useSelector(selectLanguage);
 
   const loadMoreClick = () => {
     setLimit((prev) => prev + 3);
@@ -19,6 +23,15 @@ const FestivalPosts = () => {
   useEffect(() => {
     festivals?.next ? setDisableButton(false) : setDisableButton(true);
   }, [festivals]);
+
+  const selectLang = useCallback(
+    (festival: IFestivalPost) => {
+      if (language === 'en') return festival.about_en;
+      if (language === 'de') return festival.about_de;
+      if (language === 'pl') return festival.about_pl;
+    },
+    [language]
+  );
 
   return (
     <>
@@ -40,8 +53,9 @@ const FestivalPosts = () => {
               date={festival.created_at}
               image={festival.image}
               title={festival.title}
-              body={festival.about}
+              body={selectLang(festival) || festival.about_en}
               key={festival.id}
+              isBlogPost={false}
             />
           )) || 'Empty'
         )}

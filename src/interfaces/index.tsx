@@ -167,11 +167,17 @@ export interface IBlogPost {
 }
 
 export interface IFestivalPost {
+  about_en: string;
+  about_uk: string;
+  about_pl: string;
+  about_de: string;
+  rules_en: string;
+  rules_uk: string;
+  rules_pl: string;
+  rules_de: string;
   id: number;
   image: string;
   title: string;
-  about: string;
-  rules: string;
   slug: string;
   date_end: Date;
   created_at: Date;
