@@ -46,7 +46,7 @@ const FestivalPosts = () => {
         {isLoading ? (
           <SkeletonBlocks />
         ) : (
-          festivals?.results.map((festival) => (
+          festivals?.results?.map((festival) => (
             <BlogCard
               slug={festival.slug}
               id={festival.id}
