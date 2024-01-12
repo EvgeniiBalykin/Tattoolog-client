@@ -52,7 +52,7 @@ export const toolsApi = createApi({
       query: (limit) => FESTIVAL_POSTS + `?page=1&page_size=${limit}`,
     }),
     getFestivalPost: builder.query<IFestivalPost, string>({
-      query: (id) => `${FESTIVAL_POSTS + id}/`,
+      query: (slug) => FESTIVAL_POSTS + slug,
     }),
     getPartners: builder.query<IPartnersData[], void>({
       query: () => PARTNERS,
