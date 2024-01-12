@@ -65,9 +65,7 @@ const BlogCard: React.FC<IBlogCard> = ({
             variant="outlined"
             fullWidth
             onClick={() =>
-              isBlogPost
-                ? navigate(`${slug}/${language}`)
-                : navigate(`festival/${id}`)
+              isBlogPost ? navigate(`${slug}/${language}`) : navigate(`${slug}`)
             }
           >
             Learn More

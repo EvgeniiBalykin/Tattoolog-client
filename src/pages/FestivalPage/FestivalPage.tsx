@@ -1,6 +1,6 @@
 import { useGetFestivalPostQuery } from '@services/toolsApi';
 import { useParams } from 'react-router';
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { useSelector } from 'react-redux';
 import { selectLanguage } from '@store/reducers/langSlice';
@@ -8,15 +8,24 @@ import { IFestivalPost } from '@interfaces/index';
 import { useCallback } from 'react';
 
 const FestivalPage = () => {
-  const { id } = useParams<{ id: string }>();
-  const { data: festival } = useGetFestivalPostQuery(id || '');
+  const { slug } = useParams<{ slug: string }>();
+  const { data: festival } = useGetFestivalPostQuery(slug as string);
   const { language } = useSelector(selectLanguage);
 
-  const selectLang = useCallback(
+  const selectLangAbout = useCallback(
     (festival: IFestivalPost | undefined) => {
       if (language === 'en') return festival?.about_en;
       if (language === 'de') return festival?.about_de;
       if (language === 'pl') return festival?.about_pl;
+    },
+    [language]
+  );
+
+  const selectRulesAbout = useCallback(
+    (festival: IFestivalPost | undefined) => {
+      if (language === 'en') return festival?.rules_en;
+      if (language === 'de') return festival?.rules_de;
+      if (language === 'pl') return festival?.rules_pl;
     },
     [language]
   );
@@ -46,14 +55,23 @@ const FestivalPage = () => {
           {festival?.title.toUpperCase()}
         </Typography>
       </Box>
-      <Typography
-        variant="h5"
-        textAlign="justify"
-        paddingTop="40px"
-        color="white"
-      >
-        {selectLang(festival)}
-      </Typography>
+      <Box mt={4}>
+        <div
+          style={{ color: 'white' }}
+          dangerouslySetInnerHTML={{ __html: selectLangAbout(festival) || '' }}
+        ></div>
+      </Box>
+      <Box mt={4}>
+        <div
+          style={{ color: 'white' }}
+          dangerouslySetInnerHTML={{ __html: selectRulesAbout(festival) || '' }}
+        ></div>
+      </Box>
+      <Box textAlign="center" mt={4}>
+        <Button color="secondary" variant="contained" href={festival?.form_url}>
+          Link registration
+        </Button>
+      </Box>
     </Container>
   );
 };
