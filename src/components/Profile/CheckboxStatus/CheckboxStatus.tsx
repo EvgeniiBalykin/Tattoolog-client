@@ -13,7 +13,7 @@ import { selectLogin } from '@store/reducers/loginSlice';
 import { ChangeEvent, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-const CHECKBOXES = [
+const CHECKBOXES_MASTER = [
   {
     label: 'Open to work',
     name: 'open_to_work',
@@ -34,18 +34,35 @@ const CHECKBOXES = [
   },
 ];
 
+const CHECKBOXES_STUDIOS = [
+  {
+    label: 'Hiring',
+    name: 'open_to_work',
+    icon: <Work />,
+    disabledIcon: <WorkOutlineTwoTone />,
+  },
+  {
+    label: 'Education',
+    name: 'mentor',
+    icon: <School />,
+    disabledIcon: <SchoolTwoTone />,
+  },
+];
+
 const CheckboxStatus = ({
   isMentor,
   openToWork,
   isRelocate,
   id,
   userAccess,
+  role,
 }: {
   isMentor: boolean;
   openToWork: boolean;
   isRelocate: boolean;
   id: number;
   userAccess: boolean;
+  role?: 'master' | 'salon';
 }) => {
   const [updateProfile] = useUpdateProfileMutation();
   const [checkboxValues, setCheckboxValues] = useState<{
@@ -75,7 +92,7 @@ const CheckboxStatus = ({
 
   return (
     <Box display="flex" justifyContent="space-around">
-      {CHECKBOXES.map((el) => (
+      {(role === 'salon' ? CHECKBOXES_STUDIOS : CHECKBOXES_MASTER).map((el) => (
         <Box display="flex" flexDirection="column" key={el.name}>
           <Checkbox
             size="small"

@@ -50,7 +50,7 @@ const ProfileCard = ({ id }: { id: number }) => {
     country,
     about,
     avatar,
-    average_rating,
+    rating,
     moderation_profile_associate,
   }: IProfileData = profileData;
   const isProAccount = moderation_profile_associate?.some(
@@ -143,7 +143,7 @@ const ProfileCard = ({ id }: { id: number }) => {
               </Typography>
             </Box>
           </Box>
-          <UserRating id={id} rating={Number(average_rating)} />
+          <UserRating id={id} rating={rating} />
           <Box maxWidth={400} display="flex" width="100%" gap={2}>
             <Button variant="outlined" fullWidth href={`tel:${user.username}`}>
               <Phone sx={{ marginRight: 1 }} />
@@ -162,6 +162,7 @@ const ProfileCard = ({ id }: { id: number }) => {
             openToWork={profileData.open_to_work || false}
             isRelocate={profileData.relocate || false}
             userAccess={userAccess}
+            role={user.role}
           />
         </Box>
         {about && (

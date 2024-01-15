@@ -17,7 +17,7 @@ export interface IUserData {
   username?: string;
   password?: string;
   re_password?: string;
-  role?: string;
+  role?: 'master' | 'salon';
   email?: string;
   id?: number;
 }
@@ -40,7 +40,10 @@ export interface IProfileData {
   birthday?: Date | string;
   user: IUserData;
   social_media_profile?: ISocialMedia[];
-  average_rating?: string;
+  rating?: {
+    average_rating: number;
+    count_ratings: number;
+  };
   count_visit?: number;
   moderation_profile_associate?: IAssociate[];
   open_to_work?: boolean;
@@ -229,8 +232,8 @@ export interface IUserMark {
 
 export interface ICatalogueProps {
   name: string;
-  city: string;
-  country: string;
+  city: { value: string; id: number | null };
+  country: { value: string; id: number | null };
   mentor: string;
   relocate: string;
   open_to_work: string;

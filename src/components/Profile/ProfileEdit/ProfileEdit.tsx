@@ -18,11 +18,6 @@ import {
   useUpdateProfileMutation,
 } from '@services/profileApi';
 import {
-  useGetAssociationsTypeQuery,
-  useGetCityQuery,
-  useGetCountryQuery,
-} from '@services/toolsApi';
-import {
   initialState,
   IState,
   MutateResult,
@@ -41,29 +36,8 @@ const ProfileEdit = () => {
   const { data, refetch } = useGetProfileDataQuery(id);
   const [fieldsValue, setFieldsValue] = useState<IState>(initialState);
   const currentDate = new Date().toJSON().slice(0, 10);
-  const [countrySearch, setCountrySearch] = useState('');
-  const [citySearch, setCitySearch] = useState('');
-  const { data: Countries } = useGetCountryQuery(countrySearch);
   const [mutate] = useUpdateProfileMutation();
   const [alertMessage, setAlertMessage] = useState('');
-  const { data: Cities } = useGetCityQuery({
-    country: countrySearch,
-    city: citySearch,
-  });
-  const { data: associationData } = useGetAssociationsTypeQuery();
-  const associateOptions = associationData?.map((el) => ({
-    label: el.name,
-    value: el.id,
-  }));
-
-  const cityOptions = Cities?.results.map((el) => ({
-    label: el.name,
-    value: el.id,
-  }));
-  const countryOptions = Countries?.results.map((el) => ({
-    label: el.name,
-    value: el.id,
-  }));
   const {
     phone_number,
     country,
@@ -195,19 +169,6 @@ const ProfileEdit = () => {
     }
   };
 
-  const switchOptions = (field: string) => {
-    switch (field) {
-      case 'country':
-        return countryOptions;
-      case 'city':
-        return cityOptions;
-      case 'associate':
-        return associateOptions;
-      default:
-        return [];
-    }
-  };
-
   return (
     <Grid item xs={12} md={12} padding={2}>
       {alertMessage && <ErrorAlert error={alertMessage} />}
@@ -218,11 +179,8 @@ const ProfileEdit = () => {
               {field.type === 'select' && (
                 <UniversalSelect
                   field={field}
-                  options={switchOptions(field.name)}
                   fieldsValue={fieldsValue}
                   setFieldsValue={setFieldsValue}
-                  setCountrySearch={setCountrySearch}
-                  setCitySearch={setCitySearch}
                 />
               )}
               {field.type === 'phone' && (
