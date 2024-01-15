@@ -29,7 +29,7 @@ interface ICatalogCardProps {
   city: string;
   country: string;
   about: string;
-  avg_rating: number;
+  rating?: { average_rating: number; count_ratings: number };
   openToWork?: boolean;
   relocate?: boolean;
   mentor?: boolean;
@@ -44,7 +44,7 @@ const CatalogCard = ({
   city,
   country,
   about,
-  avg_rating,
+  rating,
   openToWork,
   relocate,
   association,
@@ -119,7 +119,7 @@ const CatalogCard = ({
             alt="avatar-img"
           />
           <div className="catalog-card-text">
-            <UserRating readOnly rating={avg_rating} />
+            <UserRating readOnly rating={rating} />
             <Typography variant="h3">
               {firstName} {lastName}
             </Typography>

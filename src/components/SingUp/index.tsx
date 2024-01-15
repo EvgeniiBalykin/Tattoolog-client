@@ -95,7 +95,6 @@ export const SingInForm = () => {
             <Controller
               control={control}
               name="role"
-              defaultValue=""
               render={({ field }) => (
                 <FormControl fullWidth>
                   <InputLabel
