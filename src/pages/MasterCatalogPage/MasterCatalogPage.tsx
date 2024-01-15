@@ -204,7 +204,7 @@ const MasterCatalogPage = () => {
               city={master.city}
               country={master.country}
               about={master.about || ''}
-              avg_rating={master.rating?.average_rating || 0}
+              rating={master.rating}
               openToWork={master.open_to_work || false}
               relocate={master.relocate || false}
               mentor={master.mentor || false}
