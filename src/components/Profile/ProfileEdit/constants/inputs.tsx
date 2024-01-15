@@ -60,7 +60,7 @@ export const PROFILE_EDIT_INPUTS: {
     label: 'form.adress',
     type: 'text',
     icon: <LocationOnRounded />,
-    name: 'adress',
+    name: 'address',
   },
   {
     label: 'form.association',
@@ -103,7 +103,7 @@ export interface IState {
   associate?: { value?: string; id?: number | null };
   phone_number?: string;
   birthday?: Date | string;
-  adress?: string;
+  address?: string;
   country?: { value: string; id?: number | null };
   city?: { value: string; id?: number | null };
   about?: string;
@@ -119,7 +119,7 @@ export const initialState: IState = {
   associate: { value: '', id: 0 },
   phone_number: '',
   birthday: '',
-  adress: '',
+  address: '',
   country: { value: '', id: 0 },
   city: { value: '', id: 0 },
   about: '',

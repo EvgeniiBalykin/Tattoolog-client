@@ -46,7 +46,10 @@ const ProfileEdit = () => {
     user,
     social_media_profile,
     moderation_profile_associate,
+    address,
   } = data || {};
+
+  console.log(fieldsValue);
 
   useEffect(() => {
     if (data) {
@@ -63,7 +66,7 @@ const ProfileEdit = () => {
         },
         phone_number,
         birthday: currentDate,
-        adress: '',
+        address: address || '',
         country: {
           value: country?.name || '',
           id: country?.id || null,
@@ -115,6 +118,7 @@ const ProfileEdit = () => {
                 },
               ] || '',
             birthday: fieldsValue.birthday || '',
+            address: fieldsValue.address || '',
             city: {
               name: fieldsValue.city?.value,
               id: fieldsValue.city?.id,
