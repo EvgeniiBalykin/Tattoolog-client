@@ -52,6 +52,7 @@ const ProfileCard = ({ id }: { id: number }) => {
     avatar,
     rating,
     moderation_profile_associate,
+    address,
   }: IProfileData = profileData;
   const isProAccount = moderation_profile_associate?.some(
     (el) => el.status === 'approved'
@@ -140,6 +141,9 @@ const ProfileCard = ({ id }: { id: number }) => {
               </Typography>
               <Typography mt={1} variant="body2">
                 {city?.name && `${city?.name}, ${country?.name}`}
+              </Typography>
+              <Typography mt={1} variant="body2">
+                {address}
               </Typography>
             </Box>
           </Box>

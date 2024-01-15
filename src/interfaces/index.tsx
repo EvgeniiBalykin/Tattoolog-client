@@ -31,6 +31,7 @@ export interface ISocialMedia {
 
 export interface IProfileData {
   about?: string;
+  address?: string;
   avatar?: string;
   salons_and_masters?: [];
   status?: string;
