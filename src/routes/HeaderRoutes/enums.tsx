@@ -11,6 +11,7 @@ export enum HeaderRoutesList {
   ACTIVATION_PAGE = '/activation/:uid/:token',
   PROFILE = 'profile/:id',
   CONTACTS = 'contacts',
+  MAGAZINE = 'magazine',
   ERROR = 'error_page',
   BLOG_POST = 'blog/:slug/:id',
   NEW_PASSWORD = '/reset_password_confirm/:uid/:token',

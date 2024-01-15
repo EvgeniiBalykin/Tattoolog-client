@@ -23,8 +23,9 @@ import {
 import { ICatalogueProps, IProfileData } from '@interfaces/index';
 import { MASTER_CATALOGUE_MAIN, MASTER_CATALOG_ICONS } from './constants';
 import { useTranslation } from 'react-i18next';
-import { FILTERS_CATALOGUE } from '@constants/index';
+import { FILTERS_CATALOGUE_ARTISTS } from '@constants/index';
 import { Helmet } from 'react-helmet-async';
+import UniversalSelect from '@components/UnivesalSelect/UniversalSelect';
 
 const MasterCatalogPage = () => {
   const { t } = useTranslation();
@@ -33,19 +34,19 @@ const MasterCatalogPage = () => {
   const [desableButton, setDisableButton] = useState(false);
   const [searchValues, setSearchValues] = useState<ICatalogueProps>({
     name: '',
-    city: '',
-    country: '',
+    country: { value: '', id: 0 },
+    city: { value: '', id: 0 },
     mentor: '',
     relocate: '',
     open_to_work: '',
     work_type: '',
-    rating: '',
+    rating: 'desc',
   });
   const { data: MasterCatalog, isLoading } = useGetMasterCatalogQuery({
     role: 'master',
     name: searchValues.name,
-    city: searchValues.city,
-    country: searchValues.country,
+    country: searchValues.country.value,
+    city: searchValues.city.value,
     limit,
     open_to_work: searchValues.open_to_work,
     relocate: searchValues.relocate,
@@ -65,12 +66,12 @@ const MasterCatalogPage = () => {
   const resetFilters = () =>
     setSearchValues({
       name: '',
-      city: '',
-      country: '',
+      city: { value: '', id: null },
+      country: { value: '', id: null },
       open_to_work: '',
       mentor: '',
       relocate: '',
-      rating: '',
+      rating: 'desc',
       work_type: '',
     });
 
@@ -135,7 +136,7 @@ const MasterCatalogPage = () => {
           columns={{ xs: 2, sm: 4, md: 14 }}
           justifyContent="center"
         >
-          {FILTERS_CATALOGUE.map((el) => (
+          {FILTERS_CATALOGUE_ARTISTS.map((el) => (
             <Grid key={el.name} item xs={8} md={3}>
               {el.type === 'text' && (
                 <TextField
@@ -148,7 +149,16 @@ const MasterCatalogPage = () => {
                   onChange={onChangeFilters}
                 />
               )}
-              {el.type === 'select' && (
+              {el.isLocation && (
+                <UniversalSelect
+                  field={el}
+                  fieldsValue={searchValues}
+                  setFieldsValue={setSearchValues}
+                  isIcon={false}
+                  size="medium"
+                />
+              )}
+              {el.type === 'select' && !el.isLocation && (
                 <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">
                     {el.label}
@@ -194,7 +204,7 @@ const MasterCatalogPage = () => {
               city={master.city}
               country={master.country}
               about={master.about || ''}
-              avg_rating={master.average_rating || ''}
+              avg_rating={master.rating?.average_rating || 0}
               openToWork={master.open_to_work || false}
               relocate={master.relocate || false}
               mentor={master.mentor || false}

@@ -22,8 +22,6 @@ export const PARTNERS = 'tools/partners/';
 export const RESET_PASSWORD = 'auth/users/reset_password/';
 export const SET_NEW_PASSWORD = 'auth/users/reset_password_confirm/';
 export const SIGNUP_ACTIVATION = 'auth/users/activation/';
-export const GET_AVG_RATING = (id: number) =>
-  `tools/profile/${id}/average-rating`;
 export const UPDATE_RATING = 'tools/rating/';
 export const PORTFOLIO_POST = 'portfolio/post/';
 export const UPDATE_PROFILE_ASSOCIATE =

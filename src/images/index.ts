@@ -22,8 +22,20 @@ import UnknownAvatarImg from '@images/unknownAvatarImg.webp';
 import CustomerLoveImg from '@images/customerLoveImg.webp';
 import StarImg from '@images/starImg.webp';
 import CrownIconImg from '@images/crownIcon.svg';
+import MagazineTitle from '@images/MagazineTitle.webp';
+import MagazineImg_1 from '@images/MagazineImg_1.jpeg';
+import MagazineImg_2 from '@images/MagazineImg_2.jpeg';
+import MagazineImg_3 from '@images/MagazineImg_3.jpeg';
+import MagazineImg_4 from '@images/MagazineImg_4.jpeg';
+import MagazineImg_5 from '@images/MagazineImg_5.jpeg';
 
 export {
+  MagazineImg_1,
+  MagazineImg_2,
+  MagazineImg_3,
+  MagazineImg_4,
+  MagazineImg_5,
+  MagazineTitle,
   AboutImg_1,
   AboutImg_2,
   AddMasterImg,

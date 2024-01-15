@@ -17,6 +17,7 @@ import ContactsPage from '@pages/ContactsPage/ContactsPage';
 import PortfolioPostPage from '@pages/PortfolioPostPage/PortfolioPostPage';
 import MasterCatalogPage from '@pages/MasterCatalogPage/MasterCatalogPage';
 import StudioCatalogPage from '@pages/StudioCatalogPage/StudioCatalogPage';
+import MagazinePage from '@pages/MagazinePage/MagazinePage';
 
 export const HEADER_ROUTES: IRoutes[] = [
   {
@@ -38,6 +39,11 @@ export const HEADER_ROUTES: IRoutes[] = [
     name: 'pages.blog',
     path: HeaderRoutesList.BLOG,
     element: <BlogPage />,
+  },
+  {
+    name: 'pages.magazine',
+    path: HeaderRoutesList.MAGAZINE,
+    element: <MagazinePage />,
   },
   {
     name: 'pages.partners',

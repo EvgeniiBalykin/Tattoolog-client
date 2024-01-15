@@ -1,17 +1,17 @@
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
-import { StarBorder, StarRate } from '@mui/icons-material';
+import { InfoOutlined, StarBorder, StarRate } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
 import {
   useGetProfileDataQuery,
   useUpdateProfileRatingMutation,
 } from '@services/profileApi';
-import { Alert, Snackbar } from '@mui/material';
+import { Alert, Icon, Snackbar, Tooltip } from '@mui/material';
 
 interface IRatingProps {
   readOnly?: boolean;
   id?: number;
-  rating: number | null;
+  rating?: { average_rating: number; count_ratings: number };
 }
 
 const UserRating = ({ readOnly = false, id, rating }: IRatingProps) => {
@@ -48,25 +48,32 @@ const UserRating = ({ readOnly = false, id, rating }: IRatingProps) => {
           </Alert>
         </Snackbar>
       )}
-      <Rating
-        value={rating}
-        onChange={(_, newValue) => markProfile(newValue)}
-        readOnly={readOnly || !!isMarked}
-        precision={0.5}
-        size="large"
-        icon={
-          <StarRate
-            style={{ opacity: 1, color: '#cd7f32' }}
-            fontSize="inherit"
-          />
-        }
-        emptyIcon={
-          <StarBorder
-            style={{ opacity: 1, color: '#cd7f32' }}
-            fontSize="inherit"
-          />
-        }
-      />
+      <Box display="flex" alignItems="center">
+        <Rating
+          value={rating?.average_rating}
+          onChange={(_, newValue) => markProfile(newValue)}
+          readOnly={readOnly || !!isMarked}
+          precision={0.5}
+          size="large"
+          icon={
+            <StarRate
+              style={{ opacity: 1, color: '#cd7f32' }}
+              fontSize="inherit"
+            />
+          }
+          emptyIcon={
+            <StarBorder
+              style={{ opacity: 1, color: '#cd7f32' }}
+              fontSize="inherit"
+            />
+          }
+        />
+        <Tooltip title={`Total marks: ${rating?.count_ratings}`}>
+          <Icon>
+            <InfoOutlined color="disabled" />
+          </Icon>
+        </Tooltip>
+      </Box>
     </Box>
   );
 };
