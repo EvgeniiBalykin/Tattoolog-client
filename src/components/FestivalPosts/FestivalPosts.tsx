@@ -8,6 +8,7 @@ import SkeletonBlocks from '@components/SkeletonBlocks/SkeletonBlocks';
 import { useSelector } from 'react-redux';
 import { selectLanguage } from '@store/reducers/langSlice';
 import { IFestivalPost } from '@interfaces/index';
+import { getDomain } from '@helpers/getDomain';
 
 const FestivalPosts = () => {
   const [limit, setLimit] = useState(18);
@@ -15,6 +16,9 @@ const FestivalPosts = () => {
   const { data: festivals, isLoading } = useGetFesivalPostsQuery(limit);
   const { t } = useTranslation();
   const { language } = useSelector(selectLanguage);
+  const festivalsByCountry = festivals?.results.filter(
+    (festival) => festival.country === getDomain()
+  );
 
   const loadMoreClick = () => {
     setLimit((prev) => prev + 3);
@@ -46,7 +50,7 @@ const FestivalPosts = () => {
         {isLoading ? (
           <SkeletonBlocks />
         ) : (
-          festivals?.results?.map((festival) => (
+          festivalsByCountry?.map((festival) => (
             <BlogCard
               slug={festival.slug}
               id={festival.id}
