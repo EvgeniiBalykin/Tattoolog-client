@@ -49,7 +49,7 @@ const MagazinePage = () => {
               <Button
                 variant="outlined"
                 color="secondary"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSebtdnank0iebeEjSUyERlVJFe0bXRJHC469dQt3ioTjsFXPQ/viewform"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfDF6CvLQFeW72-Klz3EosiFCqGzjNkrJSlQr-r3t0tdWw8Nw/viewform"
                 target="_blank"
               >
                 Buy magazine
@@ -106,7 +106,7 @@ const MagazinePage = () => {
               <Button
                 variant="outlined"
                 color="secondary"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSehzBJsJaPCjbq-Zzpqygzyffj_BbRH8p6h5q47-wHwJa2w4A/viewform"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfPcHjlgpXk1AaCOF9hBiVN3RvXsp9ByoqKeQSW5yDmyifUsQ/viewform"
                 target="_blank"
               >
                 Submission form
