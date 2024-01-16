@@ -33,9 +33,8 @@ const BlogPosts = () => {
         container
         margin="0 auto"
         maxWidth="lg"
-        alignItems="center"
-        alignContent="center"
-        justifyContent="center"
+        justifyContent="start"
+        alignItems="start"
         mb={4}
         data-testid="blog-posts-test"
       >

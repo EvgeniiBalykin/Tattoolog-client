@@ -42,7 +42,8 @@ const FestivalPosts = () => {
       <Grid
         container
         margin="0 auto"
-        justifyContent="space-around"
+        justifyContent="start"
+        alignItems="start"
         maxWidth="lg"
         mb={4}
         data-testid="blog-posts-test"
