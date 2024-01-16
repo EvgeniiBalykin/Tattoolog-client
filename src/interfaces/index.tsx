@@ -186,6 +186,7 @@ export interface IFestivalPost {
   date_end: Date;
   created_at: Date;
   form_url: string;
+  country: string;
 }
 
 export interface IPostData {

@@ -7,6 +7,7 @@ import BlogCard from '@components/BlogCard/BlogCard';
 import { useSelector } from 'react-redux';
 import { selectLanguage } from '@store/reducers/langSlice';
 import SkeletonBlocks from '@components/SkeletonBlocks/SkeletonBlocks';
+import { getDomain } from '@helpers/getDomain';
 
 const BlogPosts = () => {
   const [limit, setLimit] = useState(18);
@@ -14,6 +15,9 @@ const BlogPosts = () => {
   const [disableButton, setDisableButton] = useState(false);
   const { data: posts, isLoading } = useGetBlogPostsQuery({ limit, language });
   const { t } = useTranslation();
+  const postsByCountry = posts?.results.filter(
+    (post) => post.country === getDomain()
+  );
 
   const loadMoreClick = () => {
     setLimit((prev) => prev + 3);
@@ -38,7 +42,7 @@ const BlogPosts = () => {
         {isLoading ? (
           <SkeletonBlocks />
         ) : (
-          posts?.results?.map((post) => (
+          postsByCountry?.map((post) => (
             <BlogCard
               slug={post.slug}
               key={post.id}
