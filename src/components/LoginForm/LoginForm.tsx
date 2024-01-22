@@ -87,7 +87,6 @@ export const LoginForm = () => {
             <Controller
               control={control}
               name="username"
-              // rules={emailValidation}
               render={({ field }) => (
                 <TextField
                   color="secondary"

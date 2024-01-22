@@ -33,16 +33,6 @@ const PartnersSlider = () => {
           {t('pages.partners')}
         </Typography>
         <AliceCarousel
-          // disableDotsControls
-          // autoPlayInterval={1000}
-          // animationDuration={3000}
-          // autoPlay
-          // mouseTracking
-          // animationType="slide"
-          // infinite
-          // disableButtonsControls
-          // autoWidth
-          // items={SliderItems}
           items={SliderItems}
           infinite
           autoPlayInterval={1000}

@@ -16,19 +16,23 @@ const ProfileLinks = ({ profileData }: { profileData: IProfileData }) => {
   return (
     <>
       {social_media_profile?.map((profileLink) => (
-        <Grid
-          className="contact-item"
-          item
-          xs={1}
-          md={1}
-          key={profileLink.social_media_type.name}
-        >
-          <Tooltip title={profileLink.link}>
-            <IconButton target="_blank" href={profileLink.link}>
-              {SOCIAL_MEDIA_ICONS[profileLink.social_media_type.name]}
-            </IconButton>
-          </Tooltip>
-        </Grid>
+        <>
+          {profileLink.link && (
+            <Grid
+              className="contact-item"
+              item
+              xs={1}
+              md={1}
+              key={profileLink.social_media_type.name}
+            >
+              <Tooltip title={profileLink.link}>
+                <IconButton target="_blank" href={profileLink.link}>
+                  {SOCIAL_MEDIA_ICONS[profileLink.social_media_type.name]}
+                </IconButton>
+              </Tooltip>
+            </Grid>
+          )}
+        </>
       ))}
     </>
   );
