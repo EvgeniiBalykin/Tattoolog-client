@@ -14,7 +14,7 @@ import { logoutUser, selectLogin } from '@store/reducers/loginSlice';
 import { useAppDispatch } from '@hooks/redux';
 import './NavDrawer.scss';
 import { selectUser } from '@store/reducers/userSlice';
-import LangSwitcher from '@components/LangSwitcher/LangSwitcher';
+// import LangSwitcher from '@components/LangSwitcher/LangSwitcher';
 import { t } from 'i18next';
 
 const drawerWidth = 240;
@@ -64,7 +64,7 @@ export default function ResponsiveDrawer(props: Props) {
         )}
       </Stack>
       <Divider />
-      <LangSwitcher isSelect={false} />
+      {/* <LangSwitcher isSelect={false} /> */}
       <Stack justifyContent="start" alignItems="start" gap={2}>
         {HEADER_ROUTES.map((route) => (
           <Button
@@ -140,7 +140,7 @@ export default function ResponsiveDrawer(props: Props) {
             to={'/'}
             sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}
           >
-            <img className="logo" src={LogoImg} />
+            <img className="logo" src={LogoImg} width="240px" height="50px" />
           </Box>
         </Toolbar>
       </AppBar>

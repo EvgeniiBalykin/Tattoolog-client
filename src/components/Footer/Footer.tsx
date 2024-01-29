@@ -19,7 +19,7 @@ const Footer = () => {
     <footer className="footer-wrapper">
       <Container maxWidth="lg" className="footer">
         <Box component={Link} to={'/'} mb={2}>
-          <img src={LogoImg} alt="company-logo" width="260px" height="60px" />
+          <img src={LogoImg} alt="company-logo" width="360px" height="90px" />
         </Box>
 
         <Grid

@@ -23,7 +23,7 @@ import { clearUser, selectUser } from '@store/reducers/userSlice';
 import { useState } from 'react';
 import { Logout } from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
-import LangSwitcher from '@components/LangSwitcher/LangSwitcher';
+// import LangSwitcher from '@components/LangSwitcher/LangSwitcher';
 
 export const NavPanel = () => {
   const { t } = useTranslation();
@@ -64,7 +64,7 @@ export const NavPanel = () => {
     >
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box component={Link} to={'/'}>
-          <img src={LogoImg} width="200px" height="40px" />
+          <img src={LogoImg} width="250px" height="60px" />
         </Box>
         <Box
           sx={{
@@ -86,7 +86,7 @@ export const NavPanel = () => {
           ))}
         </Box>
         <Box sx={{ display: 'flex', gap: '10px' }}>
-          <LangSwitcher isSelect={true} />
+          {/* <LangSwitcher isSelect={true} /> */}
           {!token ? (
             LOGIN_ROUTES.map((route) => (
               <Button

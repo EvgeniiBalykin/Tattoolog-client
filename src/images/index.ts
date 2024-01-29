@@ -10,7 +10,7 @@ import FestivalImg from '@images/festivalImg.webp';
 import GlobalReachImg from '@images/globalReachImg.svg';
 import LensImg from '@images/lensImg.webp';
 import LocatorImg from '@images/locatorImg.webp';
-import LogoImg from '@images/logoImg.webp';
+import LogoImg from '@images/logoImg.svg';
 import MainHandImg from '@images/mainHandImg.webp';
 import MasterCatalogueImg from '@images/masterCatalogueImg.webp';
 import OpenExpandImg from '@images/openExpandImg.webp';
