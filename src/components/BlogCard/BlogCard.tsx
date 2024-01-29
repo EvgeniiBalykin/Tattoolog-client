@@ -1,13 +1,17 @@
 import { trimText } from '@helpers/trimText/trimText';
+import { IBlogCategorie } from '@interfaces/index';
 import {
   Box,
   Button,
   Card,
   CardActions,
   CardContent,
+  Chip,
   Grid,
+  Stack,
   Typography,
 } from '@mui/material';
+import { useGetBlogCategoriesQuery } from '@services/toolsApi';
 import { selectLanguage } from '@store/reducers/langSlice';
 import moment from 'moment';
 import React from 'react';
@@ -18,21 +22,23 @@ import './BlogCard.scss';
 export interface IBlogCard {
   id: number;
   image: string;
-  date: Date;
+  created_at: Date;
   title: string;
   body: string;
   slug: string;
   isBlogPost: boolean;
+  category?: IBlogCategorie[];
 }
 
 const BlogCard: React.FC<IBlogCard> = ({
   id,
   image,
-  date,
+  created_at,
   title,
   body,
   slug,
   isBlogPost,
+  category,
 }) => {
   const navigate = useNavigate();
   const { language } = useSelector(selectLanguage);
@@ -42,7 +48,7 @@ const BlogCard: React.FC<IBlogCard> = ({
       <Card className="post-card" sx={{ backgroundImage: `url(${image})` }}>
         <CardContent className="post-card-content">
           <Typography variant="h6" className="post-date" textAlign="end">
-            {moment(date).format('YYYY/MM/DD hh:mm')}
+            {moment(created_at).format('YYYY/MM/DD hh:mm')}
           </Typography>
           <Typography
             gutterBottom
@@ -65,12 +71,23 @@ const BlogCard: React.FC<IBlogCard> = ({
             variant="outlined"
             fullWidth
             onClick={() =>
-              isBlogPost ? navigate(`${slug}/${language}`) : navigate(`${slug}`)
+              isBlogPost
+                ? navigate(`${slug}/${language}`)
+                : navigate(`/festival/${slug}`)
             }
           >
             Learn More
           </Button>
         </CardActions>
+        {isBlogPost ? (
+          <Stack direction="row" spacing={1} zIndex={1} m={1}>
+            {category?.map((el) => (
+              <Chip key={el.id} label={`#${el.name}`} />
+            ))}
+          </Stack>
+        ) : (
+          ''
+        )}
       </Card>
     </Grid>
   );

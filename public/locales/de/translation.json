@@ -136,6 +136,22 @@
       "join": {
         "title": "Bereit, unserem Tattoo-Studio-Katalog beizutreten?",
         "subtitle": "Die Kultgemeinschaft der Tätowierungslegenden - wo Innovation auf Inspiration trifft und Ihren Körper als Leinwand für zeitlose Meisterwerke verwandelt. Tauchen Sie ein in die immersive Welt künstlerischer Abenteuer und schätzen Sie die Gelegenheit, Ihre Haut mit zeitlosen Meisterwerken zu schmücken."
+      },
+      "count": "Menge"
+    },
+    "magazine_page": {
+      "title": "The first magazine in Europe about the world of tattoo industry",
+      "magazine": "Magazine Tattoolog",
+      "get_magazine": "Möchten sie im magazin erscheinen?",
+      "description": "Das Magazin TATTOOLOG erscheint zweimal im Jahr, die Auflage beträgt 10.000 Exemplare, Hardcover, glänzend (zum Beispiel wie Maxim). Das Hauptziel ist die Werbung für Tätowierer und die Branche im Allgemeinen. Außerdem finden Sie darin interessante Artikel. TATTOOLOG wird KOSTENLOS in Europa verteilt. Jeder Künstler und Laden, der im Magazin erscheint, erhält 3 Exemplare. Eine Liste der Orte, an denen unser Magazin erhältlich sein wird, finden Sie auf unserer Website. Die Platzierung von Anzeigen im Magazin ist KOSTENPFLICHTIG, jedoch zum Preis des Drucks. Die Druckerei stellt uns Rechnungen aus, und wir teilen die Kosten auf die Seiten auf, sodass die Platzierung sehr erschwinglich ist. Sie können auch bei der Verteilung des Magazins in Ihrer Stadt helfen.",
+      "prices": {
+        "title": "Anzeigenpreise",
+        "half_page": "Halbe Seite - 20 EUR",
+        "one_page": "Eine Seite - 35 EUR",
+        "u_turn": "U-Turn - 55 EUR",
+        "u_turn_2": "Zwei U-Turns - 90 EUR",
+        "interview": "Interview (eine Seite) - 35 EUR",
+        "card": "Visitenkarte und Skizze - 10 EUR pro Stück"
       }
     },
     "desc_partners": {
@@ -152,6 +168,10 @@
       "partners_title": "Unsere Projekte",
       "title": "Unsere Geschäfte",
       "subtitle": "Als stolzes Mitglied des Verbands der Tätowierkünstler erhalten Sie Zugang zu einem Netzwerk erstklassiger Partner-Shops, die hochwertige Ausrüstung und eine vielfältige Auswahl an Tattoo-Zubehör anbieten. Genießen Sie das Privileg, Ihre Tattoo-Grundausstattung zu speziellen ermäßigten Preisen zu erwerben, exklusiv zugeschnitten auf unsere geschätzten Mitglieder. Unsere Partner-Shops stellen sicher, dass Sie den besten Wert für hochwertige Produkte erhalten. Viel Spaß beim Einkaufen und viel Freude beim Tätowieren!"
+    },
+    "blog_page": {
+      "title": "DIE KUNST DER TINTE ERKUNDEN: EINE REISE IN DIE WELT DER TATTOOS",
+      "subtitle": "Inked Stories: Enthüllung der Bedeutung, Geschichte und Kreativität hinter Tattoos"
     }
   },
   "buttons": {
@@ -175,7 +195,9 @@
     "learn_more": "Erfahre mehr",
     "yes": "Ja",
     "no": "Nein",
-    "none": "Keiner"
+    "none": "Keiner",
+    "submit_form": "Formular abschicken",
+    "buy_magazine": "Magazin kaufen"
   },
   "validation": {
     "error_name": "Ungültiger Name",

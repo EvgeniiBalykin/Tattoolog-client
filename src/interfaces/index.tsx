@@ -70,6 +70,11 @@ export interface IAssociationType {
   link: string;
 }
 
+export interface IBlogCategorie {
+  id: number;
+  name: string;
+}
+
 export type Statuses = 'pending' | 'approved' | 'canceled';
 
 export interface ICatalogData {
@@ -116,6 +121,7 @@ export interface IWorkTypes {
   id: number;
   name: string;
   description: string;
+  category: string;
 }
 
 export interface ISendPost {
@@ -168,6 +174,7 @@ export interface IBlogPost {
     opengraph_image: string;
   };
   blog_photo_carousel: { photo: string }[];
+  category: IBlogCategorie[];
 }
 
 export interface IFestivalPost {
@@ -175,10 +182,10 @@ export interface IFestivalPost {
   about_uk: string;
   about_pl: string;
   about_de: string;
-  rules_en: string;
-  rules_uk: string;
-  rules_pl: string;
-  rules_de: string;
+  rules_en?: string;
+  rules_uk?: string;
+  rules_pl?: string;
+  rules_de?: string;
   id: number;
   image: string;
   title: string;

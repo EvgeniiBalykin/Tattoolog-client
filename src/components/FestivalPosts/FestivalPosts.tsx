@@ -11,14 +11,15 @@ import { IFestivalPost } from '@interfaces/index';
 import { getDomain } from '@helpers/getDomain';
 
 const FestivalPosts = () => {
+  const { language } = useSelector(selectLanguage);
   const [limit, setLimit] = useState(18);
   const [desableButton, setDisableButton] = useState(false);
-  const { data: festivals, isLoading } = useGetFesivalPostsQuery(limit);
+  const { data: festivals, isLoading } = useGetFesivalPostsQuery({
+    limit,
+    country: getDomain(),
+    language,
+  });
   const { t } = useTranslation();
-  const { language } = useSelector(selectLanguage);
-  const festivalsByCountry = festivals?.results.filter(
-    (festival) => festival.country === getDomain()
-  );
 
   const loadMoreClick = () => {
     setLimit((prev) => prev + 3);
@@ -33,6 +34,7 @@ const FestivalPosts = () => {
       if (language === 'en') return festival.about_en;
       if (language === 'de') return festival.about_de;
       if (language === 'pl') return festival.about_pl;
+      if (language === 'ua') return festival.about_uk;
     },
     [language]
   );
@@ -51,13 +53,9 @@ const FestivalPosts = () => {
         {isLoading ? (
           <SkeletonBlocks />
         ) : (
-          festivalsByCountry?.map((festival) => (
+          festivals?.results?.map((festival) => (
             <BlogCard
-              slug={festival.slug}
-              id={festival.id}
-              date={festival.created_at}
-              image={festival.image}
-              title={festival.title}
+              {...festival}
               body={selectLang(festival) || festival.about_en}
               key={festival.id}
               isBlogPost={false}

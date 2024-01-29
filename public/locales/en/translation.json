@@ -138,6 +138,22 @@
       "join": {
         "title": "Ready to Join Our Tattoo Studio Catalogue?",
         "subtitle": "The cult of tattoo legends — where innovation meets inspiration and forever transforms your body canvas. Escape into the immersive realm of artistic odysseys and treasure the opportunity to adorn your skin with timeless masterpieces."
+      },
+      "count": "Count"
+    },
+    "magazine_page": {
+      "title": "The first magazine in Europe about the world of tattoo industry",
+      "magazine": "Magazine Tattoolog",
+      "get_magazine": "Do you want to get into the magazine?",
+      "description": "TATTOOLOG magazine is issued twice a year, the circulation of the magazine is 10000 pieces, hardcover, gloss (for example, Maxim magazine). The main goal of advertising is for craftsmen and the industry as a whole. Plus news and interesting articles. The magazine is distributed in Europe for FREE. Each master and store that will be in the magazine receives 3 copies. A list of places where our magazine will be available on the site. Placement in the magazine is PAID, but at the price of a print run. The printing house invoices us and we divide it into pages, so the placement is very affordable. You can also help with the distribution of the magazine in your city.",
+      "prices": {
+        "title": "Post Price",
+        "half_page": "Half page - 80 PLN",
+        "one_page": "One page - 150 PLN",
+        "u_turn": "U-Turn - 250 PLN",
+        "u_turn_2": "Two U-turns - 400 PLN",
+        "interview": "Interview (one page) - 150 PLN",
+        "card": "Business card and sketch - 30 PLN za 1 sztukę"
       }
     },
     "desc_partners": {
@@ -154,6 +170,10 @@
       "partners_title": "Our Projects",
       "title": "Our Shops",
       "subtitle": " As a proud member of the Association of Tattoo Artists, you gain access to a network of premier partner shops offering top-notch equipment and a diverse range of tattoo supplies. Enjoy the privilege of purchasing your tattoo essentials at special discounted rates, exclusively tailored for our esteemed members. Whether you're restocking essentials or exploring new tools to enhance your craft, our partner shops ensure you get the best value for top-quality products. Happy shopping and happy tattooing!"
+    },
+    "blog_page": {
+      "title": "EXPLORING THE ART OF INK: A JOURNEY INTO THE WORLD OF TATTOOS",
+      "subtitle": "Inked Stories: Unveiling the Meaning, History, and Creativity Behind Tattoos"
     }
   },
   "buttons": {
@@ -177,7 +197,9 @@
     "learn_more": "Learn more",
     "yes": "Yes",
     "no": "No",
-    "none": "None"
+    "none": "None",
+    "submit_form": "Submission form",
+    "buy_magazine": "Buy magazine"
   },
   "validation": {
     "error_name": "Invalid Name",

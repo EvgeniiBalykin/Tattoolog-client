@@ -1,5 +1,16 @@
-import { useGetBlogPostsQuery } from '@services/toolsApi';
-import { Grid, Box } from '@mui/material';
+import {
+  useGetBlogCategoriesQuery,
+  useGetBlogPostsQuery,
+} from '@services/toolsApi';
+import {
+  Grid,
+  Box,
+  FormControl,
+  InputLabel,
+  Select,
+  Chip,
+  Stack,
+} from '@mui/material';
 import { useEffect, useState } from 'react';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
@@ -13,11 +24,16 @@ const BlogPosts = () => {
   const [limit, setLimit] = useState(18);
   const { language } = useSelector(selectLanguage);
   const [disableButton, setDisableButton] = useState(false);
-  const { data: posts, isLoading } = useGetBlogPostsQuery({ limit, language });
+  const [category, setCategory] = useState('');
+  const { data: posts, isLoading } = useGetBlogPostsQuery({
+    limit,
+    language,
+    category,
+    country: getDomain(),
+  });
+  const { data: blogCategories } = useGetBlogCategoriesQuery();
   const { t } = useTranslation();
-  const postsByCountry = posts?.results.filter(
-    (post) => post.country === getDomain()
-  );
+  const postsByCountry = posts?.results;
 
   const loadMoreClick = () => {
     setLimit((prev) => prev + 3);
@@ -29,6 +45,19 @@ const BlogPosts = () => {
 
   return (
     <>
+      <Stack direction="row" spacing={1} mb={2}>
+        {blogCategories?.map((el) => (
+          <Chip
+            color={category === el.name ? 'primary' : 'default'}
+            key={el.id}
+            label={`#${el.name}`}
+            onClick={() =>
+              category === el.name ? setCategory('') : setCategory(el.name)
+            }
+          />
+        ))}
+      </Stack>
+
       <Grid
         container
         margin="0 auto"
@@ -43,14 +72,10 @@ const BlogPosts = () => {
         ) : (
           postsByCountry?.map((post) => (
             <BlogCard
-              slug={post.slug}
-              key={post.id}
-              id={post.id}
-              date={post.created_at}
-              image={post.image}
-              title={post.title}
+              {...post}
               body={post?.blog_body?.length > 0 ? post.blog_body[0].body : ''}
               isBlogPost={true}
+              category={post.category}
             />
           ))
         )}

@@ -17,6 +17,7 @@ const FestivalPage = () => {
       if (language === 'en') return festival?.about_en;
       if (language === 'de') return festival?.about_de;
       if (language === 'pl') return festival?.about_pl;
+      if (language === 'ua') return festival?.about_uk;
     },
     [language]
   );
@@ -26,6 +27,7 @@ const FestivalPage = () => {
       if (language === 'en') return festival?.rules_en;
       if (language === 'de') return festival?.rules_de;
       if (language === 'pl') return festival?.rules_pl;
+      if (language === 'ua') return festival?.rules_uk;
     },
     [language]
   );

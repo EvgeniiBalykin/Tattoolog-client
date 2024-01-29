@@ -56,7 +56,7 @@ const MasterCatalogPage = () => {
   });
 
   const loadMoreClick = () => {
-    setLimit((prev) => prev + 10);
+    setLimit((prev) => prev + 9);
   };
 
   useEffect(() => {
@@ -193,6 +193,13 @@ const MasterCatalogPage = () => {
             {t('buttons.reset_filters')}
           </Button>
         </Box>
+        <Box>
+          <Typography variant="h6" color="#ce93d8">
+            {t('pages.studios_page.count').toUpperCase()}:{' '}
+            {MasterCatalog?.count}
+          </Typography>
+        </Box>
+
         <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           {MasterCatalog?.results.map((master: IProfileData) => (
             <CatalogCard

@@ -17,6 +17,6 @@ export enum HeaderRoutesList {
   NEW_PASSWORD = '/reset_password_confirm/:uid/:token',
   PROFILE_EDIT = 'profile/:id/edit',
   FESTIVALS = 'festivals',
-  FESTIVAL_POST = 'festivals/:slug',
+  FESTIVAL_POST = 'festival/:slug',
   PORTFOLIO_POST = 'post/:id',
 }

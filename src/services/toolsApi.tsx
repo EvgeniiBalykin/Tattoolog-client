@@ -8,9 +8,12 @@ import {
   PARTNERS,
   FESTIVAL_POSTS,
   ASSOCIATION_TYPES,
+  BLOG_CATEGORIES,
+  FESTIVAL_POST,
 } from '@api/index';
 import {
   IAssociationType,
+  IBlogCategorie,
   IBlogPost,
   ICountriesData,
   IFestivalData,
@@ -39,26 +42,38 @@ export const toolsApi = createApi({
           city ? city : ''
         }&page_size=30`,
     }),
-    getBlogPosts: builder.query<IPostData, { limit: number; language: string }>(
-      {
-        query: ({ limit, language }) =>
-          BLOG_POSTS + `?language=${language}&page=1&page_size=${limit}`,
-      }
-    ),
+    getBlogPosts: builder.query<
+      IPostData,
+      { limit: number; language: string; category: string; country: string }
+    >({
+      query: ({ limit, language, category, country }) => ({
+        url: BLOG_POSTS,
+        params: { language, limit, ...(category && { category }), country },
+      }),
+    }),
     getBlogPost: builder.query<IBlogPost, { slug?: string; lang?: string }>({
       query: ({ slug, lang }) => `${BLOG_POST + `${slug || ''}/${lang}`}/`,
     }),
-    getFesivalPosts: builder.query<IFestivalData, number>({
-      query: (limit) => FESTIVAL_POSTS + `?page=1&page_size=${limit}`,
+    getFesivalPosts: builder.query<
+      IFestivalData,
+      { limit: number; country: string; language: string }
+    >({
+      query: ({ limit, country, language }) => ({
+        url: FESTIVAL_POSTS,
+        params: { page: 1, page_size: limit, country, language },
+      }),
     }),
     getFestivalPost: builder.query<IFestivalPost, string>({
-      query: (slug) => FESTIVAL_POSTS + slug,
+      query: (slug) => FESTIVAL_POST + slug,
     }),
     getPartners: builder.query<IPartnersData[], void>({
       query: () => PARTNERS,
     }),
     getAssociationsType: builder.query<IAssociationType[], void>({
       query: () => ASSOCIATION_TYPES,
+    }),
+    getBlogCategories: builder.query<IBlogCategorie[], void>({
+      query: () => BLOG_CATEGORIES,
     }),
   }),
 });
@@ -72,4 +87,5 @@ export const {
   useGetFesivalPostsQuery,
   useGetFestivalPostQuery,
   useGetAssociationsTypeQuery,
+  useGetBlogCategoriesQuery,
 } = toolsApi;

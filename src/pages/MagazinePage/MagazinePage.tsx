@@ -10,6 +10,7 @@ import {
 import { Button, Container, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import AliceCarousel from 'react-alice-carousel';
+import { useTranslation } from 'react-i18next';
 
 const carouselImgs = [
   MagazineImg_1,
@@ -26,10 +27,12 @@ const carouselItems = carouselImgs.map((el) => (
 ));
 
 const MagazinePage = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <MainImageBox
-        title="The first magazine in Europe about the world of tattoo industry"
+        title={t('pages.magazine_page.title')}
         img={MagazineTitle}
       />
       <Container maxWidth="lg">
@@ -40,7 +43,7 @@ const MagazinePage = () => {
         >
           <Grid item md={5} lg={5}>
             <Typography variant="h2" textAlign="center" mb={2}>
-              MAGAZINE TATTOOLOG
+              {t('pages.magazine_page.magazine')}
             </Typography>
             <Box mb={2} maxWidth={400} margin="0 auto">
               <AliceCarousel items={carouselItems} />
@@ -58,46 +61,44 @@ const MagazinePage = () => {
           </Grid>
           <Grid item md={5} lg={6} padding="0 5px">
             <Typography variant="h2" textAlign="center" mb={2}>
-              DO YOU WANT TO GET INTO THE MAGAZINE?
+              {t('pages.magazine_page.get_magazine')}
             </Typography>
             <Typography variant="h4" textAlign="start">
-              TATTOOLOG magazine is issued twice a year, the circulation of the
-              magazine is 10000 pieces, hardcover, gloss (for example, Maxim
-              magazine). The main goal of advertising is for craftsmen and the
-              industry as a whole. Plus news and interesting articles. The
-              magazine is distributed in Europe for FREE. Each master and store
-              that will be in the magazine receives 3 copies. A list of places
-              where our magazine will be available on the site. Placement in the
-              magazine is PAID, but at the price of a print run. The printing
-              house invoices us and we divide it into pages, so the placement is
-              very affordable. You can also help with the distribution of the
-              magazine in your city.
+              {t('pages.magazine_page.description')}
             </Typography>
             <Box mt={2}>
               <ul>
                 <Typography variant="h4" mb={2}>
-                  Post Price:
+                  {t('pages.magazine_page.prices.title')}:
                 </Typography>
                 <li>
-                  <Typography variant="h4">Half page - 80 PLN</Typography>
-                </li>
-                <li>
-                  <Typography variant="h4">One page - 150 PLN</Typography>
-                </li>
-                <li>
-                  <Typography variant="h4">U-Turn - 250 PLN</Typography>
-                </li>
-                <li>
-                  <Typography variant="h4">Two U-turns - 400 PLN</Typography>
-                </li>
-                <li>
                   <Typography variant="h4">
-                    Interview (one page) - 150 PLN
+                    {t('pages.magazine_page.prices.half_page')}
                   </Typography>
                 </li>
                 <li>
                   <Typography variant="h4">
-                    Business card and sketch - 30 PLN for 1 piece
+                    {t('pages.magazine_page.prices.one_page')}
+                  </Typography>
+                </li>
+                <li>
+                  <Typography variant="h4">
+                    {t('pages.magazine_page.prices.u_turn')}
+                  </Typography>
+                </li>
+                <li>
+                  <Typography variant="h4">
+                    {t('pages.magazine_page.prices.u_turn_2')}
+                  </Typography>
+                </li>
+                <li>
+                  <Typography variant="h4">
+                    {t('pages.magazine_page.prices.interview')}
+                  </Typography>
+                </li>
+                <li>
+                  <Typography variant="h4">
+                    {t('pages.magazine_page.prices.card')}
                   </Typography>
                 </li>
               </ul>
