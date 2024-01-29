@@ -11,7 +11,6 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import { useGetBlogCategoriesQuery } from '@services/toolsApi';
 import { selectLanguage } from '@store/reducers/langSlice';
 import moment from 'moment';
 import React from 'react';

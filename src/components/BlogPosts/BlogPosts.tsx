@@ -2,15 +2,7 @@ import {
   useGetBlogCategoriesQuery,
   useGetBlogPostsQuery,
 } from '@services/toolsApi';
-import {
-  Grid,
-  Box,
-  FormControl,
-  InputLabel,
-  Select,
-  Chip,
-  Stack,
-} from '@mui/material';
+import { Grid, Box, Chip, Stack } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
