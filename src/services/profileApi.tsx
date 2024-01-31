@@ -36,6 +36,7 @@ export const profileApi = createApi({
         mentor,
         work_type,
         rating_order,
+        moderation_associate_type,
       }) => ({
         url: `${PROFILES_BY_ROLE}${role}`,
         params: {
@@ -50,6 +51,7 @@ export const profileApi = createApi({
           mentor,
           work_type,
           rating_order,
+          moderation_associate_type,
         },
       }),
     }),

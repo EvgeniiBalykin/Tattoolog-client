@@ -21,15 +21,20 @@ import {
   useGetWorkTypesQuery,
 } from '@services/profileApi';
 import { ICatalogueProps, IProfileData } from '@interfaces/index';
-import { MASTER_CATALOGUE_MAIN, MASTER_CATALOG_ICONS } from './constants';
+import {
+  FILTERS_CATALOGUE_ARTISTS,
+  MASTER_CATALOGUE_MAIN,
+  MASTER_CATALOG_ICONS,
+} from './constants';
 import { useTranslation } from 'react-i18next';
-import { FILTERS_CATALOGUE_ARTISTS } from '@constants/index';
 import UniversalSelect from '@components/UnivesalSelect/UniversalSelect';
+import { useGetAssociationsTypeQuery } from '@services/toolsApi';
 
 const MasterCatalogPage = () => {
   const { t } = useTranslation();
   const [limit, setLimit] = useState<number>(18);
   const { data: workTypes } = useGetWorkTypesQuery();
+  const { data: associationTypes } = useGetAssociationsTypeQuery();
   const [desableButton, setDisableButton] = useState(false);
   const [searchValues, setSearchValues] = useState<ICatalogueProps>({
     name: '',
@@ -40,6 +45,7 @@ const MasterCatalogPage = () => {
     open_to_work: '',
     work_type: '',
     rating: 'desc',
+    moderation_associate_type: '',
   });
   const { data: MasterCatalog, isLoading } = useGetMasterCatalogQuery({
     role: 'master',
@@ -52,6 +58,7 @@ const MasterCatalogPage = () => {
     mentor: searchValues.mentor,
     work_type: searchValues.work_type,
     rating_order: searchValues.rating,
+    moderation_associate_type: searchValues.moderation_associate_type,
   });
 
   const loadMoreClick = () => {
@@ -72,6 +79,7 @@ const MasterCatalogPage = () => {
       relocate: '',
       rating: 'desc',
       work_type: '',
+      moderation_associate_type: '',
     });
 
   const onChangeFilters = (e: ChangeEvent<HTMLInputElement> | any) =>
@@ -148,7 +156,7 @@ const MasterCatalogPage = () => {
               )}
               {el.type === 'select' && !el.isLocation && (
                 <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">
+                  <InputLabel color="secondary" id="demo-simple-select-label">
                     {el.label}
                   </InputLabel>
                   <Select
@@ -156,20 +164,25 @@ const MasterCatalogPage = () => {
                     id="demo-simple-select"
                     value={searchValues[el.name]}
                     name={el.name}
+                    color="secondary"
                     label={el.label}
                     onChange={onChangeFilters}
                   >
-                    {el.name === 'work_type'
-                      ? workTypes?.map((workType) => (
-                          <MenuItem value={workType.name}>
-                            {workType.name}
-                          </MenuItem>
-                        ))
-                      : el?.options?.map((option) => (
-                          <MenuItem value={option.value}>
-                            {t(option.name)}
-                          </MenuItem>
-                        ))}
+                    {el.name === 'work_type' &&
+                      workTypes?.map((workType) => (
+                        <MenuItem value={workType.name}>
+                          {workType.name}
+                        </MenuItem>
+                      ))}
+                    {el.name === 'moderation_associate_type' &&
+                      associationTypes?.map((associationType) => (
+                        <MenuItem value={associationType.name}>
+                          {associationType.name}
+                        </MenuItem>
+                      ))}
+                    {el?.options?.map((option) => (
+                      <MenuItem value={option.value}>{t(option.name)}</MenuItem>
+                    ))}
                   </Select>
                 </FormControl>
               )}

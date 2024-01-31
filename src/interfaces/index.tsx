@@ -248,4 +248,5 @@ export interface ICatalogueProps {
   open_to_work: string;
   rating: string;
   work_type: string;
+  moderation_associate_type: string;
 }
