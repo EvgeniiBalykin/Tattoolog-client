@@ -156,13 +156,14 @@ const StudioCatalogPage = () => {
               )}
               {el.type === 'select' && !el.isLocation && (
                 <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">
+                  <InputLabel color="secondary" id="demo-simple-select-label">
                     {el.label}
                   </InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={searchValues[el.name]}
+                    color="secondary"
                     name={el.name}
                     label={el.label}
                     onChange={onChangeFilters}
