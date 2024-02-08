@@ -34,6 +34,8 @@ const UserRating = ({ readOnly = false, id, rating }: IRatingProps) => {
     setIsMarked(!!localStorage.getItem(String(id)));
   }, [localStorage, id]);
 
+  //To fix: Поправить рейтинг, если оценка 5, то 5 не прожимается
+
   return (
     <Box>
       {!!markedMessage && (

@@ -46,6 +46,8 @@ const MasterCatalogPage = () => {
     work_type: '',
     rating: 'desc',
     moderation_associate_type: '',
+    trusted_mentor: '',
+    posted_in_journal: '',
   });
   const { data: MasterCatalog, isLoading } = useGetMasterCatalogQuery({
     role: 'master',
@@ -59,6 +61,8 @@ const MasterCatalogPage = () => {
     work_type: searchValues.work_type,
     rating_order: searchValues.rating,
     moderation_associate_type: searchValues.moderation_associate_type,
+    trusted_mentor: searchValues.trusted_mentor,
+    posted_in_journal: searchValues.posted_in_journal,
   });
 
   const loadMoreClick = () => {
@@ -80,6 +84,8 @@ const MasterCatalogPage = () => {
       rating: 'desc',
       work_type: '',
       moderation_associate_type: '',
+      trusted_mentor: '',
+      posted_in_journal: '',
     });
 
   const onChangeFilters = (e: ChangeEvent<HTMLInputElement> | any) =>
@@ -128,9 +134,9 @@ const MasterCatalogPage = () => {
         <Grid
           container
           gap={1}
-          spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 2, sm: 4, md: 14 }}
-          justifyContent="center"
+          spacing={{ xs: 1, md: 3 }}
+          columns={{ xs: 2, sm: 4, md: 16 }}
+          justifyContent="start"
         >
           {FILTERS_CATALOGUE_ARTISTS.map((el) => (
             <Grid key={el.name} item xs={8} md={3}>
@@ -170,18 +176,23 @@ const MasterCatalogPage = () => {
                   >
                     {el.name === 'work_type' &&
                       workTypes?.map((workType) => (
-                        <MenuItem value={workType.name}>
+                        <MenuItem key={workType.id} value={workType.name}>
                           {workType.name}
                         </MenuItem>
                       ))}
                     {el.name === 'moderation_associate_type' &&
                       associationTypes?.map((associationType) => (
-                        <MenuItem value={associationType.name}>
+                        <MenuItem
+                          key={associationType.id}
+                          value={associationType.name}
+                        >
                           {associationType.name}
                         </MenuItem>
                       ))}
                     {el?.options?.map((option) => (
-                      <MenuItem value={option.value}>{t(option.name)}</MenuItem>
+                      <MenuItem key={option.value} value={option.value}>
+                        {t(option.name)}
+                      </MenuItem>
                     ))}
                   </Select>
                 </FormControl>

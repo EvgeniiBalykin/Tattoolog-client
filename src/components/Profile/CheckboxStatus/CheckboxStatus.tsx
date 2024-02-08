@@ -1,53 +1,15 @@
-import {
-  School,
-  SchoolTwoTone,
-  TravelExplore,
-  TravelExploreTwoTone,
-  Work,
-  WorkOutlineTwoTone,
-} from '@mui/icons-material';
+import CheckboxIcon from '@components/CheckboxIcon/CheckboxIcon';
 import { Checkbox, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useUpdateProfileMutation } from '@services/profileApi';
 import { selectLogin } from '@store/reducers/loginSlice';
 import { ChangeEvent, useState } from 'react';
 import { useSelector } from 'react-redux';
-
-const CHECKBOXES_MASTER = [
-  {
-    label: 'Open to work',
-    name: 'open_to_work',
-    icon: <Work />,
-    disabledIcon: <WorkOutlineTwoTone />,
-  },
-  {
-    label: 'Mentor',
-    name: 'mentor',
-    icon: <School />,
-    disabledIcon: <SchoolTwoTone />,
-  },
-  {
-    label: 'Open to relocate',
-    name: 'relocate',
-    icon: <TravelExplore />,
-    disabledIcon: <TravelExploreTwoTone />,
-  },
-];
-
-const CHECKBOXES_STUDIOS = [
-  {
-    label: 'Hiring',
-    name: 'open_to_work',
-    icon: <Work />,
-    disabledIcon: <WorkOutlineTwoTone />,
-  },
-  {
-    label: 'Education',
-    name: 'mentor',
-    icon: <School />,
-    disabledIcon: <SchoolTwoTone />,
-  },
-];
+import {
+  CHECKBOXES_MASTER,
+  CHECKBOXES_STUDIOS,
+  ICheckboxProps,
+} from './constants';
 
 const CheckboxStatus = ({
   isMentor,
@@ -56,14 +18,7 @@ const CheckboxStatus = ({
   id,
   userAccess,
   role,
-}: {
-  isMentor: boolean;
-  openToWork: boolean;
-  isRelocate: boolean;
-  id: number;
-  userAccess: boolean;
-  role?: 'master' | 'salon';
-}) => {
+}: ICheckboxProps) => {
   const [updateProfile] = useUpdateProfileMutation();
   const [checkboxValues, setCheckboxValues] = useState<{
     [key: string]: boolean;
@@ -91,28 +46,24 @@ const CheckboxStatus = ({
   };
 
   return (
-    <Box display="flex" justifyContent="space-around">
-      {(role === 'salon' ? CHECKBOXES_STUDIOS : CHECKBOXES_MASTER).map((el) => (
-        <Box display="flex" flexDirection="column" key={el.name}>
-          <Checkbox
-            size="small"
-            icon={el.disabledIcon}
-            checkedIcon={el.icon}
-            color="warning"
-            name={el.name}
-            checked={checkboxValues[el.name]}
-            onChange={userAccess ? onCheckboxChange : () => null}
-            sx={{
-              textAlign: 'center',
-              '& .MuiSvgIcon-root': { fontSize: 28 },
-              width: '40px',
-              margin: '0 auto',
-            }}
-          />
-          <Typography variant="body2">{el.label}</Typography>
-        </Box>
-      ))}
-    </Box>
+    <>
+      <Box display="flex" justifyContent="space-around">
+        {(role === 'salon' ? CHECKBOXES_STUDIOS : CHECKBOXES_MASTER).map(
+          (el) => (
+            <CheckboxIcon
+              key={el.name}
+              icon={el.disabledIcon}
+              checkedIcon={el.icon}
+              name={el.name}
+              checked={checkboxValues[el.name]}
+              onChange={onCheckboxChange}
+              userAccess={userAccess}
+              label={el.label}
+            />
+          )
+        )}
+      </Box>
+    </>
   );
 };
 

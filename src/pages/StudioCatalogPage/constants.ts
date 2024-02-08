@@ -95,4 +95,16 @@ export const FILTERS_CATALOGUE_STUDIOS: {
     label: 'Association',
     type: 'select',
   },
+  {
+    name: 'trusted_mentor',
+    label: 'Trusted mentor',
+    type: 'select',
+    options: DEFAULT_CATALOGUE_OPTIONS,
+  },
+  {
+    name: 'posted_in_journal',
+    label: 'Posted in magazine',
+    type: 'select',
+    options: DEFAULT_CATALOGUE_OPTIONS,
+  },
 ];

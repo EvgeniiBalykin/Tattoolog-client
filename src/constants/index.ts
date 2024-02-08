@@ -11,11 +11,11 @@ export const LANGUAGES: ILanguages[] = [
     country_code: 'en',
     name: 'ENG',
   },
-  {
-    code: 'ua',
-    country_code: 'ua',
-    name: 'UA',
-  },
+  // {
+  //   code: 'ua',
+  //   country_code: 'ua',
+  //   name: 'UA',
+  // },
   {
     code: 'de',
     country_code: 'de',
