@@ -46,9 +46,9 @@ export interface IProfileData {
     count_ratings: number;
   };
   count_visit?: number;
-  trusted_mentor: boolean;
-  posted_in_journal: boolean;
-  moderation_profile_from_project: IAssociate[];
+  trusted_mentor?: boolean;
+  posted_in_journal?: boolean;
+  moderation_profile_from_project?: IAssociate[];
   moderation_profile_associate?: IAssociate[];
   open_to_work?: boolean;
   mentor?: boolean;

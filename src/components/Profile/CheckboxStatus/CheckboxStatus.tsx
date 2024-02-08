@@ -1,5 +1,4 @@
 import CheckboxIcon from '@components/CheckboxIcon/CheckboxIcon';
-import { Checkbox, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useUpdateProfileMutation } from '@services/profileApi';
 import { selectLogin } from '@store/reducers/loginSlice';
