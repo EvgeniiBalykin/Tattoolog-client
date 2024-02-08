@@ -15,9 +15,9 @@ const ProfileLinks = ({ profileData }: { profileData: IProfileData }) => {
 
   return (
     <>
-      {social_media_profile?.map((profileLink) => (
-        <>
-          {profileLink.link && (
+      {social_media_profile?.map(
+        (profileLink) =>
+          profileLink.link && (
             <Grid
               className="contact-item"
               item
@@ -31,9 +31,8 @@ const ProfileLinks = ({ profileData }: { profileData: IProfileData }) => {
                 </IconButton>
               </Tooltip>
             </Grid>
-          )}
-        </>
-      ))}
+          )
+      )}
     </>
   );
 };

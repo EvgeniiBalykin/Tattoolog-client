@@ -1,4 +1,11 @@
-import { AddPhotoAlternate, Email, Phone, Settings } from '@mui/icons-material';
+import {
+  AddPhotoAlternate,
+  Email,
+  ImportContactsRounded,
+  Phone,
+  Settings,
+  ThumbUpRounded,
+} from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -6,7 +13,9 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  Icon,
   IconButton,
+  Tooltip,
   Typography,
 } from '@mui/material';
 import './ProfileCard.scss';
@@ -104,6 +113,7 @@ const ProfileCard = ({ id }: { id: number }) => {
             </IconButton>
           )}
         </div>
+
         <CardContent className="card-content">
           <div className="profile-tools">
             {userAccess && (
@@ -147,6 +157,22 @@ const ProfileCard = ({ id }: { id: number }) => {
               </Typography>
             </Box>
           </Box>
+          <div className="achive-icons">
+            {profileData.trusted_mentor && (
+              <Tooltip title="The moderation team at Tattoolog has recognized you as a trusted artist.">
+                <Icon className="icon">
+                  <ThumbUpRounded />
+                </Icon>
+              </Tooltip>
+            )}
+            {profileData.posted_in_journal && (
+              <Tooltip title="Tattoolog's moderation has acknowledged that you have been featured in a magazine.">
+                <Icon className="icon">
+                  <ImportContactsRounded />
+                </Icon>
+              </Tooltip>
+            )}
+          </div>
           <UserRating id={id} rating={rating} />
           <Box maxWidth={400} display="flex" width="100%" gap={2}>
             <Button variant="outlined" fullWidth href={`tel:${user.username}`}>

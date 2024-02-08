@@ -21,15 +21,20 @@ import {
   useGetWorkTypesQuery,
 } from '@services/profileApi';
 import { ICatalogueProps, IProfileData } from '@interfaces/index';
-import { STUDIO_CATALOG_ICONS, SALON_CATALOGUE_MAIN } from './constants';
+import {
+  STUDIO_CATALOG_ICONS,
+  SALON_CATALOGUE_MAIN,
+  FILTERS_CATALOGUE_STUDIOS,
+} from './constants';
 import { useTranslation } from 'react-i18next';
-import { FILTERS_CATALOGUE_STUDIOS } from '@constants/index';
 import UniversalSelect from '@components/UnivesalSelect/UniversalSelect';
+import { useGetAssociationsTypeQuery } from '@services/toolsApi';
 
-const MasterCatalogPage = () => {
+const StudioCatalogPage = () => {
   const { t } = useTranslation();
   const [limit, setLimit] = useState<number>(18);
   const { data: workTypes } = useGetWorkTypesQuery();
+  const { data: associationTypes } = useGetAssociationsTypeQuery();
   const [desableButton, setDisableButton] = useState(false);
   const [searchValues, setSearchValues] = useState<ICatalogueProps>({
     name: '',
@@ -40,6 +45,9 @@ const MasterCatalogPage = () => {
     open_to_work: '',
     work_type: '',
     rating: 'desc',
+    moderation_associate_type: '',
+    trusted_mentor: '',
+    posted_in_journal: '',
   });
   const { data: MasterCatalog, isLoading } = useGetMasterCatalogQuery({
     role: 'salon',
@@ -52,6 +60,9 @@ const MasterCatalogPage = () => {
     mentor: searchValues.mentor,
     work_type: searchValues.work_type,
     rating_order: searchValues.rating,
+    moderation_associate_type: searchValues.moderation_associate_type,
+    trusted_mentor: searchValues.trusted_mentor,
+    posted_in_journal: searchValues.posted_in_journal,
   });
 
   const loadMoreClick = () => {
@@ -72,6 +83,9 @@ const MasterCatalogPage = () => {
       relocate: '',
       rating: 'desc',
       work_type: '',
+      moderation_associate_type: '',
+      trusted_mentor: '',
+      posted_in_journal: '',
     });
 
   const onChangeFilters = (e: ChangeEvent<HTMLInputElement> | any) =>
@@ -120,9 +134,9 @@ const MasterCatalogPage = () => {
         <Grid
           container
           gap={1}
-          spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 2, sm: 4, md: 14 }}
-          justifyContent="center"
+          spacing={{ xs: 1, md: 3 }}
+          columns={{ xs: 2, sm: 4, md: 16 }}
+          justifyContent="start"
         >
           {FILTERS_CATALOGUE_STUDIOS.map((el) => (
             <Grid key={el.name} item xs={8} md={3}>
@@ -148,28 +162,38 @@ const MasterCatalogPage = () => {
               )}
               {el.type === 'select' && !el.isLocation && (
                 <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">
+                  <InputLabel color="secondary" id="demo-simple-select-label">
                     {el.label}
                   </InputLabel>
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={searchValues[el.name]}
+                    color="secondary"
                     name={el.name}
                     label={el.label}
                     onChange={onChangeFilters}
                   >
-                    {el.name === 'work_type'
-                      ? workTypes?.map((workType) => (
-                          <MenuItem value={workType.name}>
-                            {workType.name}
-                          </MenuItem>
-                        ))
-                      : el?.options?.map((option) => (
-                          <MenuItem value={option.value}>
-                            {t(option.name)}
-                          </MenuItem>
-                        ))}
+                    {el.name === 'work_type' &&
+                      workTypes?.map((workType) => (
+                        <MenuItem key={workType.id} value={workType.name}>
+                          {workType.name}
+                        </MenuItem>
+                      ))}
+                    {el.name === 'moderation_associate_type' &&
+                      associationTypes?.map((associationType) => (
+                        <MenuItem
+                          key={associationType.id}
+                          value={associationType.name}
+                        >
+                          {associationType.name}
+                        </MenuItem>
+                      ))}
+                    {el?.options?.map((option) => (
+                      <MenuItem key={option.name} value={option.value}>
+                        {t(option.name)}
+                      </MenuItem>
+                    ))}
                   </Select>
                 </FormControl>
               )}
@@ -223,4 +247,4 @@ const MasterCatalogPage = () => {
   );
 };
 
-export default MasterCatalogPage;
+export default StudioCatalogPage;

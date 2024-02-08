@@ -4,18 +4,14 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import i18next from 'i18next';
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
-import { LANGUAGES, LANGUAGE_LOCAL_STORAGE_KEY } from '@constants/index';
+import { LANGUAGES } from '@constants/index';
 import { saveSelectedLanguage } from '../../i18n';
 import { setLanguage } from '@store/reducers/langSlice';
 import { useDispatch } from 'react-redux';
-import { getDomain } from '@helpers/getDomain';
 
 const LangSwitcher = ({ isSelect }: { isSelect: boolean }) => {
-  const initialLang = localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY);
   const dispatch = useDispatch();
-  const [selectedLanguage, setSelectedLanguage] = useState(
-    initialLang || getDomain() || 'en'
-  );
+  const [selectedLanguage, setSelectedLanguage] = useState('ua');
 
   const handleChange = (event: any) => {
     const newLanguage = event.target.value as string;
