@@ -28,7 +28,10 @@ const WorkersSelect = ({
 }) => {
   const [open, setOpen] = useState(false);
   const [company, setCompany] = useState<number[]>([]);
-  const { data: salons } = useGetMasterCatalogQuery({ role: 'salon' });
+  const { data: salons } = useGetMasterCatalogQuery({
+    role: 'salon',
+    limit: '',
+  });
   const [mutate] = useUpdateProfileMutation();
   const { id } = useSelector(selectUser);
   const { token } = useSelector(selectLogin);
@@ -57,9 +60,11 @@ const WorkersSelect = ({
   };
 
   const nameOfCompany = (id: number) => {
-    const salon = salons?.results.filter((salon) => salon.user?.id === id);
-    if (salon) {
-      return `${salon[0]?.user?.first_name} ${salon[0]?.user?.last_name}`;
+    if (id) {
+      const salon = salons?.results.filter((salon) => salon.user?.id === id);
+      if (salon) {
+        return `${salon[0]?.user?.first_name} ${salon[0]?.user?.last_name}`;
+      }
     } else {
       return '';
     }
