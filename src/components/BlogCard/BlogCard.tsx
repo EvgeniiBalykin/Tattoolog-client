@@ -60,7 +60,7 @@ const BlogCard: React.FC<IBlogCard> = ({
           <Box
             mt={3}
             sx={{ color: 'white' }}
-            dangerouslySetInnerHTML={{ __html: trimText(body, 250) }}
+            dangerouslySetInnerHTML={{ __html: trimText(body, 150) }}
           />
         </CardContent>
         <CardActions className="post-card-actions">
