@@ -63,21 +63,22 @@ const BlogCard: React.FC<IBlogCard> = ({
             dangerouslySetInnerHTML={{ __html: trimText(body, 150) }}
           />
         </CardContent>
-        <CardActions className="post-card-actions">
-          <Button
-            size="small"
-            color="secondary"
-            variant="outlined"
-            fullWidth
-            onClick={() =>
-              isBlogPost
-                ? navigate(`${slug}/${language}`)
-                : navigate(`/festival/${slug}`)
-            }
-          >
-            Learn More
-          </Button>
-        </CardActions>
+        {/* <CardActions className="post-card-actions"> */}
+        <Button
+          size="small"
+          color="secondary"
+          variant="outlined"
+          sx={{ position: 'relative', zIndex: 1 }}
+          fullWidth
+          onClick={() =>
+            isBlogPost
+              ? navigate(`${slug}/${language}`)
+              : navigate(`/festival/${slug}`)
+          }
+        >
+          Learn More
+        </Button>
+        {/* </CardActions> */}
         {isBlogPost ? (
           <Stack direction="row" spacing={1} zIndex={1} m={1}>
             {category?.map((el) => (
