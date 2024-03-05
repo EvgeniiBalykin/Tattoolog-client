@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   Card,
-  CardActions,
   CardContent,
   Chip,
   Grid,
@@ -45,49 +44,59 @@ const BlogCard: React.FC<IBlogCard> = ({
   return (
     <Grid key={id} item lg={4} md={5} mb={2} data-testid="post-item-test">
       <Card className="post-card" sx={{ backgroundImage: `url(${image})` }}>
-        <CardContent className="post-card-content">
-          <Typography variant="h6" className="post-date" textAlign="end">
+        <CardContent
+          className="post-card-content"
+          sx={{ position: 'relative', zIndex: 1, color: 'white' }}
+        >
+          <Typography variant="h6" mb={2} textAlign="end">
             {moment(created_at).format('YYYY/MM/DD hh:mm')}
           </Typography>
+
           <Typography
             gutterBottom
             variant="h5"
-            className="post-title"
+            fontStyle="italic"
+            fontWeight="bold"
+            color="lightgray"
+            textAlign="center"
+            mb={1}
+            mt={12}
+            // className="post-title"
             component="div"
           >
             {title.toUpperCase()}
           </Typography>
-          <Box
+          {/* <Box
             mt={3}
             sx={{ color: 'white' }}
             dangerouslySetInnerHTML={{ __html: trimText(body, 150) }}
-          />
+          /> */}
         </CardContent>
-        {/* <CardActions className="post-card-actions"> */}
-        <Button
-          size="small"
-          color="secondary"
-          variant="outlined"
-          sx={{ position: 'relative', zIndex: 1 }}
-          fullWidth
-          onClick={() =>
-            isBlogPost
-              ? navigate(`${slug}/${language}`)
-              : navigate(`/festival/${slug}`)
-          }
-        >
-          Learn More
-        </Button>
-        {/* </CardActions> */}
-        {isBlogPost ? (
-          <Stack direction="row" spacing={1} zIndex={1} m={1}>
-            {category?.map((el) => (
-              <Chip key={el.id} label={`#${el.name}`} />
-            ))}
-          </Stack>
-        ) : (
-          ''
-        )}
+
+        <Box sx={{ position: 'relative', zIndex: 1 }}>
+          {isBlogPost ? (
+            <Stack direction="row" spacing={1} zIndex={1} m={1}>
+              {category?.map((el) => (
+                <Chip key={el.id} label={`#${el.name}`} />
+              ))}
+            </Stack>
+          ) : (
+            ''
+          )}
+          <Button
+            size="small"
+            color="secondary"
+            variant="outlined"
+            fullWidth
+            onClick={() =>
+              isBlogPost
+                ? navigate(`${slug}/${language}`)
+                : navigate(`/festival/${slug}`)
+            }
+          >
+            Learn More
+          </Button>
+        </Box>
       </Card>
     </Grid>
   );
