@@ -1,4 +1,3 @@
-import { trimText } from '@helpers/trimText/trimText';
 import { IBlogCategorie } from '@interfaces/index';
 import {
   Box,
@@ -22,7 +21,6 @@ export interface IBlogCard {
   image: string;
   created_at: Date;
   title: string;
-  body: string;
   slug: string;
   isBlogPost: boolean;
   category?: IBlogCategorie[];
@@ -33,7 +31,6 @@ const BlogCard: React.FC<IBlogCard> = ({
   image,
   created_at,
   title,
-  body,
   slug,
   isBlogPost,
   category,

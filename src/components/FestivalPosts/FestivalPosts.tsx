@@ -1,13 +1,12 @@
 import { useGetFesivalPostsQuery } from '@services/toolsApi';
 import { Grid, Box } from '@mui/material';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LoadingButton } from '@mui/lab';
 import { useTranslation } from 'react-i18next';
 import BlogCard from '@components/BlogCard/BlogCard';
 import SkeletonBlocks from '@components/SkeletonBlocks/SkeletonBlocks';
 import { useSelector } from 'react-redux';
 import { selectLanguage } from '@store/reducers/langSlice';
-import { IFestivalPost } from '@interfaces/index';
 import { getDomain } from '@helpers/getDomain';
 
 const FestivalPosts = () => {
@@ -29,15 +28,15 @@ const FestivalPosts = () => {
     festivals?.next ? setDisableButton(false) : setDisableButton(true);
   }, [festivals]);
 
-  const selectLang = useCallback(
-    (festival: IFestivalPost) => {
-      if (language === 'en') return festival.about_en;
-      if (language === 'de') return festival.about_de;
-      if (language === 'pl') return festival.about_pl;
-      if (language === 'ua') return festival.about_uk;
-    },
-    [language]
-  );
+  // const selectLang = useCallback(
+  //   (festival: IFestivalPost) => {
+  //     if (language === 'en') return festival.about_en;
+  //     if (language === 'de') return festival.about_de;
+  //     if (language === 'pl') return festival.about_pl;
+  //     if (language === 'ua') return festival.about_uk;
+  //   },
+  //   [language]
+  // );
 
   return (
     <>
@@ -54,12 +53,7 @@ const FestivalPosts = () => {
           <SkeletonBlocks />
         ) : (
           festivals?.results?.map((festival) => (
-            <BlogCard
-              {...festival}
-              body={selectLang(festival) || festival.about_en}
-              key={festival.id}
-              isBlogPost={false}
-            />
+            <BlogCard {...festival} key={festival.id} isBlogPost={false} />
           )) || 'Empty'
         )}
       </Grid>

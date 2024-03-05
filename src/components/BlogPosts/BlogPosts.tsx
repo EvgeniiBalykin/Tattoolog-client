@@ -63,12 +63,7 @@ const BlogPosts = () => {
           <SkeletonBlocks />
         ) : (
           postsByCountry?.map((post) => (
-            <BlogCard
-              {...post}
-              body={post?.blog_body?.length > 0 ? post.blog_body[0].body : ''}
-              isBlogPost={true}
-              category={post.category}
-            />
+            <BlogCard {...post} isBlogPost={true} category={post.category} />
           ))
         )}
       </Grid>
