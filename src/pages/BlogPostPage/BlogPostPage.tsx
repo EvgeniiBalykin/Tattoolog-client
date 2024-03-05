@@ -4,26 +4,11 @@ import { useParams } from 'react-router';
 import { useGetBlogPostQuery } from '@services/toolsApi';
 import React from 'react';
 import LoadingProcess from '@components/LoadingProcess/LoadingProcess';
+import { Helmet } from 'react-helmet';
 
 const BlogPostPage = () => {
   const { slug, id } = useParams<string>();
   const { data: post } = useGetBlogPostQuery({ slug, lang: id });
-
-  // useEffect(() => {
-  //   if (post) {
-  //     document.head.innerHTML += `
-  //     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  //     <title>${post.blog_meta?.meta_title_tag}</title>
-  //     <meta name="description" content=${post.blog_meta?.meta_description} />
-  //     <meta name="keywords" content=${post.blog_meta?.meta_keywords} />
-  //     <meta property="og:title" content=${post.blog_meta?.opengraph_title} />
-  //     <meta
-  //       property="og:description"
-  //       content=${post.blog_meta?.opengraph_description}
-  //     />
-  //     `;
-  //   }
-  // }, [post]);
 
   if (!post) {
     return <LoadingProcess />;
@@ -31,6 +16,19 @@ const BlogPostPage = () => {
 
   return (
     <Container maxWidth="lg">
+      <Helmet>
+        <title>Blog</title>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content={post.blog_meta.meta_description} />
+        <meta name="keywords" content={post.blog_meta.meta_keywords} />
+        <meta property="og:title" content={post.blog_meta.opengraph_title} />
+        <meta
+          property="og:description"
+          content={post.blog_meta.opengraph_description}
+        />
+        <meta property="og:image" content={post.blog_meta.opengraph_image} />
+      </Helmet>
       <Box
         sx={{
           backgroundImage: `url(${post?.image})`,
