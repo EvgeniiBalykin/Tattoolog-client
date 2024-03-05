@@ -2,28 +2,28 @@ import { Box, Grid, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { useParams } from 'react-router';
 import { useGetBlogPostQuery } from '@services/toolsApi';
-import React, { useEffect } from 'react';
+import React from 'react';
 import LoadingProcess from '@components/LoadingProcess/LoadingProcess';
 
 const BlogPostPage = () => {
   const { slug, id } = useParams<string>();
   const { data: post } = useGetBlogPostQuery({ slug, lang: id });
 
-  useEffect(() => {
-    if (post) {
-      document.head.innerHTML += `
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>${post.blog_meta?.meta_title_tag}</title>
-      <meta name="description" content=${post.blog_meta?.meta_description} />
-      <meta name="keywords" content=${post.blog_meta?.meta_keywords} />
-      <meta property="og:title" content=${post.blog_meta?.opengraph_title} />
-      <meta
-        property="og:description"
-        content=${post.blog_meta?.opengraph_description}
-      />
-      `;
-    }
-  }, [post]);
+  // useEffect(() => {
+  //   if (post) {
+  //     document.head.innerHTML += `
+  //     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  //     <title>${post.blog_meta?.meta_title_tag}</title>
+  //     <meta name="description" content=${post.blog_meta?.meta_description} />
+  //     <meta name="keywords" content=${post.blog_meta?.meta_keywords} />
+  //     <meta property="og:title" content=${post.blog_meta?.opengraph_title} />
+  //     <meta
+  //       property="og:description"
+  //       content=${post.blog_meta?.opengraph_description}
+  //     />
+  //     `;
+  //   }
+  // }, [post]);
 
   if (!post) {
     return <LoadingProcess />;
