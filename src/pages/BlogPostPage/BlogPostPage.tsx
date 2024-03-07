@@ -20,9 +20,15 @@ const BlogPostPage = () => {
       <Helmet>
         <title>Blog</title>
         <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content={post.blog_meta.meta_description} />
-        <meta name="keywords" content={post.blog_meta.meta_keywords} />
+        <meta
+          property="viewport"
+          content="width=device-width, initial-scale=1.0"
+        />
+        <meta
+          property="description"
+          content={post.blog_meta.meta_description}
+        />
+        <meta property="keywords" content={post.blog_meta.meta_keywords} />
         <meta property="og:title" content={post.blog_meta.opengraph_title} />
         <meta
           property="og:description"
