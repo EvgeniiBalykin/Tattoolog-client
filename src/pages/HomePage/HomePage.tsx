@@ -5,7 +5,6 @@ import {
   PartnersSlider,
   MainImageBox,
 } from '@components/Home';
-import { MainHandImg } from '@images/index';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import { HOME_IMAGE_BOX } from './contants';
@@ -33,7 +32,7 @@ export const HomePage = () => {
         <meta property="og:description" content="Discover tattoo world now!" />
         <meta property="og:type" content="main" />
         <meta property="og:url" content={currentUrl} />
-        <meta property="og:image" content={MainHandImg} />
+        <meta property="og:image" content="/tattolog.ico" />
       </Helmet>
       <MainImageBox
         title={t(HOME_IMAGE_BOX.title)}
