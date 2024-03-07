@@ -35,7 +35,7 @@ export const HomePage = () => {
         <meta property="og:url" content={currentUrl} />
         <meta
           property="og:image"
-          content={'https://tattoolog.pl/' + MainHandImg}
+          content={`https://tattoolog.pl${MainHandImg}`}
         />
       </Helmet>
       <MainImageBox
