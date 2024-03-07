@@ -9,6 +9,7 @@ import { Helmet } from 'react-helmet';
 const BlogPostPage = () => {
   const { slug, id } = useParams<string>();
   const { data: post } = useGetBlogPostQuery({ slug, lang: id });
+  const currentUrl = window.location.href;
 
   if (!post) {
     return <LoadingProcess />;
@@ -27,6 +28,8 @@ const BlogPostPage = () => {
           property="og:description"
           content={post.blog_meta.opengraph_description}
         />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={currentUrl} />
         <meta property="og:image" content={post.blog_meta.opengraph_image} />
       </Helmet>
       <Box

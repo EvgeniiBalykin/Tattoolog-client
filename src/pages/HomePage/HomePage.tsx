@@ -8,11 +8,14 @@ import {
 import { MainHandImg } from '@images/index';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router';
 import { HOME_IMAGE_BOX } from './contants';
 import './HomePage.scss';
 
 export const HomePage = () => {
   const { t } = useTranslation();
+  const currentUrl = window.location.href;
+
   return (
     <>
       <Helmet>
@@ -29,6 +32,8 @@ export const HomePage = () => {
         />
         <meta property="og:title" content="Tattoolog" />
         <meta property="og:description" content="Discover tattoo world now!" />
+        <meta property="og:type" content="main" />
+        <meta property="og:url" content={currentUrl} />
         <meta property="og:image" content={MainHandImg} />
       </Helmet>
       <MainImageBox
