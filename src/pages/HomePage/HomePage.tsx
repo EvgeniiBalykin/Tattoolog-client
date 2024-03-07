@@ -8,7 +8,6 @@ import {
 import { MainHandImg } from '@images/index';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router';
 import { HOME_IMAGE_BOX } from './contants';
 import './HomePage.scss';
 
