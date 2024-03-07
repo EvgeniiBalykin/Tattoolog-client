@@ -30,6 +30,7 @@ const BlogPostPage = () => {
         />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={currentUrl} />
+        <meta property="og:site_name" content="Tattoolog" />
         <meta property="og:image" content={post.blog_meta.opengraph_image} />
       </Helmet>
       <Box
