@@ -15,6 +15,7 @@ const BlogPostPage = () => {
     return <LoadingProcess />;
   }
 
+  console.log(post.blog_meta);
   return (
     <Container maxWidth="lg">
       <Helmet>
