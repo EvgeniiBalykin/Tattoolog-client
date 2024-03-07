@@ -15,7 +15,6 @@ const BlogPostPage = () => {
     return <LoadingProcess />;
   }
 
-  console.log(post.blog_meta);
   return (
     <Container maxWidth="lg">
       <Helmet>
@@ -30,7 +29,7 @@ const BlogPostPage = () => {
           content={post.blog_meta.meta_description}
         />
         <meta property="keywords" content={post.blog_meta.meta_keywords} />
-        <meta property="og:title" content={post.blog_meta.opengraph_title} />
+        <meta property="og:title" content={slug} />
         <meta
           property="og:description"
           content={post.blog_meta.opengraph_description}
