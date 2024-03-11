@@ -33,13 +33,13 @@ export interface IProfileData {
   about?: string;
   address?: string;
   avatar?: string;
-  salons_and_masters?: [];
+  salons_and_masters?: number[];
   status?: string;
   country?: any;
   phone_number?: string;
   city?: any;
   birthday?: Date | string;
-  user: IUserData;
+  user?: IUserData;
   social_media_profile?: ISocialMedia[];
   rating?: {
     average_rating: number;

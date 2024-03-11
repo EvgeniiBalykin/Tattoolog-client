@@ -11,6 +11,7 @@ import './HomePage.scss';
 
 export const HomePage = () => {
   const { t } = useTranslation();
+
   return (
     <>
       <MainImageBox

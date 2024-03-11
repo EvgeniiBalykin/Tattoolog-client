@@ -4,11 +4,12 @@ import { useParams } from 'react-router';
 import { useGetBlogPostQuery } from '@services/toolsApi';
 import React from 'react';
 import LoadingProcess from '@components/LoadingProcess/LoadingProcess';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 
 const BlogPostPage = () => {
   const { slug, id } = useParams<string>();
   const { data: post } = useGetBlogPostQuery({ slug, lang: id });
+  const currentUrl = window.location.href;
 
   if (!post) {
     return <LoadingProcess />;
@@ -16,16 +17,27 @@ const BlogPostPage = () => {
 
   return (
     <Container maxWidth="lg">
-      <Helmet prioritizeSeoTags>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{post.blog_meta?.meta_title_tag}</title>
-        <meta name="description" content={post.blog_meta?.meta_description} />
-        <meta name="keywords" content={post.blog_meta?.meta_keywords} />
-        <meta property="og:title" content={post.blog_meta?.opengraph_title} />
+      <Helmet>
+        <title>Blog</title>
+        <meta charSet="UTF-8" />
+        <meta
+          property="viewport"
+          content="width=device-width, initial-scale=1.0"
+        />
+        <meta
+          property="description"
+          content={post.blog_meta.meta_description}
+        />
+        <meta property="keywords" content={post.blog_meta.meta_keywords} />
+        <meta property="og:title" content={slug} />
         <meta
           property="og:description"
-          content={post.blog_meta?.opengraph_description}
+          content={post.blog_meta.opengraph_description}
         />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={currentUrl} />
+        <meta property="og:site_name" content="Tattoo UA" />
+        <meta property="og:image" content={post.blog_meta.opengraph_image} />
       </Helmet>
       <Box
         sx={{

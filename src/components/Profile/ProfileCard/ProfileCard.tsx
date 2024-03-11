@@ -36,6 +36,7 @@ import ChangePhotoBtn from '../ChangePhotoBtn/ChangePhotoBtn';
 import CheckboxStatus from '../CheckboxStatus/CheckboxStatus';
 import ProfileLinks from '../ProfileLinks/ProfileLinks';
 import LoadingProcess from '@components/LoadingProcess/LoadingProcess';
+import WorkersSelect from '@components/WorkersSelect/WorkersSelect';
 
 const ProfileCard = ({ id }: { id: number }) => {
   const { t } = useTranslation();
@@ -144,6 +145,7 @@ const ProfileCard = ({ id }: { id: number }) => {
               </Box>
             )}
           </div>
+          <WorkersSelect profile={profileData} userAccess={userAccess} />
           <Box display="flex" flexDirection="column" gap={1}>
             <Box textAlign="center">
               <Typography variant="h4" fontWeight={700}>
@@ -159,14 +161,14 @@ const ProfileCard = ({ id }: { id: number }) => {
           </Box>
           <div className="achive-icons">
             {profileData.trusted_mentor && (
-              <Tooltip title="The moderation team at Tattoolog has recognized you as a trusted artist.">
+              <Tooltip title="The moderation team at Tattoo UA has recognized you as a trusted artist.">
                 <Icon className="icon">
                   <ThumbUpRounded />
                 </Icon>
               </Tooltip>
             )}
             {profileData.posted_in_journal && (
-              <Tooltip title="Tattoolog's moderation has acknowledged that you have been featured in a magazine.">
+              <Tooltip title="Tattoo UA's moderation has acknowledged that you have been featured in a magazine.">
                 <Icon className="icon">
                   <ImportContactsRounded />
                 </Icon>
@@ -175,11 +177,11 @@ const ProfileCard = ({ id }: { id: number }) => {
           </div>
           <UserRating id={id} rating={rating} />
           <Box maxWidth={400} display="flex" width="100%" gap={2}>
-            <Button variant="outlined" fullWidth href={`tel:${user.username}`}>
+            <Button variant="outlined" fullWidth href={`tel:${user?.username}`}>
               <Phone sx={{ marginRight: 1 }} />
               Call now
             </Button>
-            <Button variant="outlined" fullWidth href={`mailto:${user.email}`}>
+            <Button variant="outlined" fullWidth href={`mailto:${user?.email}`}>
               <Email sx={{ marginRight: 1 }} />
               Message
             </Button>
@@ -192,7 +194,7 @@ const ProfileCard = ({ id }: { id: number }) => {
             openToWork={profileData.open_to_work || false}
             isRelocate={profileData.relocate || false}
             userAccess={userAccess}
-            role={user.role}
+            role={user?.role}
           />
         </Box>
         {about && (

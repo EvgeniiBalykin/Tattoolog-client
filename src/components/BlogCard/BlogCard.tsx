@@ -1,10 +1,8 @@
-import { trimText } from '@helpers/trimText/trimText';
 import { IBlogCategorie } from '@interfaces/index';
 import {
   Box,
   Button,
   Card,
-  CardActions,
   CardContent,
   Chip,
   Grid,
@@ -23,7 +21,6 @@ export interface IBlogCard {
   image: string;
   created_at: Date;
   title: string;
-  body: string;
   slug: string;
   isBlogPost: boolean;
   category?: IBlogCategorie[];
@@ -34,7 +31,6 @@ const BlogCard: React.FC<IBlogCard> = ({
   image,
   created_at,
   title,
-  body,
   slug,
   isBlogPost,
   category,
@@ -45,25 +41,45 @@ const BlogCard: React.FC<IBlogCard> = ({
   return (
     <Grid key={id} item lg={4} md={5} mb={2} data-testid="post-item-test">
       <Card className="post-card" sx={{ backgroundImage: `url(${image})` }}>
-        <CardContent className="post-card-content">
-          <Typography variant="h6" className="post-date" textAlign="end">
+        <CardContent
+          className="post-card-content"
+          sx={{ position: 'relative', zIndex: 1, color: 'white' }}
+        >
+          <Typography variant="h6" mb={2} textAlign="end">
             {moment(created_at).format('YYYY/MM/DD hh:mm')}
           </Typography>
+
           <Typography
             gutterBottom
             variant="h5"
-            className="post-title"
+            fontStyle="italic"
+            fontWeight="bold"
+            color="lightgray"
+            textAlign="center"
+            mb={1}
+            mt={12}
+            // className="post-title"
             component="div"
           >
             {title.toUpperCase()}
           </Typography>
-          <Box
+          {/* <Box
             mt={3}
             sx={{ color: 'white' }}
-            dangerouslySetInnerHTML={{ __html: trimText(body, 250) }}
-          />
+            dangerouslySetInnerHTML={{ __html: trimText(body, 150) }}
+          /> */}
         </CardContent>
-        <CardActions className="post-card-actions">
+
+        <Box sx={{ position: 'relative', zIndex: 1 }}>
+          {isBlogPost ? (
+            <Stack direction="row" spacing={1} zIndex={1} m={1}>
+              {category?.map((el) => (
+                <Chip key={el.id} label={`#${el.name}`} />
+              ))}
+            </Stack>
+          ) : (
+            ''
+          )}
           <Button
             size="small"
             color="secondary"
@@ -77,16 +93,7 @@ const BlogCard: React.FC<IBlogCard> = ({
           >
             Learn More
           </Button>
-        </CardActions>
-        {isBlogPost ? (
-          <Stack direction="row" spacing={1} zIndex={1} m={1}>
-            {category?.map((el) => (
-              <Chip key={el.id} label={`#${el.name}`} />
-            ))}
-          </Stack>
-        ) : (
-          ''
-        )}
+        </Box>
       </Card>
     </Grid>
   );
