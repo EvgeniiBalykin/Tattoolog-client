@@ -19,4 +19,5 @@ export enum HeaderRoutesList {
   FESTIVALS = 'festivals',
   FESTIVAL_POST = 'festival/:slug',
   PORTFOLIO_POST = 'post/:id',
+  TERMS_PRIVACY = 'terms_privacy',
 }

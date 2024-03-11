@@ -150,12 +150,12 @@
       "description": "Czasopismo TATTOOLOG ukazuje się dwa razy w roku, nakład wynosi 10 000 egzemplarzy, twarda oprawa, lakierowana (jako przykład Maxim). Głównym celem tego jest promocja tatuażystów i branży tattoo jako całości. Oprócz tego znajdziesz w nim także interesujące artykuły. TATTOOLOG jest rozprowadzany za DARMO w Europie. Każdy artysta i sklep, który zostanie opublikowany w czasopismie, otrzymuje 3 kopie. Listę miejsc, w których dostępny będzie nasze czasopismo, znajdziesz na naszej stronie internetowej. Umieszczenie własnej reklamy w TATTOOLOG jest PŁATNE, ale w cenie druku. Drukarnia wystawia nam faktury, a my dzielimy koszty na strony, dzięki czemu umieszczenie reklamy jest bardzo przystępne cenowo. Możesz również pomóc w dystrybucji czasopisma w Twoim mieście.",
       "prices": {
         "title": "Ceny ogłoszeń:",
-        "half_page": "Pół strony - 80 PLN",
-        "one_page": "Jedna strona - 150 PLN",
-        "u_turn": "U-Turn - 250 PLN",
-        "u_turn_2": "Dwa U-Turny - 400 PLN",
-        "interview": "Wywiad (jedna strona) - 150 PLN",
-        "card": "Wizytówka i szkic - 30 PLN za 1 sztukę"
+        "half_page": "Pół strony - 105 PLN",
+        "one_page": "Jedna strona - 195 PLN",
+        "u_turn": "U-Turn - 325 PLN",
+        "u_turn_2": "Dwa U-Turny - 520 PLN",
+        "interview": "Wywiad (jedna strona) - 195 PLN",
+        "card": "Wizytówka i szkic - 40 PLN za 1 sztukę"
       }
     },
     "desc_partners": {

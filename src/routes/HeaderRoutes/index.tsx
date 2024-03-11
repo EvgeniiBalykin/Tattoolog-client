@@ -18,6 +18,7 @@ import PortfolioPostPage from '@pages/PortfolioPostPage/PortfolioPostPage';
 import MasterCatalogPage from '@pages/MasterCatalogPage/MasterCatalogPage';
 import StudioCatalogPage from '@pages/StudioCatalogPage/StudioCatalogPage';
 import MagazinePage from '@pages/MagazinePage/MagazinePage';
+import TermsPrivacyPage from '@pages/TermsPolicyPage/TermsPolicyPage';
 
 export const HEADER_ROUTES: IRoutes[] = [
   {
@@ -73,6 +74,11 @@ export const LOGIN_ROUTES: IRoutes[] = [
 ];
 
 export const HELP_PAGES: IRoutes[] = [
+  {
+    name: 'Terms and Privacy',
+    path: HeaderRoutesList.TERMS_PRIVACY,
+    element: <TermsPrivacyPage />,
+  },
   {
     name: 'Sign in success',
     path: HeaderRoutesList.SUCCESS_PAGE,

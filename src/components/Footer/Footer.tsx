@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import { HEADER_ROUTES } from '@routes/HeaderRoutes';
 import './Footer.scss';
 import { useTranslation } from 'react-i18next';
+import { HeaderRoutesList } from '@routes/HeaderRoutes/enums';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -35,7 +36,7 @@ const Footer = () => {
               item
               xs={12}
               sm={12}
-              md={2}
+              md={1}
               textAlign="center"
             >
               <Button
@@ -68,6 +69,11 @@ const Footer = () => {
           </IconButton>
         </Box>
         <Container maxWidth="xs">
+          <Link to={HeaderRoutesList.TERMS_PRIVACY}>
+            <Typography variant="body1" textAlign="center" color="blue">
+              Terms & Privacy
+            </Typography>
+          </Link>
           <Typography variant="body2" textAlign="center">
             © 2023 Tattoolog. All rights reserved.
           </Typography>
