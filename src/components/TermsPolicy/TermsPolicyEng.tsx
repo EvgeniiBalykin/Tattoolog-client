@@ -94,7 +94,7 @@ const TermsPolicyEng = () => {
         link in the email sent by the site's automatic system. If all
         registration actions are correctly completed in sequence, a personal
         page of the User is created on the Site, having a network address of the
-        form https://tattoolog.pl/profile/[user id] The User is entitled to
+        form https://tattolog.pl/de/uk/profile/[user id] The User is entitled to
         register no more than one personal page on the Site. 5.6. By
         registering, the User agrees to these Rules and accepts the rights and
         obligations contained therein related to the use and operation of the
@@ -456,26 +456,27 @@ const TermsPolicyEng = () => {
         other official documents of the Site Administration, and current
         legislation. 1.4. The current version of the Rules, which is a public
         document, is accessible to any Internet user by clicking on the link
-        https://privacy. The Site Administration has the right to make changes
-        to these Rules. 1.5. These Rules are developed and used in accordance
-        with the Site's usage rules at tattoolog.pl/de/uk, posted on the Site at
-        http:///terms. In case of contradictions between these Rules and other
-        official documents of the Site Administration, these Rules shall apply.
-        1.6. By registering and using the Site, the User expresses their
-        agreement with the terms of these Rules. 1.7. If the User disagrees with
-        the terms of these Rules, the use of the Site and its services must be
-        immediately discontinued. Site Usage Terms 2.1. In providing services
-        for the use of the Site and its services (hereinafter referred to as
-        Site Services), the Site Administration, acting reasonably and in good
-        faith, believes that the User: - has all the necessary rights allowing
-        them to register and use this Site; - provides truthful information
-        about themselves in the volumes necessary for using the Site Services; -
-        understands that information on the Site posted by the User about
-        themselves may become available to other Site Users and Internet users,
-        may be copied and distributed by such users; - realizes that some types
-        of information transmitted by them to other Users cannot be deleted by
-        the User themselves; - is familiar with these Rules, agrees with them,
-        and accepts the rights and obligations stated in them. 2.2. The Site
+        https://tattoolog/terms_privacy. The Site Administration has the right
+        to make changes to these Rules. 1.5. These Rules are developed and used
+        in accordance with the Site's usage rules at tattoolog.pl/de/uk, posted
+        on the Site at https://tattoolog/terms_privacy. In case of
+        contradictions between these Rules and other official documents of the
+        Site Administration, these Rules shall apply. 1.6. By registering and
+        using the Site, the User expresses their agreement with the terms of
+        these Rules. 1.7. If the User disagrees with the terms of these Rules,
+        the use of the Site and its services must be immediately discontinued.
+        Site Usage Terms 2.1. In providing services for the use of the Site and
+        its services (hereinafter referred to as Site Services), the Site
+        Administration, acting reasonably and in good faith, believes that the
+        User: - has all the necessary rights allowing them to register and use
+        this Site; - provides truthful information about themselves in the
+        volumes necessary for using the Site Services; - understands that
+        information on the Site posted by the User about themselves may become
+        available to other Site Users and Internet users, may be copied and
+        distributed by such users; - realizes that some types of information
+        transmitted by them to other Users cannot be deleted by the User
+        themselves; - is familiar with these Rules, agrees with them, and
+        accepts the rights and obligations stated in them. 2.2. The Site
         Administration does not verify the authenticity of the information
         received (collected) about users, except in cases where such
         verification is necessary for the purpose of fulfilling the Site
@@ -487,91 +488,91 @@ const TermsPolicyEng = () => {
         data include: 4.1.1. Information provided by Users and minimally
         necessary for registration on the Site: pseudonym (login), name,
         surname, and email address; 4.1.2. Information provided by Users via the
-        editing section of their pages on the Site http://kabinet (including
-        city of residence, work and/or home address, links to pages in other
-        social networks, photographs); 4.1.3. Additional information requested
-        by the Site Administration from Users for the purpose of fulfilling the
-        Administration's obligations to Users arising from the service agreement
-        of the Site. The Site Administration may, in particular, request from
-        the User a copy of an identity document or another document containing
-        the name, surname, photograph of the User, as well as other additional
-        information, which, at the discretion of the Site Administration, will
-        be necessary and sufficient for the identification of such a User and
-        will exclude abuses and violations of third party rights. 4.2. Other
-        information about Users processed by the Site Administration. The Site
-        Administration may also process other information about Users, which
-        includes: 4.2.1. Additional data obtained when accessing the Site,
-        including information about technical means (devices), technological
-        interaction with the Site (including IP address of the host, type of
-        user's operating system, type of browser, geographical location,
-        Internet service provider, and subsequent actions of the User on the
-        Site. 4.2.2. Information automatically received when accessing the Site
-        using bookmarks (cookies). User Information Processing 5.1. Personal
-        data processing is based on the principles of: a) legality of purposes
-        and methods of personal data processing; b) good faith; c)
-        correspondence of the purposes of personal data processing to the
-        purposes predetermined and declared at the collection of personal data,
-        as well as the powers of the Site Administration; d) correspondence of
-        the volume and nature of the processed personal data, methods of
-        personal data processing to the purposes of personal data processing; e)
-        inadmissibility of merging databases created for incompatible purposes,
-        containing personal data. 5.1.1. Conditions and purposes of personal
-        data processing. The Site Administration processes user personal data
-        for the purpose of executing the agreement between the Site
-        Administration and the User on providing Site Services (cl. 2.2 of the
-        Site Usage Rules https://i/terms). 5.1.2. Collection of User personal
-        data is carried out on the Site at registration, and subsequently when
-        the user voluntarily provides additional information about themselves
-        using the Site's tools. Personal data specified in cl. 4.1.1. of these
-        Rules are provided by the User and are minimally necessary at
-        registration. Personal data specified in cl. 4.1.2. of these Rules are
-        additionally provided by the User on their own initiative using the
-        "Personal Account" page. 5.1.3. Storage and use of personal data. User
-        personal data is stored exclusively on electronic media and processed
-        using automated systems, except when non-automated processing of
-        personal data is necessary due to legislative requirements. 5.1.4.
-        Transfer of personal data. User personal data is not transferred to any
-        third parties. 5.1.5. Destruction of personal data. User personal data
-        is destroyed when: – Users independently delete data from their personal
-        page; – the Site Administration deletes information posted by the User,
-        as well as the User's personal page in cases established by the site
-        usage rules http:///terms (cl. 7.2.2. and 8.6.). In case of deletion of
-        the personal page, the Site Administration stores personal and other
-        necessary data of the User on its electronic media for the required
-        period. 5.2. By posting information on their personal page, including
-        their personal data, the User acknowledges and agrees that the specified
-        information may become available to other Internet users, taking into
-        account the features of the Site's architecture and functionality.
-        Rights and Obligations of Users 6.1. Users have the right to: 6.1.1.
-        Access information about themselves freely and for free by loading their
-        personal pages on the Site using a login and password; 6.1.2.
-        Independently make changes and corrections to the information about
-        themselves on their User personal page on the Site, provided that such
-        changes and corrections contain current and accurate information; 6.1.3.
-        Delete information about themselves from their personal page on the
-        Site; 6.1.4. Demand the Site Administration clarify their personal data,
-        block or destroy it if such data is incomplete, outdated, inaccurate,
-        unlawfully obtained, or not necessary for the declared purpose of
-        processing, and if it is impossible to independently perform the actions
-        specified in clauses 6.1.2. and 6.1.3. of these Rules; 6.1.5. Obtain
-        information regarding the processing of their personal data from the
-        Site Administration upon request. 6.2. Since the Site is a universal
-        means of communication and searching for people, and the main function
-        of the Site is to acquaint users with the world tattoo culture, tattoo
-        artists, tattoo models, tattoo studios, tattoo salons, creative teams,
-        manufacturers of tattoo equipment and accessories, and finding
-        corresponding performers and service providers, the following
-        information about a registered User is always available to any
-        registered Site User: 6.2.1. The User's surname and name; 6.2.2. Profile
-        photo, city, country, styles of work, portfolio photographs, contact
-        email address, phone number, work address, studio name, links to social
-        network pages, and the User's personal website if the User has posted
-        this information on the Site in the "Personal Account" section. Measures
-        to Protect Users' Information 7.1. The Site Administration takes
-        technical and legal-organizational measures to ensure the protection of
-        Users' personal data from unauthorized or accidental access,
-        destruction, alteration, blocking, copying, distribution, and other
-        unlawful actions. 7.2. User login and password are used for
+        editing section of their pages on the Site http:/tattolog.pl/de/uk/profile/:id
+        (including city of residence, work and/or home address, links to pages
+        in other social networks, photographs); 4.1.3. Additional information
+        requested by the Site Administration from Users for the purpose of
+        fulfilling the Administration's obligations to Users arising from the
+        service agreement of the Site. The Site Administration may, in
+        particular, request from the User a copy of an identity document or
+        another document containing the name, surname, photograph of the User,
+        as well as other additional information, which, at the discretion of the
+        Site Administration, will be necessary and sufficient for the
+        identification of such a User and will exclude abuses and violations of
+        third party rights. 4.2. Other information about Users processed by the
+        Site Administration. The Site Administration may also process other
+        information about Users, which includes: 4.2.1. Additional data obtained
+        when accessing the Site, including information about technical means
+        (devices), technological interaction with the Site (including IP address
+        of the host, type of user's operating system, type of browser,
+        geographical location, Internet service provider, and subsequent actions
+        of the User on the Site. 4.2.2. Information automatically received when
+        accessing the Site using bookmarks (cookies). User Information
+        Processing 5.1. Personal data processing is based on the principles of:
+        a) legality of purposes and methods of personal data processing; b) good
+        faith; c) correspondence of the purposes of personal data processing to
+        the purposes predetermined and declared at the collection of personal
+        data, as well as the powers of the Site Administration; d)
+        correspondence of the volume and nature of the processed personal data,
+        methods of personal data processing to the purposes of personal data
+        processing; e) inadmissibility of merging databases created for
+        incompatible purposes, containing personal data. 5.1.1. Conditions and
+        purposes of personal data processing. The Site Administration processes
+        user personal data for the purpose of executing the agreement between
+        the Site Administration and the User on providing Site Services (cl. 2.2
+        of the Site Usage Rules https://i/terms). 5.1.2. Collection of User
+        personal data is carried out on the Site at registration, and
+        subsequently when the user voluntarily provides additional information
+        about themselves using the Site's tools. Personal data specified in cl.
+        4.1.1. of these Rules are provided by the User and are minimally
+        necessary at registration. Personal data specified in cl. 4.1.2. of
+        these Rules are additionally provided by the User on their own
+        initiative using the "Personal Account" page. 5.1.3. Storage and use of
+        personal data. User personal data is stored exclusively on electronic
+        media and processed using automated systems, except when non-automated
+        processing of personal data is necessary due to legislative
+        requirements. 5.1.4. Transfer of personal data. User personal data is
+        not transferred to any third parties. 5.1.5. Destruction of personal
+        data. User personal data is destroyed when: – Users independently delete
+        data from their personal page; – the Site Administration deletes
+        information posted by the User, as well as the User's personal page in
+        cases established by the site usage rules http:///terms (cl. 7.2.2. and
+        8.6.). In case of deletion of the personal page, the Site Administration
+        stores personal and other necessary data of the User on its electronic
+        media for the required period. 5.2. By posting information on their
+        personal page, including their personal data, the User acknowledges and
+        agrees that the specified information may become available to other
+        Internet users, taking into account the features of the Site's
+        architecture and functionality. Rights and Obligations of Users 6.1.
+        Users have the right to: 6.1.1. Access information about themselves
+        freely and for free by loading their personal pages on the Site using a
+        login and password; 6.1.2. Independently make changes and corrections to
+        the information about themselves on their User personal page on the
+        Site, provided that such changes and corrections contain current and
+        accurate information; 6.1.3. Delete information about themselves from
+        their personal page on the Site; 6.1.4. Demand the Site Administration
+        clarify their personal data, block or destroy it if such data is
+        incomplete, outdated, inaccurate, unlawfully obtained, or not necessary
+        for the declared purpose of processing, and if it is impossible to
+        independently perform the actions specified in clauses 6.1.2. and 6.1.3.
+        of these Rules; 6.1.5. Obtain information regarding the processing of
+        their personal data from the Site Administration upon request. 6.2.
+        Since the Site is a universal means of communication and searching for
+        people, and the main function of the Site is to acquaint users with the
+        world tattoo culture, tattoo artists, tattoo models, tattoo studios,
+        tattoo salons, creative teams, manufacturers of tattoo equipment and
+        accessories, and finding corresponding performers and service providers,
+        the following information about a registered User is always available to
+        any registered Site User: 6.2.1. The User's surname and name; 6.2.2.
+        Profile photo, city, country, styles of work, portfolio photographs,
+        contact email address, phone number, work address, studio name, links to
+        social network pages, and the User's personal website if the User has
+        posted this information on the Site in the "Personal Account" section.
+        Measures to Protect Users' Information 7.1. The Site Administration
+        takes technical and legal-organizational measures to ensure the
+        protection of Users' personal data from unauthorized or accidental
+        access, destruction, alteration, blocking, copying, distribution, and
+        other unlawful actions. 7.2. User login and password are used for
         authorization access to the Site. The User is responsible for the
         security of this information. The User is not allowed to transfer their
         login and password to third parties and is obliged to take measures to
