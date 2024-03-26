@@ -3,7 +3,7 @@ import { Container, Grid, Typography } from '@mui/material';
 import { ReactElement, useMemo } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 
-const PortfolioPost = ({ data }: { data?: IProfilePost }) => {
+const PortfolioPost_2 = ({ data }: { data?: IProfilePost }) => {
   const SliderItems = useMemo((): ReactElement<string, string>[] => {
     if (data) {
       return data.photo_post.map((el) => (
@@ -44,4 +44,4 @@ const PortfolioPost = ({ data }: { data?: IProfilePost }) => {
   );
 };
 
-export default PortfolioPost;
+export default PortfolioPost_2;

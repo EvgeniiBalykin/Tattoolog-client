@@ -1,4 +1,4 @@
-import PortfolioPost from '@components/PortfolioPost/PortfolioPost';
+import PortfolioPost from '@components/PortfolioPost/PortfolioPost_2';
 import transition from '@helpers/transitions/transitions';
 import { useGetPortfolioPostQuery } from '@services/profileApi';
 import { useParams } from 'react-router';
