@@ -1,3 +1,4 @@
+import transition from '@helpers/transitions/transitions';
 import { Box, Container, Typography, Button } from '@mui/material';
 import { useNavigate } from 'react-router';
 import './ErrorPage.scss';
@@ -19,4 +20,4 @@ const ErrorPage = () => {
   );
 };
 
-export default ErrorPage;
+export default transition(ErrorPage);

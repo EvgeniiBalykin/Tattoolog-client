@@ -5,6 +5,7 @@ import { useGetBlogPostQuery } from '@services/toolsApi';
 import React from 'react';
 import LoadingProcess from '@components/LoadingProcess/LoadingProcess';
 import { Helmet } from 'react-helmet';
+import transition from '@helpers/transitions/transitions';
 
 const BlogPostPage = () => {
   const { slug, id } = useParams<string>();
@@ -118,4 +119,4 @@ const BlogPostPage = () => {
   );
 };
 
-export default BlogPostPage;
+export default transition(BlogPostPage);

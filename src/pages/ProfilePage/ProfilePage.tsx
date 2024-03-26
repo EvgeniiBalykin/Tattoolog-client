@@ -1,13 +1,14 @@
 import { Container, Grid } from '@mui/material';
-import ProfileCard from './ProfileCard/ProfileCard';
 import { useParams } from 'react-router';
 import { lazy, Suspense } from 'react';
 import LoadingProcess from '@components/LoadingProcess/LoadingProcess';
+import ProfileCard from '@components/Profile/ProfileCard/ProfileCard';
+import transition from '@helpers/transitions/transitions';
 
 const Profile = () => {
   const { id }: { id?: string } = useParams();
   const ProfilePortfolio = lazy(
-    () => import('./ProfilePortfolio/ProfilePortfolio')
+    () => import('../../components/Profile/ProfilePortfolio/ProfilePortfolio')
   );
 
   return (
@@ -22,4 +23,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default transition(Profile);

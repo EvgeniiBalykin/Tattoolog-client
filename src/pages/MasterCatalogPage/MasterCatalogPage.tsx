@@ -29,6 +29,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import UniversalSelect from '@components/UnivesalSelect/UniversalSelect';
 import { useGetAssociationsTypeQuery } from '@services/toolsApi';
+import transition from '@helpers/transitions/transitions';
 
 const MasterCatalogPage = () => {
   const { t } = useTranslation();
@@ -248,4 +249,4 @@ const MasterCatalogPage = () => {
   );
 };
 
-export default MasterCatalogPage;
+export default transition(MasterCatalogPage);

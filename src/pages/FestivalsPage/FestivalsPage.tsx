@@ -1,5 +1,6 @@
 import FestivalPosts from '@components/FestivalPosts/FestivalPosts';
 import { MainImageBox } from '@components/Home';
+import transition from '@helpers/transitions/transitions';
 import { FestivalImg } from '@images/index';
 import { Container } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -20,4 +21,4 @@ const FestivalsPage = () => {
   );
 };
 
-export default FestivalsPage;
+export default transition(FestivalsPage);

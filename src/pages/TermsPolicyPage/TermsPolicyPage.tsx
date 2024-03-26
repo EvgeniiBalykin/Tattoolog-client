@@ -1,7 +1,8 @@
 import TermsPolicy from '@components/TermsPolicy/TermsPolicy';
+import transition from '@helpers/transitions/transitions';
 
 const TermsPrivacyPage = () => {
   return <TermsPolicy />;
 };
 
-export default TermsPrivacyPage;
+export default transition(TermsPrivacyPage);

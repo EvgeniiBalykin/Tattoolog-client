@@ -1,3 +1,4 @@
+import transition from '@helpers/transitions/transitions';
 import { Box, Typography, Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -32,4 +33,4 @@ const AcceptSignupPage = () => {
   );
 };
 
-export default AcceptSignupPage;
+export default transition(AcceptSignupPage);

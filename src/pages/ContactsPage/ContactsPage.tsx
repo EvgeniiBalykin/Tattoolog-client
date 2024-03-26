@@ -1,3 +1,4 @@
+import transition from '@helpers/transitions/transitions';
 import { Email, Facebook, Instagram } from '@mui/icons-material';
 import { Box, Container, IconButton, Typography } from '@mui/material';
 import './ContactsPage.scss';
@@ -73,4 +74,4 @@ const ContactsPage = () => {
   );
 };
 
-export default ContactsPage;
+export default transition(ContactsPage);

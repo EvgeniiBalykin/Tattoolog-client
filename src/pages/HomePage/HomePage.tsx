@@ -5,11 +5,12 @@ import {
   PartnersSlider,
   MainImageBox,
 } from '@components/Home';
+import transition from '@helpers/transitions/transitions';
 import { useTranslation } from 'react-i18next';
 import { HOME_IMAGE_BOX } from './contants';
 import './HomePage.scss';
 
-export const HomePage = () => {
+const HomePage = () => {
   const { t } = useTranslation();
 
   return (
@@ -27,3 +28,5 @@ export const HomePage = () => {
     </>
   );
 };
+
+export default transition(HomePage);
