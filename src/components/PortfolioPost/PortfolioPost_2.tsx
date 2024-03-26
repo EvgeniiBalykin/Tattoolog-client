@@ -43,7 +43,7 @@ const PortfolioPost = ({ data }: { data?: IProfilePost }) => {
       <Container maxWidth="lg">
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
-            <Box display="flex" alignItems="center" maxWidth={450} height={550}>
+            <Box display="flex" alignItems="center" maxWidth={370} height={450}>
               {showButtons && (
                 <IconButton>
                   <ArrowCircleLeft onClick={() => paginate(-1)} />
