@@ -5,14 +5,14 @@ import ua from '@locales/ua/translation.json';
 import de from '@locales/de/translation.json';
 import pl from '@locales/pl/translation.json';
 import { LANGUAGE_LOCAL_STORAGE_KEY } from './constants';
-import { getDomain } from '@helpers/getDomain';
+import { getLangByDomain } from '@helpers/getLangByDomain/getLangByDomain';
 
 const saveSelectedLanguage = (language: string) => {
   localStorage.setItem(LANGUAGE_LOCAL_STORAGE_KEY, language);
 };
 
 const getSelectedLanguage = () => {
-  return localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY) || getDomain();
+  return localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY) || getLangByDomain();
 };
 
 i18n.use(initReactI18next).init({

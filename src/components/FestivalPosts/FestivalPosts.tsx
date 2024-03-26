@@ -7,7 +7,7 @@ import BlogCard from '@components/BlogCard/BlogCard';
 import SkeletonBlocks from '@components/SkeletonBlocks/SkeletonBlocks';
 import { useSelector } from 'react-redux';
 import { selectLanguage } from '@store/reducers/langSlice';
-import { getDomain } from '@helpers/getDomain';
+import { getLangByDomain } from '@helpers/getLangByDomain/getLangByDomain';
 
 const FestivalPosts = () => {
   const { language } = useSelector(selectLanguage);
@@ -15,7 +15,7 @@ const FestivalPosts = () => {
   const [desableButton, setDisableButton] = useState(false);
   const { data: festivals, isLoading } = useGetFesivalPostsQuery({
     limit,
-    country: getDomain(),
+    country: getLangByDomain(),
     language,
   });
   const { t } = useTranslation();

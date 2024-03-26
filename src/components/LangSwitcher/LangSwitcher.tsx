@@ -8,13 +8,13 @@ import { LANGUAGES, LANGUAGE_LOCAL_STORAGE_KEY } from '@constants/index';
 import { saveSelectedLanguage } from '../../i18n';
 import { setLanguage } from '@store/reducers/langSlice';
 import { useDispatch } from 'react-redux';
-import { getDomain } from '@helpers/getDomain';
+import { getLangByDomain } from '@helpers/getLangByDomain/getLangByDomain';
 
 const LangSwitcher = ({ isSelect }: { isSelect: boolean }) => {
   const initialLang = localStorage.getItem(LANGUAGE_LOCAL_STORAGE_KEY);
   const dispatch = useDispatch();
   const [selectedLanguage, setSelectedLanguage] = useState(
-    initialLang || getDomain() || 'en'
+    initialLang || getLangByDomain() || 'en'
   );
 
   const handleChange = (event: any) => {

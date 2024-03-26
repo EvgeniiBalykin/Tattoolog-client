@@ -34,8 +34,6 @@ const UserRating = ({ readOnly = false, id, rating }: IRatingProps) => {
     setIsMarked(!!localStorage.getItem(String(id)));
   }, [localStorage, id]);
 
-  //To fix: Поправить рейтинг, если оценка 5, то 5 не прожимается
-
   return (
     <Box>
       {!!markedMessage && (
@@ -53,7 +51,9 @@ const UserRating = ({ readOnly = false, id, rating }: IRatingProps) => {
       <Box display="flex" alignItems="center">
         <Rating
           value={rating?.average_rating}
-          onChange={(_, newValue) => markProfile(newValue)}
+          onChange={(event: any, _) => {
+            markProfile(Number(event.target.value));
+          }}
           readOnly={readOnly || !!isMarked}
           precision={0.5}
           size="large"

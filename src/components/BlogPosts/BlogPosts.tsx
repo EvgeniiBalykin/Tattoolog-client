@@ -10,7 +10,7 @@ import BlogCard from '@components/BlogCard/BlogCard';
 import { useSelector } from 'react-redux';
 import { selectLanguage } from '@store/reducers/langSlice';
 import SkeletonBlocks from '@components/SkeletonBlocks/SkeletonBlocks';
-import { getDomain } from '@helpers/getDomain';
+import { getLangByDomain } from '@helpers/getLangByDomain/getLangByDomain';
 
 const BlogPosts = () => {
   const [limit, setLimit] = useState(18);
@@ -21,7 +21,7 @@ const BlogPosts = () => {
     limit,
     language,
     category,
-    country: getDomain(),
+    country: getLangByDomain(),
   });
   const { data: blogCategories } = useGetBlogCategoriesQuery();
   const { t } = useTranslation();
