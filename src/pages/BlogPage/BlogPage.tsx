@@ -1,5 +1,6 @@
 import BlogPosts from '@components/BlogPosts/BlogPosts';
 import { MainImageBox } from '@components/Home';
+import transition from '@helpers/transitions/transitions';
 import { BlogPageImg } from '@images/index';
 import { Container } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -20,4 +21,4 @@ const BlogPage = () => {
   );
 };
 
-export default BlogPage;
+export default transition(BlogPage);

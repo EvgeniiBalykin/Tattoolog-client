@@ -1,7 +1,5 @@
-import Profile from '@components/Profile';
 import AcceptSignupPage from '@pages/AcceptPage/AcceptSignupPage';
-import { LoginPage } from '@pages/LoginPage/LoginPage';
-import { SingInPage } from '@pages/SigInPage/SignInPage';
+import SingInPage from '@pages/SigInPage/SignInPage';
 import { IRoutes } from '@interfaces/index';
 import { HeaderRoutesList } from './enums';
 import BlogPage from '@pages/BlogPage/BlogPage';
@@ -19,6 +17,8 @@ import MasterCatalogPage from '@pages/MasterCatalogPage/MasterCatalogPage';
 import StudioCatalogPage from '@pages/StudioCatalogPage/StudioCatalogPage';
 import MagazinePage from '@pages/MagazinePage/MagazinePage';
 import TermsPrivacyPage from '@pages/TermsPolicyPage/TermsPolicyPage';
+import LoginPage from '@pages/LoginPage/LoginPage';
+import ProfilePage from '@pages/ProfilePage/ProfilePage';
 
 export const HEADER_ROUTES: IRoutes[] = [
   {
@@ -102,7 +102,7 @@ export const HELP_PAGES: IRoutes[] = [
   {
     name: 'Profile',
     path: HeaderRoutesList.PROFILE,
-    element: <Profile />,
+    element: <ProfilePage />,
   },
   {
     name: 'Profile edit',

@@ -4,6 +4,7 @@ import { useGetPartnersQuery } from '@services/toolsApi';
 import { PARTNERS_DESCRIPTION } from './partnersDescription';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
+import transition from '@helpers/transitions/transitions';
 
 const PartnersPage = () => {
   const { data } = useGetPartnersQuery();
@@ -93,4 +94,4 @@ const PartnersPage = () => {
   );
 };
 
-export default PartnersPage;
+export default transition(PartnersPage);

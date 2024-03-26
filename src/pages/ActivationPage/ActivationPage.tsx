@@ -1,3 +1,4 @@
+import transition from '@helpers/transitions/transitions';
 import { Box, Button, Alert } from '@mui/material';
 import { useAcceptRegistrationMutation } from '@services/authApi';
 import { useEffect, useState } from 'react';
@@ -47,4 +48,4 @@ const ActivationPage = () => {
     </Box>
   );
 };
-export default ActivationPage;
+export default transition(ActivationPage);

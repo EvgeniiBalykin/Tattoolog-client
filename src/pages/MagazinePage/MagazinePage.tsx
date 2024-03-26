@@ -1,4 +1,5 @@
 import { MainImageBox } from '@components/Home';
+import transition from '@helpers/transitions/transitions';
 import {
   MagazineImg_1,
   MagazineImg_2,
@@ -120,4 +121,4 @@ const MagazinePage = () => {
   );
 };
 
-export default MagazinePage;
+export default transition(MagazinePage);

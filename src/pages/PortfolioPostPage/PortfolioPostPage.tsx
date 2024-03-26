@@ -1,4 +1,5 @@
 import PortfolioPost from '@components/PortfolioPost/PortfolioPost';
+import transition from '@helpers/transitions/transitions';
 import { useGetPortfolioPostQuery } from '@services/profileApi';
 import { useParams } from 'react-router';
 
@@ -9,4 +10,4 @@ const PortfolioPostPage = () => {
   return <PortfolioPost data={data} />;
 };
 
-export default PortfolioPostPage;
+export default transition(PortfolioPostPage);

@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { selectLanguage } from '@store/reducers/langSlice';
 import { IFestivalPost } from '@interfaces/index';
 import { useCallback } from 'react';
+import transition from '@helpers/transitions/transitions';
 
 const FestivalPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -78,4 +79,4 @@ const FestivalPage = () => {
   );
 };
 
-export default FestivalPage;
+export default transition(FestivalPage);
