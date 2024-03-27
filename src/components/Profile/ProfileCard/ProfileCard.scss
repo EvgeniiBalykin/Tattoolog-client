@@ -21,7 +21,7 @@
     }
     .profile-settings {
       display: flex;
-      align-items: center;
+      align-items: start;
       justify-content: space-between;
     }
     .premium-icon {
@@ -38,11 +38,11 @@
 
     .associate-name {
       position: absolute;
-      top: 4%;
+      top: 3%;
       left: 50%;
       transform: translate(-50%, -50%);
       background-color: #5e2567;
-      padding: 10px 20px;
+      padding: 5px 10px;
       border-radius: 21.5px;
       color: #c7a560;
     }

@@ -94,8 +94,7 @@ const ProfileCard = ({ id }: { id: number }) => {
                 <img src={CrownIconImg} />
               </div>
               <div className="associate-name">
-                <Typography variant="body1" color="#c7a560">
-                  Member of{' '}
+                <Typography variant="h6" color="#c7a560">
                   {moderation_profile_associate &&
                     moderation_profile_associate[0]?.type?.name}
                 </Typography>
