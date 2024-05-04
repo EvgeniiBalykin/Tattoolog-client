@@ -9,6 +9,7 @@
     "create_acc": "Create Account",
     "email_invite": "An email has been sent to your inbox",
     "make_access": "Follow the instructions in the email to complete the registration",
+    "check_spam": "Please check your email (including spam folder) to activate your profile. Activation email may be filtered to spam/junk folders",
     "reset_password": "Reset Password",
     "reset": "Reset",
     "already_with_us": "You are already with us, thank you!"

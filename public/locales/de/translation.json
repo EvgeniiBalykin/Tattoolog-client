@@ -9,6 +9,7 @@
     "create_acc": "Konto erstellen",
     "email_invite": "Eine E-Mail wurde an Ihre Mailbox gesendet",
     "make_access": "Folgen Sie den Anweisungen in der E-Mail, um die Registrierung abzuschließen",
+    "check_spam": "Wichtig: Bitte überprüfen Sie Ihr E-Mail-Postfach (einschließlich des Spam-Ordners), um Ihr Profil zu aktivieren. Die Aktivierungs-E-Mail könnte im Spam-/Junk-Ordner landen",
     "reset_password": "Passwort zurücksetzen",
     "reset": "Zurücksetzen",
     "already_with_us": "Du bist bereits bei uns, danke!"

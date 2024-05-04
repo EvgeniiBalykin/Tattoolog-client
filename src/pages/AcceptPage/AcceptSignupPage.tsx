@@ -11,14 +11,16 @@ const AcceptSignupPage = () => {
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      height="100vh"
     >
-      <Typography variant="h4" gutterBottom>
-        {t('registration.email_invite')}
+      <Typography variant="h5" gutterBottom>
+        {t('registration.check_spam')}
       </Typography>
       <Typography variant="h6" textAlign="center">
         {t('registration.make_access')}
       </Typography>
+      {/* <Typography variant="h6" color="grey" textAlign="center">
+        *{t('registration.check_spam')}
+      </Typography> */}
       <Button
         component={Link}
         to="/login"
